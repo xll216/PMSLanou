@@ -15,76 +15,118 @@
             overflow: hidden;
         }
 
-        .icon-boy, .icon-female {
-            width: 16px;
-            height: 16px;
-            background: url(../../static/imgs/user.gif) no-repeat;
-            display: block;
-        }
-
-        .icon-female {
-            background: url(../../static/imgs/user_female.gif) no-repeat;
-        }
-
         .header {
+            padding: 5px;
+            text-align: left;
             background: url(../../static/miniuis/header.gif) repeat-x 0 -1px;
+        }
+
+        td {
+            text-align: right;
+            background: #ebeff5;
+        }
+
+        .td2 {
+            width: 500px;
+        }
+
+        .td1 {
+            width: 100px;
+        }
+
+        .sp {
+            color: red;
+            padding: 5px;
         }
     </style>
 </head>
 <body>
-<div class="header">当前位置：科研项目申报 >> 项目其他信息</div>
-<div class="header" style="color: #00adee">查询条件</div>
 
-<table border="0" cellpadding="1" cellspacing="2" style="width:100%;table-layout:fixed;">
-    <tr>
-        <td style="width:60px;">申请时间：</td>
-        <td style="width:30%">
-            <input name="BirthDay" class="mini-datepicker" style="width:100%;"/>
-        </td>
-        <td style="width:60px;"></td>
-        <td style="width:60px;">关键字：</td>
-        <td style="width:30%">
-            <input name="addr" class="mini-textbox" style="width:100%;"/>
-        </td>
-        <td style="width:60px;"></td>
-    </tr>
-    <tr>
-        <td>申请人：</td>
-        <td>
-            <input name="addr" class="mini-textbox" style="width:100%;"/>
-        </td>
-        <td style="width:60px;"><span class='icon-boy'></span></td>
-        <td>所属部门：</td>
-        <td>
-            <input name="addr" class="mini-textbox" style="width:100%;"/>
-        </td>
-        <td style="width:60px;"><span class='icon-female'></span></td>
-    </tr>
-    <tr>
-        <td colspan="5"></td>
-        <td style="width:60px;"><a class="mini-button">查询</a></td>
-    </tr>
-</table>
+<div class="mini-panel" style="width:100%;height:100%;" borderStyle="border:0"
+     showCollapseButton="true" showHeader="false" bodyStyle="padding:0;">
+    <!--toolbar-->
+    <div class="header">当前位置：科研项目申报 >> 项目其他信息</div>
+
+    <table border="0" cellpadding="5" cellspacing="2" style="width:100%;">
+
+        <!--技术第一负责人信息-->
+        <tr>
+            <td colspan="4" class="header">技术第一负责人信息</td>
+        </tr>
+        <tr>
+            <td class="td1">姓名、专业经历和能力简述</td>
+            <td>
+                <textarea class="mini-textarea" style="width:100%;"></textarea>
+            </td>
+        </tr>
+
+        <!--产品信息...-->
+        <tr>
+            <td colspan="4" class="header">产品信息</td>
+        </tr>
+        <tr>
+            <td class="td1">产品形式</td>
+            <td class="td2" style="background: white">
+                <div id="cbl1" style="width:100%;"
+                     class="mini-checkboxlist"
+                     textField="text" valueField="id">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1">预计产权说明</td>
+            <td>
+                <textarea class="mini-textarea" style="width:100%;"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1">经济效益</td>
+            <td>
+                <textarea class="mini-textarea" style="width:100%;"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1">固定资产</td>
+            <td>
+                <textarea class="mini-textarea" style="width:100%;"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1">验收标准</td>
+            <td>
+                <textarea class="mini-textarea" style="width:100%;"></textarea>
+            </td>
+        </tr>
 
 
-<div class="mini-fit">
+        <!--附件信息...-->
+        <tr>
+            <td colspan="4" class="header">附件信息</td>
+        </tr>
+        <tr>
+            <td class="td1">立项报告书<span class="sp">*</span></td>
+            <td>
+                <input class="mini-fileupload" style="width:100%;"/>
+            </td>
+        </tr>
 
-    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:100%;"
-         idField="id" multiSelect="true" showPager="false">
-        <div property="columns">
-            <div type="checkcolumn"></div>
-            <div field="number" width="120" headerAlign="center" align="center" allowSort="true">流程编号</div>
-            <div field="name" width="120" headerAlign="center" align="center" allowSort="true">流程名称</div>
-            <div field="deptID" width="120" headerAlign="center" align="center" allowSort="true">所属部门</div>
-            <div field="step" width="120" headerAlign="center" align="center" allowSort="true">当前环节</div>
-            <div field="applyID" width="120" headerAlign="center" align="center" allowSort="true">提报人</div>
-            <div field="applyDate" width="120" headerAlign="center" align="center" dateFormat="yyyy-MM-dd"
-                 allowSort="true">提报时间
-            </div>
-            <div field="operator" headerAlign="center" align="center">操作</div>
-        </div>
-    </div>
 
+        <!--流程信息...-->
+        <tr>
+            <td colspan="4" class="header">流程信息</td>
+        </tr>
+        <tr>
+            <td class="td1">审批(部门经理)<span class="sp">*</span></td>
+            <td>
+                <input class="mini-textbox" style="width:100%;"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background: white">
+                <span class='mini-button'>提交</span>
+            </td>
+        </tr>
+    </table>
 </div>
 
 <!--引入的js-->
@@ -93,27 +135,19 @@
 
 <script type="text/javascript">
     mini.parse();
-    var grid = mini.get("datagrid1");
+
+    var cbl1 = mini.get("cbl1");
     var arr = [
-        {
-            "number": "20160819001", "name": "消防系统隔离单申请", "deptID": "后勤部", "step": "工业安全科审批",
-            "applyID": "张三[P123456]", "applyDate": "2016/08/19 18:00"
-        },
-        {
-            "number": "20160819001", "name": "消防系统隔离单申请", "deptID": "后勤部", "step": "工业安全科审批",
-            "applyID": "张三[P123456]", "applyDate": "2016/08/19 18:00"
-        }
+        {"id": "cb01", "text": "专题报告"},
+        {"id": "cb02", "text": "技术方案"},
+        {"id": "cb03", "text": "技术标准"},
+        {"id": "cb04", "text": "硬件产品"},
+        {"id": "cb05", "text": "生产性文件"},
+        {"id": "cb06", "text": "设计文件"},
+        {"id": "cb07", "text": "计算机软件"},
+        {"id": "cb08", "text": "其他"}
     ];
-    grid.setData(arr);
-
-    grid.on("drawcell", function (e) {
-        var field = e.field;
-
-        //格式化日期
-        if (field == "operator") {
-            e.cellHtml = "<a class='mini-button' style='padding: 8px'>办理</a>";
-        }
-    });
+    cbl1.setData(arr);
 
 </script>
 

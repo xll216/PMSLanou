@@ -15,76 +15,154 @@
             overflow: hidden;
         }
 
-        .icon-boy, .icon-female {
-            width: 16px;
-            height: 16px;
-            background: url(../../static/imgs/user.gif) no-repeat;
-            display: block;
-        }
-
-        .icon-female {
-            background: url(../../static/imgs/user_female.gif) no-repeat;
-        }
-
         .header {
+            padding: 5px;
+            text-align: left;
             background: url(../../static/miniuis/header.gif) repeat-x 0 -1px;
+        }
+
+        td {
+            text-align: right;
+            background: #ebeff5;
+        }
+
+        .td2 {
+            width: 500px;
+        }
+
+        .td1 {
+            width: 100px;
+        }
+
+        .sp {
+            color: red;
+            padding: 5px;
         }
     </style>
 </head>
 <body>
-<div class="header">当前位置：科研项目申报 >> 项目基本信息</div>
-<div class="header" style="color: #00adee">查询条件</div>
 
-<table border="0" cellpadding="1" cellspacing="2" style="width:100%;table-layout:fixed;">
-    <tr>
-        <td style="width:60px;">申请时间：</td>
-        <td style="width:30%">
-            <input name="BirthDay" class="mini-datepicker" style="width:100%;"/>
-        </td>
-        <td style="width:60px;"></td>
-        <td style="width:60px;">关键字：</td>
-        <td style="width:30%">
-            <input name="addr" class="mini-textbox" style="width:100%;"/>
-        </td>
-        <td style="width:60px;"></td>
-    </tr>
-    <tr>
-        <td>申请人：</td>
-        <td>
-            <input name="addr" class="mini-textbox" style="width:100%;"/>
-        </td>
-        <td style="width:60px;"><span class='icon-boy'></span></td>
-        <td>所属部门：</td>
-        <td>
-            <input name="addr" class="mini-textbox" style="width:100%;"/>
-        </td>
-        <td style="width:60px;"><span class='icon-female'></span></td>
-    </tr>
-    <tr>
-        <td colspan="5"></td>
-        <td style="width:60px;"><a class="mini-button">查询</a></td>
-    </tr>
-</table>
+<div class="mini-panel" style="width:100%;height:100%;" borderStyle="border:0"
+     showCollapseButton="true" showHeader="false" bodyStyle="padding:0;">
+    <!--toolbar-->
+    <div class="header">当前位置：科研项目申报 >> 项目基本信息</div>
+
+    <table border="0" cellpadding="5" cellspacing="2" style="width:100%;">
+
+        <!--项目名称-->
+        <tr>
+            <td colspan="4" class="header">项目名称</td>
+        </tr>
+        <tr>
+            <td class="td1">项目名称<span class="sp">*</span></td>
+            <td class="td2">
+                <input class="mini-textbox" style="width:100%;"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1">项目申报单位<span class="sp">*</span></td>
+            <td class="td2">
+                <input class="mini-textbox" style="width:100%;"/>
+            </td>
+            <td class="td1">联合申报单位<span class="sp">*</span></td>
+            <td class="td2">
+                <input class="mini-textbox" style="width:100%;"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1">目的<span class="sp">*</span></td>
+            <td colspan="3">
+                <textarea class="mini-textarea" style="width:100%;"></textarea>
+            </td>
+        </tr>
+
+        <!--与核电生成运营安全性...-->
+        <tr>
+            <td colspan="4" class="header">与核电生产运营安全性、可靠性、经济的适应分析</td>
+        </tr>
+        <tr>
+            <td class="td1">安全性</td>
+            <td class="td2">
+                <input class="mini-textbox" style="width:100%;"/>
+            </td>
+            <td class="td1">可靠性</td>
+            <td class="td2">
+                <input class="mini-textbox" style="width:100%;"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1">经济性</td>
+            <td class="td2">
+                <input class="mini-textbox" style="width:100%;"/>
+            </td>
+            <td class="td1">其他</td>
+            <td class="td2">
+                <input class="mini-textbox" style="width:100%;"/>
+            </td>
+        </tr>
 
 
-<div class="mini-fit">
+        <!--其他信息...-->
+        <tr>
+            <td colspan="4" class="header">其他信息</td>
+        </tr>
+        <tr>
+            <td class="td1">成果应用</td>
+            <td colspan="3">
+                <textarea class="mini-textarea" style="width:100%;"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1">实际用户</td>
+            <td colspan="3">
+                <textarea class="mini-textarea" style="width:100%;"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1">潜在用户</td>
+            <td colspan="3">
+                <textarea class="mini-textarea" style="width:100%;"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1">项目完成周期</td>
+            <td colspan="3">
+                <textarea class="mini-textarea" style="width:100%;"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1">项目内容路径简介</td>
+            <td colspan="3">
+                <textarea class="mini-textarea" style="width:100%;"></textarea>
+            </td>
+        </tr>
 
-    <div id="datagrid1" class="mini-datagrid" style="width:100%;height:100%;"
-         idField="id" multiSelect="true">
-        <div property="columns">
-            <div type="checkcolumn"></div>
-            <div field="number" width="120" headerAlign="center" align="center" allowSort="true">流程编号</div>
-            <div field="name" width="120" headerAlign="center" align="center" allowSort="true">流程名称</div>
-            <div field="deptID" width="120" headerAlign="center" align="center" allowSort="true">所属部门</div>
-            <div field="step" width="120" headerAlign="center" align="center" allowSort="true">当前环节</div>
-            <div field="applyID" width="120" headerAlign="center" align="center" allowSort="true">提报人</div>
-            <div field="applyDate" width="120" headerAlign="center" align="center" dateFormat="yyyy-MM-dd"
-                 allowSort="true">提报时间
-            </div>
-            <div field="operator" headerAlign="center" align="center">操作</div>
-        </div>
-    </div>
 
+        <!--预算信息...-->
+        <tr>
+            <td colspan="4" class="header">预算信息</td>
+        </tr>
+        <tr>
+            <td class="td1">总预算<span class="sp">*</span></td>
+            <td class="td2">
+                <input class="mini-textbox" style="width:100%;"/>
+            </td>
+            <td class="td1">公司经费</td>
+            <td class="td2">
+                <input class="mini-textbox" style="width:100%;"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1">外部支持经费</td>
+            <td class="td2">
+                <input class="mini-textbox" style="width:100%;"/>
+            </td>
+            <td class="td1">国家经费</td>
+            <td class="td2">
+                <input class="mini-textbox" style="width:100%;"/>
+            </td>
+        </tr>
+    </table>
 </div>
 
 <!--引入的js-->
@@ -93,27 +171,6 @@
 
 <script type="text/javascript">
     mini.parse();
-    var grid = mini.get("datagrid1");
-    var arr = [
-        {
-            "number": "20160819001", "name": "消防系统隔离单申请", "deptID": "后勤部", "step": "工业安全科审批",
-            "applyID": "张三[P123456]", "applyDate": "2016/08/19 18:00"
-        },
-        {
-            "number": "20160819001", "name": "消防系统隔离单申请", "deptID": "后勤部", "step": "工业安全科审批",
-            "applyID": "张三[P123456]", "applyDate": "2016/08/19 18:00"
-        }
-    ];
-    grid.setData(arr);
-
-    grid.on("drawcell", function (e) {
-        var field = e.field;
-
-        //格式化日期
-        if (field == "operator") {
-            e.cellHtml = "<a class='mini-button' style='padding: 8px'>办理</a>";
-        }
-    });
 
 </script>
 
