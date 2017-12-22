@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.RdmsProjChangeMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.RdmsProjChange">
+    <constructor>
+      <idArg column="PMS_CHANGE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROJ_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROJ_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROJ_ASSUME_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROJ_ASSUME_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ASSUME_DEPT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ASSUME_DEPT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CHG_REASON" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CHG_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    PMS_CHANGE, PROJ_ID, PROJ_NAME, PROJ_ASSUME_STAFF_NO, PROJ_ASSUME_STAFF_NAME, ASSUME_DEPT_ID, 
+    ASSUME_DEPT_NAME, CHG_REASON, CHG_CONTENT, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+    CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from RDMS_PROJ_CHANGE
+    where PMS_CHANGE = #{pmsChange,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RDMS_PROJ_CHANGE
+    where PMS_CHANGE = #{pmsChange,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.RdmsProjChange">
+    insert into RDMS_PROJ_CHANGE (PMS_CHANGE, PROJ_ID, PROJ_NAME, 
+      PROJ_ASSUME_STAFF_NO, PROJ_ASSUME_STAFF_NAME, 
+      ASSUME_DEPT_ID, ASSUME_DEPT_NAME, CHG_REASON, 
+      CHG_CONTENT, EFFECT_FLAG, CREATE_STAFF_NO, 
+      CREATE_STAFF_NAME, CREATE_DATE)
+    values (#{pmsChange,jdbcType=VARCHAR}, #{projId,jdbcType=VARCHAR}, #{projName,jdbcType=VARCHAR}, 
+      #{projAssumeStaffNo,jdbcType=VARCHAR}, #{projAssumeStaffName,jdbcType=VARCHAR}, 
+      #{assumeDeptId,jdbcType=VARCHAR}, #{assumeDeptName,jdbcType=VARCHAR}, #{chgReason,jdbcType=VARCHAR}, 
+      #{chgContent,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
+      #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.RdmsProjChange">
+    insert into RDMS_PROJ_CHANGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pmsChange != null">
+        PMS_CHANGE,
+      </if>
+      <if test="projId != null">
+        PROJ_ID,
+      </if>
+      <if test="projName != null">
+        PROJ_NAME,
+      </if>
+      <if test="projAssumeStaffNo != null">
+        PROJ_ASSUME_STAFF_NO,
+      </if>
+      <if test="projAssumeStaffName != null">
+        PROJ_ASSUME_STAFF_NAME,
+      </if>
+      <if test="assumeDeptId != null">
+        ASSUME_DEPT_ID,
+      </if>
+      <if test="assumeDeptName != null">
+        ASSUME_DEPT_NAME,
+      </if>
+      <if test="chgReason != null">
+        CHG_REASON,
+      </if>
+      <if test="chgContent != null">
+        CHG_CONTENT,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pmsChange != null">
+        #{pmsChange,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null">
+        #{projId,jdbcType=VARCHAR},
+      </if>
+      <if test="projName != null">
+        #{projName,jdbcType=VARCHAR},
+      </if>
+      <if test="projAssumeStaffNo != null">
+        #{projAssumeStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="projAssumeStaffName != null">
+        #{projAssumeStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="assumeDeptId != null">
+        #{assumeDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="assumeDeptName != null">
+        #{assumeDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="chgReason != null">
+        #{chgReason,jdbcType=VARCHAR},
+      </if>
+      <if test="chgContent != null">
+        #{chgContent,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RdmsProjChange">
+    update RDMS_PROJ_CHANGE
+    <set>
+      <if test="projId != null">
+        PROJ_ID = #{projId,jdbcType=VARCHAR},
+      </if>
+      <if test="projName != null">
+        PROJ_NAME = #{projName,jdbcType=VARCHAR},
+      </if>
+      <if test="projAssumeStaffNo != null">
+        PROJ_ASSUME_STAFF_NO = #{projAssumeStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="projAssumeStaffName != null">
+        PROJ_ASSUME_STAFF_NAME = #{projAssumeStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="assumeDeptId != null">
+        ASSUME_DEPT_ID = #{assumeDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="assumeDeptName != null">
+        ASSUME_DEPT_NAME = #{assumeDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="chgReason != null">
+        CHG_REASON = #{chgReason,jdbcType=VARCHAR},
+      </if>
+      <if test="chgContent != null">
+        CHG_CONTENT = #{chgContent,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PMS_CHANGE = #{pmsChange,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RdmsProjChange">
+    update RDMS_PROJ_CHANGE
+    set PROJ_ID = #{projId,jdbcType=VARCHAR},
+      PROJ_NAME = #{projName,jdbcType=VARCHAR},
+      PROJ_ASSUME_STAFF_NO = #{projAssumeStaffNo,jdbcType=VARCHAR},
+      PROJ_ASSUME_STAFF_NAME = #{projAssumeStaffName,jdbcType=VARCHAR},
+      ASSUME_DEPT_ID = #{assumeDeptId,jdbcType=VARCHAR},
+      ASSUME_DEPT_NAME = #{assumeDeptName,jdbcType=VARCHAR},
+      CHG_REASON = #{chgReason,jdbcType=VARCHAR},
+      CHG_CONTENT = #{chgContent,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where PMS_CHANGE = #{pmsChange,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.RdmsProjChange">
+    <constructor>
+      <idArg column="PMS_CHANGE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROJ_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROJ_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROJ_ASSUME_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROJ_ASSUME_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ASSUME_DEPT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ASSUME_DEPT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CHG_REASON" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CHG_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    PMS_CHANGE, PROJ_ID, PROJ_NAME, PROJ_ASSUME_STAFF_NO, PROJ_ASSUME_STAFF_NAME, ASSUME_DEPT_ID, 
+    ASSUME_DEPT_NAME, CHG_REASON, CHG_CONTENT, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+    CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from RDMS_PROJ_CHANGE
+    where PMS_CHANGE = #{pmsChange,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RDMS_PROJ_CHANGE
+    where PMS_CHANGE = #{pmsChange,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.RdmsProjChange">
+    insert into RDMS_PROJ_CHANGE (PMS_CHANGE, PROJ_ID, PROJ_NAME, 
+      PROJ_ASSUME_STAFF_NO, PROJ_ASSUME_STAFF_NAME, 
+      ASSUME_DEPT_ID, ASSUME_DEPT_NAME, CHG_REASON, 
+      CHG_CONTENT, EFFECT_FLAG, CREATE_STAFF_NO, 
+      CREATE_STAFF_NAME, CREATE_DATE)
+    values (#{pmsChange,jdbcType=VARCHAR}, #{projId,jdbcType=VARCHAR}, #{projName,jdbcType=VARCHAR}, 
+      #{projAssumeStaffNo,jdbcType=VARCHAR}, #{projAssumeStaffName,jdbcType=VARCHAR}, 
+      #{assumeDeptId,jdbcType=VARCHAR}, #{assumeDeptName,jdbcType=VARCHAR}, #{chgReason,jdbcType=VARCHAR}, 
+      #{chgContent,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
+      #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.RdmsProjChange">
+    insert into RDMS_PROJ_CHANGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pmsChange != null">
+        PMS_CHANGE,
+      </if>
+      <if test="projId != null">
+        PROJ_ID,
+      </if>
+      <if test="projName != null">
+        PROJ_NAME,
+      </if>
+      <if test="projAssumeStaffNo != null">
+        PROJ_ASSUME_STAFF_NO,
+      </if>
+      <if test="projAssumeStaffName != null">
+        PROJ_ASSUME_STAFF_NAME,
+      </if>
+      <if test="assumeDeptId != null">
+        ASSUME_DEPT_ID,
+      </if>
+      <if test="assumeDeptName != null">
+        ASSUME_DEPT_NAME,
+      </if>
+      <if test="chgReason != null">
+        CHG_REASON,
+      </if>
+      <if test="chgContent != null">
+        CHG_CONTENT,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pmsChange != null">
+        #{pmsChange,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null">
+        #{projId,jdbcType=VARCHAR},
+      </if>
+      <if test="projName != null">
+        #{projName,jdbcType=VARCHAR},
+      </if>
+      <if test="projAssumeStaffNo != null">
+        #{projAssumeStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="projAssumeStaffName != null">
+        #{projAssumeStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="assumeDeptId != null">
+        #{assumeDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="assumeDeptName != null">
+        #{assumeDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="chgReason != null">
+        #{chgReason,jdbcType=VARCHAR},
+      </if>
+      <if test="chgContent != null">
+        #{chgContent,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RdmsProjChange">
+    update RDMS_PROJ_CHANGE
+    <set>
+      <if test="projId != null">
+        PROJ_ID = #{projId,jdbcType=VARCHAR},
+      </if>
+      <if test="projName != null">
+        PROJ_NAME = #{projName,jdbcType=VARCHAR},
+      </if>
+      <if test="projAssumeStaffNo != null">
+        PROJ_ASSUME_STAFF_NO = #{projAssumeStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="projAssumeStaffName != null">
+        PROJ_ASSUME_STAFF_NAME = #{projAssumeStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="assumeDeptId != null">
+        ASSUME_DEPT_ID = #{assumeDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="assumeDeptName != null">
+        ASSUME_DEPT_NAME = #{assumeDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="chgReason != null">
+        CHG_REASON = #{chgReason,jdbcType=VARCHAR},
+      </if>
+      <if test="chgContent != null">
+        CHG_CONTENT = #{chgContent,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PMS_CHANGE = #{pmsChange,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RdmsProjChange">
+    update RDMS_PROJ_CHANGE
+    set PROJ_ID = #{projId,jdbcType=VARCHAR},
+      PROJ_NAME = #{projName,jdbcType=VARCHAR},
+      PROJ_ASSUME_STAFF_NO = #{projAssumeStaffNo,jdbcType=VARCHAR},
+      PROJ_ASSUME_STAFF_NAME = #{projAssumeStaffName,jdbcType=VARCHAR},
+      ASSUME_DEPT_ID = #{assumeDeptId,jdbcType=VARCHAR},
+      ASSUME_DEPT_NAME = #{assumeDeptName,jdbcType=VARCHAR},
+      CHG_REASON = #{chgReason,jdbcType=VARCHAR},
+      CHG_CONTENT = #{chgContent,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where PMS_CHANGE = #{pmsChange,jdbcType=VARCHAR}
+  </update>
+</mapper>

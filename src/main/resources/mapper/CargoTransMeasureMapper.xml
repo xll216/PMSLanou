@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.CargoTransMeasureMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.CargoTransMeasure">
+    <constructor>
+      <idArg column="MEASURE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TRANS_PERT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PACKAGE_CONDITION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CARGO_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SURFACE_CONC_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CARGOPACKAGE_CONC" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    MEASURE_ID, TRANS_PERT_ID, PACKAGE_CONDITION, CARGO_NAME, SURFACE_CONC_TYPE, CARGOPACKAGE_CONC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CARGO_TRANS_MEASURE
+    where MEASURE_ID = #{measureId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CARGO_TRANS_MEASURE
+    where MEASURE_ID = #{measureId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.CargoTransMeasure">
+    insert into CARGO_TRANS_MEASURE (MEASURE_ID, TRANS_PERT_ID, PACKAGE_CONDITION, 
+      CARGO_NAME, SURFACE_CONC_TYPE, CARGOPACKAGE_CONC
+      )
+    values (#{measureId,jdbcType=VARCHAR}, #{transPertId,jdbcType=VARCHAR}, #{packageCondition,jdbcType=VARCHAR}, 
+      #{cargoName,jdbcType=VARCHAR}, #{surfaceConcType,jdbcType=VARCHAR}, #{cargopackageConc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.CargoTransMeasure">
+    insert into CARGO_TRANS_MEASURE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="measureId != null">
+        MEASURE_ID,
+      </if>
+      <if test="transPertId != null">
+        TRANS_PERT_ID,
+      </if>
+      <if test="packageCondition != null">
+        PACKAGE_CONDITION,
+      </if>
+      <if test="cargoName != null">
+        CARGO_NAME,
+      </if>
+      <if test="surfaceConcType != null">
+        SURFACE_CONC_TYPE,
+      </if>
+      <if test="cargopackageConc != null">
+        CARGOPACKAGE_CONC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="measureId != null">
+        #{measureId,jdbcType=VARCHAR},
+      </if>
+      <if test="transPertId != null">
+        #{transPertId,jdbcType=VARCHAR},
+      </if>
+      <if test="packageCondition != null">
+        #{packageCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="cargoName != null">
+        #{cargoName,jdbcType=VARCHAR},
+      </if>
+      <if test="surfaceConcType != null">
+        #{surfaceConcType,jdbcType=VARCHAR},
+      </if>
+      <if test="cargopackageConc != null">
+        #{cargopackageConc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.CargoTransMeasure">
+    update CARGO_TRANS_MEASURE
+    <set>
+      <if test="transPertId != null">
+        TRANS_PERT_ID = #{transPertId,jdbcType=VARCHAR},
+      </if>
+      <if test="packageCondition != null">
+        PACKAGE_CONDITION = #{packageCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="cargoName != null">
+        CARGO_NAME = #{cargoName,jdbcType=VARCHAR},
+      </if>
+      <if test="surfaceConcType != null">
+        SURFACE_CONC_TYPE = #{surfaceConcType,jdbcType=VARCHAR},
+      </if>
+      <if test="cargopackageConc != null">
+        CARGOPACKAGE_CONC = #{cargopackageConc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MEASURE_ID = #{measureId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.CargoTransMeasure">
+    update CARGO_TRANS_MEASURE
+    set TRANS_PERT_ID = #{transPertId,jdbcType=VARCHAR},
+      PACKAGE_CONDITION = #{packageCondition,jdbcType=VARCHAR},
+      CARGO_NAME = #{cargoName,jdbcType=VARCHAR},
+      SURFACE_CONC_TYPE = #{surfaceConcType,jdbcType=VARCHAR},
+      CARGOPACKAGE_CONC = #{cargopackageConc,jdbcType=VARCHAR}
+    where MEASURE_ID = #{measureId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.CargoTransMeasure">
+    <constructor>
+      <idArg column="MEASURE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TRANS_PERT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PACKAGE_CONDITION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CARGO_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SURFACE_CONC_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CARGOPACKAGE_CONC" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    MEASURE_ID, TRANS_PERT_ID, PACKAGE_CONDITION, CARGO_NAME, SURFACE_CONC_TYPE, CARGOPACKAGE_CONC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CARGO_TRANS_MEASURE
+    where MEASURE_ID = #{measureId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CARGO_TRANS_MEASURE
+    where MEASURE_ID = #{measureId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.CargoTransMeasure">
+    insert into CARGO_TRANS_MEASURE (MEASURE_ID, TRANS_PERT_ID, PACKAGE_CONDITION, 
+      CARGO_NAME, SURFACE_CONC_TYPE, CARGOPACKAGE_CONC
+      )
+    values (#{measureId,jdbcType=VARCHAR}, #{transPertId,jdbcType=VARCHAR}, #{packageCondition,jdbcType=VARCHAR}, 
+      #{cargoName,jdbcType=VARCHAR}, #{surfaceConcType,jdbcType=VARCHAR}, #{cargopackageConc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.CargoTransMeasure">
+    insert into CARGO_TRANS_MEASURE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="measureId != null">
+        MEASURE_ID,
+      </if>
+      <if test="transPertId != null">
+        TRANS_PERT_ID,
+      </if>
+      <if test="packageCondition != null">
+        PACKAGE_CONDITION,
+      </if>
+      <if test="cargoName != null">
+        CARGO_NAME,
+      </if>
+      <if test="surfaceConcType != null">
+        SURFACE_CONC_TYPE,
+      </if>
+      <if test="cargopackageConc != null">
+        CARGOPACKAGE_CONC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="measureId != null">
+        #{measureId,jdbcType=VARCHAR},
+      </if>
+      <if test="transPertId != null">
+        #{transPertId,jdbcType=VARCHAR},
+      </if>
+      <if test="packageCondition != null">
+        #{packageCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="cargoName != null">
+        #{cargoName,jdbcType=VARCHAR},
+      </if>
+      <if test="surfaceConcType != null">
+        #{surfaceConcType,jdbcType=VARCHAR},
+      </if>
+      <if test="cargopackageConc != null">
+        #{cargopackageConc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.CargoTransMeasure">
+    update CARGO_TRANS_MEASURE
+    <set>
+      <if test="transPertId != null">
+        TRANS_PERT_ID = #{transPertId,jdbcType=VARCHAR},
+      </if>
+      <if test="packageCondition != null">
+        PACKAGE_CONDITION = #{packageCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="cargoName != null">
+        CARGO_NAME = #{cargoName,jdbcType=VARCHAR},
+      </if>
+      <if test="surfaceConcType != null">
+        SURFACE_CONC_TYPE = #{surfaceConcType,jdbcType=VARCHAR},
+      </if>
+      <if test="cargopackageConc != null">
+        CARGOPACKAGE_CONC = #{cargopackageConc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MEASURE_ID = #{measureId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.CargoTransMeasure">
+    update CARGO_TRANS_MEASURE
+    set TRANS_PERT_ID = #{transPertId,jdbcType=VARCHAR},
+      PACKAGE_CONDITION = #{packageCondition,jdbcType=VARCHAR},
+      CARGO_NAME = #{cargoName,jdbcType=VARCHAR},
+      SURFACE_CONC_TYPE = #{surfaceConcType,jdbcType=VARCHAR},
+      CARGOPACKAGE_CONC = #{cargopackageConc,jdbcType=VARCHAR}
+    where MEASURE_ID = #{measureId,jdbcType=VARCHAR}
+  </update>
+</mapper>

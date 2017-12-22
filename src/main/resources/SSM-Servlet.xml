@@ -11,13 +11,13 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--校验器，配置validator-->
-    <bean id="validator"
-          class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
-    </bean>
+    <!--<bean id="validator"-->
+          <!--class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">-->
+        <!--<property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>-->
+    <!--</bean>-->
 
     <!--加入注解-->
-    <mvc:annotation-driven validator="validator"/>
+    <mvc:annotation-driven/>
 
     <!--加入注解扫描路径-->
     <context:component-scan base-package="com.lanou"/>

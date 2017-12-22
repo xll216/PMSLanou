@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.HradiationUserradiationMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationUserradiation">
+    <constructor>
+      <idArg column="TEAM_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HRADI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BEFORE_CYC_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="IDENTITY_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CARD_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="COMPANY_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OPERATOR_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    TEAM_ID, HRADI_ID, STAFF_NO, STAFF_NAME, BEFORE_CYC_METER, IDENTITY_NO, CARD_NO, 
+    COMPANY_NAME, OPERATOR_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from HRADIATION_USERRADIATION
+    where TEAM_ID = #{teamId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from HRADIATION_USERRADIATION
+    where TEAM_ID = #{teamId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.HradiationUserradiation">
+    insert into HRADIATION_USERRADIATION (TEAM_ID, HRADI_ID, STAFF_NO, 
+      STAFF_NAME, BEFORE_CYC_METER, IDENTITY_NO, 
+      CARD_NO, COMPANY_NAME, OPERATOR_NAME
+      )
+    values (#{teamId,jdbcType=VARCHAR}, #{hradiId,jdbcType=VARCHAR}, #{staffNo,jdbcType=VARCHAR}, 
+      #{staffName,jdbcType=VARCHAR}, #{beforeCycMeter,jdbcType=VARCHAR}, #{identityNo,jdbcType=VARCHAR}, 
+      #{cardNo,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{operatorName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationUserradiation">
+    insert into HRADIATION_USERRADIATION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="teamId != null">
+        TEAM_ID,
+      </if>
+      <if test="hradiId != null">
+        HRADI_ID,
+      </if>
+      <if test="staffNo != null">
+        STAFF_NO,
+      </if>
+      <if test="staffName != null">
+        STAFF_NAME,
+      </if>
+      <if test="beforeCycMeter != null">
+        BEFORE_CYC_METER,
+      </if>
+      <if test="identityNo != null">
+        IDENTITY_NO,
+      </if>
+      <if test="cardNo != null">
+        CARD_NO,
+      </if>
+      <if test="companyName != null">
+        COMPANY_NAME,
+      </if>
+      <if test="operatorName != null">
+        OPERATOR_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="teamId != null">
+        #{teamId,jdbcType=VARCHAR},
+      </if>
+      <if test="hradiId != null">
+        #{hradiId,jdbcType=VARCHAR},
+      </if>
+      <if test="staffNo != null">
+        #{staffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="staffName != null">
+        #{staffName,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeCycMeter != null">
+        #{beforeCycMeter,jdbcType=VARCHAR},
+      </if>
+      <if test="identityNo != null">
+        #{identityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorName != null">
+        #{operatorName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.HradiationUserradiation">
+    update HRADIATION_USERRADIATION
+    <set>
+      <if test="hradiId != null">
+        HRADI_ID = #{hradiId,jdbcType=VARCHAR},
+      </if>
+      <if test="staffNo != null">
+        STAFF_NO = #{staffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="staffName != null">
+        STAFF_NAME = #{staffName,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeCycMeter != null">
+        BEFORE_CYC_METER = #{beforeCycMeter,jdbcType=VARCHAR},
+      </if>
+      <if test="identityNo != null">
+        IDENTITY_NO = #{identityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorName != null">
+        OPERATOR_NAME = #{operatorName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TEAM_ID = #{teamId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.HradiationUserradiation">
+    update HRADIATION_USERRADIATION
+    set HRADI_ID = #{hradiId,jdbcType=VARCHAR},
+      STAFF_NO = #{staffNo,jdbcType=VARCHAR},
+      STAFF_NAME = #{staffName,jdbcType=VARCHAR},
+      BEFORE_CYC_METER = #{beforeCycMeter,jdbcType=VARCHAR},
+      IDENTITY_NO = #{identityNo,jdbcType=VARCHAR},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      OPERATOR_NAME = #{operatorName,jdbcType=VARCHAR}
+    where TEAM_ID = #{teamId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationUserradiation">
+    <constructor>
+      <idArg column="TEAM_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HRADI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BEFORE_CYC_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="IDENTITY_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CARD_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="COMPANY_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OPERATOR_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    TEAM_ID, HRADI_ID, STAFF_NO, STAFF_NAME, BEFORE_CYC_METER, IDENTITY_NO, CARD_NO, 
+    COMPANY_NAME, OPERATOR_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from HRADIATION_USERRADIATION
+    where TEAM_ID = #{teamId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from HRADIATION_USERRADIATION
+    where TEAM_ID = #{teamId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.HradiationUserradiation">
+    insert into HRADIATION_USERRADIATION (TEAM_ID, HRADI_ID, STAFF_NO, 
+      STAFF_NAME, BEFORE_CYC_METER, IDENTITY_NO, 
+      CARD_NO, COMPANY_NAME, OPERATOR_NAME
+      )
+    values (#{teamId,jdbcType=VARCHAR}, #{hradiId,jdbcType=VARCHAR}, #{staffNo,jdbcType=VARCHAR}, 
+      #{staffName,jdbcType=VARCHAR}, #{beforeCycMeter,jdbcType=VARCHAR}, #{identityNo,jdbcType=VARCHAR}, 
+      #{cardNo,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{operatorName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationUserradiation">
+    insert into HRADIATION_USERRADIATION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="teamId != null">
+        TEAM_ID,
+      </if>
+      <if test="hradiId != null">
+        HRADI_ID,
+      </if>
+      <if test="staffNo != null">
+        STAFF_NO,
+      </if>
+      <if test="staffName != null">
+        STAFF_NAME,
+      </if>
+      <if test="beforeCycMeter != null">
+        BEFORE_CYC_METER,
+      </if>
+      <if test="identityNo != null">
+        IDENTITY_NO,
+      </if>
+      <if test="cardNo != null">
+        CARD_NO,
+      </if>
+      <if test="companyName != null">
+        COMPANY_NAME,
+      </if>
+      <if test="operatorName != null">
+        OPERATOR_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="teamId != null">
+        #{teamId,jdbcType=VARCHAR},
+      </if>
+      <if test="hradiId != null">
+        #{hradiId,jdbcType=VARCHAR},
+      </if>
+      <if test="staffNo != null">
+        #{staffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="staffName != null">
+        #{staffName,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeCycMeter != null">
+        #{beforeCycMeter,jdbcType=VARCHAR},
+      </if>
+      <if test="identityNo != null">
+        #{identityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorName != null">
+        #{operatorName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.HradiationUserradiation">
+    update HRADIATION_USERRADIATION
+    <set>
+      <if test="hradiId != null">
+        HRADI_ID = #{hradiId,jdbcType=VARCHAR},
+      </if>
+      <if test="staffNo != null">
+        STAFF_NO = #{staffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="staffName != null">
+        STAFF_NAME = #{staffName,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeCycMeter != null">
+        BEFORE_CYC_METER = #{beforeCycMeter,jdbcType=VARCHAR},
+      </if>
+      <if test="identityNo != null">
+        IDENTITY_NO = #{identityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorName != null">
+        OPERATOR_NAME = #{operatorName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TEAM_ID = #{teamId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.HradiationUserradiation">
+    update HRADIATION_USERRADIATION
+    set HRADI_ID = #{hradiId,jdbcType=VARCHAR},
+      STAFF_NO = #{staffNo,jdbcType=VARCHAR},
+      STAFF_NAME = #{staffName,jdbcType=VARCHAR},
+      BEFORE_CYC_METER = #{beforeCycMeter,jdbcType=VARCHAR},
+      IDENTITY_NO = #{identityNo,jdbcType=VARCHAR},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      OPERATOR_NAME = #{operatorName,jdbcType=VARCHAR}
+    where TEAM_ID = #{teamId,jdbcType=VARCHAR}
+  </update>
+</mapper>

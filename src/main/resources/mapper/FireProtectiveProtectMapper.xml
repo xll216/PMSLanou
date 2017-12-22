@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.FireProtectiveProtectMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireProtectiveProtect">
+    <constructor>
+      <idArg column="PROTECT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="FIREP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RISK_ANAL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RISK_MEASURES" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RISK_REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    PROTECT_ID, FIREP_ID, RISK_ANAL, RISK_MEASURES, RISK_REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FIRE_PROTECTIVE_PROTECT
+    where PROTECT_ID = #{protectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FIRE_PROTECTIVE_PROTECT
+    where PROTECT_ID = #{protectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FireProtectiveProtect">
+    insert into FIRE_PROTECTIVE_PROTECT (PROTECT_ID, FIREP_ID, RISK_ANAL, 
+      RISK_MEASURES, RISK_REMARK)
+    values (#{protectId,jdbcType=VARCHAR}, #{firepId,jdbcType=VARCHAR}, #{riskAnal,jdbcType=VARCHAR}, 
+      #{riskMeasures,jdbcType=VARCHAR}, #{riskRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireProtectiveProtect">
+    insert into FIRE_PROTECTIVE_PROTECT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="protectId != null">
+        PROTECT_ID,
+      </if>
+      <if test="firepId != null">
+        FIREP_ID,
+      </if>
+      <if test="riskAnal != null">
+        RISK_ANAL,
+      </if>
+      <if test="riskMeasures != null">
+        RISK_MEASURES,
+      </if>
+      <if test="riskRemark != null">
+        RISK_REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="protectId != null">
+        #{protectId,jdbcType=VARCHAR},
+      </if>
+      <if test="firepId != null">
+        #{firepId,jdbcType=VARCHAR},
+      </if>
+      <if test="riskAnal != null">
+        #{riskAnal,jdbcType=VARCHAR},
+      </if>
+      <if test="riskMeasures != null">
+        #{riskMeasures,jdbcType=VARCHAR},
+      </if>
+      <if test="riskRemark != null">
+        #{riskRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireProtectiveProtect">
+    update FIRE_PROTECTIVE_PROTECT
+    <set>
+      <if test="firepId != null">
+        FIREP_ID = #{firepId,jdbcType=VARCHAR},
+      </if>
+      <if test="riskAnal != null">
+        RISK_ANAL = #{riskAnal,jdbcType=VARCHAR},
+      </if>
+      <if test="riskMeasures != null">
+        RISK_MEASURES = #{riskMeasures,jdbcType=VARCHAR},
+      </if>
+      <if test="riskRemark != null">
+        RISK_REMARK = #{riskRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PROTECT_ID = #{protectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireProtectiveProtect">
+    update FIRE_PROTECTIVE_PROTECT
+    set FIREP_ID = #{firepId,jdbcType=VARCHAR},
+      RISK_ANAL = #{riskAnal,jdbcType=VARCHAR},
+      RISK_MEASURES = #{riskMeasures,jdbcType=VARCHAR},
+      RISK_REMARK = #{riskRemark,jdbcType=VARCHAR}
+    where PROTECT_ID = #{protectId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireProtectiveProtect">
+    <constructor>
+      <idArg column="PROTECT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="FIREP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RISK_ANAL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RISK_MEASURES" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RISK_REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    PROTECT_ID, FIREP_ID, RISK_ANAL, RISK_MEASURES, RISK_REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FIRE_PROTECTIVE_PROTECT
+    where PROTECT_ID = #{protectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FIRE_PROTECTIVE_PROTECT
+    where PROTECT_ID = #{protectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FireProtectiveProtect">
+    insert into FIRE_PROTECTIVE_PROTECT (PROTECT_ID, FIREP_ID, RISK_ANAL, 
+      RISK_MEASURES, RISK_REMARK)
+    values (#{protectId,jdbcType=VARCHAR}, #{firepId,jdbcType=VARCHAR}, #{riskAnal,jdbcType=VARCHAR}, 
+      #{riskMeasures,jdbcType=VARCHAR}, #{riskRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireProtectiveProtect">
+    insert into FIRE_PROTECTIVE_PROTECT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="protectId != null">
+        PROTECT_ID,
+      </if>
+      <if test="firepId != null">
+        FIREP_ID,
+      </if>
+      <if test="riskAnal != null">
+        RISK_ANAL,
+      </if>
+      <if test="riskMeasures != null">
+        RISK_MEASURES,
+      </if>
+      <if test="riskRemark != null">
+        RISK_REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="protectId != null">
+        #{protectId,jdbcType=VARCHAR},
+      </if>
+      <if test="firepId != null">
+        #{firepId,jdbcType=VARCHAR},
+      </if>
+      <if test="riskAnal != null">
+        #{riskAnal,jdbcType=VARCHAR},
+      </if>
+      <if test="riskMeasures != null">
+        #{riskMeasures,jdbcType=VARCHAR},
+      </if>
+      <if test="riskRemark != null">
+        #{riskRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireProtectiveProtect">
+    update FIRE_PROTECTIVE_PROTECT
+    <set>
+      <if test="firepId != null">
+        FIREP_ID = #{firepId,jdbcType=VARCHAR},
+      </if>
+      <if test="riskAnal != null">
+        RISK_ANAL = #{riskAnal,jdbcType=VARCHAR},
+      </if>
+      <if test="riskMeasures != null">
+        RISK_MEASURES = #{riskMeasures,jdbcType=VARCHAR},
+      </if>
+      <if test="riskRemark != null">
+        RISK_REMARK = #{riskRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PROTECT_ID = #{protectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireProtectiveProtect">
+    update FIRE_PROTECTIVE_PROTECT
+    set FIREP_ID = #{firepId,jdbcType=VARCHAR},
+      RISK_ANAL = #{riskAnal,jdbcType=VARCHAR},
+      RISK_MEASURES = #{riskMeasures,jdbcType=VARCHAR},
+      RISK_REMARK = #{riskRemark,jdbcType=VARCHAR}
+    where PROTECT_ID = #{protectId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.NewopenHoleMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.NewopenHole">
+    <constructor>
+      <idArg column="HOLE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUSI_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HOLE_SITE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DIAMETER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INSTALL_TUBE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="COMPLETE_DATE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INFLUE_TUBE_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="IS_CONTROLAREA_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    HOLE_ID, BUSI_NO, HOLE_SITE, DIAMETER, INSTALL_TUBE, COMPLETE_DATE, INFLUE_TUBE_FLAG, 
+    IS_CONTROLAREA_FLAG, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from NEWOPEN_HOLE
+    where HOLE_ID = #{holeId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from NEWOPEN_HOLE
+    where HOLE_ID = #{holeId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.NewopenHole">
+    insert into NEWOPEN_HOLE (HOLE_ID, BUSI_NO, HOLE_SITE, 
+      DIAMETER, INSTALL_TUBE, COMPLETE_DATE, 
+      INFLUE_TUBE_FLAG, IS_CONTROLAREA_FLAG, EFFECT_FLAG, 
+      CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+      )
+    values (#{holeId,jdbcType=VARCHAR}, #{busiNo,jdbcType=VARCHAR}, #{holeSite,jdbcType=VARCHAR}, 
+      #{diameter,jdbcType=VARCHAR}, #{installTube,jdbcType=VARCHAR}, #{completeDate,jdbcType=VARCHAR}, 
+      #{influeTubeFlag,jdbcType=VARCHAR}, #{isControlareaFlag,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, 
+      #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.NewopenHole">
+    insert into NEWOPEN_HOLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="holeId != null">
+        HOLE_ID,
+      </if>
+      <if test="busiNo != null">
+        BUSI_NO,
+      </if>
+      <if test="holeSite != null">
+        HOLE_SITE,
+      </if>
+      <if test="diameter != null">
+        DIAMETER,
+      </if>
+      <if test="installTube != null">
+        INSTALL_TUBE,
+      </if>
+      <if test="completeDate != null">
+        COMPLETE_DATE,
+      </if>
+      <if test="influeTubeFlag != null">
+        INFLUE_TUBE_FLAG,
+      </if>
+      <if test="isControlareaFlag != null">
+        IS_CONTROLAREA_FLAG,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="holeId != null">
+        #{holeId,jdbcType=VARCHAR},
+      </if>
+      <if test="busiNo != null">
+        #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="holeSite != null">
+        #{holeSite,jdbcType=VARCHAR},
+      </if>
+      <if test="diameter != null">
+        #{diameter,jdbcType=VARCHAR},
+      </if>
+      <if test="installTube != null">
+        #{installTube,jdbcType=VARCHAR},
+      </if>
+      <if test="completeDate != null">
+        #{completeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="influeTubeFlag != null">
+        #{influeTubeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="isControlareaFlag != null">
+        #{isControlareaFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.NewopenHole">
+    update NEWOPEN_HOLE
+    <set>
+      <if test="busiNo != null">
+        BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="holeSite != null">
+        HOLE_SITE = #{holeSite,jdbcType=VARCHAR},
+      </if>
+      <if test="diameter != null">
+        DIAMETER = #{diameter,jdbcType=VARCHAR},
+      </if>
+      <if test="installTube != null">
+        INSTALL_TUBE = #{installTube,jdbcType=VARCHAR},
+      </if>
+      <if test="completeDate != null">
+        COMPLETE_DATE = #{completeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="influeTubeFlag != null">
+        INFLUE_TUBE_FLAG = #{influeTubeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="isControlareaFlag != null">
+        IS_CONTROLAREA_FLAG = #{isControlareaFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where HOLE_ID = #{holeId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.NewopenHole">
+    update NEWOPEN_HOLE
+    set BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      HOLE_SITE = #{holeSite,jdbcType=VARCHAR},
+      DIAMETER = #{diameter,jdbcType=VARCHAR},
+      INSTALL_TUBE = #{installTube,jdbcType=VARCHAR},
+      COMPLETE_DATE = #{completeDate,jdbcType=VARCHAR},
+      INFLUE_TUBE_FLAG = #{influeTubeFlag,jdbcType=VARCHAR},
+      IS_CONTROLAREA_FLAG = #{isControlareaFlag,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where HOLE_ID = #{holeId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.NewopenHole">
+    <constructor>
+      <idArg column="HOLE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUSI_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HOLE_SITE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DIAMETER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INSTALL_TUBE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="COMPLETE_DATE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INFLUE_TUBE_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="IS_CONTROLAREA_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    HOLE_ID, BUSI_NO, HOLE_SITE, DIAMETER, INSTALL_TUBE, COMPLETE_DATE, INFLUE_TUBE_FLAG, 
+    IS_CONTROLAREA_FLAG, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from NEWOPEN_HOLE
+    where HOLE_ID = #{holeId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from NEWOPEN_HOLE
+    where HOLE_ID = #{holeId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.NewopenHole">
+    insert into NEWOPEN_HOLE (HOLE_ID, BUSI_NO, HOLE_SITE, 
+      DIAMETER, INSTALL_TUBE, COMPLETE_DATE, 
+      INFLUE_TUBE_FLAG, IS_CONTROLAREA_FLAG, EFFECT_FLAG, 
+      CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+      )
+    values (#{holeId,jdbcType=VARCHAR}, #{busiNo,jdbcType=VARCHAR}, #{holeSite,jdbcType=VARCHAR}, 
+      #{diameter,jdbcType=VARCHAR}, #{installTube,jdbcType=VARCHAR}, #{completeDate,jdbcType=VARCHAR}, 
+      #{influeTubeFlag,jdbcType=VARCHAR}, #{isControlareaFlag,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, 
+      #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.NewopenHole">
+    insert into NEWOPEN_HOLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="holeId != null">
+        HOLE_ID,
+      </if>
+      <if test="busiNo != null">
+        BUSI_NO,
+      </if>
+      <if test="holeSite != null">
+        HOLE_SITE,
+      </if>
+      <if test="diameter != null">
+        DIAMETER,
+      </if>
+      <if test="installTube != null">
+        INSTALL_TUBE,
+      </if>
+      <if test="completeDate != null">
+        COMPLETE_DATE,
+      </if>
+      <if test="influeTubeFlag != null">
+        INFLUE_TUBE_FLAG,
+      </if>
+      <if test="isControlareaFlag != null">
+        IS_CONTROLAREA_FLAG,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="holeId != null">
+        #{holeId,jdbcType=VARCHAR},
+      </if>
+      <if test="busiNo != null">
+        #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="holeSite != null">
+        #{holeSite,jdbcType=VARCHAR},
+      </if>
+      <if test="diameter != null">
+        #{diameter,jdbcType=VARCHAR},
+      </if>
+      <if test="installTube != null">
+        #{installTube,jdbcType=VARCHAR},
+      </if>
+      <if test="completeDate != null">
+        #{completeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="influeTubeFlag != null">
+        #{influeTubeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="isControlareaFlag != null">
+        #{isControlareaFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.NewopenHole">
+    update NEWOPEN_HOLE
+    <set>
+      <if test="busiNo != null">
+        BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="holeSite != null">
+        HOLE_SITE = #{holeSite,jdbcType=VARCHAR},
+      </if>
+      <if test="diameter != null">
+        DIAMETER = #{diameter,jdbcType=VARCHAR},
+      </if>
+      <if test="installTube != null">
+        INSTALL_TUBE = #{installTube,jdbcType=VARCHAR},
+      </if>
+      <if test="completeDate != null">
+        COMPLETE_DATE = #{completeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="influeTubeFlag != null">
+        INFLUE_TUBE_FLAG = #{influeTubeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="isControlareaFlag != null">
+        IS_CONTROLAREA_FLAG = #{isControlareaFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where HOLE_ID = #{holeId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.NewopenHole">
+    update NEWOPEN_HOLE
+    set BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      HOLE_SITE = #{holeSite,jdbcType=VARCHAR},
+      DIAMETER = #{diameter,jdbcType=VARCHAR},
+      INSTALL_TUBE = #{installTube,jdbcType=VARCHAR},
+      COMPLETE_DATE = #{completeDate,jdbcType=VARCHAR},
+      INFLUE_TUBE_FLAG = #{influeTubeFlag,jdbcType=VARCHAR},
+      IS_CONTROLAREA_FLAG = #{isControlareaFlag,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where HOLE_ID = #{holeId,jdbcType=VARCHAR}
+  </update>
+</mapper>

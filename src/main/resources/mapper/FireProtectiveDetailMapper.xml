@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.FireProtectiveDetailMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireProtectiveDetail">
+    <constructor>
+      <idArg column="DETAIL_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="FIREP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROTECTIVE_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PATH_ONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PATH_TWO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROTECTIVE_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="FIRE_BORDER_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    DETAIL_ID, FIREP_ID, PROTECTIVE_NO, PATH_ONE, PATH_TWO, PROTECTIVE_TYPE, FIRE_BORDER_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FIRE_PROTECTIVE_DETAIL
+    where DETAIL_ID = #{detailId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FIRE_PROTECTIVE_DETAIL
+    where DETAIL_ID = #{detailId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FireProtectiveDetail">
+    insert into FIRE_PROTECTIVE_DETAIL (DETAIL_ID, FIREP_ID, PROTECTIVE_NO, 
+      PATH_ONE, PATH_TWO, PROTECTIVE_TYPE, 
+      FIRE_BORDER_FLAG)
+    values (#{detailId,jdbcType=VARCHAR}, #{firepId,jdbcType=VARCHAR}, #{protectiveNo,jdbcType=VARCHAR}, 
+      #{pathOne,jdbcType=VARCHAR}, #{pathTwo,jdbcType=VARCHAR}, #{protectiveType,jdbcType=VARCHAR}, 
+      #{fireBorderFlag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireProtectiveDetail">
+    insert into FIRE_PROTECTIVE_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="detailId != null">
+        DETAIL_ID,
+      </if>
+      <if test="firepId != null">
+        FIREP_ID,
+      </if>
+      <if test="protectiveNo != null">
+        PROTECTIVE_NO,
+      </if>
+      <if test="pathOne != null">
+        PATH_ONE,
+      </if>
+      <if test="pathTwo != null">
+        PATH_TWO,
+      </if>
+      <if test="protectiveType != null">
+        PROTECTIVE_TYPE,
+      </if>
+      <if test="fireBorderFlag != null">
+        FIRE_BORDER_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="detailId != null">
+        #{detailId,jdbcType=VARCHAR},
+      </if>
+      <if test="firepId != null">
+        #{firepId,jdbcType=VARCHAR},
+      </if>
+      <if test="protectiveNo != null">
+        #{protectiveNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pathOne != null">
+        #{pathOne,jdbcType=VARCHAR},
+      </if>
+      <if test="pathTwo != null">
+        #{pathTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="protectiveType != null">
+        #{protectiveType,jdbcType=VARCHAR},
+      </if>
+      <if test="fireBorderFlag != null">
+        #{fireBorderFlag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireProtectiveDetail">
+    update FIRE_PROTECTIVE_DETAIL
+    <set>
+      <if test="firepId != null">
+        FIREP_ID = #{firepId,jdbcType=VARCHAR},
+      </if>
+      <if test="protectiveNo != null">
+        PROTECTIVE_NO = #{protectiveNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pathOne != null">
+        PATH_ONE = #{pathOne,jdbcType=VARCHAR},
+      </if>
+      <if test="pathTwo != null">
+        PATH_TWO = #{pathTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="protectiveType != null">
+        PROTECTIVE_TYPE = #{protectiveType,jdbcType=VARCHAR},
+      </if>
+      <if test="fireBorderFlag != null">
+        FIRE_BORDER_FLAG = #{fireBorderFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DETAIL_ID = #{detailId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireProtectiveDetail">
+    update FIRE_PROTECTIVE_DETAIL
+    set FIREP_ID = #{firepId,jdbcType=VARCHAR},
+      PROTECTIVE_NO = #{protectiveNo,jdbcType=VARCHAR},
+      PATH_ONE = #{pathOne,jdbcType=VARCHAR},
+      PATH_TWO = #{pathTwo,jdbcType=VARCHAR},
+      PROTECTIVE_TYPE = #{protectiveType,jdbcType=VARCHAR},
+      FIRE_BORDER_FLAG = #{fireBorderFlag,jdbcType=VARCHAR}
+    where DETAIL_ID = #{detailId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireProtectiveDetail">
+    <constructor>
+      <idArg column="DETAIL_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="FIREP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROTECTIVE_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PATH_ONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PATH_TWO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROTECTIVE_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="FIRE_BORDER_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    DETAIL_ID, FIREP_ID, PROTECTIVE_NO, PATH_ONE, PATH_TWO, PROTECTIVE_TYPE, FIRE_BORDER_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FIRE_PROTECTIVE_DETAIL
+    where DETAIL_ID = #{detailId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FIRE_PROTECTIVE_DETAIL
+    where DETAIL_ID = #{detailId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FireProtectiveDetail">
+    insert into FIRE_PROTECTIVE_DETAIL (DETAIL_ID, FIREP_ID, PROTECTIVE_NO, 
+      PATH_ONE, PATH_TWO, PROTECTIVE_TYPE, 
+      FIRE_BORDER_FLAG)
+    values (#{detailId,jdbcType=VARCHAR}, #{firepId,jdbcType=VARCHAR}, #{protectiveNo,jdbcType=VARCHAR}, 
+      #{pathOne,jdbcType=VARCHAR}, #{pathTwo,jdbcType=VARCHAR}, #{protectiveType,jdbcType=VARCHAR}, 
+      #{fireBorderFlag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireProtectiveDetail">
+    insert into FIRE_PROTECTIVE_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="detailId != null">
+        DETAIL_ID,
+      </if>
+      <if test="firepId != null">
+        FIREP_ID,
+      </if>
+      <if test="protectiveNo != null">
+        PROTECTIVE_NO,
+      </if>
+      <if test="pathOne != null">
+        PATH_ONE,
+      </if>
+      <if test="pathTwo != null">
+        PATH_TWO,
+      </if>
+      <if test="protectiveType != null">
+        PROTECTIVE_TYPE,
+      </if>
+      <if test="fireBorderFlag != null">
+        FIRE_BORDER_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="detailId != null">
+        #{detailId,jdbcType=VARCHAR},
+      </if>
+      <if test="firepId != null">
+        #{firepId,jdbcType=VARCHAR},
+      </if>
+      <if test="protectiveNo != null">
+        #{protectiveNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pathOne != null">
+        #{pathOne,jdbcType=VARCHAR},
+      </if>
+      <if test="pathTwo != null">
+        #{pathTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="protectiveType != null">
+        #{protectiveType,jdbcType=VARCHAR},
+      </if>
+      <if test="fireBorderFlag != null">
+        #{fireBorderFlag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireProtectiveDetail">
+    update FIRE_PROTECTIVE_DETAIL
+    <set>
+      <if test="firepId != null">
+        FIREP_ID = #{firepId,jdbcType=VARCHAR},
+      </if>
+      <if test="protectiveNo != null">
+        PROTECTIVE_NO = #{protectiveNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pathOne != null">
+        PATH_ONE = #{pathOne,jdbcType=VARCHAR},
+      </if>
+      <if test="pathTwo != null">
+        PATH_TWO = #{pathTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="protectiveType != null">
+        PROTECTIVE_TYPE = #{protectiveType,jdbcType=VARCHAR},
+      </if>
+      <if test="fireBorderFlag != null">
+        FIRE_BORDER_FLAG = #{fireBorderFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DETAIL_ID = #{detailId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireProtectiveDetail">
+    update FIRE_PROTECTIVE_DETAIL
+    set FIREP_ID = #{firepId,jdbcType=VARCHAR},
+      PROTECTIVE_NO = #{protectiveNo,jdbcType=VARCHAR},
+      PATH_ONE = #{pathOne,jdbcType=VARCHAR},
+      PATH_TWO = #{pathTwo,jdbcType=VARCHAR},
+      PROTECTIVE_TYPE = #{protectiveType,jdbcType=VARCHAR},
+      FIRE_BORDER_FLAG = #{fireBorderFlag,jdbcType=VARCHAR}
+    where DETAIL_ID = #{detailId,jdbcType=VARCHAR}
+  </update>
+</mapper>

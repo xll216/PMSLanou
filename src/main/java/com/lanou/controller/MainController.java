@@ -10,7 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
     @RequestMapping(value = "/login")
-    public String loginPage(){
+    public String loginPage() {
         return "login";
+    }
+
+    @RequestMapping("/home")
+    public String home(){
+        return "home";
+    }
+
+    @RequestMapping({"", "/index"})
+    public String index() {
+        return "index";
     }
 }

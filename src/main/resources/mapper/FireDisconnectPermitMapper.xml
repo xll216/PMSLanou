@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.FireDisconnectPermitMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireDisconnectPermit">
+    <constructor>
+      <idArg column="DISCONN_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUSI_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PREPARE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PREPARE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUG_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PLAN_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="TIME_LIMIT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PREPARE_PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INFORM_PERSON" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DISCONN_RANGE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    DISCONN_ID, BUSI_NO, PREPARE_STAFF_NO, PREPARE_STAFF_NAME, BUG_DESC, WORK_CONTENT, 
+    PLAN_BEG_DATE, TIME_LIMIT, PREPARE_PHONE, INFORM_PERSON, DISCONN_RANGE, EFFECT_FLAG, 
+    CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FIRE_DISCONNECT_PERMIT
+    where DISCONN_ID = #{disconnId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FIRE_DISCONNECT_PERMIT
+    where DISCONN_ID = #{disconnId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FireDisconnectPermit">
+    insert into FIRE_DISCONNECT_PERMIT (DISCONN_ID, BUSI_NO, PREPARE_STAFF_NO, 
+      PREPARE_STAFF_NAME, BUG_DESC, WORK_CONTENT, 
+      PLAN_BEG_DATE, TIME_LIMIT, PREPARE_PHONE, 
+      INFORM_PERSON, DISCONN_RANGE, EFFECT_FLAG, 
+      CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+      )
+    values (#{disconnId,jdbcType=VARCHAR}, #{busiNo,jdbcType=VARCHAR}, #{prepareStaffNo,jdbcType=VARCHAR}, 
+      #{prepareStaffName,jdbcType=VARCHAR}, #{bugDesc,jdbcType=VARCHAR}, #{workContent,jdbcType=VARCHAR}, 
+      #{planBegDate,jdbcType=TIMESTAMP}, #{timeLimit,jdbcType=VARCHAR}, #{preparePhone,jdbcType=VARCHAR}, 
+      #{informPerson,jdbcType=VARCHAR}, #{disconnRange,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, 
+      #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireDisconnectPermit">
+    insert into FIRE_DISCONNECT_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="disconnId != null">
+        DISCONN_ID,
+      </if>
+      <if test="busiNo != null">
+        BUSI_NO,
+      </if>
+      <if test="prepareStaffNo != null">
+        PREPARE_STAFF_NO,
+      </if>
+      <if test="prepareStaffName != null">
+        PREPARE_STAFF_NAME,
+      </if>
+      <if test="bugDesc != null">
+        BUG_DESC,
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT,
+      </if>
+      <if test="planBegDate != null">
+        PLAN_BEG_DATE,
+      </if>
+      <if test="timeLimit != null">
+        TIME_LIMIT,
+      </if>
+      <if test="preparePhone != null">
+        PREPARE_PHONE,
+      </if>
+      <if test="informPerson != null">
+        INFORM_PERSON,
+      </if>
+      <if test="disconnRange != null">
+        DISCONN_RANGE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="disconnId != null">
+        #{disconnId,jdbcType=VARCHAR},
+      </if>
+      <if test="busiNo != null">
+        #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareStaffNo != null">
+        #{prepareStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareStaffName != null">
+        #{prepareStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="bugDesc != null">
+        #{bugDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null">
+        #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="planBegDate != null">
+        #{planBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeLimit != null">
+        #{timeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="preparePhone != null">
+        #{preparePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="informPerson != null">
+        #{informPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="disconnRange != null">
+        #{disconnRange,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireDisconnectPermit">
+    update FIRE_DISCONNECT_PERMIT
+    <set>
+      <if test="busiNo != null">
+        BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareStaffNo != null">
+        PREPARE_STAFF_NO = #{prepareStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareStaffName != null">
+        PREPARE_STAFF_NAME = #{prepareStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="bugDesc != null">
+        BUG_DESC = #{bugDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="planBegDate != null">
+        PLAN_BEG_DATE = #{planBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeLimit != null">
+        TIME_LIMIT = #{timeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="preparePhone != null">
+        PREPARE_PHONE = #{preparePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="informPerson != null">
+        INFORM_PERSON = #{informPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="disconnRange != null">
+        DISCONN_RANGE = #{disconnRange,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where DISCONN_ID = #{disconnId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireDisconnectPermit">
+    update FIRE_DISCONNECT_PERMIT
+    set BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      PREPARE_STAFF_NO = #{prepareStaffNo,jdbcType=VARCHAR},
+      PREPARE_STAFF_NAME = #{prepareStaffName,jdbcType=VARCHAR},
+      BUG_DESC = #{bugDesc,jdbcType=VARCHAR},
+      WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      PLAN_BEG_DATE = #{planBegDate,jdbcType=TIMESTAMP},
+      TIME_LIMIT = #{timeLimit,jdbcType=VARCHAR},
+      PREPARE_PHONE = #{preparePhone,jdbcType=VARCHAR},
+      INFORM_PERSON = #{informPerson,jdbcType=VARCHAR},
+      DISCONN_RANGE = #{disconnRange,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where DISCONN_ID = #{disconnId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireDisconnectPermit">
+    <constructor>
+      <idArg column="DISCONN_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUSI_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PREPARE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PREPARE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUG_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PLAN_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="TIME_LIMIT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PREPARE_PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INFORM_PERSON" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DISCONN_RANGE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    DISCONN_ID, BUSI_NO, PREPARE_STAFF_NO, PREPARE_STAFF_NAME, BUG_DESC, WORK_CONTENT, 
+    PLAN_BEG_DATE, TIME_LIMIT, PREPARE_PHONE, INFORM_PERSON, DISCONN_RANGE, EFFECT_FLAG, 
+    CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FIRE_DISCONNECT_PERMIT
+    where DISCONN_ID = #{disconnId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FIRE_DISCONNECT_PERMIT
+    where DISCONN_ID = #{disconnId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FireDisconnectPermit">
+    insert into FIRE_DISCONNECT_PERMIT (DISCONN_ID, BUSI_NO, PREPARE_STAFF_NO, 
+      PREPARE_STAFF_NAME, BUG_DESC, WORK_CONTENT, 
+      PLAN_BEG_DATE, TIME_LIMIT, PREPARE_PHONE, 
+      INFORM_PERSON, DISCONN_RANGE, EFFECT_FLAG, 
+      CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+      )
+    values (#{disconnId,jdbcType=VARCHAR}, #{busiNo,jdbcType=VARCHAR}, #{prepareStaffNo,jdbcType=VARCHAR}, 
+      #{prepareStaffName,jdbcType=VARCHAR}, #{bugDesc,jdbcType=VARCHAR}, #{workContent,jdbcType=VARCHAR}, 
+      #{planBegDate,jdbcType=TIMESTAMP}, #{timeLimit,jdbcType=VARCHAR}, #{preparePhone,jdbcType=VARCHAR}, 
+      #{informPerson,jdbcType=VARCHAR}, #{disconnRange,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, 
+      #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireDisconnectPermit">
+    insert into FIRE_DISCONNECT_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="disconnId != null">
+        DISCONN_ID,
+      </if>
+      <if test="busiNo != null">
+        BUSI_NO,
+      </if>
+      <if test="prepareStaffNo != null">
+        PREPARE_STAFF_NO,
+      </if>
+      <if test="prepareStaffName != null">
+        PREPARE_STAFF_NAME,
+      </if>
+      <if test="bugDesc != null">
+        BUG_DESC,
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT,
+      </if>
+      <if test="planBegDate != null">
+        PLAN_BEG_DATE,
+      </if>
+      <if test="timeLimit != null">
+        TIME_LIMIT,
+      </if>
+      <if test="preparePhone != null">
+        PREPARE_PHONE,
+      </if>
+      <if test="informPerson != null">
+        INFORM_PERSON,
+      </if>
+      <if test="disconnRange != null">
+        DISCONN_RANGE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="disconnId != null">
+        #{disconnId,jdbcType=VARCHAR},
+      </if>
+      <if test="busiNo != null">
+        #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareStaffNo != null">
+        #{prepareStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareStaffName != null">
+        #{prepareStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="bugDesc != null">
+        #{bugDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null">
+        #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="planBegDate != null">
+        #{planBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeLimit != null">
+        #{timeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="preparePhone != null">
+        #{preparePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="informPerson != null">
+        #{informPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="disconnRange != null">
+        #{disconnRange,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireDisconnectPermit">
+    update FIRE_DISCONNECT_PERMIT
+    <set>
+      <if test="busiNo != null">
+        BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareStaffNo != null">
+        PREPARE_STAFF_NO = #{prepareStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prepareStaffName != null">
+        PREPARE_STAFF_NAME = #{prepareStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="bugDesc != null">
+        BUG_DESC = #{bugDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="planBegDate != null">
+        PLAN_BEG_DATE = #{planBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeLimit != null">
+        TIME_LIMIT = #{timeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="preparePhone != null">
+        PREPARE_PHONE = #{preparePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="informPerson != null">
+        INFORM_PERSON = #{informPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="disconnRange != null">
+        DISCONN_RANGE = #{disconnRange,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where DISCONN_ID = #{disconnId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireDisconnectPermit">
+    update FIRE_DISCONNECT_PERMIT
+    set BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      PREPARE_STAFF_NO = #{prepareStaffNo,jdbcType=VARCHAR},
+      PREPARE_STAFF_NAME = #{prepareStaffName,jdbcType=VARCHAR},
+      BUG_DESC = #{bugDesc,jdbcType=VARCHAR},
+      WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      PLAN_BEG_DATE = #{planBegDate,jdbcType=TIMESTAMP},
+      TIME_LIMIT = #{timeLimit,jdbcType=VARCHAR},
+      PREPARE_PHONE = #{preparePhone,jdbcType=VARCHAR},
+      INFORM_PERSON = #{informPerson,jdbcType=VARCHAR},
+      DISCONN_RANGE = #{disconnRange,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where DISCONN_ID = #{disconnId,jdbcType=VARCHAR}
+  </update>
+</mapper>

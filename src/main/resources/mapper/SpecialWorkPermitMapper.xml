@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.SpecialWorkPermitMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.SpecialWorkPermit">
+    <constructor>
+      <idArg column="SPEWORK_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAC_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_MAC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="INTERF_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INTERF_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RISK_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DIS_POINT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MONITOR_PROJ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INDI_PROT_MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MONITORER_MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EMERGENCY_MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TOUR_PLAN" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAINCONTROL_PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DIS_PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAINCONTROL_EMEPHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SUP_SAFE_MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CAN_IMPLEMENT_ISO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SUP_ATTENTION_MATER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NOTICE_YSP" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EXIST_RAD_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="DEPT_MANAGER_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPT_MANAGER_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    SPEWORK_ID, MAC_NO, WORK_ADDR, WORK_MAC, WORK_BEG_DATE, INTERF_STAFF_NO, INTERF_STAFF_NAME, 
+    WORK_CONTENT, RISK_DESC, DIS_POINT, MONITOR_PROJ, INDI_PROT_MEASURE, MONITORER_MEASURE, 
+    EMERGENCY_MEASURE, TOUR_PLAN, MAINCONTROL_PHONE, DIS_PHONE, MAINCONTROL_EMEPHONE, 
+    SUP_SAFE_MEASURE, CAN_IMPLEMENT_ISO, SUP_ATTENTION_MATER, NOTICE_YSP, EXIST_RAD_FLAG, 
+    EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE, DEPT_MANAGER_ID, DEPT_MANAGER_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SPECIAL_WORK_PERMIT
+    where SPEWORK_ID = #{speworkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SPECIAL_WORK_PERMIT
+    where SPEWORK_ID = #{speworkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.SpecialWorkPermit">
+    insert into SPECIAL_WORK_PERMIT (SPEWORK_ID, MAC_NO, WORK_ADDR, 
+      WORK_MAC, WORK_BEG_DATE, INTERF_STAFF_NO, 
+      INTERF_STAFF_NAME, WORK_CONTENT, RISK_DESC, 
+      DIS_POINT, MONITOR_PROJ, INDI_PROT_MEASURE, 
+      MONITORER_MEASURE, EMERGENCY_MEASURE, TOUR_PLAN, 
+      MAINCONTROL_PHONE, DIS_PHONE, MAINCONTROL_EMEPHONE, 
+      SUP_SAFE_MEASURE, CAN_IMPLEMENT_ISO, SUP_ATTENTION_MATER, 
+      NOTICE_YSP, EXIST_RAD_FLAG, EFFECT_FLAG, 
+      CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE, 
+      DEPT_MANAGER_ID, DEPT_MANAGER_NAME)
+    values (#{speworkId,jdbcType=VARCHAR}, #{macNo,jdbcType=VARCHAR}, #{workAddr,jdbcType=VARCHAR}, 
+      #{workMac,jdbcType=VARCHAR}, #{workBegDate,jdbcType=TIMESTAMP}, #{interfStaffNo,jdbcType=VARCHAR}, 
+      #{interfStaffName,jdbcType=VARCHAR}, #{workContent,jdbcType=VARCHAR}, #{riskDesc,jdbcType=VARCHAR}, 
+      #{disPoint,jdbcType=VARCHAR}, #{monitorProj,jdbcType=VARCHAR}, #{indiProtMeasure,jdbcType=VARCHAR}, 
+      #{monitorerMeasure,jdbcType=VARCHAR}, #{emergencyMeasure,jdbcType=VARCHAR}, #{tourPlan,jdbcType=VARCHAR}, 
+      #{maincontrolPhone,jdbcType=VARCHAR}, #{disPhone,jdbcType=VARCHAR}, #{maincontrolEmephone,jdbcType=VARCHAR}, 
+      #{supSafeMeasure,jdbcType=VARCHAR}, #{canImplementIso,jdbcType=VARCHAR}, #{supAttentionMater,jdbcType=VARCHAR}, 
+      #{noticeYsp,jdbcType=VARCHAR}, #{existRadFlag,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, 
+      #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{deptManagerId,jdbcType=VARCHAR}, #{deptManagerName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.SpecialWorkPermit">
+    insert into SPECIAL_WORK_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="speworkId != null">
+        SPEWORK_ID,
+      </if>
+      <if test="macNo != null">
+        MAC_NO,
+      </if>
+      <if test="workAddr != null">
+        WORK_ADDR,
+      </if>
+      <if test="workMac != null">
+        WORK_MAC,
+      </if>
+      <if test="workBegDate != null">
+        WORK_BEG_DATE,
+      </if>
+      <if test="interfStaffNo != null">
+        INTERF_STAFF_NO,
+      </if>
+      <if test="interfStaffName != null">
+        INTERF_STAFF_NAME,
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT,
+      </if>
+      <if test="riskDesc != null">
+        RISK_DESC,
+      </if>
+      <if test="disPoint != null">
+        DIS_POINT,
+      </if>
+      <if test="monitorProj != null">
+        MONITOR_PROJ,
+      </if>
+      <if test="indiProtMeasure != null">
+        INDI_PROT_MEASURE,
+      </if>
+      <if test="monitorerMeasure != null">
+        MONITORER_MEASURE,
+      </if>
+      <if test="emergencyMeasure != null">
+        EMERGENCY_MEASURE,
+      </if>
+      <if test="tourPlan != null">
+        TOUR_PLAN,
+      </if>
+      <if test="maincontrolPhone != null">
+        MAINCONTROL_PHONE,
+      </if>
+      <if test="disPhone != null">
+        DIS_PHONE,
+      </if>
+      <if test="maincontrolEmephone != null">
+        MAINCONTROL_EMEPHONE,
+      </if>
+      <if test="supSafeMeasure != null">
+        SUP_SAFE_MEASURE,
+      </if>
+      <if test="canImplementIso != null">
+        CAN_IMPLEMENT_ISO,
+      </if>
+      <if test="supAttentionMater != null">
+        SUP_ATTENTION_MATER,
+      </if>
+      <if test="noticeYsp != null">
+        NOTICE_YSP,
+      </if>
+      <if test="existRadFlag != null">
+        EXIST_RAD_FLAG,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="deptManagerId != null">
+        DEPT_MANAGER_ID,
+      </if>
+      <if test="deptManagerName != null">
+        DEPT_MANAGER_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="speworkId != null">
+        #{speworkId,jdbcType=VARCHAR},
+      </if>
+      <if test="macNo != null">
+        #{macNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workAddr != null">
+        #{workAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="workMac != null">
+        #{workMac,jdbcType=VARCHAR},
+      </if>
+      <if test="workBegDate != null">
+        #{workBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interfStaffNo != null">
+        #{interfStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfStaffName != null">
+        #{interfStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null">
+        #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="riskDesc != null">
+        #{riskDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="disPoint != null">
+        #{disPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorProj != null">
+        #{monitorProj,jdbcType=VARCHAR},
+      </if>
+      <if test="indiProtMeasure != null">
+        #{indiProtMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorerMeasure != null">
+        #{monitorerMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyMeasure != null">
+        #{emergencyMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="tourPlan != null">
+        #{tourPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="maincontrolPhone != null">
+        #{maincontrolPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="disPhone != null">
+        #{disPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="maincontrolEmephone != null">
+        #{maincontrolEmephone,jdbcType=VARCHAR},
+      </if>
+      <if test="supSafeMeasure != null">
+        #{supSafeMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="canImplementIso != null">
+        #{canImplementIso,jdbcType=VARCHAR},
+      </if>
+      <if test="supAttentionMater != null">
+        #{supAttentionMater,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeYsp != null">
+        #{noticeYsp,jdbcType=VARCHAR},
+      </if>
+      <if test="existRadFlag != null">
+        #{existRadFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deptManagerId != null">
+        #{deptManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptManagerName != null">
+        #{deptManagerName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.SpecialWorkPermit">
+    update SPECIAL_WORK_PERMIT
+    <set>
+      <if test="macNo != null">
+        MAC_NO = #{macNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workAddr != null">
+        WORK_ADDR = #{workAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="workMac != null">
+        WORK_MAC = #{workMac,jdbcType=VARCHAR},
+      </if>
+      <if test="workBegDate != null">
+        WORK_BEG_DATE = #{workBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interfStaffNo != null">
+        INTERF_STAFF_NO = #{interfStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfStaffName != null">
+        INTERF_STAFF_NAME = #{interfStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="riskDesc != null">
+        RISK_DESC = #{riskDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="disPoint != null">
+        DIS_POINT = #{disPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorProj != null">
+        MONITOR_PROJ = #{monitorProj,jdbcType=VARCHAR},
+      </if>
+      <if test="indiProtMeasure != null">
+        INDI_PROT_MEASURE = #{indiProtMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorerMeasure != null">
+        MONITORER_MEASURE = #{monitorerMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyMeasure != null">
+        EMERGENCY_MEASURE = #{emergencyMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="tourPlan != null">
+        TOUR_PLAN = #{tourPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="maincontrolPhone != null">
+        MAINCONTROL_PHONE = #{maincontrolPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="disPhone != null">
+        DIS_PHONE = #{disPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="maincontrolEmephone != null">
+        MAINCONTROL_EMEPHONE = #{maincontrolEmephone,jdbcType=VARCHAR},
+      </if>
+      <if test="supSafeMeasure != null">
+        SUP_SAFE_MEASURE = #{supSafeMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="canImplementIso != null">
+        CAN_IMPLEMENT_ISO = #{canImplementIso,jdbcType=VARCHAR},
+      </if>
+      <if test="supAttentionMater != null">
+        SUP_ATTENTION_MATER = #{supAttentionMater,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeYsp != null">
+        NOTICE_YSP = #{noticeYsp,jdbcType=VARCHAR},
+      </if>
+      <if test="existRadFlag != null">
+        EXIST_RAD_FLAG = #{existRadFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deptManagerId != null">
+        DEPT_MANAGER_ID = #{deptManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptManagerName != null">
+        DEPT_MANAGER_NAME = #{deptManagerName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SPEWORK_ID = #{speworkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.SpecialWorkPermit">
+    update SPECIAL_WORK_PERMIT
+    set MAC_NO = #{macNo,jdbcType=VARCHAR},
+      WORK_ADDR = #{workAddr,jdbcType=VARCHAR},
+      WORK_MAC = #{workMac,jdbcType=VARCHAR},
+      WORK_BEG_DATE = #{workBegDate,jdbcType=TIMESTAMP},
+      INTERF_STAFF_NO = #{interfStaffNo,jdbcType=VARCHAR},
+      INTERF_STAFF_NAME = #{interfStaffName,jdbcType=VARCHAR},
+      WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      RISK_DESC = #{riskDesc,jdbcType=VARCHAR},
+      DIS_POINT = #{disPoint,jdbcType=VARCHAR},
+      MONITOR_PROJ = #{monitorProj,jdbcType=VARCHAR},
+      INDI_PROT_MEASURE = #{indiProtMeasure,jdbcType=VARCHAR},
+      MONITORER_MEASURE = #{monitorerMeasure,jdbcType=VARCHAR},
+      EMERGENCY_MEASURE = #{emergencyMeasure,jdbcType=VARCHAR},
+      TOUR_PLAN = #{tourPlan,jdbcType=VARCHAR},
+      MAINCONTROL_PHONE = #{maincontrolPhone,jdbcType=VARCHAR},
+      DIS_PHONE = #{disPhone,jdbcType=VARCHAR},
+      MAINCONTROL_EMEPHONE = #{maincontrolEmephone,jdbcType=VARCHAR},
+      SUP_SAFE_MEASURE = #{supSafeMeasure,jdbcType=VARCHAR},
+      CAN_IMPLEMENT_ISO = #{canImplementIso,jdbcType=VARCHAR},
+      SUP_ATTENTION_MATER = #{supAttentionMater,jdbcType=VARCHAR},
+      NOTICE_YSP = #{noticeYsp,jdbcType=VARCHAR},
+      EXIST_RAD_FLAG = #{existRadFlag,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      DEPT_MANAGER_ID = #{deptManagerId,jdbcType=VARCHAR},
+      DEPT_MANAGER_NAME = #{deptManagerName,jdbcType=VARCHAR}
+    where SPEWORK_ID = #{speworkId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.SpecialWorkPermit">
+    <constructor>
+      <idArg column="SPEWORK_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAC_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_MAC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="INTERF_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INTERF_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RISK_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DIS_POINT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MONITOR_PROJ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INDI_PROT_MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MONITORER_MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EMERGENCY_MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TOUR_PLAN" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAINCONTROL_PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DIS_PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAINCONTROL_EMEPHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SUP_SAFE_MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CAN_IMPLEMENT_ISO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SUP_ATTENTION_MATER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NOTICE_YSP" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EXIST_RAD_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="DEPT_MANAGER_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPT_MANAGER_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    SPEWORK_ID, MAC_NO, WORK_ADDR, WORK_MAC, WORK_BEG_DATE, INTERF_STAFF_NO, INTERF_STAFF_NAME, 
+    WORK_CONTENT, RISK_DESC, DIS_POINT, MONITOR_PROJ, INDI_PROT_MEASURE, MONITORER_MEASURE, 
+    EMERGENCY_MEASURE, TOUR_PLAN, MAINCONTROL_PHONE, DIS_PHONE, MAINCONTROL_EMEPHONE, 
+    SUP_SAFE_MEASURE, CAN_IMPLEMENT_ISO, SUP_ATTENTION_MATER, NOTICE_YSP, EXIST_RAD_FLAG, 
+    EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE, DEPT_MANAGER_ID, DEPT_MANAGER_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SPECIAL_WORK_PERMIT
+    where SPEWORK_ID = #{speworkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SPECIAL_WORK_PERMIT
+    where SPEWORK_ID = #{speworkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.SpecialWorkPermit">
+    insert into SPECIAL_WORK_PERMIT (SPEWORK_ID, MAC_NO, WORK_ADDR, 
+      WORK_MAC, WORK_BEG_DATE, INTERF_STAFF_NO, 
+      INTERF_STAFF_NAME, WORK_CONTENT, RISK_DESC, 
+      DIS_POINT, MONITOR_PROJ, INDI_PROT_MEASURE, 
+      MONITORER_MEASURE, EMERGENCY_MEASURE, TOUR_PLAN, 
+      MAINCONTROL_PHONE, DIS_PHONE, MAINCONTROL_EMEPHONE, 
+      SUP_SAFE_MEASURE, CAN_IMPLEMENT_ISO, SUP_ATTENTION_MATER, 
+      NOTICE_YSP, EXIST_RAD_FLAG, EFFECT_FLAG, 
+      CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE, 
+      DEPT_MANAGER_ID, DEPT_MANAGER_NAME)
+    values (#{speworkId,jdbcType=VARCHAR}, #{macNo,jdbcType=VARCHAR}, #{workAddr,jdbcType=VARCHAR}, 
+      #{workMac,jdbcType=VARCHAR}, #{workBegDate,jdbcType=TIMESTAMP}, #{interfStaffNo,jdbcType=VARCHAR}, 
+      #{interfStaffName,jdbcType=VARCHAR}, #{workContent,jdbcType=VARCHAR}, #{riskDesc,jdbcType=VARCHAR}, 
+      #{disPoint,jdbcType=VARCHAR}, #{monitorProj,jdbcType=VARCHAR}, #{indiProtMeasure,jdbcType=VARCHAR}, 
+      #{monitorerMeasure,jdbcType=VARCHAR}, #{emergencyMeasure,jdbcType=VARCHAR}, #{tourPlan,jdbcType=VARCHAR}, 
+      #{maincontrolPhone,jdbcType=VARCHAR}, #{disPhone,jdbcType=VARCHAR}, #{maincontrolEmephone,jdbcType=VARCHAR}, 
+      #{supSafeMeasure,jdbcType=VARCHAR}, #{canImplementIso,jdbcType=VARCHAR}, #{supAttentionMater,jdbcType=VARCHAR}, 
+      #{noticeYsp,jdbcType=VARCHAR}, #{existRadFlag,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, 
+      #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{deptManagerId,jdbcType=VARCHAR}, #{deptManagerName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.SpecialWorkPermit">
+    insert into SPECIAL_WORK_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="speworkId != null">
+        SPEWORK_ID,
+      </if>
+      <if test="macNo != null">
+        MAC_NO,
+      </if>
+      <if test="workAddr != null">
+        WORK_ADDR,
+      </if>
+      <if test="workMac != null">
+        WORK_MAC,
+      </if>
+      <if test="workBegDate != null">
+        WORK_BEG_DATE,
+      </if>
+      <if test="interfStaffNo != null">
+        INTERF_STAFF_NO,
+      </if>
+      <if test="interfStaffName != null">
+        INTERF_STAFF_NAME,
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT,
+      </if>
+      <if test="riskDesc != null">
+        RISK_DESC,
+      </if>
+      <if test="disPoint != null">
+        DIS_POINT,
+      </if>
+      <if test="monitorProj != null">
+        MONITOR_PROJ,
+      </if>
+      <if test="indiProtMeasure != null">
+        INDI_PROT_MEASURE,
+      </if>
+      <if test="monitorerMeasure != null">
+        MONITORER_MEASURE,
+      </if>
+      <if test="emergencyMeasure != null">
+        EMERGENCY_MEASURE,
+      </if>
+      <if test="tourPlan != null">
+        TOUR_PLAN,
+      </if>
+      <if test="maincontrolPhone != null">
+        MAINCONTROL_PHONE,
+      </if>
+      <if test="disPhone != null">
+        DIS_PHONE,
+      </if>
+      <if test="maincontrolEmephone != null">
+        MAINCONTROL_EMEPHONE,
+      </if>
+      <if test="supSafeMeasure != null">
+        SUP_SAFE_MEASURE,
+      </if>
+      <if test="canImplementIso != null">
+        CAN_IMPLEMENT_ISO,
+      </if>
+      <if test="supAttentionMater != null">
+        SUP_ATTENTION_MATER,
+      </if>
+      <if test="noticeYsp != null">
+        NOTICE_YSP,
+      </if>
+      <if test="existRadFlag != null">
+        EXIST_RAD_FLAG,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="deptManagerId != null">
+        DEPT_MANAGER_ID,
+      </if>
+      <if test="deptManagerName != null">
+        DEPT_MANAGER_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="speworkId != null">
+        #{speworkId,jdbcType=VARCHAR},
+      </if>
+      <if test="macNo != null">
+        #{macNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workAddr != null">
+        #{workAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="workMac != null">
+        #{workMac,jdbcType=VARCHAR},
+      </if>
+      <if test="workBegDate != null">
+        #{workBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interfStaffNo != null">
+        #{interfStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfStaffName != null">
+        #{interfStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null">
+        #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="riskDesc != null">
+        #{riskDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="disPoint != null">
+        #{disPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorProj != null">
+        #{monitorProj,jdbcType=VARCHAR},
+      </if>
+      <if test="indiProtMeasure != null">
+        #{indiProtMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorerMeasure != null">
+        #{monitorerMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyMeasure != null">
+        #{emergencyMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="tourPlan != null">
+        #{tourPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="maincontrolPhone != null">
+        #{maincontrolPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="disPhone != null">
+        #{disPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="maincontrolEmephone != null">
+        #{maincontrolEmephone,jdbcType=VARCHAR},
+      </if>
+      <if test="supSafeMeasure != null">
+        #{supSafeMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="canImplementIso != null">
+        #{canImplementIso,jdbcType=VARCHAR},
+      </if>
+      <if test="supAttentionMater != null">
+        #{supAttentionMater,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeYsp != null">
+        #{noticeYsp,jdbcType=VARCHAR},
+      </if>
+      <if test="existRadFlag != null">
+        #{existRadFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deptManagerId != null">
+        #{deptManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptManagerName != null">
+        #{deptManagerName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.SpecialWorkPermit">
+    update SPECIAL_WORK_PERMIT
+    <set>
+      <if test="macNo != null">
+        MAC_NO = #{macNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workAddr != null">
+        WORK_ADDR = #{workAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="workMac != null">
+        WORK_MAC = #{workMac,jdbcType=VARCHAR},
+      </if>
+      <if test="workBegDate != null">
+        WORK_BEG_DATE = #{workBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interfStaffNo != null">
+        INTERF_STAFF_NO = #{interfStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfStaffName != null">
+        INTERF_STAFF_NAME = #{interfStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="riskDesc != null">
+        RISK_DESC = #{riskDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="disPoint != null">
+        DIS_POINT = #{disPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorProj != null">
+        MONITOR_PROJ = #{monitorProj,jdbcType=VARCHAR},
+      </if>
+      <if test="indiProtMeasure != null">
+        INDI_PROT_MEASURE = #{indiProtMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorerMeasure != null">
+        MONITORER_MEASURE = #{monitorerMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyMeasure != null">
+        EMERGENCY_MEASURE = #{emergencyMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="tourPlan != null">
+        TOUR_PLAN = #{tourPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="maincontrolPhone != null">
+        MAINCONTROL_PHONE = #{maincontrolPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="disPhone != null">
+        DIS_PHONE = #{disPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="maincontrolEmephone != null">
+        MAINCONTROL_EMEPHONE = #{maincontrolEmephone,jdbcType=VARCHAR},
+      </if>
+      <if test="supSafeMeasure != null">
+        SUP_SAFE_MEASURE = #{supSafeMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="canImplementIso != null">
+        CAN_IMPLEMENT_ISO = #{canImplementIso,jdbcType=VARCHAR},
+      </if>
+      <if test="supAttentionMater != null">
+        SUP_ATTENTION_MATER = #{supAttentionMater,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeYsp != null">
+        NOTICE_YSP = #{noticeYsp,jdbcType=VARCHAR},
+      </if>
+      <if test="existRadFlag != null">
+        EXIST_RAD_FLAG = #{existRadFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deptManagerId != null">
+        DEPT_MANAGER_ID = #{deptManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptManagerName != null">
+        DEPT_MANAGER_NAME = #{deptManagerName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SPEWORK_ID = #{speworkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.SpecialWorkPermit">
+    update SPECIAL_WORK_PERMIT
+    set MAC_NO = #{macNo,jdbcType=VARCHAR},
+      WORK_ADDR = #{workAddr,jdbcType=VARCHAR},
+      WORK_MAC = #{workMac,jdbcType=VARCHAR},
+      WORK_BEG_DATE = #{workBegDate,jdbcType=TIMESTAMP},
+      INTERF_STAFF_NO = #{interfStaffNo,jdbcType=VARCHAR},
+      INTERF_STAFF_NAME = #{interfStaffName,jdbcType=VARCHAR},
+      WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      RISK_DESC = #{riskDesc,jdbcType=VARCHAR},
+      DIS_POINT = #{disPoint,jdbcType=VARCHAR},
+      MONITOR_PROJ = #{monitorProj,jdbcType=VARCHAR},
+      INDI_PROT_MEASURE = #{indiProtMeasure,jdbcType=VARCHAR},
+      MONITORER_MEASURE = #{monitorerMeasure,jdbcType=VARCHAR},
+      EMERGENCY_MEASURE = #{emergencyMeasure,jdbcType=VARCHAR},
+      TOUR_PLAN = #{tourPlan,jdbcType=VARCHAR},
+      MAINCONTROL_PHONE = #{maincontrolPhone,jdbcType=VARCHAR},
+      DIS_PHONE = #{disPhone,jdbcType=VARCHAR},
+      MAINCONTROL_EMEPHONE = #{maincontrolEmephone,jdbcType=VARCHAR},
+      SUP_SAFE_MEASURE = #{supSafeMeasure,jdbcType=VARCHAR},
+      CAN_IMPLEMENT_ISO = #{canImplementIso,jdbcType=VARCHAR},
+      SUP_ATTENTION_MATER = #{supAttentionMater,jdbcType=VARCHAR},
+      NOTICE_YSP = #{noticeYsp,jdbcType=VARCHAR},
+      EXIST_RAD_FLAG = #{existRadFlag,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      DEPT_MANAGER_ID = #{deptManagerId,jdbcType=VARCHAR},
+      DEPT_MANAGER_NAME = #{deptManagerName,jdbcType=VARCHAR}
+    where SPEWORK_ID = #{speworkId,jdbcType=VARCHAR}
+  </update>
+</mapper>

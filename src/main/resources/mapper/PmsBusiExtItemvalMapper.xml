@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.PmsBusiExtItemvalMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsBusiExtItemval">
+    <constructor>
+      <idArg column="EXTITEMVAL_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EXT_ITEM_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="VAL_SN" javaType="java.lang.Integer" jdbcType="DECIMAL" />
+      <arg column="EXTITEM_VAL" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    EXTITEMVAL_ID, EXT_ITEM_ID, VAL_SN, EXTITEM_VAL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PMS_BUSI_EXT_ITEMVAL
+    where EXTITEMVAL_ID = #{extitemvalId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PMS_BUSI_EXT_ITEMVAL
+    where EXTITEMVAL_ID = #{extitemvalId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.PmsBusiExtItemval">
+    insert into PMS_BUSI_EXT_ITEMVAL (EXTITEMVAL_ID, EXT_ITEM_ID, VAL_SN, 
+      EXTITEM_VAL)
+    values (#{extitemvalId,jdbcType=VARCHAR}, #{extItemId,jdbcType=VARCHAR}, #{valSn,jdbcType=DECIMAL}, 
+      #{extitemVal,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsBusiExtItemval">
+    insert into PMS_BUSI_EXT_ITEMVAL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="extitemvalId != null">
+        EXTITEMVAL_ID,
+      </if>
+      <if test="extItemId != null">
+        EXT_ITEM_ID,
+      </if>
+      <if test="valSn != null">
+        VAL_SN,
+      </if>
+      <if test="extitemVal != null">
+        EXTITEM_VAL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="extitemvalId != null">
+        #{extitemvalId,jdbcType=VARCHAR},
+      </if>
+      <if test="extItemId != null">
+        #{extItemId,jdbcType=VARCHAR},
+      </if>
+      <if test="valSn != null">
+        #{valSn,jdbcType=DECIMAL},
+      </if>
+      <if test="extitemVal != null">
+        #{extitemVal,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsBusiExtItemval">
+    update PMS_BUSI_EXT_ITEMVAL
+    <set>
+      <if test="extItemId != null">
+        EXT_ITEM_ID = #{extItemId,jdbcType=VARCHAR},
+      </if>
+      <if test="valSn != null">
+        VAL_SN = #{valSn,jdbcType=DECIMAL},
+      </if>
+      <if test="extitemVal != null">
+        EXTITEM_VAL = #{extitemVal,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where EXTITEMVAL_ID = #{extitemvalId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsBusiExtItemval">
+    update PMS_BUSI_EXT_ITEMVAL
+    set EXT_ITEM_ID = #{extItemId,jdbcType=VARCHAR},
+      VAL_SN = #{valSn,jdbcType=DECIMAL},
+      EXTITEM_VAL = #{extitemVal,jdbcType=VARCHAR}
+    where EXTITEMVAL_ID = #{extitemvalId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsBusiExtItemval">
+    <constructor>
+      <idArg column="EXTITEMVAL_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EXT_ITEM_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="VAL_SN" javaType="java.lang.Integer" jdbcType="DECIMAL" />
+      <arg column="EXTITEM_VAL" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    EXTITEMVAL_ID, EXT_ITEM_ID, VAL_SN, EXTITEM_VAL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PMS_BUSI_EXT_ITEMVAL
+    where EXTITEMVAL_ID = #{extitemvalId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PMS_BUSI_EXT_ITEMVAL
+    where EXTITEMVAL_ID = #{extitemvalId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.PmsBusiExtItemval">
+    insert into PMS_BUSI_EXT_ITEMVAL (EXTITEMVAL_ID, EXT_ITEM_ID, VAL_SN, 
+      EXTITEM_VAL)
+    values (#{extitemvalId,jdbcType=VARCHAR}, #{extItemId,jdbcType=VARCHAR}, #{valSn,jdbcType=DECIMAL}, 
+      #{extitemVal,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsBusiExtItemval">
+    insert into PMS_BUSI_EXT_ITEMVAL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="extitemvalId != null">
+        EXTITEMVAL_ID,
+      </if>
+      <if test="extItemId != null">
+        EXT_ITEM_ID,
+      </if>
+      <if test="valSn != null">
+        VAL_SN,
+      </if>
+      <if test="extitemVal != null">
+        EXTITEM_VAL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="extitemvalId != null">
+        #{extitemvalId,jdbcType=VARCHAR},
+      </if>
+      <if test="extItemId != null">
+        #{extItemId,jdbcType=VARCHAR},
+      </if>
+      <if test="valSn != null">
+        #{valSn,jdbcType=DECIMAL},
+      </if>
+      <if test="extitemVal != null">
+        #{extitemVal,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsBusiExtItemval">
+    update PMS_BUSI_EXT_ITEMVAL
+    <set>
+      <if test="extItemId != null">
+        EXT_ITEM_ID = #{extItemId,jdbcType=VARCHAR},
+      </if>
+      <if test="valSn != null">
+        VAL_SN = #{valSn,jdbcType=DECIMAL},
+      </if>
+      <if test="extitemVal != null">
+        EXTITEM_VAL = #{extitemVal,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where EXTITEMVAL_ID = #{extitemvalId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsBusiExtItemval">
+    update PMS_BUSI_EXT_ITEMVAL
+    set EXT_ITEM_ID = #{extItemId,jdbcType=VARCHAR},
+      VAL_SN = #{valSn,jdbcType=DECIMAL},
+      EXTITEM_VAL = #{extitemVal,jdbcType=VARCHAR}
+    where EXTITEMVAL_ID = #{extitemvalId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.PmsSysAttachmentMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsSysAttachment">
+    <constructor>
+      <idArg column="ATT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATT_EXTID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RELA_BUSI_TABLE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RELA_BUSI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="COL_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUSI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTACHMENT_FILE_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTR_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTR_SIZE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTR_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTR_VERSION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    ATT_ID, ATT_EXTID, RELA_BUSI_TABLE, RELA_BUSI_ID, COL_NAME, BUSI_ID, APP_TYPE, ATTACHMENT_FILE_DESC, 
+    ATTR_DESC, ATTR_SIZE, ATTR_TYPE, ATTR_VERSION, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+    CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PMS_SYS_ATTACHMENT
+    where ATT_ID = #{attId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PMS_SYS_ATTACHMENT
+    where ATT_ID = #{attId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.PmsSysAttachment">
+    insert into PMS_SYS_ATTACHMENT (ATT_ID, ATT_EXTID, RELA_BUSI_TABLE, 
+      RELA_BUSI_ID, COL_NAME, BUSI_ID, 
+      APP_TYPE, ATTACHMENT_FILE_DESC, ATTR_DESC, 
+      ATTR_SIZE, ATTR_TYPE, ATTR_VERSION, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE)
+    values (#{attId,jdbcType=VARCHAR}, #{attExtid,jdbcType=VARCHAR}, #{relaBusiTable,jdbcType=VARCHAR}, 
+      #{relaBusiId,jdbcType=VARCHAR}, #{colName,jdbcType=VARCHAR}, #{busiId,jdbcType=VARCHAR}, 
+      #{appType,jdbcType=VARCHAR}, #{attachmentFileDesc,jdbcType=VARCHAR}, #{attrDesc,jdbcType=VARCHAR}, 
+      #{attrSize,jdbcType=VARCHAR}, #{attrType,jdbcType=VARCHAR}, #{attrVersion,jdbcType=VARCHAR}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsSysAttachment">
+    insert into PMS_SYS_ATTACHMENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="attId != null">
+        ATT_ID,
+      </if>
+      <if test="attExtid != null">
+        ATT_EXTID,
+      </if>
+      <if test="relaBusiTable != null">
+        RELA_BUSI_TABLE,
+      </if>
+      <if test="relaBusiId != null">
+        RELA_BUSI_ID,
+      </if>
+      <if test="colName != null">
+        COL_NAME,
+      </if>
+      <if test="busiId != null">
+        BUSI_ID,
+      </if>
+      <if test="appType != null">
+        APP_TYPE,
+      </if>
+      <if test="attachmentFileDesc != null">
+        ATTACHMENT_FILE_DESC,
+      </if>
+      <if test="attrDesc != null">
+        ATTR_DESC,
+      </if>
+      <if test="attrSize != null">
+        ATTR_SIZE,
+      </if>
+      <if test="attrType != null">
+        ATTR_TYPE,
+      </if>
+      <if test="attrVersion != null">
+        ATTR_VERSION,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="attId != null">
+        #{attId,jdbcType=VARCHAR},
+      </if>
+      <if test="attExtid != null">
+        #{attExtid,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiTable != null">
+        #{relaBusiTable,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiId != null">
+        #{relaBusiId,jdbcType=VARCHAR},
+      </if>
+      <if test="colName != null">
+        #{colName,jdbcType=VARCHAR},
+      </if>
+      <if test="busiId != null">
+        #{busiId,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null">
+        #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentFileDesc != null">
+        #{attachmentFileDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="attrDesc != null">
+        #{attrDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="attrSize != null">
+        #{attrSize,jdbcType=VARCHAR},
+      </if>
+      <if test="attrType != null">
+        #{attrType,jdbcType=VARCHAR},
+      </if>
+      <if test="attrVersion != null">
+        #{attrVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsSysAttachment">
+    update PMS_SYS_ATTACHMENT
+    <set>
+      <if test="attExtid != null">
+        ATT_EXTID = #{attExtid,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiTable != null">
+        RELA_BUSI_TABLE = #{relaBusiTable,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiId != null">
+        RELA_BUSI_ID = #{relaBusiId,jdbcType=VARCHAR},
+      </if>
+      <if test="colName != null">
+        COL_NAME = #{colName,jdbcType=VARCHAR},
+      </if>
+      <if test="busiId != null">
+        BUSI_ID = #{busiId,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null">
+        APP_TYPE = #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentFileDesc != null">
+        ATTACHMENT_FILE_DESC = #{attachmentFileDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="attrDesc != null">
+        ATTR_DESC = #{attrDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="attrSize != null">
+        ATTR_SIZE = #{attrSize,jdbcType=VARCHAR},
+      </if>
+      <if test="attrType != null">
+        ATTR_TYPE = #{attrType,jdbcType=VARCHAR},
+      </if>
+      <if test="attrVersion != null">
+        ATTR_VERSION = #{attrVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ATT_ID = #{attId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsSysAttachment">
+    update PMS_SYS_ATTACHMENT
+    set ATT_EXTID = #{attExtid,jdbcType=VARCHAR},
+      RELA_BUSI_TABLE = #{relaBusiTable,jdbcType=VARCHAR},
+      RELA_BUSI_ID = #{relaBusiId,jdbcType=VARCHAR},
+      COL_NAME = #{colName,jdbcType=VARCHAR},
+      BUSI_ID = #{busiId,jdbcType=VARCHAR},
+      APP_TYPE = #{appType,jdbcType=VARCHAR},
+      ATTACHMENT_FILE_DESC = #{attachmentFileDesc,jdbcType=VARCHAR},
+      ATTR_DESC = #{attrDesc,jdbcType=VARCHAR},
+      ATTR_SIZE = #{attrSize,jdbcType=VARCHAR},
+      ATTR_TYPE = #{attrType,jdbcType=VARCHAR},
+      ATTR_VERSION = #{attrVersion,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where ATT_ID = #{attId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsSysAttachment">
+    <constructor>
+      <idArg column="ATT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATT_EXTID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RELA_BUSI_TABLE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RELA_BUSI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="COL_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUSI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTACHMENT_FILE_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTR_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTR_SIZE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTR_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTR_VERSION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    ATT_ID, ATT_EXTID, RELA_BUSI_TABLE, RELA_BUSI_ID, COL_NAME, BUSI_ID, APP_TYPE, ATTACHMENT_FILE_DESC, 
+    ATTR_DESC, ATTR_SIZE, ATTR_TYPE, ATTR_VERSION, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+    CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PMS_SYS_ATTACHMENT
+    where ATT_ID = #{attId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PMS_SYS_ATTACHMENT
+    where ATT_ID = #{attId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.PmsSysAttachment">
+    insert into PMS_SYS_ATTACHMENT (ATT_ID, ATT_EXTID, RELA_BUSI_TABLE, 
+      RELA_BUSI_ID, COL_NAME, BUSI_ID, 
+      APP_TYPE, ATTACHMENT_FILE_DESC, ATTR_DESC, 
+      ATTR_SIZE, ATTR_TYPE, ATTR_VERSION, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE)
+    values (#{attId,jdbcType=VARCHAR}, #{attExtid,jdbcType=VARCHAR}, #{relaBusiTable,jdbcType=VARCHAR}, 
+      #{relaBusiId,jdbcType=VARCHAR}, #{colName,jdbcType=VARCHAR}, #{busiId,jdbcType=VARCHAR}, 
+      #{appType,jdbcType=VARCHAR}, #{attachmentFileDesc,jdbcType=VARCHAR}, #{attrDesc,jdbcType=VARCHAR}, 
+      #{attrSize,jdbcType=VARCHAR}, #{attrType,jdbcType=VARCHAR}, #{attrVersion,jdbcType=VARCHAR}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsSysAttachment">
+    insert into PMS_SYS_ATTACHMENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="attId != null">
+        ATT_ID,
+      </if>
+      <if test="attExtid != null">
+        ATT_EXTID,
+      </if>
+      <if test="relaBusiTable != null">
+        RELA_BUSI_TABLE,
+      </if>
+      <if test="relaBusiId != null">
+        RELA_BUSI_ID,
+      </if>
+      <if test="colName != null">
+        COL_NAME,
+      </if>
+      <if test="busiId != null">
+        BUSI_ID,
+      </if>
+      <if test="appType != null">
+        APP_TYPE,
+      </if>
+      <if test="attachmentFileDesc != null">
+        ATTACHMENT_FILE_DESC,
+      </if>
+      <if test="attrDesc != null">
+        ATTR_DESC,
+      </if>
+      <if test="attrSize != null">
+        ATTR_SIZE,
+      </if>
+      <if test="attrType != null">
+        ATTR_TYPE,
+      </if>
+      <if test="attrVersion != null">
+        ATTR_VERSION,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="attId != null">
+        #{attId,jdbcType=VARCHAR},
+      </if>
+      <if test="attExtid != null">
+        #{attExtid,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiTable != null">
+        #{relaBusiTable,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiId != null">
+        #{relaBusiId,jdbcType=VARCHAR},
+      </if>
+      <if test="colName != null">
+        #{colName,jdbcType=VARCHAR},
+      </if>
+      <if test="busiId != null">
+        #{busiId,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null">
+        #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentFileDesc != null">
+        #{attachmentFileDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="attrDesc != null">
+        #{attrDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="attrSize != null">
+        #{attrSize,jdbcType=VARCHAR},
+      </if>
+      <if test="attrType != null">
+        #{attrType,jdbcType=VARCHAR},
+      </if>
+      <if test="attrVersion != null">
+        #{attrVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsSysAttachment">
+    update PMS_SYS_ATTACHMENT
+    <set>
+      <if test="attExtid != null">
+        ATT_EXTID = #{attExtid,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiTable != null">
+        RELA_BUSI_TABLE = #{relaBusiTable,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiId != null">
+        RELA_BUSI_ID = #{relaBusiId,jdbcType=VARCHAR},
+      </if>
+      <if test="colName != null">
+        COL_NAME = #{colName,jdbcType=VARCHAR},
+      </if>
+      <if test="busiId != null">
+        BUSI_ID = #{busiId,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null">
+        APP_TYPE = #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentFileDesc != null">
+        ATTACHMENT_FILE_DESC = #{attachmentFileDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="attrDesc != null">
+        ATTR_DESC = #{attrDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="attrSize != null">
+        ATTR_SIZE = #{attrSize,jdbcType=VARCHAR},
+      </if>
+      <if test="attrType != null">
+        ATTR_TYPE = #{attrType,jdbcType=VARCHAR},
+      </if>
+      <if test="attrVersion != null">
+        ATTR_VERSION = #{attrVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ATT_ID = #{attId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsSysAttachment">
+    update PMS_SYS_ATTACHMENT
+    set ATT_EXTID = #{attExtid,jdbcType=VARCHAR},
+      RELA_BUSI_TABLE = #{relaBusiTable,jdbcType=VARCHAR},
+      RELA_BUSI_ID = #{relaBusiId,jdbcType=VARCHAR},
+      COL_NAME = #{colName,jdbcType=VARCHAR},
+      BUSI_ID = #{busiId,jdbcType=VARCHAR},
+      APP_TYPE = #{appType,jdbcType=VARCHAR},
+      ATTACHMENT_FILE_DESC = #{attachmentFileDesc,jdbcType=VARCHAR},
+      ATTR_DESC = #{attrDesc,jdbcType=VARCHAR},
+      ATTR_SIZE = #{attrSize,jdbcType=VARCHAR},
+      ATTR_TYPE = #{attrType,jdbcType=VARCHAR},
+      ATTR_VERSION = #{attrVersion,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where ATT_ID = #{attId,jdbcType=VARCHAR}
+  </update>
+</mapper>

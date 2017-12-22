@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.RayPermitMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.RayPermit">
+    <constructor>
+      <idArg column="RAYPERMIT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUSI_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="APP_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="APPROVE_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="APPROVE_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="OPER_OBJ_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ASSIST_USER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OTHER_WORK_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OTHER_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INFLU_MAC_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INFLU_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    RAYPERMIT_ID, BUSI_NO, APP_BEG_DATE, APP_END_DATE, APPROVE_BEG_DATE, APPROVE_END_DATE, 
+    OPER_OBJ_DESC, ASSIST_USER, OTHER_WORK_FLAG, OTHER_REQ, INFLU_MAC_FLAG, INFLU_DESC, 
+    EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from RAY_PERMIT
+    where RAYPERMIT_ID = #{raypermitId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RAY_PERMIT
+    where RAYPERMIT_ID = #{raypermitId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.RayPermit">
+    insert into RAY_PERMIT (RAYPERMIT_ID, BUSI_NO, APP_BEG_DATE, 
+      APP_END_DATE, APPROVE_BEG_DATE, APPROVE_END_DATE, 
+      OPER_OBJ_DESC, ASSIST_USER, OTHER_WORK_FLAG, 
+      OTHER_REQ, INFLU_MAC_FLAG, INFLU_DESC, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE)
+    values (#{raypermitId,jdbcType=VARCHAR}, #{busiNo,jdbcType=VARCHAR}, #{appBegDate,jdbcType=TIMESTAMP}, 
+      #{appEndDate,jdbcType=TIMESTAMP}, #{approveBegDate,jdbcType=TIMESTAMP}, #{approveEndDate,jdbcType=TIMESTAMP}, 
+      #{operObjDesc,jdbcType=VARCHAR}, #{assistUser,jdbcType=VARCHAR}, #{otherWorkFlag,jdbcType=VARCHAR}, 
+      #{otherReq,jdbcType=VARCHAR}, #{influMacFlag,jdbcType=VARCHAR}, #{influDesc,jdbcType=VARCHAR}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.RayPermit">
+    insert into RAY_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="raypermitId != null">
+        RAYPERMIT_ID,
+      </if>
+      <if test="busiNo != null">
+        BUSI_NO,
+      </if>
+      <if test="appBegDate != null">
+        APP_BEG_DATE,
+      </if>
+      <if test="appEndDate != null">
+        APP_END_DATE,
+      </if>
+      <if test="approveBegDate != null">
+        APPROVE_BEG_DATE,
+      </if>
+      <if test="approveEndDate != null">
+        APPROVE_END_DATE,
+      </if>
+      <if test="operObjDesc != null">
+        OPER_OBJ_DESC,
+      </if>
+      <if test="assistUser != null">
+        ASSIST_USER,
+      </if>
+      <if test="otherWorkFlag != null">
+        OTHER_WORK_FLAG,
+      </if>
+      <if test="otherReq != null">
+        OTHER_REQ,
+      </if>
+      <if test="influMacFlag != null">
+        INFLU_MAC_FLAG,
+      </if>
+      <if test="influDesc != null">
+        INFLU_DESC,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="raypermitId != null">
+        #{raypermitId,jdbcType=VARCHAR},
+      </if>
+      <if test="busiNo != null">
+        #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="appBegDate != null">
+        #{appBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appEndDate != null">
+        #{appEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveBegDate != null">
+        #{approveBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveEndDate != null">
+        #{approveEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operObjDesc != null">
+        #{operObjDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="assistUser != null">
+        #{assistUser,jdbcType=VARCHAR},
+      </if>
+      <if test="otherWorkFlag != null">
+        #{otherWorkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="otherReq != null">
+        #{otherReq,jdbcType=VARCHAR},
+      </if>
+      <if test="influMacFlag != null">
+        #{influMacFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="influDesc != null">
+        #{influDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RayPermit">
+    update RAY_PERMIT
+    <set>
+      <if test="busiNo != null">
+        BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="appBegDate != null">
+        APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appEndDate != null">
+        APP_END_DATE = #{appEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveBegDate != null">
+        APPROVE_BEG_DATE = #{approveBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveEndDate != null">
+        APPROVE_END_DATE = #{approveEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operObjDesc != null">
+        OPER_OBJ_DESC = #{operObjDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="assistUser != null">
+        ASSIST_USER = #{assistUser,jdbcType=VARCHAR},
+      </if>
+      <if test="otherWorkFlag != null">
+        OTHER_WORK_FLAG = #{otherWorkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="otherReq != null">
+        OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
+      </if>
+      <if test="influMacFlag != null">
+        INFLU_MAC_FLAG = #{influMacFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="influDesc != null">
+        INFLU_DESC = #{influDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where RAYPERMIT_ID = #{raypermitId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RayPermit">
+    update RAY_PERMIT
+    set BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
+      APP_END_DATE = #{appEndDate,jdbcType=TIMESTAMP},
+      APPROVE_BEG_DATE = #{approveBegDate,jdbcType=TIMESTAMP},
+      APPROVE_END_DATE = #{approveEndDate,jdbcType=TIMESTAMP},
+      OPER_OBJ_DESC = #{operObjDesc,jdbcType=VARCHAR},
+      ASSIST_USER = #{assistUser,jdbcType=VARCHAR},
+      OTHER_WORK_FLAG = #{otherWorkFlag,jdbcType=VARCHAR},
+      OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
+      INFLU_MAC_FLAG = #{influMacFlag,jdbcType=VARCHAR},
+      INFLU_DESC = #{influDesc,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where RAYPERMIT_ID = #{raypermitId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.RayPermit">
+    <constructor>
+      <idArg column="RAYPERMIT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUSI_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="APP_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="APPROVE_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="APPROVE_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="OPER_OBJ_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ASSIST_USER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OTHER_WORK_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OTHER_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INFLU_MAC_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INFLU_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    RAYPERMIT_ID, BUSI_NO, APP_BEG_DATE, APP_END_DATE, APPROVE_BEG_DATE, APPROVE_END_DATE, 
+    OPER_OBJ_DESC, ASSIST_USER, OTHER_WORK_FLAG, OTHER_REQ, INFLU_MAC_FLAG, INFLU_DESC, 
+    EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from RAY_PERMIT
+    where RAYPERMIT_ID = #{raypermitId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RAY_PERMIT
+    where RAYPERMIT_ID = #{raypermitId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.RayPermit">
+    insert into RAY_PERMIT (RAYPERMIT_ID, BUSI_NO, APP_BEG_DATE, 
+      APP_END_DATE, APPROVE_BEG_DATE, APPROVE_END_DATE, 
+      OPER_OBJ_DESC, ASSIST_USER, OTHER_WORK_FLAG, 
+      OTHER_REQ, INFLU_MAC_FLAG, INFLU_DESC, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE)
+    values (#{raypermitId,jdbcType=VARCHAR}, #{busiNo,jdbcType=VARCHAR}, #{appBegDate,jdbcType=TIMESTAMP}, 
+      #{appEndDate,jdbcType=TIMESTAMP}, #{approveBegDate,jdbcType=TIMESTAMP}, #{approveEndDate,jdbcType=TIMESTAMP}, 
+      #{operObjDesc,jdbcType=VARCHAR}, #{assistUser,jdbcType=VARCHAR}, #{otherWorkFlag,jdbcType=VARCHAR}, 
+      #{otherReq,jdbcType=VARCHAR}, #{influMacFlag,jdbcType=VARCHAR}, #{influDesc,jdbcType=VARCHAR}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.RayPermit">
+    insert into RAY_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="raypermitId != null">
+        RAYPERMIT_ID,
+      </if>
+      <if test="busiNo != null">
+        BUSI_NO,
+      </if>
+      <if test="appBegDate != null">
+        APP_BEG_DATE,
+      </if>
+      <if test="appEndDate != null">
+        APP_END_DATE,
+      </if>
+      <if test="approveBegDate != null">
+        APPROVE_BEG_DATE,
+      </if>
+      <if test="approveEndDate != null">
+        APPROVE_END_DATE,
+      </if>
+      <if test="operObjDesc != null">
+        OPER_OBJ_DESC,
+      </if>
+      <if test="assistUser != null">
+        ASSIST_USER,
+      </if>
+      <if test="otherWorkFlag != null">
+        OTHER_WORK_FLAG,
+      </if>
+      <if test="otherReq != null">
+        OTHER_REQ,
+      </if>
+      <if test="influMacFlag != null">
+        INFLU_MAC_FLAG,
+      </if>
+      <if test="influDesc != null">
+        INFLU_DESC,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="raypermitId != null">
+        #{raypermitId,jdbcType=VARCHAR},
+      </if>
+      <if test="busiNo != null">
+        #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="appBegDate != null">
+        #{appBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appEndDate != null">
+        #{appEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveBegDate != null">
+        #{approveBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveEndDate != null">
+        #{approveEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operObjDesc != null">
+        #{operObjDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="assistUser != null">
+        #{assistUser,jdbcType=VARCHAR},
+      </if>
+      <if test="otherWorkFlag != null">
+        #{otherWorkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="otherReq != null">
+        #{otherReq,jdbcType=VARCHAR},
+      </if>
+      <if test="influMacFlag != null">
+        #{influMacFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="influDesc != null">
+        #{influDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RayPermit">
+    update RAY_PERMIT
+    <set>
+      <if test="busiNo != null">
+        BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="appBegDate != null">
+        APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appEndDate != null">
+        APP_END_DATE = #{appEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveBegDate != null">
+        APPROVE_BEG_DATE = #{approveBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveEndDate != null">
+        APPROVE_END_DATE = #{approveEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operObjDesc != null">
+        OPER_OBJ_DESC = #{operObjDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="assistUser != null">
+        ASSIST_USER = #{assistUser,jdbcType=VARCHAR},
+      </if>
+      <if test="otherWorkFlag != null">
+        OTHER_WORK_FLAG = #{otherWorkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="otherReq != null">
+        OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
+      </if>
+      <if test="influMacFlag != null">
+        INFLU_MAC_FLAG = #{influMacFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="influDesc != null">
+        INFLU_DESC = #{influDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where RAYPERMIT_ID = #{raypermitId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RayPermit">
+    update RAY_PERMIT
+    set BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
+      APP_END_DATE = #{appEndDate,jdbcType=TIMESTAMP},
+      APPROVE_BEG_DATE = #{approveBegDate,jdbcType=TIMESTAMP},
+      APPROVE_END_DATE = #{approveEndDate,jdbcType=TIMESTAMP},
+      OPER_OBJ_DESC = #{operObjDesc,jdbcType=VARCHAR},
+      ASSIST_USER = #{assistUser,jdbcType=VARCHAR},
+      OTHER_WORK_FLAG = #{otherWorkFlag,jdbcType=VARCHAR},
+      OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
+      INFLU_MAC_FLAG = #{influMacFlag,jdbcType=VARCHAR},
+      INFLU_DESC = #{influDesc,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where RAYPERMIT_ID = #{raypermitId,jdbcType=VARCHAR}
+  </update>
+</mapper>

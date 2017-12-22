@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.PmsMacMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsMac">
+    <constructor>
+      <idArg column="MAC_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAC_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAC_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAC_MANAGE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAC_MANAGE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    MAC_ID, MAC_NO, MAC_NAME, MAC_MANAGE_STAFF_NO, MAC_MANAGE_STAFF_NAME, EFFECT_FLAG, 
+    CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PMS_MAC
+    where MAC_ID = #{macId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PMS_MAC
+    where MAC_ID = #{macId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.PmsMac">
+    insert into PMS_MAC (MAC_ID, MAC_NO, MAC_NAME, 
+      MAC_MANAGE_STAFF_NO, MAC_MANAGE_STAFF_NAME, EFFECT_FLAG, 
+      CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+      )
+    values (#{macId,jdbcType=VARCHAR}, #{macNo,jdbcType=VARCHAR}, #{macName,jdbcType=VARCHAR}, 
+      #{macManageStaffNo,jdbcType=VARCHAR}, #{macManageStaffName,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, 
+      #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsMac">
+    insert into PMS_MAC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="macId != null">
+        MAC_ID,
+      </if>
+      <if test="macNo != null">
+        MAC_NO,
+      </if>
+      <if test="macName != null">
+        MAC_NAME,
+      </if>
+      <if test="macManageStaffNo != null">
+        MAC_MANAGE_STAFF_NO,
+      </if>
+      <if test="macManageStaffName != null">
+        MAC_MANAGE_STAFF_NAME,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="macId != null">
+        #{macId,jdbcType=VARCHAR},
+      </if>
+      <if test="macNo != null">
+        #{macNo,jdbcType=VARCHAR},
+      </if>
+      <if test="macName != null">
+        #{macName,jdbcType=VARCHAR},
+      </if>
+      <if test="macManageStaffNo != null">
+        #{macManageStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="macManageStaffName != null">
+        #{macManageStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsMac">
+    update PMS_MAC
+    <set>
+      <if test="macNo != null">
+        MAC_NO = #{macNo,jdbcType=VARCHAR},
+      </if>
+      <if test="macName != null">
+        MAC_NAME = #{macName,jdbcType=VARCHAR},
+      </if>
+      <if test="macManageStaffNo != null">
+        MAC_MANAGE_STAFF_NO = #{macManageStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="macManageStaffName != null">
+        MAC_MANAGE_STAFF_NAME = #{macManageStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where MAC_ID = #{macId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsMac">
+    update PMS_MAC
+    set MAC_NO = #{macNo,jdbcType=VARCHAR},
+      MAC_NAME = #{macName,jdbcType=VARCHAR},
+      MAC_MANAGE_STAFF_NO = #{macManageStaffNo,jdbcType=VARCHAR},
+      MAC_MANAGE_STAFF_NAME = #{macManageStaffName,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where MAC_ID = #{macId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsMac">
+    <constructor>
+      <idArg column="MAC_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAC_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAC_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAC_MANAGE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAC_MANAGE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    MAC_ID, MAC_NO, MAC_NAME, MAC_MANAGE_STAFF_NO, MAC_MANAGE_STAFF_NAME, EFFECT_FLAG, 
+    CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PMS_MAC
+    where MAC_ID = #{macId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PMS_MAC
+    where MAC_ID = #{macId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.PmsMac">
+    insert into PMS_MAC (MAC_ID, MAC_NO, MAC_NAME, 
+      MAC_MANAGE_STAFF_NO, MAC_MANAGE_STAFF_NAME, EFFECT_FLAG, 
+      CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+      )
+    values (#{macId,jdbcType=VARCHAR}, #{macNo,jdbcType=VARCHAR}, #{macName,jdbcType=VARCHAR}, 
+      #{macManageStaffNo,jdbcType=VARCHAR}, #{macManageStaffName,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, 
+      #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsMac">
+    insert into PMS_MAC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="macId != null">
+        MAC_ID,
+      </if>
+      <if test="macNo != null">
+        MAC_NO,
+      </if>
+      <if test="macName != null">
+        MAC_NAME,
+      </if>
+      <if test="macManageStaffNo != null">
+        MAC_MANAGE_STAFF_NO,
+      </if>
+      <if test="macManageStaffName != null">
+        MAC_MANAGE_STAFF_NAME,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="macId != null">
+        #{macId,jdbcType=VARCHAR},
+      </if>
+      <if test="macNo != null">
+        #{macNo,jdbcType=VARCHAR},
+      </if>
+      <if test="macName != null">
+        #{macName,jdbcType=VARCHAR},
+      </if>
+      <if test="macManageStaffNo != null">
+        #{macManageStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="macManageStaffName != null">
+        #{macManageStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsMac">
+    update PMS_MAC
+    <set>
+      <if test="macNo != null">
+        MAC_NO = #{macNo,jdbcType=VARCHAR},
+      </if>
+      <if test="macName != null">
+        MAC_NAME = #{macName,jdbcType=VARCHAR},
+      </if>
+      <if test="macManageStaffNo != null">
+        MAC_MANAGE_STAFF_NO = #{macManageStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="macManageStaffName != null">
+        MAC_MANAGE_STAFF_NAME = #{macManageStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where MAC_ID = #{macId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsMac">
+    update PMS_MAC
+    set MAC_NO = #{macNo,jdbcType=VARCHAR},
+      MAC_NAME = #{macName,jdbcType=VARCHAR},
+      MAC_MANAGE_STAFF_NO = #{macManageStaffNo,jdbcType=VARCHAR},
+      MAC_MANAGE_STAFF_NAME = #{macManageStaffName,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where MAC_ID = #{macId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.PmsFlowappOperlogMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsFlowappOperlog">
+    <constructor>
+      <idArg column="OPERLOG_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROCESSINSTID" javaType="java.lang.Integer" jdbcType="DECIMAL" />
+      <arg column="STEPCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EVAL_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EVAL_VALUE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DISPLAY_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STEP_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    OPERLOG_ID, APP_ID, APP_NO, PROCESSINSTID, STEPCODE, EVAL_TYPE, EVAL_VALUE, DISPLAY_FLAG, 
+    STEP_CODE, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PMS_FLOWAPP_OPERLOG
+    where OPERLOG_ID = #{operlogId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PMS_FLOWAPP_OPERLOG
+    where OPERLOG_ID = #{operlogId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.PmsFlowappOperlog">
+    insert into PMS_FLOWAPP_OPERLOG (OPERLOG_ID, APP_ID, APP_NO, 
+      PROCESSINSTID, STEPCODE, EVAL_TYPE, 
+      EVAL_VALUE, DISPLAY_FLAG, STEP_CODE, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE)
+    values (#{operlogId,jdbcType=VARCHAR}, #{appId,jdbcType=VARCHAR}, #{appNo,jdbcType=VARCHAR}, 
+      #{processinstid,jdbcType=DECIMAL}, #{stepcode,jdbcType=VARCHAR}, #{evalType,jdbcType=VARCHAR}, 
+      #{evalValue,jdbcType=VARCHAR}, #{displayFlag,jdbcType=VARCHAR}, #{stepCode,jdbcType=VARCHAR}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsFlowappOperlog">
+    insert into PMS_FLOWAPP_OPERLOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="operlogId != null">
+        OPERLOG_ID,
+      </if>
+      <if test="appId != null">
+        APP_ID,
+      </if>
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="processinstid != null">
+        PROCESSINSTID,
+      </if>
+      <if test="stepcode != null">
+        STEPCODE,
+      </if>
+      <if test="evalType != null">
+        EVAL_TYPE,
+      </if>
+      <if test="evalValue != null">
+        EVAL_VALUE,
+      </if>
+      <if test="displayFlag != null">
+        DISPLAY_FLAG,
+      </if>
+      <if test="stepCode != null">
+        STEP_CODE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operlogId != null">
+        #{operlogId,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="processinstid != null">
+        #{processinstid,jdbcType=DECIMAL},
+      </if>
+      <if test="stepcode != null">
+        #{stepcode,jdbcType=VARCHAR},
+      </if>
+      <if test="evalType != null">
+        #{evalType,jdbcType=VARCHAR},
+      </if>
+      <if test="evalValue != null">
+        #{evalValue,jdbcType=VARCHAR},
+      </if>
+      <if test="displayFlag != null">
+        #{displayFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="stepCode != null">
+        #{stepCode,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsFlowappOperlog">
+    update PMS_FLOWAPP_OPERLOG
+    <set>
+      <if test="appId != null">
+        APP_ID = #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="appNo != null">
+        APP_NO = #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="processinstid != null">
+        PROCESSINSTID = #{processinstid,jdbcType=DECIMAL},
+      </if>
+      <if test="stepcode != null">
+        STEPCODE = #{stepcode,jdbcType=VARCHAR},
+      </if>
+      <if test="evalType != null">
+        EVAL_TYPE = #{evalType,jdbcType=VARCHAR},
+      </if>
+      <if test="evalValue != null">
+        EVAL_VALUE = #{evalValue,jdbcType=VARCHAR},
+      </if>
+      <if test="displayFlag != null">
+        DISPLAY_FLAG = #{displayFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="stepCode != null">
+        STEP_CODE = #{stepCode,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where OPERLOG_ID = #{operlogId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsFlowappOperlog">
+    update PMS_FLOWAPP_OPERLOG
+    set APP_ID = #{appId,jdbcType=VARCHAR},
+      APP_NO = #{appNo,jdbcType=VARCHAR},
+      PROCESSINSTID = #{processinstid,jdbcType=DECIMAL},
+      STEPCODE = #{stepcode,jdbcType=VARCHAR},
+      EVAL_TYPE = #{evalType,jdbcType=VARCHAR},
+      EVAL_VALUE = #{evalValue,jdbcType=VARCHAR},
+      DISPLAY_FLAG = #{displayFlag,jdbcType=VARCHAR},
+      STEP_CODE = #{stepCode,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where OPERLOG_ID = #{operlogId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsFlowappOperlog">
+    <constructor>
+      <idArg column="OPERLOG_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROCESSINSTID" javaType="java.lang.Integer" jdbcType="DECIMAL" />
+      <arg column="STEPCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EVAL_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EVAL_VALUE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DISPLAY_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STEP_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    OPERLOG_ID, APP_ID, APP_NO, PROCESSINSTID, STEPCODE, EVAL_TYPE, EVAL_VALUE, DISPLAY_FLAG, 
+    STEP_CODE, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PMS_FLOWAPP_OPERLOG
+    where OPERLOG_ID = #{operlogId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PMS_FLOWAPP_OPERLOG
+    where OPERLOG_ID = #{operlogId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.PmsFlowappOperlog">
+    insert into PMS_FLOWAPP_OPERLOG (OPERLOG_ID, APP_ID, APP_NO, 
+      PROCESSINSTID, STEPCODE, EVAL_TYPE, 
+      EVAL_VALUE, DISPLAY_FLAG, STEP_CODE, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE)
+    values (#{operlogId,jdbcType=VARCHAR}, #{appId,jdbcType=VARCHAR}, #{appNo,jdbcType=VARCHAR}, 
+      #{processinstid,jdbcType=DECIMAL}, #{stepcode,jdbcType=VARCHAR}, #{evalType,jdbcType=VARCHAR}, 
+      #{evalValue,jdbcType=VARCHAR}, #{displayFlag,jdbcType=VARCHAR}, #{stepCode,jdbcType=VARCHAR}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsFlowappOperlog">
+    insert into PMS_FLOWAPP_OPERLOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="operlogId != null">
+        OPERLOG_ID,
+      </if>
+      <if test="appId != null">
+        APP_ID,
+      </if>
+      <if test="appNo != null">
+        APP_NO,
+      </if>
+      <if test="processinstid != null">
+        PROCESSINSTID,
+      </if>
+      <if test="stepcode != null">
+        STEPCODE,
+      </if>
+      <if test="evalType != null">
+        EVAL_TYPE,
+      </if>
+      <if test="evalValue != null">
+        EVAL_VALUE,
+      </if>
+      <if test="displayFlag != null">
+        DISPLAY_FLAG,
+      </if>
+      <if test="stepCode != null">
+        STEP_CODE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operlogId != null">
+        #{operlogId,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="appNo != null">
+        #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="processinstid != null">
+        #{processinstid,jdbcType=DECIMAL},
+      </if>
+      <if test="stepcode != null">
+        #{stepcode,jdbcType=VARCHAR},
+      </if>
+      <if test="evalType != null">
+        #{evalType,jdbcType=VARCHAR},
+      </if>
+      <if test="evalValue != null">
+        #{evalValue,jdbcType=VARCHAR},
+      </if>
+      <if test="displayFlag != null">
+        #{displayFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="stepCode != null">
+        #{stepCode,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsFlowappOperlog">
+    update PMS_FLOWAPP_OPERLOG
+    <set>
+      <if test="appId != null">
+        APP_ID = #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="appNo != null">
+        APP_NO = #{appNo,jdbcType=VARCHAR},
+      </if>
+      <if test="processinstid != null">
+        PROCESSINSTID = #{processinstid,jdbcType=DECIMAL},
+      </if>
+      <if test="stepcode != null">
+        STEPCODE = #{stepcode,jdbcType=VARCHAR},
+      </if>
+      <if test="evalType != null">
+        EVAL_TYPE = #{evalType,jdbcType=VARCHAR},
+      </if>
+      <if test="evalValue != null">
+        EVAL_VALUE = #{evalValue,jdbcType=VARCHAR},
+      </if>
+      <if test="displayFlag != null">
+        DISPLAY_FLAG = #{displayFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="stepCode != null">
+        STEP_CODE = #{stepCode,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where OPERLOG_ID = #{operlogId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsFlowappOperlog">
+    update PMS_FLOWAPP_OPERLOG
+    set APP_ID = #{appId,jdbcType=VARCHAR},
+      APP_NO = #{appNo,jdbcType=VARCHAR},
+      PROCESSINSTID = #{processinstid,jdbcType=DECIMAL},
+      STEPCODE = #{stepcode,jdbcType=VARCHAR},
+      EVAL_TYPE = #{evalType,jdbcType=VARCHAR},
+      EVAL_VALUE = #{evalValue,jdbcType=VARCHAR},
+      DISPLAY_FLAG = #{displayFlag,jdbcType=VARCHAR},
+      STEP_CODE = #{stepCode,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where OPERLOG_ID = #{operlogId,jdbcType=VARCHAR}
+  </update>
+</mapper>

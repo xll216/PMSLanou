@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.VehiclePermitMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.VehiclePermit">
+    <constructor>
+      <idArg column="VEHICLEPERMIT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PLANT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ENT_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="EXIT_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SAFE_MEASURES" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DIVER_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OTHER_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OTHER_SAFE_MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    VEHICLEPERMIT_ID, PLANT_ID, ENT_DATE, EXIT_DATE, WORK_CONTENT, SAFE_MEASURES, DIVER_NAME, 
+    OTHER_REQ, OTHER_SAFE_MEASURE, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from VEHICLE_PERMIT
+    where VEHICLEPERMIT_ID = #{vehiclepermitId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from VEHICLE_PERMIT
+    where VEHICLEPERMIT_ID = #{vehiclepermitId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.VehiclePermit">
+    insert into VEHICLE_PERMIT (VEHICLEPERMIT_ID, PLANT_ID, ENT_DATE, 
+      EXIT_DATE, WORK_CONTENT, SAFE_MEASURES, 
+      DIVER_NAME, OTHER_REQ, OTHER_SAFE_MEASURE, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE)
+    values (#{vehiclepermitId,jdbcType=VARCHAR}, #{plantId,jdbcType=VARCHAR}, #{entDate,jdbcType=TIMESTAMP}, 
+      #{exitDate,jdbcType=TIMESTAMP}, #{workContent,jdbcType=VARCHAR}, #{safeMeasures,jdbcType=VARCHAR}, 
+      #{diverName,jdbcType=VARCHAR}, #{otherReq,jdbcType=VARCHAR}, #{otherSafeMeasure,jdbcType=VARCHAR}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.VehiclePermit">
+    insert into VEHICLE_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vehiclepermitId != null">
+        VEHICLEPERMIT_ID,
+      </if>
+      <if test="plantId != null">
+        PLANT_ID,
+      </if>
+      <if test="entDate != null">
+        ENT_DATE,
+      </if>
+      <if test="exitDate != null">
+        EXIT_DATE,
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT,
+      </if>
+      <if test="safeMeasures != null">
+        SAFE_MEASURES,
+      </if>
+      <if test="diverName != null">
+        DIVER_NAME,
+      </if>
+      <if test="otherReq != null">
+        OTHER_REQ,
+      </if>
+      <if test="otherSafeMeasure != null">
+        OTHER_SAFE_MEASURE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vehiclepermitId != null">
+        #{vehiclepermitId,jdbcType=VARCHAR},
+      </if>
+      <if test="plantId != null">
+        #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="entDate != null">
+        #{entDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exitDate != null">
+        #{exitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workContent != null">
+        #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="safeMeasures != null">
+        #{safeMeasures,jdbcType=VARCHAR},
+      </if>
+      <if test="diverName != null">
+        #{diverName,jdbcType=VARCHAR},
+      </if>
+      <if test="otherReq != null">
+        #{otherReq,jdbcType=VARCHAR},
+      </if>
+      <if test="otherSafeMeasure != null">
+        #{otherSafeMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.VehiclePermit">
+    update VEHICLE_PERMIT
+    <set>
+      <if test="plantId != null">
+        PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="entDate != null">
+        ENT_DATE = #{entDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exitDate != null">
+        EXIT_DATE = #{exitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="safeMeasures != null">
+        SAFE_MEASURES = #{safeMeasures,jdbcType=VARCHAR},
+      </if>
+      <if test="diverName != null">
+        DIVER_NAME = #{diverName,jdbcType=VARCHAR},
+      </if>
+      <if test="otherReq != null">
+        OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
+      </if>
+      <if test="otherSafeMeasure != null">
+        OTHER_SAFE_MEASURE = #{otherSafeMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where VEHICLEPERMIT_ID = #{vehiclepermitId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.VehiclePermit">
+    update VEHICLE_PERMIT
+    set PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      ENT_DATE = #{entDate,jdbcType=TIMESTAMP},
+      EXIT_DATE = #{exitDate,jdbcType=TIMESTAMP},
+      WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      SAFE_MEASURES = #{safeMeasures,jdbcType=VARCHAR},
+      DIVER_NAME = #{diverName,jdbcType=VARCHAR},
+      OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
+      OTHER_SAFE_MEASURE = #{otherSafeMeasure,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where VEHICLEPERMIT_ID = #{vehiclepermitId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.VehiclePermit">
+    <constructor>
+      <idArg column="VEHICLEPERMIT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PLANT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ENT_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="EXIT_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SAFE_MEASURES" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DIVER_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OTHER_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OTHER_SAFE_MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    VEHICLEPERMIT_ID, PLANT_ID, ENT_DATE, EXIT_DATE, WORK_CONTENT, SAFE_MEASURES, DIVER_NAME, 
+    OTHER_REQ, OTHER_SAFE_MEASURE, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from VEHICLE_PERMIT
+    where VEHICLEPERMIT_ID = #{vehiclepermitId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from VEHICLE_PERMIT
+    where VEHICLEPERMIT_ID = #{vehiclepermitId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.VehiclePermit">
+    insert into VEHICLE_PERMIT (VEHICLEPERMIT_ID, PLANT_ID, ENT_DATE, 
+      EXIT_DATE, WORK_CONTENT, SAFE_MEASURES, 
+      DIVER_NAME, OTHER_REQ, OTHER_SAFE_MEASURE, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE)
+    values (#{vehiclepermitId,jdbcType=VARCHAR}, #{plantId,jdbcType=VARCHAR}, #{entDate,jdbcType=TIMESTAMP}, 
+      #{exitDate,jdbcType=TIMESTAMP}, #{workContent,jdbcType=VARCHAR}, #{safeMeasures,jdbcType=VARCHAR}, 
+      #{diverName,jdbcType=VARCHAR}, #{otherReq,jdbcType=VARCHAR}, #{otherSafeMeasure,jdbcType=VARCHAR}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.VehiclePermit">
+    insert into VEHICLE_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vehiclepermitId != null">
+        VEHICLEPERMIT_ID,
+      </if>
+      <if test="plantId != null">
+        PLANT_ID,
+      </if>
+      <if test="entDate != null">
+        ENT_DATE,
+      </if>
+      <if test="exitDate != null">
+        EXIT_DATE,
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT,
+      </if>
+      <if test="safeMeasures != null">
+        SAFE_MEASURES,
+      </if>
+      <if test="diverName != null">
+        DIVER_NAME,
+      </if>
+      <if test="otherReq != null">
+        OTHER_REQ,
+      </if>
+      <if test="otherSafeMeasure != null">
+        OTHER_SAFE_MEASURE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vehiclepermitId != null">
+        #{vehiclepermitId,jdbcType=VARCHAR},
+      </if>
+      <if test="plantId != null">
+        #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="entDate != null">
+        #{entDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exitDate != null">
+        #{exitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workContent != null">
+        #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="safeMeasures != null">
+        #{safeMeasures,jdbcType=VARCHAR},
+      </if>
+      <if test="diverName != null">
+        #{diverName,jdbcType=VARCHAR},
+      </if>
+      <if test="otherReq != null">
+        #{otherReq,jdbcType=VARCHAR},
+      </if>
+      <if test="otherSafeMeasure != null">
+        #{otherSafeMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.VehiclePermit">
+    update VEHICLE_PERMIT
+    <set>
+      <if test="plantId != null">
+        PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="entDate != null">
+        ENT_DATE = #{entDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exitDate != null">
+        EXIT_DATE = #{exitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="safeMeasures != null">
+        SAFE_MEASURES = #{safeMeasures,jdbcType=VARCHAR},
+      </if>
+      <if test="diverName != null">
+        DIVER_NAME = #{diverName,jdbcType=VARCHAR},
+      </if>
+      <if test="otherReq != null">
+        OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
+      </if>
+      <if test="otherSafeMeasure != null">
+        OTHER_SAFE_MEASURE = #{otherSafeMeasure,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where VEHICLEPERMIT_ID = #{vehiclepermitId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.VehiclePermit">
+    update VEHICLE_PERMIT
+    set PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      ENT_DATE = #{entDate,jdbcType=TIMESTAMP},
+      EXIT_DATE = #{exitDate,jdbcType=TIMESTAMP},
+      WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      SAFE_MEASURES = #{safeMeasures,jdbcType=VARCHAR},
+      DIVER_NAME = #{diverName,jdbcType=VARCHAR},
+      OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
+      OTHER_SAFE_MEASURE = #{otherSafeMeasure,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where VEHICLEPERMIT_ID = #{vehiclepermitId,jdbcType=VARCHAR}
+  </update>
+</mapper>

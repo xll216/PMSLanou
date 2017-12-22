@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.PmsBusiPrintMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsBusiPrint">
+    <constructor>
+      <idArg column="PRINT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROCESSINSTID" javaType="java.lang.Integer" jdbcType="DECIMAL" />
+      <arg column="PRINT_PATH" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PRINT_TEMP_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STEP_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    PRINT_ID, PROCESSINSTID, PRINT_PATH, PRINT_TEMP_NAME, STEP_CODE, EFFECT_FLAG, CREATE_STAFF_NO, 
+    CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PMS_BUSI_PRINT
+    where PRINT_ID = #{printId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PMS_BUSI_PRINT
+    where PRINT_ID = #{printId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.PmsBusiPrint">
+    insert into PMS_BUSI_PRINT (PRINT_ID, PROCESSINSTID, PRINT_PATH, 
+      PRINT_TEMP_NAME, STEP_CODE, EFFECT_FLAG, 
+      CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+      )
+    values (#{printId,jdbcType=VARCHAR}, #{processinstid,jdbcType=DECIMAL}, #{printPath,jdbcType=VARCHAR}, 
+      #{printTempName,jdbcType=VARCHAR}, #{stepCode,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, 
+      #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsBusiPrint">
+    insert into PMS_BUSI_PRINT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="printId != null">
+        PRINT_ID,
+      </if>
+      <if test="processinstid != null">
+        PROCESSINSTID,
+      </if>
+      <if test="printPath != null">
+        PRINT_PATH,
+      </if>
+      <if test="printTempName != null">
+        PRINT_TEMP_NAME,
+      </if>
+      <if test="stepCode != null">
+        STEP_CODE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="printId != null">
+        #{printId,jdbcType=VARCHAR},
+      </if>
+      <if test="processinstid != null">
+        #{processinstid,jdbcType=DECIMAL},
+      </if>
+      <if test="printPath != null">
+        #{printPath,jdbcType=VARCHAR},
+      </if>
+      <if test="printTempName != null">
+        #{printTempName,jdbcType=VARCHAR},
+      </if>
+      <if test="stepCode != null">
+        #{stepCode,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsBusiPrint">
+    update PMS_BUSI_PRINT
+    <set>
+      <if test="processinstid != null">
+        PROCESSINSTID = #{processinstid,jdbcType=DECIMAL},
+      </if>
+      <if test="printPath != null">
+        PRINT_PATH = #{printPath,jdbcType=VARCHAR},
+      </if>
+      <if test="printTempName != null">
+        PRINT_TEMP_NAME = #{printTempName,jdbcType=VARCHAR},
+      </if>
+      <if test="stepCode != null">
+        STEP_CODE = #{stepCode,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PRINT_ID = #{printId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsBusiPrint">
+    update PMS_BUSI_PRINT
+    set PROCESSINSTID = #{processinstid,jdbcType=DECIMAL},
+      PRINT_PATH = #{printPath,jdbcType=VARCHAR},
+      PRINT_TEMP_NAME = #{printTempName,jdbcType=VARCHAR},
+      STEP_CODE = #{stepCode,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where PRINT_ID = #{printId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsBusiPrint">
+    <constructor>
+      <idArg column="PRINT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROCESSINSTID" javaType="java.lang.Integer" jdbcType="DECIMAL" />
+      <arg column="PRINT_PATH" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PRINT_TEMP_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STEP_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    PRINT_ID, PROCESSINSTID, PRINT_PATH, PRINT_TEMP_NAME, STEP_CODE, EFFECT_FLAG, CREATE_STAFF_NO, 
+    CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PMS_BUSI_PRINT
+    where PRINT_ID = #{printId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PMS_BUSI_PRINT
+    where PRINT_ID = #{printId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.PmsBusiPrint">
+    insert into PMS_BUSI_PRINT (PRINT_ID, PROCESSINSTID, PRINT_PATH, 
+      PRINT_TEMP_NAME, STEP_CODE, EFFECT_FLAG, 
+      CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+      )
+    values (#{printId,jdbcType=VARCHAR}, #{processinstid,jdbcType=DECIMAL}, #{printPath,jdbcType=VARCHAR}, 
+      #{printTempName,jdbcType=VARCHAR}, #{stepCode,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, 
+      #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsBusiPrint">
+    insert into PMS_BUSI_PRINT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="printId != null">
+        PRINT_ID,
+      </if>
+      <if test="processinstid != null">
+        PROCESSINSTID,
+      </if>
+      <if test="printPath != null">
+        PRINT_PATH,
+      </if>
+      <if test="printTempName != null">
+        PRINT_TEMP_NAME,
+      </if>
+      <if test="stepCode != null">
+        STEP_CODE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="printId != null">
+        #{printId,jdbcType=VARCHAR},
+      </if>
+      <if test="processinstid != null">
+        #{processinstid,jdbcType=DECIMAL},
+      </if>
+      <if test="printPath != null">
+        #{printPath,jdbcType=VARCHAR},
+      </if>
+      <if test="printTempName != null">
+        #{printTempName,jdbcType=VARCHAR},
+      </if>
+      <if test="stepCode != null">
+        #{stepCode,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsBusiPrint">
+    update PMS_BUSI_PRINT
+    <set>
+      <if test="processinstid != null">
+        PROCESSINSTID = #{processinstid,jdbcType=DECIMAL},
+      </if>
+      <if test="printPath != null">
+        PRINT_PATH = #{printPath,jdbcType=VARCHAR},
+      </if>
+      <if test="printTempName != null">
+        PRINT_TEMP_NAME = #{printTempName,jdbcType=VARCHAR},
+      </if>
+      <if test="stepCode != null">
+        STEP_CODE = #{stepCode,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PRINT_ID = #{printId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsBusiPrint">
+    update PMS_BUSI_PRINT
+    set PROCESSINSTID = #{processinstid,jdbcType=DECIMAL},
+      PRINT_PATH = #{printPath,jdbcType=VARCHAR},
+      PRINT_TEMP_NAME = #{printTempName,jdbcType=VARCHAR},
+      STEP_CODE = #{stepCode,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where PRINT_ID = #{printId,jdbcType=VARCHAR}
+  </update>
+</mapper>

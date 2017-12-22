@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.FireprotdoorOpenPermitMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireprotdoorOpenPermit">
+    <constructor>
+      <idArg column="OPEN_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PLANT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_REASON" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="APP_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="CONTIUE_MONITOR_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_DEPT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_DEPT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORKSTAFF_LINK_PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INVAL_MONITOR_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MONITOR_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MONITOR_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MONITOR_STAFF_PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    OPEN_ID, PLANT_ID, APP_REASON, APP_BEG_DATE, APP_END_DATE, CONTIUE_MONITOR_FLAG, 
+    WORK_DEPT_ID, WORK_DEPT_NAME, WORK_STAFF_NO, WORK_STAFF_NAME, WORKSTAFF_LINK_PHONE, 
+    INVAL_MONITOR_FLAG, MONITOR_STAFF_NO, MONITOR_STAFF_NAME, MONITOR_STAFF_PHONE, EFFECT_FLAG, 
+    CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FIREPROTDOOR_OPEN_PERMIT
+    where OPEN_ID = #{openId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FIREPROTDOOR_OPEN_PERMIT
+    where OPEN_ID = #{openId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FireprotdoorOpenPermit">
+    insert into FIREPROTDOOR_OPEN_PERMIT (OPEN_ID, PLANT_ID, APP_REASON, 
+      APP_BEG_DATE, APP_END_DATE, CONTIUE_MONITOR_FLAG, 
+      WORK_DEPT_ID, WORK_DEPT_NAME, WORK_STAFF_NO, 
+      WORK_STAFF_NAME, WORKSTAFF_LINK_PHONE, INVAL_MONITOR_FLAG, 
+      MONITOR_STAFF_NO, MONITOR_STAFF_NAME, MONITOR_STAFF_PHONE, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE)
+    values (#{openId,jdbcType=VARCHAR}, #{plantId,jdbcType=VARCHAR}, #{appReason,jdbcType=VARCHAR}, 
+      #{appBegDate,jdbcType=TIMESTAMP}, #{appEndDate,jdbcType=TIMESTAMP}, #{contiueMonitorFlag,jdbcType=VARCHAR}, 
+      #{workDeptId,jdbcType=VARCHAR}, #{workDeptName,jdbcType=VARCHAR}, #{workStaffNo,jdbcType=VARCHAR}, 
+      #{workStaffName,jdbcType=VARCHAR}, #{workstaffLinkPhone,jdbcType=VARCHAR}, #{invalMonitorFlag,jdbcType=VARCHAR}, 
+      #{monitorStaffNo,jdbcType=VARCHAR}, #{monitorStaffName,jdbcType=VARCHAR}, #{monitorStaffPhone,jdbcType=VARCHAR}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireprotdoorOpenPermit">
+    insert into FIREPROTDOOR_OPEN_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="openId != null">
+        OPEN_ID,
+      </if>
+      <if test="plantId != null">
+        PLANT_ID,
+      </if>
+      <if test="appReason != null">
+        APP_REASON,
+      </if>
+      <if test="appBegDate != null">
+        APP_BEG_DATE,
+      </if>
+      <if test="appEndDate != null">
+        APP_END_DATE,
+      </if>
+      <if test="contiueMonitorFlag != null">
+        CONTIUE_MONITOR_FLAG,
+      </if>
+      <if test="workDeptId != null">
+        WORK_DEPT_ID,
+      </if>
+      <if test="workDeptName != null">
+        WORK_DEPT_NAME,
+      </if>
+      <if test="workStaffNo != null">
+        WORK_STAFF_NO,
+      </if>
+      <if test="workStaffName != null">
+        WORK_STAFF_NAME,
+      </if>
+      <if test="workstaffLinkPhone != null">
+        WORKSTAFF_LINK_PHONE,
+      </if>
+      <if test="invalMonitorFlag != null">
+        INVAL_MONITOR_FLAG,
+      </if>
+      <if test="monitorStaffNo != null">
+        MONITOR_STAFF_NO,
+      </if>
+      <if test="monitorStaffName != null">
+        MONITOR_STAFF_NAME,
+      </if>
+      <if test="monitorStaffPhone != null">
+        MONITOR_STAFF_PHONE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="plantId != null">
+        #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="appReason != null">
+        #{appReason,jdbcType=VARCHAR},
+      </if>
+      <if test="appBegDate != null">
+        #{appBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appEndDate != null">
+        #{appEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contiueMonitorFlag != null">
+        #{contiueMonitorFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="workDeptId != null">
+        #{workDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="workDeptName != null">
+        #{workDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="workStaffNo != null">
+        #{workStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workStaffName != null">
+        #{workStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="workstaffLinkPhone != null">
+        #{workstaffLinkPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="invalMonitorFlag != null">
+        #{invalMonitorFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorStaffNo != null">
+        #{monitorStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorStaffName != null">
+        #{monitorStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorStaffPhone != null">
+        #{monitorStaffPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireprotdoorOpenPermit">
+    update FIREPROTDOOR_OPEN_PERMIT
+    <set>
+      <if test="plantId != null">
+        PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="appReason != null">
+        APP_REASON = #{appReason,jdbcType=VARCHAR},
+      </if>
+      <if test="appBegDate != null">
+        APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appEndDate != null">
+        APP_END_DATE = #{appEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contiueMonitorFlag != null">
+        CONTIUE_MONITOR_FLAG = #{contiueMonitorFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="workDeptId != null">
+        WORK_DEPT_ID = #{workDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="workDeptName != null">
+        WORK_DEPT_NAME = #{workDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="workStaffNo != null">
+        WORK_STAFF_NO = #{workStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workStaffName != null">
+        WORK_STAFF_NAME = #{workStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="workstaffLinkPhone != null">
+        WORKSTAFF_LINK_PHONE = #{workstaffLinkPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="invalMonitorFlag != null">
+        INVAL_MONITOR_FLAG = #{invalMonitorFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorStaffNo != null">
+        MONITOR_STAFF_NO = #{monitorStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorStaffName != null">
+        MONITOR_STAFF_NAME = #{monitorStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorStaffPhone != null">
+        MONITOR_STAFF_PHONE = #{monitorStaffPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where OPEN_ID = #{openId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireprotdoorOpenPermit">
+    update FIREPROTDOOR_OPEN_PERMIT
+    set PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      APP_REASON = #{appReason,jdbcType=VARCHAR},
+      APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
+      APP_END_DATE = #{appEndDate,jdbcType=TIMESTAMP},
+      CONTIUE_MONITOR_FLAG = #{contiueMonitorFlag,jdbcType=VARCHAR},
+      WORK_DEPT_ID = #{workDeptId,jdbcType=VARCHAR},
+      WORK_DEPT_NAME = #{workDeptName,jdbcType=VARCHAR},
+      WORK_STAFF_NO = #{workStaffNo,jdbcType=VARCHAR},
+      WORK_STAFF_NAME = #{workStaffName,jdbcType=VARCHAR},
+      WORKSTAFF_LINK_PHONE = #{workstaffLinkPhone,jdbcType=VARCHAR},
+      INVAL_MONITOR_FLAG = #{invalMonitorFlag,jdbcType=VARCHAR},
+      MONITOR_STAFF_NO = #{monitorStaffNo,jdbcType=VARCHAR},
+      MONITOR_STAFF_NAME = #{monitorStaffName,jdbcType=VARCHAR},
+      MONITOR_STAFF_PHONE = #{monitorStaffPhone,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where OPEN_ID = #{openId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireprotdoorOpenPermit">
+    <constructor>
+      <idArg column="OPEN_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PLANT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_REASON" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="APP_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="CONTIUE_MONITOR_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_DEPT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_DEPT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORKSTAFF_LINK_PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INVAL_MONITOR_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MONITOR_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MONITOR_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MONITOR_STAFF_PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    OPEN_ID, PLANT_ID, APP_REASON, APP_BEG_DATE, APP_END_DATE, CONTIUE_MONITOR_FLAG, 
+    WORK_DEPT_ID, WORK_DEPT_NAME, WORK_STAFF_NO, WORK_STAFF_NAME, WORKSTAFF_LINK_PHONE, 
+    INVAL_MONITOR_FLAG, MONITOR_STAFF_NO, MONITOR_STAFF_NAME, MONITOR_STAFF_PHONE, EFFECT_FLAG, 
+    CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FIREPROTDOOR_OPEN_PERMIT
+    where OPEN_ID = #{openId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FIREPROTDOOR_OPEN_PERMIT
+    where OPEN_ID = #{openId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FireprotdoorOpenPermit">
+    insert into FIREPROTDOOR_OPEN_PERMIT (OPEN_ID, PLANT_ID, APP_REASON, 
+      APP_BEG_DATE, APP_END_DATE, CONTIUE_MONITOR_FLAG, 
+      WORK_DEPT_ID, WORK_DEPT_NAME, WORK_STAFF_NO, 
+      WORK_STAFF_NAME, WORKSTAFF_LINK_PHONE, INVAL_MONITOR_FLAG, 
+      MONITOR_STAFF_NO, MONITOR_STAFF_NAME, MONITOR_STAFF_PHONE, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE)
+    values (#{openId,jdbcType=VARCHAR}, #{plantId,jdbcType=VARCHAR}, #{appReason,jdbcType=VARCHAR}, 
+      #{appBegDate,jdbcType=TIMESTAMP}, #{appEndDate,jdbcType=TIMESTAMP}, #{contiueMonitorFlag,jdbcType=VARCHAR}, 
+      #{workDeptId,jdbcType=VARCHAR}, #{workDeptName,jdbcType=VARCHAR}, #{workStaffNo,jdbcType=VARCHAR}, 
+      #{workStaffName,jdbcType=VARCHAR}, #{workstaffLinkPhone,jdbcType=VARCHAR}, #{invalMonitorFlag,jdbcType=VARCHAR}, 
+      #{monitorStaffNo,jdbcType=VARCHAR}, #{monitorStaffName,jdbcType=VARCHAR}, #{monitorStaffPhone,jdbcType=VARCHAR}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireprotdoorOpenPermit">
+    insert into FIREPROTDOOR_OPEN_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="openId != null">
+        OPEN_ID,
+      </if>
+      <if test="plantId != null">
+        PLANT_ID,
+      </if>
+      <if test="appReason != null">
+        APP_REASON,
+      </if>
+      <if test="appBegDate != null">
+        APP_BEG_DATE,
+      </if>
+      <if test="appEndDate != null">
+        APP_END_DATE,
+      </if>
+      <if test="contiueMonitorFlag != null">
+        CONTIUE_MONITOR_FLAG,
+      </if>
+      <if test="workDeptId != null">
+        WORK_DEPT_ID,
+      </if>
+      <if test="workDeptName != null">
+        WORK_DEPT_NAME,
+      </if>
+      <if test="workStaffNo != null">
+        WORK_STAFF_NO,
+      </if>
+      <if test="workStaffName != null">
+        WORK_STAFF_NAME,
+      </if>
+      <if test="workstaffLinkPhone != null">
+        WORKSTAFF_LINK_PHONE,
+      </if>
+      <if test="invalMonitorFlag != null">
+        INVAL_MONITOR_FLAG,
+      </if>
+      <if test="monitorStaffNo != null">
+        MONITOR_STAFF_NO,
+      </if>
+      <if test="monitorStaffName != null">
+        MONITOR_STAFF_NAME,
+      </if>
+      <if test="monitorStaffPhone != null">
+        MONITOR_STAFF_PHONE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="plantId != null">
+        #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="appReason != null">
+        #{appReason,jdbcType=VARCHAR},
+      </if>
+      <if test="appBegDate != null">
+        #{appBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appEndDate != null">
+        #{appEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contiueMonitorFlag != null">
+        #{contiueMonitorFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="workDeptId != null">
+        #{workDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="workDeptName != null">
+        #{workDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="workStaffNo != null">
+        #{workStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workStaffName != null">
+        #{workStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="workstaffLinkPhone != null">
+        #{workstaffLinkPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="invalMonitorFlag != null">
+        #{invalMonitorFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorStaffNo != null">
+        #{monitorStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorStaffName != null">
+        #{monitorStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorStaffPhone != null">
+        #{monitorStaffPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireprotdoorOpenPermit">
+    update FIREPROTDOOR_OPEN_PERMIT
+    <set>
+      <if test="plantId != null">
+        PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="appReason != null">
+        APP_REASON = #{appReason,jdbcType=VARCHAR},
+      </if>
+      <if test="appBegDate != null">
+        APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appEndDate != null">
+        APP_END_DATE = #{appEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contiueMonitorFlag != null">
+        CONTIUE_MONITOR_FLAG = #{contiueMonitorFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="workDeptId != null">
+        WORK_DEPT_ID = #{workDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="workDeptName != null">
+        WORK_DEPT_NAME = #{workDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="workStaffNo != null">
+        WORK_STAFF_NO = #{workStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workStaffName != null">
+        WORK_STAFF_NAME = #{workStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="workstaffLinkPhone != null">
+        WORKSTAFF_LINK_PHONE = #{workstaffLinkPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="invalMonitorFlag != null">
+        INVAL_MONITOR_FLAG = #{invalMonitorFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorStaffNo != null">
+        MONITOR_STAFF_NO = #{monitorStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorStaffName != null">
+        MONITOR_STAFF_NAME = #{monitorStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="monitorStaffPhone != null">
+        MONITOR_STAFF_PHONE = #{monitorStaffPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where OPEN_ID = #{openId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireprotdoorOpenPermit">
+    update FIREPROTDOOR_OPEN_PERMIT
+    set PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      APP_REASON = #{appReason,jdbcType=VARCHAR},
+      APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
+      APP_END_DATE = #{appEndDate,jdbcType=TIMESTAMP},
+      CONTIUE_MONITOR_FLAG = #{contiueMonitorFlag,jdbcType=VARCHAR},
+      WORK_DEPT_ID = #{workDeptId,jdbcType=VARCHAR},
+      WORK_DEPT_NAME = #{workDeptName,jdbcType=VARCHAR},
+      WORK_STAFF_NO = #{workStaffNo,jdbcType=VARCHAR},
+      WORK_STAFF_NAME = #{workStaffName,jdbcType=VARCHAR},
+      WORKSTAFF_LINK_PHONE = #{workstaffLinkPhone,jdbcType=VARCHAR},
+      INVAL_MONITOR_FLAG = #{invalMonitorFlag,jdbcType=VARCHAR},
+      MONITOR_STAFF_NO = #{monitorStaffNo,jdbcType=VARCHAR},
+      MONITOR_STAFF_NAME = #{monitorStaffName,jdbcType=VARCHAR},
+      MONITOR_STAFF_PHONE = #{monitorStaffPhone,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where OPEN_ID = #{openId,jdbcType=VARCHAR}
+  </update>
+</mapper>

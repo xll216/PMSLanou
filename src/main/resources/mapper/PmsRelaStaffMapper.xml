@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.PmsRelaStaffMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsRelaStaff">
+    <constructor>
+      <idArg column="RELA_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RELA_BUSI_TABLE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RELA_BUSI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RELA_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CARD_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PASSCARD_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ORG_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OTHER_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    RELA_ID, RELA_BUSI_TABLE, RELA_BUSI_ID, RELA_DESC, STAFF_NO, STAFF_NAME, CARD_NO, 
+    PASSCARD_NO, ORG_NAME, OTHER_DESC, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PMS_RELA_STAFF
+    where RELA_ID = #{relaId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PMS_RELA_STAFF
+    where RELA_ID = #{relaId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.PmsRelaStaff">
+    insert into PMS_RELA_STAFF (RELA_ID, RELA_BUSI_TABLE, RELA_BUSI_ID, 
+      RELA_DESC, STAFF_NO, STAFF_NAME, 
+      CARD_NO, PASSCARD_NO, ORG_NAME, 
+      OTHER_DESC, REMARK)
+    values (#{relaId,jdbcType=VARCHAR}, #{relaBusiTable,jdbcType=VARCHAR}, #{relaBusiId,jdbcType=VARCHAR}, 
+      #{relaDesc,jdbcType=VARCHAR}, #{staffNo,jdbcType=VARCHAR}, #{staffName,jdbcType=VARCHAR}, 
+      #{cardNo,jdbcType=VARCHAR}, #{passcardNo,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, 
+      #{otherDesc,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsRelaStaff">
+    insert into PMS_RELA_STAFF
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="relaId != null">
+        RELA_ID,
+      </if>
+      <if test="relaBusiTable != null">
+        RELA_BUSI_TABLE,
+      </if>
+      <if test="relaBusiId != null">
+        RELA_BUSI_ID,
+      </if>
+      <if test="relaDesc != null">
+        RELA_DESC,
+      </if>
+      <if test="staffNo != null">
+        STAFF_NO,
+      </if>
+      <if test="staffName != null">
+        STAFF_NAME,
+      </if>
+      <if test="cardNo != null">
+        CARD_NO,
+      </if>
+      <if test="passcardNo != null">
+        PASSCARD_NO,
+      </if>
+      <if test="orgName != null">
+        ORG_NAME,
+      </if>
+      <if test="otherDesc != null">
+        OTHER_DESC,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="relaId != null">
+        #{relaId,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiTable != null">
+        #{relaBusiTable,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiId != null">
+        #{relaBusiId,jdbcType=VARCHAR},
+      </if>
+      <if test="relaDesc != null">
+        #{relaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="staffNo != null">
+        #{staffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="staffName != null">
+        #{staffName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="passcardNo != null">
+        #{passcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null">
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="otherDesc != null">
+        #{otherDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsRelaStaff">
+    update PMS_RELA_STAFF
+    <set>
+      <if test="relaBusiTable != null">
+        RELA_BUSI_TABLE = #{relaBusiTable,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiId != null">
+        RELA_BUSI_ID = #{relaBusiId,jdbcType=VARCHAR},
+      </if>
+      <if test="relaDesc != null">
+        RELA_DESC = #{relaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="staffNo != null">
+        STAFF_NO = #{staffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="staffName != null">
+        STAFF_NAME = #{staffName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="passcardNo != null">
+        PASSCARD_NO = #{passcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null">
+        ORG_NAME = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="otherDesc != null">
+        OTHER_DESC = #{otherDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RELA_ID = #{relaId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsRelaStaff">
+    update PMS_RELA_STAFF
+    set RELA_BUSI_TABLE = #{relaBusiTable,jdbcType=VARCHAR},
+      RELA_BUSI_ID = #{relaBusiId,jdbcType=VARCHAR},
+      RELA_DESC = #{relaDesc,jdbcType=VARCHAR},
+      STAFF_NO = #{staffNo,jdbcType=VARCHAR},
+      STAFF_NAME = #{staffName,jdbcType=VARCHAR},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      PASSCARD_NO = #{passcardNo,jdbcType=VARCHAR},
+      ORG_NAME = #{orgName,jdbcType=VARCHAR},
+      OTHER_DESC = #{otherDesc,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where RELA_ID = #{relaId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsRelaStaff">
+    <constructor>
+      <idArg column="RELA_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RELA_BUSI_TABLE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RELA_BUSI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RELA_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CARD_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PASSCARD_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ORG_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OTHER_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    RELA_ID, RELA_BUSI_TABLE, RELA_BUSI_ID, RELA_DESC, STAFF_NO, STAFF_NAME, CARD_NO, 
+    PASSCARD_NO, ORG_NAME, OTHER_DESC, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PMS_RELA_STAFF
+    where RELA_ID = #{relaId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PMS_RELA_STAFF
+    where RELA_ID = #{relaId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.PmsRelaStaff">
+    insert into PMS_RELA_STAFF (RELA_ID, RELA_BUSI_TABLE, RELA_BUSI_ID, 
+      RELA_DESC, STAFF_NO, STAFF_NAME, 
+      CARD_NO, PASSCARD_NO, ORG_NAME, 
+      OTHER_DESC, REMARK)
+    values (#{relaId,jdbcType=VARCHAR}, #{relaBusiTable,jdbcType=VARCHAR}, #{relaBusiId,jdbcType=VARCHAR}, 
+      #{relaDesc,jdbcType=VARCHAR}, #{staffNo,jdbcType=VARCHAR}, #{staffName,jdbcType=VARCHAR}, 
+      #{cardNo,jdbcType=VARCHAR}, #{passcardNo,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, 
+      #{otherDesc,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsRelaStaff">
+    insert into PMS_RELA_STAFF
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="relaId != null">
+        RELA_ID,
+      </if>
+      <if test="relaBusiTable != null">
+        RELA_BUSI_TABLE,
+      </if>
+      <if test="relaBusiId != null">
+        RELA_BUSI_ID,
+      </if>
+      <if test="relaDesc != null">
+        RELA_DESC,
+      </if>
+      <if test="staffNo != null">
+        STAFF_NO,
+      </if>
+      <if test="staffName != null">
+        STAFF_NAME,
+      </if>
+      <if test="cardNo != null">
+        CARD_NO,
+      </if>
+      <if test="passcardNo != null">
+        PASSCARD_NO,
+      </if>
+      <if test="orgName != null">
+        ORG_NAME,
+      </if>
+      <if test="otherDesc != null">
+        OTHER_DESC,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="relaId != null">
+        #{relaId,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiTable != null">
+        #{relaBusiTable,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiId != null">
+        #{relaBusiId,jdbcType=VARCHAR},
+      </if>
+      <if test="relaDesc != null">
+        #{relaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="staffNo != null">
+        #{staffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="staffName != null">
+        #{staffName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="passcardNo != null">
+        #{passcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null">
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="otherDesc != null">
+        #{otherDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsRelaStaff">
+    update PMS_RELA_STAFF
+    <set>
+      <if test="relaBusiTable != null">
+        RELA_BUSI_TABLE = #{relaBusiTable,jdbcType=VARCHAR},
+      </if>
+      <if test="relaBusiId != null">
+        RELA_BUSI_ID = #{relaBusiId,jdbcType=VARCHAR},
+      </if>
+      <if test="relaDesc != null">
+        RELA_DESC = #{relaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="staffNo != null">
+        STAFF_NO = #{staffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="staffName != null">
+        STAFF_NAME = #{staffName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="passcardNo != null">
+        PASSCARD_NO = #{passcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null">
+        ORG_NAME = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="otherDesc != null">
+        OTHER_DESC = #{otherDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RELA_ID = #{relaId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsRelaStaff">
+    update PMS_RELA_STAFF
+    set RELA_BUSI_TABLE = #{relaBusiTable,jdbcType=VARCHAR},
+      RELA_BUSI_ID = #{relaBusiId,jdbcType=VARCHAR},
+      RELA_DESC = #{relaDesc,jdbcType=VARCHAR},
+      STAFF_NO = #{staffNo,jdbcType=VARCHAR},
+      STAFF_NAME = #{staffName,jdbcType=VARCHAR},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      PASSCARD_NO = #{passcardNo,jdbcType=VARCHAR},
+      ORG_NAME = #{orgName,jdbcType=VARCHAR},
+      OTHER_DESC = #{otherDesc,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where RELA_ID = #{relaId,jdbcType=VARCHAR}
+  </update>
+</mapper>

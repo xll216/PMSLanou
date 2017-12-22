@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.UrgentPaymentMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.UrgentPayment">
+    <constructor>
+      <idArg column="URGPAYMENT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROJ_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SUPPLIER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PAY_FEE" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAY_REASON" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="DEPT_MANAGER" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    URGPAYMENT_ID, PROJ_NAME, SUPPLIER, PAY_FEE, PAY_REASON, REMARK, EFFECT_FLAG, CREATE_STAFF_NO, 
+    CREATE_STAFF_NAME, CREATE_DATE, DEPT_MANAGER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from URGENT_PAYMENT
+    where URGPAYMENT_ID = #{urgpaymentId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from URGENT_PAYMENT
+    where URGPAYMENT_ID = #{urgpaymentId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.UrgentPayment">
+    insert into URGENT_PAYMENT (URGPAYMENT_ID, PROJ_NAME, SUPPLIER, 
+      PAY_FEE, PAY_REASON, REMARK, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE, DEPT_MANAGER)
+    values (#{urgpaymentId,jdbcType=VARCHAR}, #{projName,jdbcType=VARCHAR}, #{supplier,jdbcType=VARCHAR}, 
+      #{payFee,jdbcType=DECIMAL}, #{payReason,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{deptManager,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.UrgentPayment">
+    insert into URGENT_PAYMENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="urgpaymentId != null">
+        URGPAYMENT_ID,
+      </if>
+      <if test="projName != null">
+        PROJ_NAME,
+      </if>
+      <if test="supplier != null">
+        SUPPLIER,
+      </if>
+      <if test="payFee != null">
+        PAY_FEE,
+      </if>
+      <if test="payReason != null">
+        PAY_REASON,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="deptManager != null">
+        DEPT_MANAGER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="urgpaymentId != null">
+        #{urgpaymentId,jdbcType=VARCHAR},
+      </if>
+      <if test="projName != null">
+        #{projName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplier != null">
+        #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="payFee != null">
+        #{payFee,jdbcType=DECIMAL},
+      </if>
+      <if test="payReason != null">
+        #{payReason,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deptManager != null">
+        #{deptManager,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.UrgentPayment">
+    update URGENT_PAYMENT
+    <set>
+      <if test="projName != null">
+        PROJ_NAME = #{projName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplier != null">
+        SUPPLIER = #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="payFee != null">
+        PAY_FEE = #{payFee,jdbcType=DECIMAL},
+      </if>
+      <if test="payReason != null">
+        PAY_REASON = #{payReason,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deptManager != null">
+        DEPT_MANAGER = #{deptManager,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where URGPAYMENT_ID = #{urgpaymentId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.UrgentPayment">
+    update URGENT_PAYMENT
+    set PROJ_NAME = #{projName,jdbcType=VARCHAR},
+      SUPPLIER = #{supplier,jdbcType=VARCHAR},
+      PAY_FEE = #{payFee,jdbcType=DECIMAL},
+      PAY_REASON = #{payReason,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      DEPT_MANAGER = #{deptManager,jdbcType=VARCHAR}
+    where URGPAYMENT_ID = #{urgpaymentId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.UrgentPayment">
+    <constructor>
+      <idArg column="URGPAYMENT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROJ_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SUPPLIER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PAY_FEE" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAY_REASON" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="DEPT_MANAGER" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    URGPAYMENT_ID, PROJ_NAME, SUPPLIER, PAY_FEE, PAY_REASON, REMARK, EFFECT_FLAG, CREATE_STAFF_NO, 
+    CREATE_STAFF_NAME, CREATE_DATE, DEPT_MANAGER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from URGENT_PAYMENT
+    where URGPAYMENT_ID = #{urgpaymentId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from URGENT_PAYMENT
+    where URGPAYMENT_ID = #{urgpaymentId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.UrgentPayment">
+    insert into URGENT_PAYMENT (URGPAYMENT_ID, PROJ_NAME, SUPPLIER, 
+      PAY_FEE, PAY_REASON, REMARK, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE, DEPT_MANAGER)
+    values (#{urgpaymentId,jdbcType=VARCHAR}, #{projName,jdbcType=VARCHAR}, #{supplier,jdbcType=VARCHAR}, 
+      #{payFee,jdbcType=DECIMAL}, #{payReason,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{deptManager,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.UrgentPayment">
+    insert into URGENT_PAYMENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="urgpaymentId != null">
+        URGPAYMENT_ID,
+      </if>
+      <if test="projName != null">
+        PROJ_NAME,
+      </if>
+      <if test="supplier != null">
+        SUPPLIER,
+      </if>
+      <if test="payFee != null">
+        PAY_FEE,
+      </if>
+      <if test="payReason != null">
+        PAY_REASON,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="deptManager != null">
+        DEPT_MANAGER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="urgpaymentId != null">
+        #{urgpaymentId,jdbcType=VARCHAR},
+      </if>
+      <if test="projName != null">
+        #{projName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplier != null">
+        #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="payFee != null">
+        #{payFee,jdbcType=DECIMAL},
+      </if>
+      <if test="payReason != null">
+        #{payReason,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deptManager != null">
+        #{deptManager,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.UrgentPayment">
+    update URGENT_PAYMENT
+    <set>
+      <if test="projName != null">
+        PROJ_NAME = #{projName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplier != null">
+        SUPPLIER = #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="payFee != null">
+        PAY_FEE = #{payFee,jdbcType=DECIMAL},
+      </if>
+      <if test="payReason != null">
+        PAY_REASON = #{payReason,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deptManager != null">
+        DEPT_MANAGER = #{deptManager,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where URGPAYMENT_ID = #{urgpaymentId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.UrgentPayment">
+    update URGENT_PAYMENT
+    set PROJ_NAME = #{projName,jdbcType=VARCHAR},
+      SUPPLIER = #{supplier,jdbcType=VARCHAR},
+      PAY_FEE = #{payFee,jdbcType=DECIMAL},
+      PAY_REASON = #{payReason,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      DEPT_MANAGER = #{deptManager,jdbcType=VARCHAR}
+    where URGPAYMENT_ID = #{urgpaymentId,jdbcType=VARCHAR}
+  </update>
+</mapper>

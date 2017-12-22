@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.FcPassagePermitMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FcPassagePermit">
+    <constructor>
+      <idArg column="FCPASS_PER_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PERMIT_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_REASON" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_RANGE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    FCPASS_PER_ID, PERMIT_NO, BEG_DATE, END_DATE, WORK_CONTENT, APP_REASON, WORK_RANGE, 
+    EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FC_PASSAGE_PERMIT
+    where FCPASS_PER_ID = #{fcpassPerId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FC_PASSAGE_PERMIT
+    where FCPASS_PER_ID = #{fcpassPerId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FcPassagePermit">
+    insert into FC_PASSAGE_PERMIT (FCPASS_PER_ID, PERMIT_NO, BEG_DATE, 
+      END_DATE, WORK_CONTENT, APP_REASON, 
+      WORK_RANGE, EFFECT_FLAG, CREATE_STAFF_NO, 
+      CREATE_STAFF_NAME, CREATE_DATE)
+    values (#{fcpassPerId,jdbcType=VARCHAR}, #{permitNo,jdbcType=VARCHAR}, #{begDate,jdbcType=TIMESTAMP}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{workContent,jdbcType=VARCHAR}, #{appReason,jdbcType=VARCHAR}, 
+      #{workRange,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
+      #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FcPassagePermit">
+    insert into FC_PASSAGE_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fcpassPerId != null">
+        FCPASS_PER_ID,
+      </if>
+      <if test="permitNo != null">
+        PERMIT_NO,
+      </if>
+      <if test="begDate != null">
+        BEG_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT,
+      </if>
+      <if test="appReason != null">
+        APP_REASON,
+      </if>
+      <if test="workRange != null">
+        WORK_RANGE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fcpassPerId != null">
+        #{fcpassPerId,jdbcType=VARCHAR},
+      </if>
+      <if test="permitNo != null">
+        #{permitNo,jdbcType=VARCHAR},
+      </if>
+      <if test="begDate != null">
+        #{begDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workContent != null">
+        #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="appReason != null">
+        #{appReason,jdbcType=VARCHAR},
+      </if>
+      <if test="workRange != null">
+        #{workRange,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FcPassagePermit">
+    update FC_PASSAGE_PERMIT
+    <set>
+      <if test="permitNo != null">
+        PERMIT_NO = #{permitNo,jdbcType=VARCHAR},
+      </if>
+      <if test="begDate != null">
+        BEG_DATE = #{begDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="appReason != null">
+        APP_REASON = #{appReason,jdbcType=VARCHAR},
+      </if>
+      <if test="workRange != null">
+        WORK_RANGE = #{workRange,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where FCPASS_PER_ID = #{fcpassPerId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FcPassagePermit">
+    update FC_PASSAGE_PERMIT
+    set PERMIT_NO = #{permitNo,jdbcType=VARCHAR},
+      BEG_DATE = #{begDate,jdbcType=TIMESTAMP},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      APP_REASON = #{appReason,jdbcType=VARCHAR},
+      WORK_RANGE = #{workRange,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where FCPASS_PER_ID = #{fcpassPerId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FcPassagePermit">
+    <constructor>
+      <idArg column="FCPASS_PER_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PERMIT_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="APP_REASON" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_RANGE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    FCPASS_PER_ID, PERMIT_NO, BEG_DATE, END_DATE, WORK_CONTENT, APP_REASON, WORK_RANGE, 
+    EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FC_PASSAGE_PERMIT
+    where FCPASS_PER_ID = #{fcpassPerId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FC_PASSAGE_PERMIT
+    where FCPASS_PER_ID = #{fcpassPerId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FcPassagePermit">
+    insert into FC_PASSAGE_PERMIT (FCPASS_PER_ID, PERMIT_NO, BEG_DATE, 
+      END_DATE, WORK_CONTENT, APP_REASON, 
+      WORK_RANGE, EFFECT_FLAG, CREATE_STAFF_NO, 
+      CREATE_STAFF_NAME, CREATE_DATE)
+    values (#{fcpassPerId,jdbcType=VARCHAR}, #{permitNo,jdbcType=VARCHAR}, #{begDate,jdbcType=TIMESTAMP}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{workContent,jdbcType=VARCHAR}, #{appReason,jdbcType=VARCHAR}, 
+      #{workRange,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
+      #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FcPassagePermit">
+    insert into FC_PASSAGE_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fcpassPerId != null">
+        FCPASS_PER_ID,
+      </if>
+      <if test="permitNo != null">
+        PERMIT_NO,
+      </if>
+      <if test="begDate != null">
+        BEG_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT,
+      </if>
+      <if test="appReason != null">
+        APP_REASON,
+      </if>
+      <if test="workRange != null">
+        WORK_RANGE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fcpassPerId != null">
+        #{fcpassPerId,jdbcType=VARCHAR},
+      </if>
+      <if test="permitNo != null">
+        #{permitNo,jdbcType=VARCHAR},
+      </if>
+      <if test="begDate != null">
+        #{begDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workContent != null">
+        #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="appReason != null">
+        #{appReason,jdbcType=VARCHAR},
+      </if>
+      <if test="workRange != null">
+        #{workRange,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FcPassagePermit">
+    update FC_PASSAGE_PERMIT
+    <set>
+      <if test="permitNo != null">
+        PERMIT_NO = #{permitNo,jdbcType=VARCHAR},
+      </if>
+      <if test="begDate != null">
+        BEG_DATE = #{begDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="appReason != null">
+        APP_REASON = #{appReason,jdbcType=VARCHAR},
+      </if>
+      <if test="workRange != null">
+        WORK_RANGE = #{workRange,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where FCPASS_PER_ID = #{fcpassPerId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FcPassagePermit">
+    update FC_PASSAGE_PERMIT
+    set PERMIT_NO = #{permitNo,jdbcType=VARCHAR},
+      BEG_DATE = #{begDate,jdbcType=TIMESTAMP},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      APP_REASON = #{appReason,jdbcType=VARCHAR},
+      WORK_RANGE = #{workRange,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where FCPASS_PER_ID = #{fcpassPerId,jdbcType=VARCHAR}
+  </update>
+</mapper>

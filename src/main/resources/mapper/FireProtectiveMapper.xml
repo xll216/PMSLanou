@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.FireProtectiveMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireProtective">
+    <constructor>
+      <idArg column="FIREP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HOLE_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAC_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUSI_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INTERF_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INTERF_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INTERF_DEPT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INTERF_DEPT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INTERF_LINKCONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_BEGIN_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="WORK_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    FIREP_ID, HOLE_TYPE, MAC_NO, WORK_CONTENT, BUSI_NO, INTERF_STAFF_NO, INTERF_STAFF_NAME, 
+    INTERF_DEPT_ID, INTERF_DEPT_NAME, INTERF_LINKCONTENT, WORK_BEGIN_DATE, WORK_END_DATE, 
+    EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FIRE_PROTECTIVE
+    where FIREP_ID = #{firepId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FIRE_PROTECTIVE
+    where FIREP_ID = #{firepId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FireProtective">
+    insert into FIRE_PROTECTIVE (FIREP_ID, HOLE_TYPE, MAC_NO, 
+      WORK_CONTENT, BUSI_NO, INTERF_STAFF_NO, 
+      INTERF_STAFF_NAME, INTERF_DEPT_ID, INTERF_DEPT_NAME, 
+      INTERF_LINKCONTENT, WORK_BEGIN_DATE, WORK_END_DATE, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE)
+    values (#{firepId,jdbcType=VARCHAR}, #{holeType,jdbcType=VARCHAR}, #{macNo,jdbcType=VARCHAR}, 
+      #{workContent,jdbcType=VARCHAR}, #{busiNo,jdbcType=VARCHAR}, #{interfStaffNo,jdbcType=VARCHAR}, 
+      #{interfStaffName,jdbcType=VARCHAR}, #{interfDeptId,jdbcType=VARCHAR}, #{interfDeptName,jdbcType=VARCHAR}, 
+      #{interfLinkcontent,jdbcType=VARCHAR}, #{workBeginDate,jdbcType=TIMESTAMP}, #{workEndDate,jdbcType=TIMESTAMP}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireProtective">
+    insert into FIRE_PROTECTIVE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="firepId != null">
+        FIREP_ID,
+      </if>
+      <if test="holeType != null">
+        HOLE_TYPE,
+      </if>
+      <if test="macNo != null">
+        MAC_NO,
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT,
+      </if>
+      <if test="busiNo != null">
+        BUSI_NO,
+      </if>
+      <if test="interfStaffNo != null">
+        INTERF_STAFF_NO,
+      </if>
+      <if test="interfStaffName != null">
+        INTERF_STAFF_NAME,
+      </if>
+      <if test="interfDeptId != null">
+        INTERF_DEPT_ID,
+      </if>
+      <if test="interfDeptName != null">
+        INTERF_DEPT_NAME,
+      </if>
+      <if test="interfLinkcontent != null">
+        INTERF_LINKCONTENT,
+      </if>
+      <if test="workBeginDate != null">
+        WORK_BEGIN_DATE,
+      </if>
+      <if test="workEndDate != null">
+        WORK_END_DATE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="firepId != null">
+        #{firepId,jdbcType=VARCHAR},
+      </if>
+      <if test="holeType != null">
+        #{holeType,jdbcType=VARCHAR},
+      </if>
+      <if test="macNo != null">
+        #{macNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null">
+        #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="busiNo != null">
+        #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfStaffNo != null">
+        #{interfStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfStaffName != null">
+        #{interfStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="interfDeptId != null">
+        #{interfDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="interfDeptName != null">
+        #{interfDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="interfLinkcontent != null">
+        #{interfLinkcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="workBeginDate != null">
+        #{workBeginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workEndDate != null">
+        #{workEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireProtective">
+    update FIRE_PROTECTIVE
+    <set>
+      <if test="holeType != null">
+        HOLE_TYPE = #{holeType,jdbcType=VARCHAR},
+      </if>
+      <if test="macNo != null">
+        MAC_NO = #{macNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="busiNo != null">
+        BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfStaffNo != null">
+        INTERF_STAFF_NO = #{interfStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfStaffName != null">
+        INTERF_STAFF_NAME = #{interfStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="interfDeptId != null">
+        INTERF_DEPT_ID = #{interfDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="interfDeptName != null">
+        INTERF_DEPT_NAME = #{interfDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="interfLinkcontent != null">
+        INTERF_LINKCONTENT = #{interfLinkcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="workBeginDate != null">
+        WORK_BEGIN_DATE = #{workBeginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workEndDate != null">
+        WORK_END_DATE = #{workEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where FIREP_ID = #{firepId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireProtective">
+    update FIRE_PROTECTIVE
+    set HOLE_TYPE = #{holeType,jdbcType=VARCHAR},
+      MAC_NO = #{macNo,jdbcType=VARCHAR},
+      WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      INTERF_STAFF_NO = #{interfStaffNo,jdbcType=VARCHAR},
+      INTERF_STAFF_NAME = #{interfStaffName,jdbcType=VARCHAR},
+      INTERF_DEPT_ID = #{interfDeptId,jdbcType=VARCHAR},
+      INTERF_DEPT_NAME = #{interfDeptName,jdbcType=VARCHAR},
+      INTERF_LINKCONTENT = #{interfLinkcontent,jdbcType=VARCHAR},
+      WORK_BEGIN_DATE = #{workBeginDate,jdbcType=TIMESTAMP},
+      WORK_END_DATE = #{workEndDate,jdbcType=TIMESTAMP},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where FIREP_ID = #{firepId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireProtective">
+    <constructor>
+      <idArg column="FIREP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HOLE_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAC_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUSI_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INTERF_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INTERF_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INTERF_DEPT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INTERF_DEPT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INTERF_LINKCONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_BEGIN_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="WORK_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    FIREP_ID, HOLE_TYPE, MAC_NO, WORK_CONTENT, BUSI_NO, INTERF_STAFF_NO, INTERF_STAFF_NAME, 
+    INTERF_DEPT_ID, INTERF_DEPT_NAME, INTERF_LINKCONTENT, WORK_BEGIN_DATE, WORK_END_DATE, 
+    EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FIRE_PROTECTIVE
+    where FIREP_ID = #{firepId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FIRE_PROTECTIVE
+    where FIREP_ID = #{firepId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FireProtective">
+    insert into FIRE_PROTECTIVE (FIREP_ID, HOLE_TYPE, MAC_NO, 
+      WORK_CONTENT, BUSI_NO, INTERF_STAFF_NO, 
+      INTERF_STAFF_NAME, INTERF_DEPT_ID, INTERF_DEPT_NAME, 
+      INTERF_LINKCONTENT, WORK_BEGIN_DATE, WORK_END_DATE, 
+      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
+      CREATE_DATE)
+    values (#{firepId,jdbcType=VARCHAR}, #{holeType,jdbcType=VARCHAR}, #{macNo,jdbcType=VARCHAR}, 
+      #{workContent,jdbcType=VARCHAR}, #{busiNo,jdbcType=VARCHAR}, #{interfStaffNo,jdbcType=VARCHAR}, 
+      #{interfStaffName,jdbcType=VARCHAR}, #{interfDeptId,jdbcType=VARCHAR}, #{interfDeptName,jdbcType=VARCHAR}, 
+      #{interfLinkcontent,jdbcType=VARCHAR}, #{workBeginDate,jdbcType=TIMESTAMP}, #{workEndDate,jdbcType=TIMESTAMP}, 
+      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireProtective">
+    insert into FIRE_PROTECTIVE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="firepId != null">
+        FIREP_ID,
+      </if>
+      <if test="holeType != null">
+        HOLE_TYPE,
+      </if>
+      <if test="macNo != null">
+        MAC_NO,
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT,
+      </if>
+      <if test="busiNo != null">
+        BUSI_NO,
+      </if>
+      <if test="interfStaffNo != null">
+        INTERF_STAFF_NO,
+      </if>
+      <if test="interfStaffName != null">
+        INTERF_STAFF_NAME,
+      </if>
+      <if test="interfDeptId != null">
+        INTERF_DEPT_ID,
+      </if>
+      <if test="interfDeptName != null">
+        INTERF_DEPT_NAME,
+      </if>
+      <if test="interfLinkcontent != null">
+        INTERF_LINKCONTENT,
+      </if>
+      <if test="workBeginDate != null">
+        WORK_BEGIN_DATE,
+      </if>
+      <if test="workEndDate != null">
+        WORK_END_DATE,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="firepId != null">
+        #{firepId,jdbcType=VARCHAR},
+      </if>
+      <if test="holeType != null">
+        #{holeType,jdbcType=VARCHAR},
+      </if>
+      <if test="macNo != null">
+        #{macNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null">
+        #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="busiNo != null">
+        #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfStaffNo != null">
+        #{interfStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfStaffName != null">
+        #{interfStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="interfDeptId != null">
+        #{interfDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="interfDeptName != null">
+        #{interfDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="interfLinkcontent != null">
+        #{interfLinkcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="workBeginDate != null">
+        #{workBeginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workEndDate != null">
+        #{workEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireProtective">
+    update FIRE_PROTECTIVE
+    <set>
+      <if test="holeType != null">
+        HOLE_TYPE = #{holeType,jdbcType=VARCHAR},
+      </if>
+      <if test="macNo != null">
+        MAC_NO = #{macNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workContent != null">
+        WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      </if>
+      <if test="busiNo != null">
+        BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfStaffNo != null">
+        INTERF_STAFF_NO = #{interfStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="interfStaffName != null">
+        INTERF_STAFF_NAME = #{interfStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="interfDeptId != null">
+        INTERF_DEPT_ID = #{interfDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="interfDeptName != null">
+        INTERF_DEPT_NAME = #{interfDeptName,jdbcType=VARCHAR},
+      </if>
+      <if test="interfLinkcontent != null">
+        INTERF_LINKCONTENT = #{interfLinkcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="workBeginDate != null">
+        WORK_BEGIN_DATE = #{workBeginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workEndDate != null">
+        WORK_END_DATE = #{workEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where FIREP_ID = #{firepId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireProtective">
+    update FIRE_PROTECTIVE
+    set HOLE_TYPE = #{holeType,jdbcType=VARCHAR},
+      MAC_NO = #{macNo,jdbcType=VARCHAR},
+      WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
+      BUSI_NO = #{busiNo,jdbcType=VARCHAR},
+      INTERF_STAFF_NO = #{interfStaffNo,jdbcType=VARCHAR},
+      INTERF_STAFF_NAME = #{interfStaffName,jdbcType=VARCHAR},
+      INTERF_DEPT_ID = #{interfDeptId,jdbcType=VARCHAR},
+      INTERF_DEPT_NAME = #{interfDeptName,jdbcType=VARCHAR},
+      INTERF_LINKCONTENT = #{interfLinkcontent,jdbcType=VARCHAR},
+      WORK_BEGIN_DATE = #{workBeginDate,jdbcType=TIMESTAMP},
+      WORK_END_DATE = #{workEndDate,jdbcType=TIMESTAMP},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+    where FIREP_ID = #{firepId,jdbcType=VARCHAR}
+  </update>
+</mapper>

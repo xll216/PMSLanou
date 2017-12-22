@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.FireDisconnectWorkMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireDisconnectWork">
+    <constructor>
+      <idArg column="FIREDIS_WORK_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DISCONN_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    FIREDIS_WORK_ID, DISCONN_ID, BEG_DATE, END_DATE, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FIRE_DISCONNECT_WORK
+    where FIREDIS_WORK_ID = #{firedisWorkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FIRE_DISCONNECT_WORK
+    where FIREDIS_WORK_ID = #{firedisWorkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FireDisconnectWork">
+    insert into FIRE_DISCONNECT_WORK (FIREDIS_WORK_ID, DISCONN_ID, BEG_DATE, 
+      END_DATE, REMARK)
+    values (#{firedisWorkId,jdbcType=VARCHAR}, #{disconnId,jdbcType=VARCHAR}, #{begDate,jdbcType=TIMESTAMP}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireDisconnectWork">
+    insert into FIRE_DISCONNECT_WORK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="firedisWorkId != null">
+        FIREDIS_WORK_ID,
+      </if>
+      <if test="disconnId != null">
+        DISCONN_ID,
+      </if>
+      <if test="begDate != null">
+        BEG_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="firedisWorkId != null">
+        #{firedisWorkId,jdbcType=VARCHAR},
+      </if>
+      <if test="disconnId != null">
+        #{disconnId,jdbcType=VARCHAR},
+      </if>
+      <if test="begDate != null">
+        #{begDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireDisconnectWork">
+    update FIRE_DISCONNECT_WORK
+    <set>
+      <if test="disconnId != null">
+        DISCONN_ID = #{disconnId,jdbcType=VARCHAR},
+      </if>
+      <if test="begDate != null">
+        BEG_DATE = #{begDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FIREDIS_WORK_ID = #{firedisWorkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireDisconnectWork">
+    update FIRE_DISCONNECT_WORK
+    set DISCONN_ID = #{disconnId,jdbcType=VARCHAR},
+      BEG_DATE = #{begDate,jdbcType=TIMESTAMP},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where FIREDIS_WORK_ID = #{firedisWorkId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireDisconnectWork">
+    <constructor>
+      <idArg column="FIREDIS_WORK_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DISCONN_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    FIREDIS_WORK_ID, DISCONN_ID, BEG_DATE, END_DATE, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FIRE_DISCONNECT_WORK
+    where FIREDIS_WORK_ID = #{firedisWorkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FIRE_DISCONNECT_WORK
+    where FIREDIS_WORK_ID = #{firedisWorkId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.FireDisconnectWork">
+    insert into FIRE_DISCONNECT_WORK (FIREDIS_WORK_ID, DISCONN_ID, BEG_DATE, 
+      END_DATE, REMARK)
+    values (#{firedisWorkId,jdbcType=VARCHAR}, #{disconnId,jdbcType=VARCHAR}, #{begDate,jdbcType=TIMESTAMP}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireDisconnectWork">
+    insert into FIRE_DISCONNECT_WORK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="firedisWorkId != null">
+        FIREDIS_WORK_ID,
+      </if>
+      <if test="disconnId != null">
+        DISCONN_ID,
+      </if>
+      <if test="begDate != null">
+        BEG_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="firedisWorkId != null">
+        #{firedisWorkId,jdbcType=VARCHAR},
+      </if>
+      <if test="disconnId != null">
+        #{disconnId,jdbcType=VARCHAR},
+      </if>
+      <if test="begDate != null">
+        #{begDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireDisconnectWork">
+    update FIRE_DISCONNECT_WORK
+    <set>
+      <if test="disconnId != null">
+        DISCONN_ID = #{disconnId,jdbcType=VARCHAR},
+      </if>
+      <if test="begDate != null">
+        BEG_DATE = #{begDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FIREDIS_WORK_ID = #{firedisWorkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireDisconnectWork">
+    update FIRE_DISCONNECT_WORK
+    set DISCONN_ID = #{disconnId,jdbcType=VARCHAR},
+      BEG_DATE = #{begDate,jdbcType=TIMESTAMP},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where FIREDIS_WORK_ID = #{firedisWorkId,jdbcType=VARCHAR}
+  </update>
+</mapper>

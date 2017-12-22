@@ -1,0 +1,988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.CargoDepositPermitMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.CargoDepositPermit">
+    <constructor>
+      <idArg column="DEPOSIT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_ADDR_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="DEPOSIT_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="PLANT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ROOM_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NUCSAFE_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RADIPROT_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EXIST_NUCSAFE_FACILITY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="IS_CON" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    DEPOSIT_ID, DEPOSIT_TYPE, ADDR, DEPOSIT_ADDR_TYPE, DEPOSIT_BEG_DATE, DEPOSIT_END_DATE, 
+    PLANT_ID, ROOM_ID, DEPOSIT_DESC, DEPOSIT_REQ, NUCSAFE_REQ, RADIPROT_REQ, EXIST_NUCSAFE_FACILITY, 
+    EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE, IS_CON
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CARGO_DEPOSIT_PERMIT
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CARGO_DEPOSIT_PERMIT
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.CargoDepositPermit">
+    insert into CARGO_DEPOSIT_PERMIT (DEPOSIT_ID, DEPOSIT_TYPE, ADDR, 
+      DEPOSIT_ADDR_TYPE, DEPOSIT_BEG_DATE, DEPOSIT_END_DATE, 
+      PLANT_ID, ROOM_ID, DEPOSIT_DESC, 
+      DEPOSIT_REQ, NUCSAFE_REQ, RADIPROT_REQ, 
+      EXIST_NUCSAFE_FACILITY, EFFECT_FLAG, CREATE_STAFF_NO, 
+      CREATE_STAFF_NAME, CREATE_DATE, IS_CON
+      )
+    values (#{depositId,jdbcType=VARCHAR}, #{depositType,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
+      #{depositAddrType,jdbcType=VARCHAR}, #{depositBegDate,jdbcType=TIMESTAMP}, #{depositEndDate,jdbcType=TIMESTAMP}, 
+      #{plantId,jdbcType=VARCHAR}, #{roomId,jdbcType=VARCHAR}, #{depositDesc,jdbcType=VARCHAR}, 
+      #{depositReq,jdbcType=VARCHAR}, #{nucsafeReq,jdbcType=VARCHAR}, #{radiprotReq,jdbcType=VARCHAR}, 
+      #{existNucsafeFacility,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
+      #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{isCon,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.CargoDepositPermit">
+    insert into CARGO_DEPOSIT_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="depositId != null">
+        DEPOSIT_ID,
+      </if>
+      <if test="depositType != null">
+        DEPOSIT_TYPE,
+      </if>
+      <if test="addr != null">
+        ADDR,
+      </if>
+      <if test="depositAddrType != null">
+        DEPOSIT_ADDR_TYPE,
+      </if>
+      <if test="depositBegDate != null">
+        DEPOSIT_BEG_DATE,
+      </if>
+      <if test="depositEndDate != null">
+        DEPOSIT_END_DATE,
+      </if>
+      <if test="plantId != null">
+        PLANT_ID,
+      </if>
+      <if test="roomId != null">
+        ROOM_ID,
+      </if>
+      <if test="depositDesc != null">
+        DEPOSIT_DESC,
+      </if>
+      <if test="depositReq != null">
+        DEPOSIT_REQ,
+      </if>
+      <if test="nucsafeReq != null">
+        NUCSAFE_REQ,
+      </if>
+      <if test="radiprotReq != null">
+        RADIPROT_REQ,
+      </if>
+      <if test="existNucsafeFacility != null">
+        EXIST_NUCSAFE_FACILITY,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="isCon != null">
+        IS_CON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="depositId != null">
+        #{depositId,jdbcType=VARCHAR},
+      </if>
+      <if test="depositType != null">
+        #{depositType,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="depositAddrType != null">
+        #{depositAddrType,jdbcType=VARCHAR},
+      </if>
+      <if test="depositBegDate != null">
+        #{depositBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depositEndDate != null">
+        #{depositEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plantId != null">
+        #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null">
+        #{roomId,jdbcType=VARCHAR},
+      </if>
+      <if test="depositDesc != null">
+        #{depositDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="depositReq != null">
+        #{depositReq,jdbcType=VARCHAR},
+      </if>
+      <if test="nucsafeReq != null">
+        #{nucsafeReq,jdbcType=VARCHAR},
+      </if>
+      <if test="radiprotReq != null">
+        #{radiprotReq,jdbcType=VARCHAR},
+      </if>
+      <if test="existNucsafeFacility != null">
+        #{existNucsafeFacility,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCon != null">
+        #{isCon,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.CargoDepositPermit">
+    update CARGO_DEPOSIT_PERMIT
+    <set>
+      <if test="depositType != null">
+        DEPOSIT_TYPE = #{depositType,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        ADDR = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="depositAddrType != null">
+        DEPOSIT_ADDR_TYPE = #{depositAddrType,jdbcType=VARCHAR},
+      </if>
+      <if test="depositBegDate != null">
+        DEPOSIT_BEG_DATE = #{depositBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depositEndDate != null">
+        DEPOSIT_END_DATE = #{depositEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plantId != null">
+        PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null">
+        ROOM_ID = #{roomId,jdbcType=VARCHAR},
+      </if>
+      <if test="depositDesc != null">
+        DEPOSIT_DESC = #{depositDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="depositReq != null">
+        DEPOSIT_REQ = #{depositReq,jdbcType=VARCHAR},
+      </if>
+      <if test="nucsafeReq != null">
+        NUCSAFE_REQ = #{nucsafeReq,jdbcType=VARCHAR},
+      </if>
+      <if test="radiprotReq != null">
+        RADIPROT_REQ = #{radiprotReq,jdbcType=VARCHAR},
+      </if>
+      <if test="existNucsafeFacility != null">
+        EXIST_NUCSAFE_FACILITY = #{existNucsafeFacility,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCon != null">
+        IS_CON = #{isCon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.CargoDepositPermit">
+    update CARGO_DEPOSIT_PERMIT
+    set DEPOSIT_TYPE = #{depositType,jdbcType=VARCHAR},
+      ADDR = #{addr,jdbcType=VARCHAR},
+      DEPOSIT_ADDR_TYPE = #{depositAddrType,jdbcType=VARCHAR},
+      DEPOSIT_BEG_DATE = #{depositBegDate,jdbcType=TIMESTAMP},
+      DEPOSIT_END_DATE = #{depositEndDate,jdbcType=TIMESTAMP},
+      PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      ROOM_ID = #{roomId,jdbcType=VARCHAR},
+      DEPOSIT_DESC = #{depositDesc,jdbcType=VARCHAR},
+      DEPOSIT_REQ = #{depositReq,jdbcType=VARCHAR},
+      NUCSAFE_REQ = #{nucsafeReq,jdbcType=VARCHAR},
+      RADIPROT_REQ = #{radiprotReq,jdbcType=VARCHAR},
+      EXIST_NUCSAFE_FACILITY = #{existNucsafeFacility,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      IS_CON = #{isCon,jdbcType=VARCHAR}
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.CargoDepositPermit">
+    <constructor>
+      <idArg column="DEPOSIT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_ADDR_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="DEPOSIT_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="PLANT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ROOM_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NUCSAFE_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RADIPROT_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EXIST_NUCSAFE_FACILITY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="IS_CON" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    DEPOSIT_ID, DEPOSIT_TYPE, ADDR, DEPOSIT_ADDR_TYPE, DEPOSIT_BEG_DATE, DEPOSIT_END_DATE, 
+    PLANT_ID, ROOM_ID, DEPOSIT_DESC, DEPOSIT_REQ, NUCSAFE_REQ, RADIPROT_REQ, EXIST_NUCSAFE_FACILITY, 
+    EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE, IS_CON
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CARGO_DEPOSIT_PERMIT
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CARGO_DEPOSIT_PERMIT
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.CargoDepositPermit">
+    insert into CARGO_DEPOSIT_PERMIT (DEPOSIT_ID, DEPOSIT_TYPE, ADDR, 
+      DEPOSIT_ADDR_TYPE, DEPOSIT_BEG_DATE, DEPOSIT_END_DATE, 
+      PLANT_ID, ROOM_ID, DEPOSIT_DESC, 
+      DEPOSIT_REQ, NUCSAFE_REQ, RADIPROT_REQ, 
+      EXIST_NUCSAFE_FACILITY, EFFECT_FLAG, CREATE_STAFF_NO, 
+      CREATE_STAFF_NAME, CREATE_DATE, IS_CON
+      )
+    values (#{depositId,jdbcType=VARCHAR}, #{depositType,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
+      #{depositAddrType,jdbcType=VARCHAR}, #{depositBegDate,jdbcType=TIMESTAMP}, #{depositEndDate,jdbcType=TIMESTAMP}, 
+      #{plantId,jdbcType=VARCHAR}, #{roomId,jdbcType=VARCHAR}, #{depositDesc,jdbcType=VARCHAR}, 
+      #{depositReq,jdbcType=VARCHAR}, #{nucsafeReq,jdbcType=VARCHAR}, #{radiprotReq,jdbcType=VARCHAR}, 
+      #{existNucsafeFacility,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
+      #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{isCon,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.CargoDepositPermit">
+    insert into CARGO_DEPOSIT_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="depositId != null">
+        DEPOSIT_ID,
+      </if>
+      <if test="depositType != null">
+        DEPOSIT_TYPE,
+      </if>
+      <if test="addr != null">
+        ADDR,
+      </if>
+      <if test="depositAddrType != null">
+        DEPOSIT_ADDR_TYPE,
+      </if>
+      <if test="depositBegDate != null">
+        DEPOSIT_BEG_DATE,
+      </if>
+      <if test="depositEndDate != null">
+        DEPOSIT_END_DATE,
+      </if>
+      <if test="plantId != null">
+        PLANT_ID,
+      </if>
+      <if test="roomId != null">
+        ROOM_ID,
+      </if>
+      <if test="depositDesc != null">
+        DEPOSIT_DESC,
+      </if>
+      <if test="depositReq != null">
+        DEPOSIT_REQ,
+      </if>
+      <if test="nucsafeReq != null">
+        NUCSAFE_REQ,
+      </if>
+      <if test="radiprotReq != null">
+        RADIPROT_REQ,
+      </if>
+      <if test="existNucsafeFacility != null">
+        EXIST_NUCSAFE_FACILITY,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="isCon != null">
+        IS_CON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="depositId != null">
+        #{depositId,jdbcType=VARCHAR},
+      </if>
+      <if test="depositType != null">
+        #{depositType,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="depositAddrType != null">
+        #{depositAddrType,jdbcType=VARCHAR},
+      </if>
+      <if test="depositBegDate != null">
+        #{depositBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depositEndDate != null">
+        #{depositEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plantId != null">
+        #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null">
+        #{roomId,jdbcType=VARCHAR},
+      </if>
+      <if test="depositDesc != null">
+        #{depositDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="depositReq != null">
+        #{depositReq,jdbcType=VARCHAR},
+      </if>
+      <if test="nucsafeReq != null">
+        #{nucsafeReq,jdbcType=VARCHAR},
+      </if>
+      <if test="radiprotReq != null">
+        #{radiprotReq,jdbcType=VARCHAR},
+      </if>
+      <if test="existNucsafeFacility != null">
+        #{existNucsafeFacility,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCon != null">
+        #{isCon,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.CargoDepositPermit">
+    update CARGO_DEPOSIT_PERMIT
+    <set>
+      <if test="depositType != null">
+        DEPOSIT_TYPE = #{depositType,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        ADDR = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="depositAddrType != null">
+        DEPOSIT_ADDR_TYPE = #{depositAddrType,jdbcType=VARCHAR},
+      </if>
+      <if test="depositBegDate != null">
+        DEPOSIT_BEG_DATE = #{depositBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depositEndDate != null">
+        DEPOSIT_END_DATE = #{depositEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plantId != null">
+        PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null">
+        ROOM_ID = #{roomId,jdbcType=VARCHAR},
+      </if>
+      <if test="depositDesc != null">
+        DEPOSIT_DESC = #{depositDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="depositReq != null">
+        DEPOSIT_REQ = #{depositReq,jdbcType=VARCHAR},
+      </if>
+      <if test="nucsafeReq != null">
+        NUCSAFE_REQ = #{nucsafeReq,jdbcType=VARCHAR},
+      </if>
+      <if test="radiprotReq != null">
+        RADIPROT_REQ = #{radiprotReq,jdbcType=VARCHAR},
+      </if>
+      <if test="existNucsafeFacility != null">
+        EXIST_NUCSAFE_FACILITY = #{existNucsafeFacility,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCon != null">
+        IS_CON = #{isCon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.CargoDepositPermit">
+    update CARGO_DEPOSIT_PERMIT
+    set DEPOSIT_TYPE = #{depositType,jdbcType=VARCHAR},
+      ADDR = #{addr,jdbcType=VARCHAR},
+      DEPOSIT_ADDR_TYPE = #{depositAddrType,jdbcType=VARCHAR},
+      DEPOSIT_BEG_DATE = #{depositBegDate,jdbcType=TIMESTAMP},
+      DEPOSIT_END_DATE = #{depositEndDate,jdbcType=TIMESTAMP},
+      PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      ROOM_ID = #{roomId,jdbcType=VARCHAR},
+      DEPOSIT_DESC = #{depositDesc,jdbcType=VARCHAR},
+      DEPOSIT_REQ = #{depositReq,jdbcType=VARCHAR},
+      NUCSAFE_REQ = #{nucsafeReq,jdbcType=VARCHAR},
+      RADIPROT_REQ = #{radiprotReq,jdbcType=VARCHAR},
+      EXIST_NUCSAFE_FACILITY = #{existNucsafeFacility,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      IS_CON = #{isCon,jdbcType=VARCHAR}
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.CargoDepositPermit">
+    <constructor>
+      <idArg column="DEPOSIT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_ADDR_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="DEPOSIT_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="PLANT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ROOM_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NUCSAFE_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RADIPROT_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EXIST_NUCSAFE_FACILITY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="IS_CON" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    DEPOSIT_ID, DEPOSIT_TYPE, ADDR, DEPOSIT_ADDR_TYPE, DEPOSIT_BEG_DATE, DEPOSIT_END_DATE, 
+    PLANT_ID, ROOM_ID, DEPOSIT_DESC, DEPOSIT_REQ, NUCSAFE_REQ, RADIPROT_REQ, EXIST_NUCSAFE_FACILITY, 
+    EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE, IS_CON
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CARGO_DEPOSIT_PERMIT
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CARGO_DEPOSIT_PERMIT
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.CargoDepositPermit">
+    insert into CARGO_DEPOSIT_PERMIT (DEPOSIT_ID, DEPOSIT_TYPE, ADDR, 
+      DEPOSIT_ADDR_TYPE, DEPOSIT_BEG_DATE, DEPOSIT_END_DATE, 
+      PLANT_ID, ROOM_ID, DEPOSIT_DESC, 
+      DEPOSIT_REQ, NUCSAFE_REQ, RADIPROT_REQ, 
+      EXIST_NUCSAFE_FACILITY, EFFECT_FLAG, CREATE_STAFF_NO, 
+      CREATE_STAFF_NAME, CREATE_DATE, IS_CON
+      )
+    values (#{depositId,jdbcType=VARCHAR}, #{depositType,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
+      #{depositAddrType,jdbcType=VARCHAR}, #{depositBegDate,jdbcType=TIMESTAMP}, #{depositEndDate,jdbcType=TIMESTAMP}, 
+      #{plantId,jdbcType=VARCHAR}, #{roomId,jdbcType=VARCHAR}, #{depositDesc,jdbcType=VARCHAR}, 
+      #{depositReq,jdbcType=VARCHAR}, #{nucsafeReq,jdbcType=VARCHAR}, #{radiprotReq,jdbcType=VARCHAR}, 
+      #{existNucsafeFacility,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
+      #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{isCon,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.CargoDepositPermit">
+    insert into CARGO_DEPOSIT_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="depositId != null">
+        DEPOSIT_ID,
+      </if>
+      <if test="depositType != null">
+        DEPOSIT_TYPE,
+      </if>
+      <if test="addr != null">
+        ADDR,
+      </if>
+      <if test="depositAddrType != null">
+        DEPOSIT_ADDR_TYPE,
+      </if>
+      <if test="depositBegDate != null">
+        DEPOSIT_BEG_DATE,
+      </if>
+      <if test="depositEndDate != null">
+        DEPOSIT_END_DATE,
+      </if>
+      <if test="plantId != null">
+        PLANT_ID,
+      </if>
+      <if test="roomId != null">
+        ROOM_ID,
+      </if>
+      <if test="depositDesc != null">
+        DEPOSIT_DESC,
+      </if>
+      <if test="depositReq != null">
+        DEPOSIT_REQ,
+      </if>
+      <if test="nucsafeReq != null">
+        NUCSAFE_REQ,
+      </if>
+      <if test="radiprotReq != null">
+        RADIPROT_REQ,
+      </if>
+      <if test="existNucsafeFacility != null">
+        EXIST_NUCSAFE_FACILITY,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="isCon != null">
+        IS_CON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="depositId != null">
+        #{depositId,jdbcType=VARCHAR},
+      </if>
+      <if test="depositType != null">
+        #{depositType,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="depositAddrType != null">
+        #{depositAddrType,jdbcType=VARCHAR},
+      </if>
+      <if test="depositBegDate != null">
+        #{depositBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depositEndDate != null">
+        #{depositEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plantId != null">
+        #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null">
+        #{roomId,jdbcType=VARCHAR},
+      </if>
+      <if test="depositDesc != null">
+        #{depositDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="depositReq != null">
+        #{depositReq,jdbcType=VARCHAR},
+      </if>
+      <if test="nucsafeReq != null">
+        #{nucsafeReq,jdbcType=VARCHAR},
+      </if>
+      <if test="radiprotReq != null">
+        #{radiprotReq,jdbcType=VARCHAR},
+      </if>
+      <if test="existNucsafeFacility != null">
+        #{existNucsafeFacility,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCon != null">
+        #{isCon,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.CargoDepositPermit">
+    update CARGO_DEPOSIT_PERMIT
+    <set>
+      <if test="depositType != null">
+        DEPOSIT_TYPE = #{depositType,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        ADDR = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="depositAddrType != null">
+        DEPOSIT_ADDR_TYPE = #{depositAddrType,jdbcType=VARCHAR},
+      </if>
+      <if test="depositBegDate != null">
+        DEPOSIT_BEG_DATE = #{depositBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depositEndDate != null">
+        DEPOSIT_END_DATE = #{depositEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plantId != null">
+        PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null">
+        ROOM_ID = #{roomId,jdbcType=VARCHAR},
+      </if>
+      <if test="depositDesc != null">
+        DEPOSIT_DESC = #{depositDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="depositReq != null">
+        DEPOSIT_REQ = #{depositReq,jdbcType=VARCHAR},
+      </if>
+      <if test="nucsafeReq != null">
+        NUCSAFE_REQ = #{nucsafeReq,jdbcType=VARCHAR},
+      </if>
+      <if test="radiprotReq != null">
+        RADIPROT_REQ = #{radiprotReq,jdbcType=VARCHAR},
+      </if>
+      <if test="existNucsafeFacility != null">
+        EXIST_NUCSAFE_FACILITY = #{existNucsafeFacility,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCon != null">
+        IS_CON = #{isCon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.CargoDepositPermit">
+    update CARGO_DEPOSIT_PERMIT
+    set DEPOSIT_TYPE = #{depositType,jdbcType=VARCHAR},
+      ADDR = #{addr,jdbcType=VARCHAR},
+      DEPOSIT_ADDR_TYPE = #{depositAddrType,jdbcType=VARCHAR},
+      DEPOSIT_BEG_DATE = #{depositBegDate,jdbcType=TIMESTAMP},
+      DEPOSIT_END_DATE = #{depositEndDate,jdbcType=TIMESTAMP},
+      PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      ROOM_ID = #{roomId,jdbcType=VARCHAR},
+      DEPOSIT_DESC = #{depositDesc,jdbcType=VARCHAR},
+      DEPOSIT_REQ = #{depositReq,jdbcType=VARCHAR},
+      NUCSAFE_REQ = #{nucsafeReq,jdbcType=VARCHAR},
+      RADIPROT_REQ = #{radiprotReq,jdbcType=VARCHAR},
+      EXIST_NUCSAFE_FACILITY = #{existNucsafeFacility,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      IS_CON = #{isCon,jdbcType=VARCHAR}
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.CargoDepositPermit">
+    <constructor>
+      <idArg column="DEPOSIT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_ADDR_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="DEPOSIT_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="PLANT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ROOM_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPOSIT_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NUCSAFE_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RADIPROT_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EXIST_NUCSAFE_FACILITY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="IS_CON" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    DEPOSIT_ID, DEPOSIT_TYPE, ADDR, DEPOSIT_ADDR_TYPE, DEPOSIT_BEG_DATE, DEPOSIT_END_DATE, 
+    PLANT_ID, ROOM_ID, DEPOSIT_DESC, DEPOSIT_REQ, NUCSAFE_REQ, RADIPROT_REQ, EXIST_NUCSAFE_FACILITY, 
+    EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE, IS_CON
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CARGO_DEPOSIT_PERMIT
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CARGO_DEPOSIT_PERMIT
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.CargoDepositPermit">
+    insert into CARGO_DEPOSIT_PERMIT (DEPOSIT_ID, DEPOSIT_TYPE, ADDR, 
+      DEPOSIT_ADDR_TYPE, DEPOSIT_BEG_DATE, DEPOSIT_END_DATE, 
+      PLANT_ID, ROOM_ID, DEPOSIT_DESC, 
+      DEPOSIT_REQ, NUCSAFE_REQ, RADIPROT_REQ, 
+      EXIST_NUCSAFE_FACILITY, EFFECT_FLAG, CREATE_STAFF_NO, 
+      CREATE_STAFF_NAME, CREATE_DATE, IS_CON
+      )
+    values (#{depositId,jdbcType=VARCHAR}, #{depositType,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
+      #{depositAddrType,jdbcType=VARCHAR}, #{depositBegDate,jdbcType=TIMESTAMP}, #{depositEndDate,jdbcType=TIMESTAMP}, 
+      #{plantId,jdbcType=VARCHAR}, #{roomId,jdbcType=VARCHAR}, #{depositDesc,jdbcType=VARCHAR}, 
+      #{depositReq,jdbcType=VARCHAR}, #{nucsafeReq,jdbcType=VARCHAR}, #{radiprotReq,jdbcType=VARCHAR}, 
+      #{existNucsafeFacility,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
+      #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{isCon,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.CargoDepositPermit">
+    insert into CARGO_DEPOSIT_PERMIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="depositId != null">
+        DEPOSIT_ID,
+      </if>
+      <if test="depositType != null">
+        DEPOSIT_TYPE,
+      </if>
+      <if test="addr != null">
+        ADDR,
+      </if>
+      <if test="depositAddrType != null">
+        DEPOSIT_ADDR_TYPE,
+      </if>
+      <if test="depositBegDate != null">
+        DEPOSIT_BEG_DATE,
+      </if>
+      <if test="depositEndDate != null">
+        DEPOSIT_END_DATE,
+      </if>
+      <if test="plantId != null">
+        PLANT_ID,
+      </if>
+      <if test="roomId != null">
+        ROOM_ID,
+      </if>
+      <if test="depositDesc != null">
+        DEPOSIT_DESC,
+      </if>
+      <if test="depositReq != null">
+        DEPOSIT_REQ,
+      </if>
+      <if test="nucsafeReq != null">
+        NUCSAFE_REQ,
+      </if>
+      <if test="radiprotReq != null">
+        RADIPROT_REQ,
+      </if>
+      <if test="existNucsafeFacility != null">
+        EXIST_NUCSAFE_FACILITY,
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG,
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO,
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="isCon != null">
+        IS_CON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="depositId != null">
+        #{depositId,jdbcType=VARCHAR},
+      </if>
+      <if test="depositType != null">
+        #{depositType,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="depositAddrType != null">
+        #{depositAddrType,jdbcType=VARCHAR},
+      </if>
+      <if test="depositBegDate != null">
+        #{depositBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depositEndDate != null">
+        #{depositEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plantId != null">
+        #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null">
+        #{roomId,jdbcType=VARCHAR},
+      </if>
+      <if test="depositDesc != null">
+        #{depositDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="depositReq != null">
+        #{depositReq,jdbcType=VARCHAR},
+      </if>
+      <if test="nucsafeReq != null">
+        #{nucsafeReq,jdbcType=VARCHAR},
+      </if>
+      <if test="radiprotReq != null">
+        #{radiprotReq,jdbcType=VARCHAR},
+      </if>
+      <if test="existNucsafeFacility != null">
+        #{existNucsafeFacility,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCon != null">
+        #{isCon,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.CargoDepositPermit">
+    update CARGO_DEPOSIT_PERMIT
+    <set>
+      <if test="depositType != null">
+        DEPOSIT_TYPE = #{depositType,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        ADDR = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="depositAddrType != null">
+        DEPOSIT_ADDR_TYPE = #{depositAddrType,jdbcType=VARCHAR},
+      </if>
+      <if test="depositBegDate != null">
+        DEPOSIT_BEG_DATE = #{depositBegDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="depositEndDate != null">
+        DEPOSIT_END_DATE = #{depositEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plantId != null">
+        PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      </if>
+      <if test="roomId != null">
+        ROOM_ID = #{roomId,jdbcType=VARCHAR},
+      </if>
+      <if test="depositDesc != null">
+        DEPOSIT_DESC = #{depositDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="depositReq != null">
+        DEPOSIT_REQ = #{depositReq,jdbcType=VARCHAR},
+      </if>
+      <if test="nucsafeReq != null">
+        NUCSAFE_REQ = #{nucsafeReq,jdbcType=VARCHAR},
+      </if>
+      <if test="radiprotReq != null">
+        RADIPROT_REQ = #{radiprotReq,jdbcType=VARCHAR},
+      </if>
+      <if test="existNucsafeFacility != null">
+        EXIST_NUCSAFE_FACILITY = #{existNucsafeFacility,jdbcType=VARCHAR},
+      </if>
+      <if test="effectFlag != null">
+        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffNo != null">
+        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createStaffName != null">
+        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCon != null">
+        IS_CON = #{isCon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.CargoDepositPermit">
+    update CARGO_DEPOSIT_PERMIT
+    set DEPOSIT_TYPE = #{depositType,jdbcType=VARCHAR},
+      ADDR = #{addr,jdbcType=VARCHAR},
+      DEPOSIT_ADDR_TYPE = #{depositAddrType,jdbcType=VARCHAR},
+      DEPOSIT_BEG_DATE = #{depositBegDate,jdbcType=TIMESTAMP},
+      DEPOSIT_END_DATE = #{depositEndDate,jdbcType=TIMESTAMP},
+      PLANT_ID = #{plantId,jdbcType=VARCHAR},
+      ROOM_ID = #{roomId,jdbcType=VARCHAR},
+      DEPOSIT_DESC = #{depositDesc,jdbcType=VARCHAR},
+      DEPOSIT_REQ = #{depositReq,jdbcType=VARCHAR},
+      NUCSAFE_REQ = #{nucsafeReq,jdbcType=VARCHAR},
+      RADIPROT_REQ = #{radiprotReq,jdbcType=VARCHAR},
+      EXIST_NUCSAFE_FACILITY = #{existNucsafeFacility,jdbcType=VARCHAR},
+      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      IS_CON = #{isCon,jdbcType=VARCHAR}
+    where DEPOSIT_ID = #{depositId,jdbcType=VARCHAR}
+  </update>
+</mapper>

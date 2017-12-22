@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.hradiation_risk_analyMapper">
+  <resultMap id="BaseResultMap" type="com.lanou.domain.hradiation_risk_analy">
+    <constructor>
+      <idArg column="RISKANALY_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HRADI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORKADDR_DOSE_RATE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RX_PARTION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="AFFECT_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ADDRRISK_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_SYSTEM" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORKSYSTEM_DOSE_RATE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SYS_FLOW_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORKSYSTEM_OUTRAY_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HIGH_DOSE_PLACE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORKSYSTEM_FLOW_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RANGE_ANAL_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RADIATION_ANALY_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DATE_ANALY_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DISABLE_ANALY_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TOOL_ANALY_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PERSON_PRE_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EXCEP_DEAL_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="REDCHECK_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TEAM_RADIATION_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    RISKANALY_ID, HRADI_ID, WORK_ADDR, WORKADDR_DOSE_RATE, RX_PARTION, AFFECT_DESC, ADDRRISK_DESC, 
+    WORK_SYSTEM, WORKSYSTEM_DOSE_RATE, SYS_FLOW_TYPE, WORKSYSTEM_OUTRAY_DESC, HIGH_DOSE_PLACE, 
+    WORKSYSTEM_FLOW_DESC, RANGE_ANAL_DESC, RADIATION_ANALY_DESC, DATE_ANALY_DESC, DISABLE_ANALY_DESC, 
+    TOOL_ANALY_DESC, PERSON_PRE_DESC, EXCEP_DEAL_DESC, REDCHECK_DESC, TEAM_RADIATION_DESC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from HRADIATION_RISK_ANALY
+    where RISKANALY_ID = #{riskanalyId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from HRADIATION_RISK_ANALY
+    where RISKANALY_ID = #{riskanalyId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.hradiation_risk_analy">
+    insert into HRADIATION_RISK_ANALY (RISKANALY_ID, HRADI_ID, WORK_ADDR, 
+      WORKADDR_DOSE_RATE, RX_PARTION, AFFECT_DESC, 
+      ADDRRISK_DESC, WORK_SYSTEM, WORKSYSTEM_DOSE_RATE, 
+      SYS_FLOW_TYPE, WORKSYSTEM_OUTRAY_DESC, HIGH_DOSE_PLACE, 
+      WORKSYSTEM_FLOW_DESC, RANGE_ANAL_DESC, RADIATION_ANALY_DESC, 
+      DATE_ANALY_DESC, DISABLE_ANALY_DESC, TOOL_ANALY_DESC, 
+      PERSON_PRE_DESC, EXCEP_DEAL_DESC, REDCHECK_DESC, 
+      TEAM_RADIATION_DESC)
+    values (#{riskanalyId,jdbcType=VARCHAR}, #{hradiId,jdbcType=VARCHAR}, #{workAddr,jdbcType=VARCHAR}, 
+      #{workaddrDoseRate,jdbcType=VARCHAR}, #{rxPartion,jdbcType=VARCHAR}, #{affectDesc,jdbcType=VARCHAR}, 
+      #{addrriskDesc,jdbcType=VARCHAR}, #{workSystem,jdbcType=VARCHAR}, #{worksystemDoseRate,jdbcType=VARCHAR}, 
+      #{sysFlowType,jdbcType=VARCHAR}, #{worksystemOutrayDesc,jdbcType=VARCHAR}, #{highDosePlace,jdbcType=VARCHAR}, 
+      #{worksystemFlowDesc,jdbcType=VARCHAR}, #{rangeAnalDesc,jdbcType=VARCHAR}, #{radiationAnalyDesc,jdbcType=VARCHAR}, 
+      #{dateAnalyDesc,jdbcType=VARCHAR}, #{disableAnalyDesc,jdbcType=VARCHAR}, #{toolAnalyDesc,jdbcType=VARCHAR}, 
+      #{personPreDesc,jdbcType=VARCHAR}, #{excepDealDesc,jdbcType=VARCHAR}, #{redcheckDesc,jdbcType=VARCHAR}, 
+      #{teamRadiationDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.hradiation_risk_analy">
+    insert into HRADIATION_RISK_ANALY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="riskanalyId != null">
+        RISKANALY_ID,
+      </if>
+      <if test="hradiId != null">
+        HRADI_ID,
+      </if>
+      <if test="workAddr != null">
+        WORK_ADDR,
+      </if>
+      <if test="workaddrDoseRate != null">
+        WORKADDR_DOSE_RATE,
+      </if>
+      <if test="rxPartion != null">
+        RX_PARTION,
+      </if>
+      <if test="affectDesc != null">
+        AFFECT_DESC,
+      </if>
+      <if test="addrriskDesc != null">
+        ADDRRISK_DESC,
+      </if>
+      <if test="workSystem != null">
+        WORK_SYSTEM,
+      </if>
+      <if test="worksystemDoseRate != null">
+        WORKSYSTEM_DOSE_RATE,
+      </if>
+      <if test="sysFlowType != null">
+        SYS_FLOW_TYPE,
+      </if>
+      <if test="worksystemOutrayDesc != null">
+        WORKSYSTEM_OUTRAY_DESC,
+      </if>
+      <if test="highDosePlace != null">
+        HIGH_DOSE_PLACE,
+      </if>
+      <if test="worksystemFlowDesc != null">
+        WORKSYSTEM_FLOW_DESC,
+      </if>
+      <if test="rangeAnalDesc != null">
+        RANGE_ANAL_DESC,
+      </if>
+      <if test="radiationAnalyDesc != null">
+        RADIATION_ANALY_DESC,
+      </if>
+      <if test="dateAnalyDesc != null">
+        DATE_ANALY_DESC,
+      </if>
+      <if test="disableAnalyDesc != null">
+        DISABLE_ANALY_DESC,
+      </if>
+      <if test="toolAnalyDesc != null">
+        TOOL_ANALY_DESC,
+      </if>
+      <if test="personPreDesc != null">
+        PERSON_PRE_DESC,
+      </if>
+      <if test="excepDealDesc != null">
+        EXCEP_DEAL_DESC,
+      </if>
+      <if test="redcheckDesc != null">
+        REDCHECK_DESC,
+      </if>
+      <if test="teamRadiationDesc != null">
+        TEAM_RADIATION_DESC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="riskanalyId != null">
+        #{riskanalyId,jdbcType=VARCHAR},
+      </if>
+      <if test="hradiId != null">
+        #{hradiId,jdbcType=VARCHAR},
+      </if>
+      <if test="workAddr != null">
+        #{workAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="workaddrDoseRate != null">
+        #{workaddrDoseRate,jdbcType=VARCHAR},
+      </if>
+      <if test="rxPartion != null">
+        #{rxPartion,jdbcType=VARCHAR},
+      </if>
+      <if test="affectDesc != null">
+        #{affectDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="addrriskDesc != null">
+        #{addrriskDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="workSystem != null">
+        #{workSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="worksystemDoseRate != null">
+        #{worksystemDoseRate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysFlowType != null">
+        #{sysFlowType,jdbcType=VARCHAR},
+      </if>
+      <if test="worksystemOutrayDesc != null">
+        #{worksystemOutrayDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="highDosePlace != null">
+        #{highDosePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="worksystemFlowDesc != null">
+        #{worksystemFlowDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rangeAnalDesc != null">
+        #{rangeAnalDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="radiationAnalyDesc != null">
+        #{radiationAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dateAnalyDesc != null">
+        #{dateAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="disableAnalyDesc != null">
+        #{disableAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="toolAnalyDesc != null">
+        #{toolAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="personPreDesc != null">
+        #{personPreDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="excepDealDesc != null">
+        #{excepDealDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="redcheckDesc != null">
+        #{redcheckDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="teamRadiationDesc != null">
+        #{teamRadiationDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.hradiation_risk_analy">
+    update HRADIATION_RISK_ANALY
+    <set>
+      <if test="hradiId != null">
+        HRADI_ID = #{hradiId,jdbcType=VARCHAR},
+      </if>
+      <if test="workAddr != null">
+        WORK_ADDR = #{workAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="workaddrDoseRate != null">
+        WORKADDR_DOSE_RATE = #{workaddrDoseRate,jdbcType=VARCHAR},
+      </if>
+      <if test="rxPartion != null">
+        RX_PARTION = #{rxPartion,jdbcType=VARCHAR},
+      </if>
+      <if test="affectDesc != null">
+        AFFECT_DESC = #{affectDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="addrriskDesc != null">
+        ADDRRISK_DESC = #{addrriskDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="workSystem != null">
+        WORK_SYSTEM = #{workSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="worksystemDoseRate != null">
+        WORKSYSTEM_DOSE_RATE = #{worksystemDoseRate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysFlowType != null">
+        SYS_FLOW_TYPE = #{sysFlowType,jdbcType=VARCHAR},
+      </if>
+      <if test="worksystemOutrayDesc != null">
+        WORKSYSTEM_OUTRAY_DESC = #{worksystemOutrayDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="highDosePlace != null">
+        HIGH_DOSE_PLACE = #{highDosePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="worksystemFlowDesc != null">
+        WORKSYSTEM_FLOW_DESC = #{worksystemFlowDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rangeAnalDesc != null">
+        RANGE_ANAL_DESC = #{rangeAnalDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="radiationAnalyDesc != null">
+        RADIATION_ANALY_DESC = #{radiationAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dateAnalyDesc != null">
+        DATE_ANALY_DESC = #{dateAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="disableAnalyDesc != null">
+        DISABLE_ANALY_DESC = #{disableAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="toolAnalyDesc != null">
+        TOOL_ANALY_DESC = #{toolAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="personPreDesc != null">
+        PERSON_PRE_DESC = #{personPreDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="excepDealDesc != null">
+        EXCEP_DEAL_DESC = #{excepDealDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="redcheckDesc != null">
+        REDCHECK_DESC = #{redcheckDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="teamRadiationDesc != null">
+        TEAM_RADIATION_DESC = #{teamRadiationDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RISKANALY_ID = #{riskanalyId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.hradiation_risk_analy">
+    update HRADIATION_RISK_ANALY
+    set HRADI_ID = #{hradiId,jdbcType=VARCHAR},
+      WORK_ADDR = #{workAddr,jdbcType=VARCHAR},
+      WORKADDR_DOSE_RATE = #{workaddrDoseRate,jdbcType=VARCHAR},
+      RX_PARTION = #{rxPartion,jdbcType=VARCHAR},
+      AFFECT_DESC = #{affectDesc,jdbcType=VARCHAR},
+      ADDRRISK_DESC = #{addrriskDesc,jdbcType=VARCHAR},
+      WORK_SYSTEM = #{workSystem,jdbcType=VARCHAR},
+      WORKSYSTEM_DOSE_RATE = #{worksystemDoseRate,jdbcType=VARCHAR},
+      SYS_FLOW_TYPE = #{sysFlowType,jdbcType=VARCHAR},
+      WORKSYSTEM_OUTRAY_DESC = #{worksystemOutrayDesc,jdbcType=VARCHAR},
+      HIGH_DOSE_PLACE = #{highDosePlace,jdbcType=VARCHAR},
+      WORKSYSTEM_FLOW_DESC = #{worksystemFlowDesc,jdbcType=VARCHAR},
+      RANGE_ANAL_DESC = #{rangeAnalDesc,jdbcType=VARCHAR},
+      RADIATION_ANALY_DESC = #{radiationAnalyDesc,jdbcType=VARCHAR},
+      DATE_ANALY_DESC = #{dateAnalyDesc,jdbcType=VARCHAR},
+      DISABLE_ANALY_DESC = #{disableAnalyDesc,jdbcType=VARCHAR},
+      TOOL_ANALY_DESC = #{toolAnalyDesc,jdbcType=VARCHAR},
+      PERSON_PRE_DESC = #{personPreDesc,jdbcType=VARCHAR},
+      EXCEP_DEAL_DESC = #{excepDealDesc,jdbcType=VARCHAR},
+      REDCHECK_DESC = #{redcheckDesc,jdbcType=VARCHAR},
+      TEAM_RADIATION_DESC = #{teamRadiationDesc,jdbcType=VARCHAR}
+    where RISKANALY_ID = #{riskanalyId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.lanou.domain.hradiation_risk_analy">
+    <constructor>
+      <idArg column="RISKANALY_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HRADI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORKADDR_DOSE_RATE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RX_PARTION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="AFFECT_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ADDRRISK_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORK_SYSTEM" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORKSYSTEM_DOSE_RATE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SYS_FLOW_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORKSYSTEM_OUTRAY_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HIGH_DOSE_PLACE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WORKSYSTEM_FLOW_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RANGE_ANAL_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RADIATION_ANALY_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DATE_ANALY_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DISABLE_ANALY_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TOOL_ANALY_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PERSON_PRE_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EXCEP_DEAL_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="REDCHECK_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TEAM_RADIATION_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    RISKANALY_ID, HRADI_ID, WORK_ADDR, WORKADDR_DOSE_RATE, RX_PARTION, AFFECT_DESC, ADDRRISK_DESC, 
+    WORK_SYSTEM, WORKSYSTEM_DOSE_RATE, SYS_FLOW_TYPE, WORKSYSTEM_OUTRAY_DESC, HIGH_DOSE_PLACE, 
+    WORKSYSTEM_FLOW_DESC, RANGE_ANAL_DESC, RADIATION_ANALY_DESC, DATE_ANALY_DESC, DISABLE_ANALY_DESC, 
+    TOOL_ANALY_DESC, PERSON_PRE_DESC, EXCEP_DEAL_DESC, REDCHECK_DESC, TEAM_RADIATION_DESC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from HRADIATION_RISK_ANALY
+    where RISKANALY_ID = #{riskanalyId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from HRADIATION_RISK_ANALY
+    where RISKANALY_ID = #{riskanalyId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.hradiation_risk_analy">
+    insert into HRADIATION_RISK_ANALY (RISKANALY_ID, HRADI_ID, WORK_ADDR, 
+      WORKADDR_DOSE_RATE, RX_PARTION, AFFECT_DESC, 
+      ADDRRISK_DESC, WORK_SYSTEM, WORKSYSTEM_DOSE_RATE, 
+      SYS_FLOW_TYPE, WORKSYSTEM_OUTRAY_DESC, HIGH_DOSE_PLACE, 
+      WORKSYSTEM_FLOW_DESC, RANGE_ANAL_DESC, RADIATION_ANALY_DESC, 
+      DATE_ANALY_DESC, DISABLE_ANALY_DESC, TOOL_ANALY_DESC, 
+      PERSON_PRE_DESC, EXCEP_DEAL_DESC, REDCHECK_DESC, 
+      TEAM_RADIATION_DESC)
+    values (#{riskanalyId,jdbcType=VARCHAR}, #{hradiId,jdbcType=VARCHAR}, #{workAddr,jdbcType=VARCHAR}, 
+      #{workaddrDoseRate,jdbcType=VARCHAR}, #{rxPartion,jdbcType=VARCHAR}, #{affectDesc,jdbcType=VARCHAR}, 
+      #{addrriskDesc,jdbcType=VARCHAR}, #{workSystem,jdbcType=VARCHAR}, #{worksystemDoseRate,jdbcType=VARCHAR}, 
+      #{sysFlowType,jdbcType=VARCHAR}, #{worksystemOutrayDesc,jdbcType=VARCHAR}, #{highDosePlace,jdbcType=VARCHAR}, 
+      #{worksystemFlowDesc,jdbcType=VARCHAR}, #{rangeAnalDesc,jdbcType=VARCHAR}, #{radiationAnalyDesc,jdbcType=VARCHAR}, 
+      #{dateAnalyDesc,jdbcType=VARCHAR}, #{disableAnalyDesc,jdbcType=VARCHAR}, #{toolAnalyDesc,jdbcType=VARCHAR}, 
+      #{personPreDesc,jdbcType=VARCHAR}, #{excepDealDesc,jdbcType=VARCHAR}, #{redcheckDesc,jdbcType=VARCHAR}, 
+      #{teamRadiationDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.hradiation_risk_analy">
+    insert into HRADIATION_RISK_ANALY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="riskanalyId != null">
+        RISKANALY_ID,
+      </if>
+      <if test="hradiId != null">
+        HRADI_ID,
+      </if>
+      <if test="workAddr != null">
+        WORK_ADDR,
+      </if>
+      <if test="workaddrDoseRate != null">
+        WORKADDR_DOSE_RATE,
+      </if>
+      <if test="rxPartion != null">
+        RX_PARTION,
+      </if>
+      <if test="affectDesc != null">
+        AFFECT_DESC,
+      </if>
+      <if test="addrriskDesc != null">
+        ADDRRISK_DESC,
+      </if>
+      <if test="workSystem != null">
+        WORK_SYSTEM,
+      </if>
+      <if test="worksystemDoseRate != null">
+        WORKSYSTEM_DOSE_RATE,
+      </if>
+      <if test="sysFlowType != null">
+        SYS_FLOW_TYPE,
+      </if>
+      <if test="worksystemOutrayDesc != null">
+        WORKSYSTEM_OUTRAY_DESC,
+      </if>
+      <if test="highDosePlace != null">
+        HIGH_DOSE_PLACE,
+      </if>
+      <if test="worksystemFlowDesc != null">
+        WORKSYSTEM_FLOW_DESC,
+      </if>
+      <if test="rangeAnalDesc != null">
+        RANGE_ANAL_DESC,
+      </if>
+      <if test="radiationAnalyDesc != null">
+        RADIATION_ANALY_DESC,
+      </if>
+      <if test="dateAnalyDesc != null">
+        DATE_ANALY_DESC,
+      </if>
+      <if test="disableAnalyDesc != null">
+        DISABLE_ANALY_DESC,
+      </if>
+      <if test="toolAnalyDesc != null">
+        TOOL_ANALY_DESC,
+      </if>
+      <if test="personPreDesc != null">
+        PERSON_PRE_DESC,
+      </if>
+      <if test="excepDealDesc != null">
+        EXCEP_DEAL_DESC,
+      </if>
+      <if test="redcheckDesc != null">
+        REDCHECK_DESC,
+      </if>
+      <if test="teamRadiationDesc != null">
+        TEAM_RADIATION_DESC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="riskanalyId != null">
+        #{riskanalyId,jdbcType=VARCHAR},
+      </if>
+      <if test="hradiId != null">
+        #{hradiId,jdbcType=VARCHAR},
+      </if>
+      <if test="workAddr != null">
+        #{workAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="workaddrDoseRate != null">
+        #{workaddrDoseRate,jdbcType=VARCHAR},
+      </if>
+      <if test="rxPartion != null">
+        #{rxPartion,jdbcType=VARCHAR},
+      </if>
+      <if test="affectDesc != null">
+        #{affectDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="addrriskDesc != null">
+        #{addrriskDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="workSystem != null">
+        #{workSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="worksystemDoseRate != null">
+        #{worksystemDoseRate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysFlowType != null">
+        #{sysFlowType,jdbcType=VARCHAR},
+      </if>
+      <if test="worksystemOutrayDesc != null">
+        #{worksystemOutrayDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="highDosePlace != null">
+        #{highDosePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="worksystemFlowDesc != null">
+        #{worksystemFlowDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rangeAnalDesc != null">
+        #{rangeAnalDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="radiationAnalyDesc != null">
+        #{radiationAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dateAnalyDesc != null">
+        #{dateAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="disableAnalyDesc != null">
+        #{disableAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="toolAnalyDesc != null">
+        #{toolAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="personPreDesc != null">
+        #{personPreDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="excepDealDesc != null">
+        #{excepDealDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="redcheckDesc != null">
+        #{redcheckDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="teamRadiationDesc != null">
+        #{teamRadiationDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.hradiation_risk_analy">
+    update HRADIATION_RISK_ANALY
+    <set>
+      <if test="hradiId != null">
+        HRADI_ID = #{hradiId,jdbcType=VARCHAR},
+      </if>
+      <if test="workAddr != null">
+        WORK_ADDR = #{workAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="workaddrDoseRate != null">
+        WORKADDR_DOSE_RATE = #{workaddrDoseRate,jdbcType=VARCHAR},
+      </if>
+      <if test="rxPartion != null">
+        RX_PARTION = #{rxPartion,jdbcType=VARCHAR},
+      </if>
+      <if test="affectDesc != null">
+        AFFECT_DESC = #{affectDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="addrriskDesc != null">
+        ADDRRISK_DESC = #{addrriskDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="workSystem != null">
+        WORK_SYSTEM = #{workSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="worksystemDoseRate != null">
+        WORKSYSTEM_DOSE_RATE = #{worksystemDoseRate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysFlowType != null">
+        SYS_FLOW_TYPE = #{sysFlowType,jdbcType=VARCHAR},
+      </if>
+      <if test="worksystemOutrayDesc != null">
+        WORKSYSTEM_OUTRAY_DESC = #{worksystemOutrayDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="highDosePlace != null">
+        HIGH_DOSE_PLACE = #{highDosePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="worksystemFlowDesc != null">
+        WORKSYSTEM_FLOW_DESC = #{worksystemFlowDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="rangeAnalDesc != null">
+        RANGE_ANAL_DESC = #{rangeAnalDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="radiationAnalyDesc != null">
+        RADIATION_ANALY_DESC = #{radiationAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dateAnalyDesc != null">
+        DATE_ANALY_DESC = #{dateAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="disableAnalyDesc != null">
+        DISABLE_ANALY_DESC = #{disableAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="toolAnalyDesc != null">
+        TOOL_ANALY_DESC = #{toolAnalyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="personPreDesc != null">
+        PERSON_PRE_DESC = #{personPreDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="excepDealDesc != null">
+        EXCEP_DEAL_DESC = #{excepDealDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="redcheckDesc != null">
+        REDCHECK_DESC = #{redcheckDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="teamRadiationDesc != null">
+        TEAM_RADIATION_DESC = #{teamRadiationDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RISKANALY_ID = #{riskanalyId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.hradiation_risk_analy">
+    update HRADIATION_RISK_ANALY
+    set HRADI_ID = #{hradiId,jdbcType=VARCHAR},
+      WORK_ADDR = #{workAddr,jdbcType=VARCHAR},
+      WORKADDR_DOSE_RATE = #{workaddrDoseRate,jdbcType=VARCHAR},
+      RX_PARTION = #{rxPartion,jdbcType=VARCHAR},
+      AFFECT_DESC = #{affectDesc,jdbcType=VARCHAR},
+      ADDRRISK_DESC = #{addrriskDesc,jdbcType=VARCHAR},
+      WORK_SYSTEM = #{workSystem,jdbcType=VARCHAR},
+      WORKSYSTEM_DOSE_RATE = #{worksystemDoseRate,jdbcType=VARCHAR},
+      SYS_FLOW_TYPE = #{sysFlowType,jdbcType=VARCHAR},
+      WORKSYSTEM_OUTRAY_DESC = #{worksystemOutrayDesc,jdbcType=VARCHAR},
+      HIGH_DOSE_PLACE = #{highDosePlace,jdbcType=VARCHAR},
+      WORKSYSTEM_FLOW_DESC = #{worksystemFlowDesc,jdbcType=VARCHAR},
+      RANGE_ANAL_DESC = #{rangeAnalDesc,jdbcType=VARCHAR},
+      RADIATION_ANALY_DESC = #{radiationAnalyDesc,jdbcType=VARCHAR},
+      DATE_ANALY_DESC = #{dateAnalyDesc,jdbcType=VARCHAR},
+      DISABLE_ANALY_DESC = #{disableAnalyDesc,jdbcType=VARCHAR},
+      TOOL_ANALY_DESC = #{toolAnalyDesc,jdbcType=VARCHAR},
+      PERSON_PRE_DESC = #{personPreDesc,jdbcType=VARCHAR},
+      EXCEP_DEAL_DESC = #{excepDealDesc,jdbcType=VARCHAR},
+      REDCHECK_DESC = #{redcheckDesc,jdbcType=VARCHAR},
+      TEAM_RADIATION_DESC = #{teamRadiationDesc,jdbcType=VARCHAR}
+    where RISKANALY_ID = #{riskanalyId,jdbcType=VARCHAR}
+  </update>
+</mapper>

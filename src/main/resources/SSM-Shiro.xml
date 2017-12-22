@@ -21,31 +21,31 @@
             </map>
         </property>
 
-        <property name="filterChainDefinitions">
-            <value>
-                <!--anon:代表资源可以匿名访问-->
-                /static/**=anon
+        <!--<property name="filterChainDefinitions">-->
+            <!--<value>-->
+                <!--&lt;!&ndash;anon:代表资源可以匿名访问&ndash;&gt;-->
+                <!--/static/**=anon-->
 
-                <!--authc：需要认证才可以访问-->
-                /loginsubmit=authc
+                <!--&lt;!&ndash;authc：需要认证才可以访问&ndash;&gt;-->
+                <!--/loginsubmit=authc-->
 
-                <!--退出-->
-                /loginout=logout
+                <!--&lt;!&ndash;退出&ndash;&gt;-->
+                <!--/loginout=logout-->
 
-                <!--必须要有管理员[admin]身份才可以访问-->
-                <!--roles[xx]代表有xx角色才可以访问-->
-                /role=authc,roles[admin]
+                <!--&lt;!&ndash;必须要有管理员[admin]身份才可以访问&ndash;&gt;-->
+                <!--&lt;!&ndash;roles[xx]代表有xx角色才可以访问&ndash;&gt;-->
+                <!--/role=authc,roles[admin]-->
 
-                /perm/**=authc,perms["user:create"]
+                <!--/perm/**=authc,perms["user:create"]-->
 
-                /unauthorized=anon
+                <!--/unauthorized=anon-->
 
-                <!--user:通过了认证/通过rememberme认证通过可以访问-->
-                /** = user
+                <!--&lt;!&ndash;user:通过了认证/通过rememberme认证通过可以访问&ndash;&gt;-->
+                <!--/** = user-->
 
 
-            </value>
-        </property>
+            <!--</value>-->
+        <!--</property>-->
 
     </bean>
 
