@@ -1,181 +1,90 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.RayPermitDetailMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.RayPermitDetail">
-    <constructor>
-      <idArg column="RAYPERMIT_DETAIL_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RAYPERMIT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RAYPERT_SYSTEM" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RAYPERT_SITE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="LAYER_SITE" javaType="java.lang.String" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.RayPermitDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.RayPermitDetail" >
+    <constructor >
+      <idArg column="RAYPERMIT_DETAIL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RAYPERMIT_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RAYPERT_SYSTEM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RAYPERT_SITE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LAYER_SITE" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     RAYPERMIT_DETAIL_ID, RAYPERMIT_ID, RAYPERT_SYSTEM, RAYPERT_SITE, LAYER_SITE
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from RAY_PERMIT_DETAIL
     where RAYPERMIT_DETAIL_ID = #{raypermitDetailId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from RAY_PERMIT_DETAIL
     where RAYPERMIT_DETAIL_ID = #{raypermitDetailId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.RayPermitDetail">
+  <insert id="insert" parameterType="com.lanou.domain.RayPermitDetail" >
     insert into RAY_PERMIT_DETAIL (RAYPERMIT_DETAIL_ID, RAYPERMIT_ID, RAYPERT_SYSTEM, 
       RAYPERT_SITE, LAYER_SITE)
     values (#{raypermitDetailId,jdbcType=VARCHAR}, #{raypermitId,jdbcType=VARCHAR}, #{raypertSystem,jdbcType=VARCHAR}, 
       #{raypertSite,jdbcType=VARCHAR}, #{layerSite,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.RayPermitDetail">
+  <insert id="insertSelective" parameterType="com.lanou.domain.RayPermitDetail" >
     insert into RAY_PERMIT_DETAIL
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="raypermitDetailId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="raypermitDetailId != null" >
         RAYPERMIT_DETAIL_ID,
       </if>
-      <if test="raypermitId != null">
+      <if test="raypermitId != null" >
         RAYPERMIT_ID,
       </if>
-      <if test="raypertSystem != null">
+      <if test="raypertSystem != null" >
         RAYPERT_SYSTEM,
       </if>
-      <if test="raypertSite != null">
+      <if test="raypertSite != null" >
         RAYPERT_SITE,
       </if>
-      <if test="layerSite != null">
+      <if test="layerSite != null" >
         LAYER_SITE,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="raypermitDetailId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="raypermitDetailId != null" >
         #{raypermitDetailId,jdbcType=VARCHAR},
       </if>
-      <if test="raypermitId != null">
+      <if test="raypermitId != null" >
         #{raypermitId,jdbcType=VARCHAR},
       </if>
-      <if test="raypertSystem != null">
+      <if test="raypertSystem != null" >
         #{raypertSystem,jdbcType=VARCHAR},
       </if>
-      <if test="raypertSite != null">
+      <if test="raypertSite != null" >
         #{raypertSite,jdbcType=VARCHAR},
       </if>
-      <if test="layerSite != null">
+      <if test="layerSite != null" >
         #{layerSite,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RayPermitDetail">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RayPermitDetail" >
     update RAY_PERMIT_DETAIL
-    <set>
-      <if test="raypermitId != null">
+    <set >
+      <if test="raypermitId != null" >
         RAYPERMIT_ID = #{raypermitId,jdbcType=VARCHAR},
       </if>
-      <if test="raypertSystem != null">
+      <if test="raypertSystem != null" >
         RAYPERT_SYSTEM = #{raypertSystem,jdbcType=VARCHAR},
       </if>
-      <if test="raypertSite != null">
+      <if test="raypertSite != null" >
         RAYPERT_SITE = #{raypertSite,jdbcType=VARCHAR},
       </if>
-      <if test="layerSite != null">
+      <if test="layerSite != null" >
         LAYER_SITE = #{layerSite,jdbcType=VARCHAR},
       </if>
     </set>
     where RAYPERMIT_DETAIL_ID = #{raypermitDetailId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RayPermitDetail">
-    update RAY_PERMIT_DETAIL
-    set RAYPERMIT_ID = #{raypermitId,jdbcType=VARCHAR},
-      RAYPERT_SYSTEM = #{raypertSystem,jdbcType=VARCHAR},
-      RAYPERT_SITE = #{raypertSite,jdbcType=VARCHAR},
-      LAYER_SITE = #{layerSite,jdbcType=VARCHAR}
-    where RAYPERMIT_DETAIL_ID = #{raypermitDetailId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.RayPermitDetail">
-    <constructor>
-      <idArg column="RAYPERMIT_DETAIL_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RAYPERMIT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RAYPERT_SYSTEM" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RAYPERT_SITE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="LAYER_SITE" javaType="java.lang.String" jdbcType="VARCHAR" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    RAYPERMIT_DETAIL_ID, RAYPERMIT_ID, RAYPERT_SYSTEM, RAYPERT_SITE, LAYER_SITE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from RAY_PERMIT_DETAIL
-    where RAYPERMIT_DETAIL_ID = #{raypermitDetailId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from RAY_PERMIT_DETAIL
-    where RAYPERMIT_DETAIL_ID = #{raypermitDetailId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.RayPermitDetail">
-    insert into RAY_PERMIT_DETAIL (RAYPERMIT_DETAIL_ID, RAYPERMIT_ID, RAYPERT_SYSTEM, 
-      RAYPERT_SITE, LAYER_SITE)
-    values (#{raypermitDetailId,jdbcType=VARCHAR}, #{raypermitId,jdbcType=VARCHAR}, #{raypertSystem,jdbcType=VARCHAR}, 
-      #{raypertSite,jdbcType=VARCHAR}, #{layerSite,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.RayPermitDetail">
-    insert into RAY_PERMIT_DETAIL
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="raypermitDetailId != null">
-        RAYPERMIT_DETAIL_ID,
-      </if>
-      <if test="raypermitId != null">
-        RAYPERMIT_ID,
-      </if>
-      <if test="raypertSystem != null">
-        RAYPERT_SYSTEM,
-      </if>
-      <if test="raypertSite != null">
-        RAYPERT_SITE,
-      </if>
-      <if test="layerSite != null">
-        LAYER_SITE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="raypermitDetailId != null">
-        #{raypermitDetailId,jdbcType=VARCHAR},
-      </if>
-      <if test="raypermitId != null">
-        #{raypermitId,jdbcType=VARCHAR},
-      </if>
-      <if test="raypertSystem != null">
-        #{raypertSystem,jdbcType=VARCHAR},
-      </if>
-      <if test="raypertSite != null">
-        #{raypertSite,jdbcType=VARCHAR},
-      </if>
-      <if test="layerSite != null">
-        #{layerSite,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RayPermitDetail">
-    update RAY_PERMIT_DETAIL
-    <set>
-      <if test="raypermitId != null">
-        RAYPERMIT_ID = #{raypermitId,jdbcType=VARCHAR},
-      </if>
-      <if test="raypertSystem != null">
-        RAYPERT_SYSTEM = #{raypertSystem,jdbcType=VARCHAR},
-      </if>
-      <if test="raypertSite != null">
-        RAYPERT_SITE = #{raypertSite,jdbcType=VARCHAR},
-      </if>
-      <if test="layerSite != null">
-        LAYER_SITE = #{layerSite,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where RAYPERMIT_DETAIL_ID = #{raypermitDetailId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RayPermitDetail">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RayPermitDetail" >
     update RAY_PERMIT_DETAIL
     set RAYPERMIT_ID = #{raypermitId,jdbcType=VARCHAR},
       RAYPERT_SYSTEM = #{raypertSystem,jdbcType=VARCHAR},

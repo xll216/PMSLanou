@@ -1,45 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.HradiationWorkPermitMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationWorkPermit">
-    <constructor>
-      <idArg column="HRADI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAC_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSI_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="TIME_LIMIT" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SITE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="OPER_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SURE_WORK_BEGDATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="SURE_WORK_ENDDATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="CAN_EXEC_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="REAL_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="REAL_MAX_WORKTIME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="REAL_WORK_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.HradiationWorkPermitMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationWorkPermit" >
+    <constructor >
+      <idArg column="HRADI_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MAC_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BUSI_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APP_BEG_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="TIME_LIMIT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SITE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPER_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WORK_ADDR" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WORK_CONTENT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SURE_WORK_BEGDATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="SURE_WORK_ENDDATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CAN_EXEC_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REAL_METER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REAL_MAX_WORKTIME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REAL_WORK_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="EFFECT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     HRADI_ID, MAC_NO, BUSI_NO, APP_BEG_DATE, TIME_LIMIT, SITE, OPER_NAME, WORK_ADDR, 
     WORK_CONTENT, SURE_WORK_BEGDATE, SURE_WORK_ENDDATE, CAN_EXEC_FLAG, REAL_METER, REAL_MAX_WORKTIME, 
     REAL_WORK_DATE, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from HRADIATION_WORK_PERMIT
     where HRADI_ID = #{hradiId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from HRADIATION_WORK_PERMIT
     where HRADI_ID = #{hradiId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.HradiationWorkPermit">
+  <insert id="insert" parameterType="com.lanou.domain.HradiationWorkPermit" >
     insert into HRADIATION_WORK_PERMIT (HRADI_ID, MAC_NO, BUSI_NO, 
       APP_BEG_DATE, TIME_LIMIT, SITE, 
       OPER_NAME, WORK_ADDR, WORK_CONTENT, 
@@ -55,445 +55,188 @@
       #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationWorkPermit">
+  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationWorkPermit" >
     insert into HRADIATION_WORK_PERMIT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="hradiId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hradiId != null" >
         HRADI_ID,
       </if>
-      <if test="macNo != null">
+      <if test="macNo != null" >
         MAC_NO,
       </if>
-      <if test="busiNo != null">
+      <if test="busiNo != null" >
         BUSI_NO,
       </if>
-      <if test="appBegDate != null">
+      <if test="appBegDate != null" >
         APP_BEG_DATE,
       </if>
-      <if test="timeLimit != null">
+      <if test="timeLimit != null" >
         TIME_LIMIT,
       </if>
-      <if test="site != null">
+      <if test="site != null" >
         SITE,
       </if>
-      <if test="operName != null">
+      <if test="operName != null" >
         OPER_NAME,
       </if>
-      <if test="workAddr != null">
+      <if test="workAddr != null" >
         WORK_ADDR,
       </if>
-      <if test="workContent != null">
+      <if test="workContent != null" >
         WORK_CONTENT,
       </if>
-      <if test="sureWorkBegdate != null">
+      <if test="sureWorkBegdate != null" >
         SURE_WORK_BEGDATE,
       </if>
-      <if test="sureWorkEnddate != null">
+      <if test="sureWorkEnddate != null" >
         SURE_WORK_ENDDATE,
       </if>
-      <if test="canExecFlag != null">
+      <if test="canExecFlag != null" >
         CAN_EXEC_FLAG,
       </if>
-      <if test="realMeter != null">
+      <if test="realMeter != null" >
         REAL_METER,
       </if>
-      <if test="realMaxWorktime != null">
+      <if test="realMaxWorktime != null" >
         REAL_MAX_WORKTIME,
       </if>
-      <if test="realWorkDate != null">
+      <if test="realWorkDate != null" >
         REAL_WORK_DATE,
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG,
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO,
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="hradiId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hradiId != null" >
         #{hradiId,jdbcType=VARCHAR},
       </if>
-      <if test="macNo != null">
+      <if test="macNo != null" >
         #{macNo,jdbcType=VARCHAR},
       </if>
-      <if test="busiNo != null">
+      <if test="busiNo != null" >
         #{busiNo,jdbcType=VARCHAR},
       </if>
-      <if test="appBegDate != null">
+      <if test="appBegDate != null" >
         #{appBegDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="timeLimit != null">
+      <if test="timeLimit != null" >
         #{timeLimit,jdbcType=VARCHAR},
       </if>
-      <if test="site != null">
+      <if test="site != null" >
         #{site,jdbcType=VARCHAR},
       </if>
-      <if test="operName != null">
+      <if test="operName != null" >
         #{operName,jdbcType=VARCHAR},
       </if>
-      <if test="workAddr != null">
+      <if test="workAddr != null" >
         #{workAddr,jdbcType=VARCHAR},
       </if>
-      <if test="workContent != null">
+      <if test="workContent != null" >
         #{workContent,jdbcType=VARCHAR},
       </if>
-      <if test="sureWorkBegdate != null">
+      <if test="sureWorkBegdate != null" >
         #{sureWorkBegdate,jdbcType=TIMESTAMP},
       </if>
-      <if test="sureWorkEnddate != null">
+      <if test="sureWorkEnddate != null" >
         #{sureWorkEnddate,jdbcType=TIMESTAMP},
       </if>
-      <if test="canExecFlag != null">
+      <if test="canExecFlag != null" >
         #{canExecFlag,jdbcType=VARCHAR},
       </if>
-      <if test="realMeter != null">
+      <if test="realMeter != null" >
         #{realMeter,jdbcType=VARCHAR},
       </if>
-      <if test="realMaxWorktime != null">
+      <if test="realMaxWorktime != null" >
         #{realMaxWorktime,jdbcType=VARCHAR},
       </if>
-      <if test="realWorkDate != null">
+      <if test="realWorkDate != null" >
         #{realWorkDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.HradiationWorkPermit">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.HradiationWorkPermit" >
     update HRADIATION_WORK_PERMIT
-    <set>
-      <if test="macNo != null">
+    <set >
+      <if test="macNo != null" >
         MAC_NO = #{macNo,jdbcType=VARCHAR},
       </if>
-      <if test="busiNo != null">
+      <if test="busiNo != null" >
         BUSI_NO = #{busiNo,jdbcType=VARCHAR},
       </if>
-      <if test="appBegDate != null">
+      <if test="appBegDate != null" >
         APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="timeLimit != null">
+      <if test="timeLimit != null" >
         TIME_LIMIT = #{timeLimit,jdbcType=VARCHAR},
       </if>
-      <if test="site != null">
+      <if test="site != null" >
         SITE = #{site,jdbcType=VARCHAR},
       </if>
-      <if test="operName != null">
+      <if test="operName != null" >
         OPER_NAME = #{operName,jdbcType=VARCHAR},
       </if>
-      <if test="workAddr != null">
+      <if test="workAddr != null" >
         WORK_ADDR = #{workAddr,jdbcType=VARCHAR},
       </if>
-      <if test="workContent != null">
+      <if test="workContent != null" >
         WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
       </if>
-      <if test="sureWorkBegdate != null">
+      <if test="sureWorkBegdate != null" >
         SURE_WORK_BEGDATE = #{sureWorkBegdate,jdbcType=TIMESTAMP},
       </if>
-      <if test="sureWorkEnddate != null">
+      <if test="sureWorkEnddate != null" >
         SURE_WORK_ENDDATE = #{sureWorkEnddate,jdbcType=TIMESTAMP},
       </if>
-      <if test="canExecFlag != null">
+      <if test="canExecFlag != null" >
         CAN_EXEC_FLAG = #{canExecFlag,jdbcType=VARCHAR},
       </if>
-      <if test="realMeter != null">
+      <if test="realMeter != null" >
         REAL_METER = #{realMeter,jdbcType=VARCHAR},
       </if>
-      <if test="realMaxWorktime != null">
+      <if test="realMaxWorktime != null" >
         REAL_MAX_WORKTIME = #{realMaxWorktime,jdbcType=VARCHAR},
       </if>
-      <if test="realWorkDate != null">
+      <if test="realWorkDate != null" >
         REAL_WORK_DATE = #{realWorkDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where HRADI_ID = #{hradiId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.HradiationWorkPermit">
-    update HRADIATION_WORK_PERMIT
-    set MAC_NO = #{macNo,jdbcType=VARCHAR},
-      BUSI_NO = #{busiNo,jdbcType=VARCHAR},
-      APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
-      TIME_LIMIT = #{timeLimit,jdbcType=VARCHAR},
-      SITE = #{site,jdbcType=VARCHAR},
-      OPER_NAME = #{operName,jdbcType=VARCHAR},
-      WORK_ADDR = #{workAddr,jdbcType=VARCHAR},
-      WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
-      SURE_WORK_BEGDATE = #{sureWorkBegdate,jdbcType=TIMESTAMP},
-      SURE_WORK_ENDDATE = #{sureWorkEnddate,jdbcType=TIMESTAMP},
-      CAN_EXEC_FLAG = #{canExecFlag,jdbcType=VARCHAR},
-      REAL_METER = #{realMeter,jdbcType=VARCHAR},
-      REAL_MAX_WORKTIME = #{realMaxWorktime,jdbcType=VARCHAR},
-      REAL_WORK_DATE = #{realWorkDate,jdbcType=TIMESTAMP},
-      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
-    where HRADI_ID = #{hradiId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationWorkPermit">
-    <constructor>
-      <idArg column="HRADI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAC_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSI_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="TIME_LIMIT" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SITE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="OPER_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SURE_WORK_BEGDATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="SURE_WORK_ENDDATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="CAN_EXEC_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="REAL_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="REAL_MAX_WORKTIME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="REAL_WORK_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    HRADI_ID, MAC_NO, BUSI_NO, APP_BEG_DATE, TIME_LIMIT, SITE, OPER_NAME, WORK_ADDR, 
-    WORK_CONTENT, SURE_WORK_BEGDATE, SURE_WORK_ENDDATE, CAN_EXEC_FLAG, REAL_METER, REAL_MAX_WORKTIME, 
-    REAL_WORK_DATE, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from HRADIATION_WORK_PERMIT
-    where HRADI_ID = #{hradiId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from HRADIATION_WORK_PERMIT
-    where HRADI_ID = #{hradiId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.HradiationWorkPermit">
-    insert into HRADIATION_WORK_PERMIT (HRADI_ID, MAC_NO, BUSI_NO, 
-      APP_BEG_DATE, TIME_LIMIT, SITE, 
-      OPER_NAME, WORK_ADDR, WORK_CONTENT, 
-      SURE_WORK_BEGDATE, SURE_WORK_ENDDATE, CAN_EXEC_FLAG, 
-      REAL_METER, REAL_MAX_WORKTIME, REAL_WORK_DATE, 
-      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
-      CREATE_DATE)
-    values (#{hradiId,jdbcType=VARCHAR}, #{macNo,jdbcType=VARCHAR}, #{busiNo,jdbcType=VARCHAR}, 
-      #{appBegDate,jdbcType=TIMESTAMP}, #{timeLimit,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
-      #{operName,jdbcType=VARCHAR}, #{workAddr,jdbcType=VARCHAR}, #{workContent,jdbcType=VARCHAR}, 
-      #{sureWorkBegdate,jdbcType=TIMESTAMP}, #{sureWorkEnddate,jdbcType=TIMESTAMP}, #{canExecFlag,jdbcType=VARCHAR}, 
-      #{realMeter,jdbcType=VARCHAR}, #{realMaxWorktime,jdbcType=VARCHAR}, #{realWorkDate,jdbcType=TIMESTAMP}, 
-      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
-      #{createDate,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationWorkPermit">
-    insert into HRADIATION_WORK_PERMIT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="hradiId != null">
-        HRADI_ID,
-      </if>
-      <if test="macNo != null">
-        MAC_NO,
-      </if>
-      <if test="busiNo != null">
-        BUSI_NO,
-      </if>
-      <if test="appBegDate != null">
-        APP_BEG_DATE,
-      </if>
-      <if test="timeLimit != null">
-        TIME_LIMIT,
-      </if>
-      <if test="site != null">
-        SITE,
-      </if>
-      <if test="operName != null">
-        OPER_NAME,
-      </if>
-      <if test="workAddr != null">
-        WORK_ADDR,
-      </if>
-      <if test="workContent != null">
-        WORK_CONTENT,
-      </if>
-      <if test="sureWorkBegdate != null">
-        SURE_WORK_BEGDATE,
-      </if>
-      <if test="sureWorkEnddate != null">
-        SURE_WORK_ENDDATE,
-      </if>
-      <if test="canExecFlag != null">
-        CAN_EXEC_FLAG,
-      </if>
-      <if test="realMeter != null">
-        REAL_METER,
-      </if>
-      <if test="realMaxWorktime != null">
-        REAL_MAX_WORKTIME,
-      </if>
-      <if test="realWorkDate != null">
-        REAL_WORK_DATE,
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG,
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO,
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME,
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="hradiId != null">
-        #{hradiId,jdbcType=VARCHAR},
-      </if>
-      <if test="macNo != null">
-        #{macNo,jdbcType=VARCHAR},
-      </if>
-      <if test="busiNo != null">
-        #{busiNo,jdbcType=VARCHAR},
-      </if>
-      <if test="appBegDate != null">
-        #{appBegDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="timeLimit != null">
-        #{timeLimit,jdbcType=VARCHAR},
-      </if>
-      <if test="site != null">
-        #{site,jdbcType=VARCHAR},
-      </if>
-      <if test="operName != null">
-        #{operName,jdbcType=VARCHAR},
-      </if>
-      <if test="workAddr != null">
-        #{workAddr,jdbcType=VARCHAR},
-      </if>
-      <if test="workContent != null">
-        #{workContent,jdbcType=VARCHAR},
-      </if>
-      <if test="sureWorkBegdate != null">
-        #{sureWorkBegdate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sureWorkEnddate != null">
-        #{sureWorkEnddate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="canExecFlag != null">
-        #{canExecFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="realMeter != null">
-        #{realMeter,jdbcType=VARCHAR},
-      </if>
-      <if test="realMaxWorktime != null">
-        #{realMaxWorktime,jdbcType=VARCHAR},
-      </if>
-      <if test="realWorkDate != null">
-        #{realWorkDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="effectFlag != null">
-        #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.HradiationWorkPermit">
-    update HRADIATION_WORK_PERMIT
-    <set>
-      <if test="macNo != null">
-        MAC_NO = #{macNo,jdbcType=VARCHAR},
-      </if>
-      <if test="busiNo != null">
-        BUSI_NO = #{busiNo,jdbcType=VARCHAR},
-      </if>
-      <if test="appBegDate != null">
-        APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="timeLimit != null">
-        TIME_LIMIT = #{timeLimit,jdbcType=VARCHAR},
-      </if>
-      <if test="site != null">
-        SITE = #{site,jdbcType=VARCHAR},
-      </if>
-      <if test="operName != null">
-        OPER_NAME = #{operName,jdbcType=VARCHAR},
-      </if>
-      <if test="workAddr != null">
-        WORK_ADDR = #{workAddr,jdbcType=VARCHAR},
-      </if>
-      <if test="workContent != null">
-        WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
-      </if>
-      <if test="sureWorkBegdate != null">
-        SURE_WORK_BEGDATE = #{sureWorkBegdate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sureWorkEnddate != null">
-        SURE_WORK_ENDDATE = #{sureWorkEnddate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="canExecFlag != null">
-        CAN_EXEC_FLAG = #{canExecFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="realMeter != null">
-        REAL_METER = #{realMeter,jdbcType=VARCHAR},
-      </if>
-      <if test="realMaxWorktime != null">
-        REAL_MAX_WORKTIME = #{realMaxWorktime,jdbcType=VARCHAR},
-      </if>
-      <if test="realWorkDate != null">
-        REAL_WORK_DATE = #{realWorkDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where HRADI_ID = #{hradiId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.HradiationWorkPermit">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.HradiationWorkPermit" >
     update HRADIATION_WORK_PERMIT
     set MAC_NO = #{macNo,jdbcType=VARCHAR},
       BUSI_NO = #{busiNo,jdbcType=VARCHAR},

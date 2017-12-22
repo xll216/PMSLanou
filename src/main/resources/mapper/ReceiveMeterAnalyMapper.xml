@@ -1,36 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.ReceiveMeterAnalyMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.ReceiveMeterAnaly">
-    <constructor>
-      <idArg column="METERANALY_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RISKANALY_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_STEP" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SITE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="USER_COUNT" javaType="java.lang.Integer" jdbcType="DECIMAL" />
-      <arg column="PRE_DATE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PREMETER_MSVN" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PREMETER_MSVY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PREMETER_MANN" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PREMETER_MANY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PROT_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.ReceiveMeterAnalyMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.ReceiveMeterAnaly" >
+    <constructor >
+      <idArg column="METERANALY_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RISKANALY_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WORK_STEP" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SITE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="USER_COUNT" jdbcType="DECIMAL" javaType="java.lang.Integer" />
+      <arg column="PRE_DATE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PREMETER_MSVN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PREMETER_MSVY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PREMETER_MANN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PREMETER_MANY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PROT_REQ" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     METERANALY_ID, RISKANALY_ID, WORK_STEP, SITE, USER_COUNT, PRE_DATE, PREMETER_MSVN, 
     PREMETER_MSVY, PREMETER_MANN, PREMETER_MANY, PROT_REQ
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from RECEIVE_METER_ANALY
     where METERANALY_ID = #{meteranalyId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from RECEIVE_METER_ANALY
     where METERANALY_ID = #{meteranalyId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.ReceiveMeterAnaly">
+  <insert id="insert" parameterType="com.lanou.domain.ReceiveMeterAnaly" >
     insert into RECEIVE_METER_ANALY (METERANALY_ID, RISKANALY_ID, WORK_STEP, 
       SITE, USER_COUNT, PRE_DATE, 
       PREMETER_MSVN, PREMETER_MSVY, PREMETER_MANN, 
@@ -40,278 +40,116 @@
       #{premeterMsvn,jdbcType=VARCHAR}, #{premeterMsvy,jdbcType=VARCHAR}, #{premeterMann,jdbcType=VARCHAR}, 
       #{premeterMany,jdbcType=VARCHAR}, #{protReq,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.ReceiveMeterAnaly">
+  <insert id="insertSelective" parameterType="com.lanou.domain.ReceiveMeterAnaly" >
     insert into RECEIVE_METER_ANALY
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="meteranalyId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="meteranalyId != null" >
         METERANALY_ID,
       </if>
-      <if test="riskanalyId != null">
+      <if test="riskanalyId != null" >
         RISKANALY_ID,
       </if>
-      <if test="workStep != null">
+      <if test="workStep != null" >
         WORK_STEP,
       </if>
-      <if test="site != null">
+      <if test="site != null" >
         SITE,
       </if>
-      <if test="userCount != null">
+      <if test="userCount != null" >
         USER_COUNT,
       </if>
-      <if test="preDate != null">
+      <if test="preDate != null" >
         PRE_DATE,
       </if>
-      <if test="premeterMsvn != null">
+      <if test="premeterMsvn != null" >
         PREMETER_MSVN,
       </if>
-      <if test="premeterMsvy != null">
+      <if test="premeterMsvy != null" >
         PREMETER_MSVY,
       </if>
-      <if test="premeterMann != null">
+      <if test="premeterMann != null" >
         PREMETER_MANN,
       </if>
-      <if test="premeterMany != null">
+      <if test="premeterMany != null" >
         PREMETER_MANY,
       </if>
-      <if test="protReq != null">
+      <if test="protReq != null" >
         PROT_REQ,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="meteranalyId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="meteranalyId != null" >
         #{meteranalyId,jdbcType=VARCHAR},
       </if>
-      <if test="riskanalyId != null">
+      <if test="riskanalyId != null" >
         #{riskanalyId,jdbcType=VARCHAR},
       </if>
-      <if test="workStep != null">
+      <if test="workStep != null" >
         #{workStep,jdbcType=VARCHAR},
       </if>
-      <if test="site != null">
+      <if test="site != null" >
         #{site,jdbcType=VARCHAR},
       </if>
-      <if test="userCount != null">
+      <if test="userCount != null" >
         #{userCount,jdbcType=DECIMAL},
       </if>
-      <if test="preDate != null">
+      <if test="preDate != null" >
         #{preDate,jdbcType=VARCHAR},
       </if>
-      <if test="premeterMsvn != null">
+      <if test="premeterMsvn != null" >
         #{premeterMsvn,jdbcType=VARCHAR},
       </if>
-      <if test="premeterMsvy != null">
+      <if test="premeterMsvy != null" >
         #{premeterMsvy,jdbcType=VARCHAR},
       </if>
-      <if test="premeterMann != null">
+      <if test="premeterMann != null" >
         #{premeterMann,jdbcType=VARCHAR},
       </if>
-      <if test="premeterMany != null">
+      <if test="premeterMany != null" >
         #{premeterMany,jdbcType=VARCHAR},
       </if>
-      <if test="protReq != null">
+      <if test="protReq != null" >
         #{protReq,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.ReceiveMeterAnaly">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.ReceiveMeterAnaly" >
     update RECEIVE_METER_ANALY
-    <set>
-      <if test="riskanalyId != null">
+    <set >
+      <if test="riskanalyId != null" >
         RISKANALY_ID = #{riskanalyId,jdbcType=VARCHAR},
       </if>
-      <if test="workStep != null">
+      <if test="workStep != null" >
         WORK_STEP = #{workStep,jdbcType=VARCHAR},
       </if>
-      <if test="site != null">
+      <if test="site != null" >
         SITE = #{site,jdbcType=VARCHAR},
       </if>
-      <if test="userCount != null">
+      <if test="userCount != null" >
         USER_COUNT = #{userCount,jdbcType=DECIMAL},
       </if>
-      <if test="preDate != null">
+      <if test="preDate != null" >
         PRE_DATE = #{preDate,jdbcType=VARCHAR},
       </if>
-      <if test="premeterMsvn != null">
+      <if test="premeterMsvn != null" >
         PREMETER_MSVN = #{premeterMsvn,jdbcType=VARCHAR},
       </if>
-      <if test="premeterMsvy != null">
+      <if test="premeterMsvy != null" >
         PREMETER_MSVY = #{premeterMsvy,jdbcType=VARCHAR},
       </if>
-      <if test="premeterMann != null">
+      <if test="premeterMann != null" >
         PREMETER_MANN = #{premeterMann,jdbcType=VARCHAR},
       </if>
-      <if test="premeterMany != null">
+      <if test="premeterMany != null" >
         PREMETER_MANY = #{premeterMany,jdbcType=VARCHAR},
       </if>
-      <if test="protReq != null">
+      <if test="protReq != null" >
         PROT_REQ = #{protReq,jdbcType=VARCHAR},
       </if>
     </set>
     where METERANALY_ID = #{meteranalyId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.ReceiveMeterAnaly">
-    update RECEIVE_METER_ANALY
-    set RISKANALY_ID = #{riskanalyId,jdbcType=VARCHAR},
-      WORK_STEP = #{workStep,jdbcType=VARCHAR},
-      SITE = #{site,jdbcType=VARCHAR},
-      USER_COUNT = #{userCount,jdbcType=DECIMAL},
-      PRE_DATE = #{preDate,jdbcType=VARCHAR},
-      PREMETER_MSVN = #{premeterMsvn,jdbcType=VARCHAR},
-      PREMETER_MSVY = #{premeterMsvy,jdbcType=VARCHAR},
-      PREMETER_MANN = #{premeterMann,jdbcType=VARCHAR},
-      PREMETER_MANY = #{premeterMany,jdbcType=VARCHAR},
-      PROT_REQ = #{protReq,jdbcType=VARCHAR}
-    where METERANALY_ID = #{meteranalyId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.ReceiveMeterAnaly">
-    <constructor>
-      <idArg column="METERANALY_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RISKANALY_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_STEP" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SITE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="USER_COUNT" javaType="java.lang.Integer" jdbcType="DECIMAL" />
-      <arg column="PRE_DATE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PREMETER_MSVN" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PREMETER_MSVY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PREMETER_MANN" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PREMETER_MANY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PROT_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    METERANALY_ID, RISKANALY_ID, WORK_STEP, SITE, USER_COUNT, PRE_DATE, PREMETER_MSVN, 
-    PREMETER_MSVY, PREMETER_MANN, PREMETER_MANY, PROT_REQ
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from RECEIVE_METER_ANALY
-    where METERANALY_ID = #{meteranalyId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from RECEIVE_METER_ANALY
-    where METERANALY_ID = #{meteranalyId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.ReceiveMeterAnaly">
-    insert into RECEIVE_METER_ANALY (METERANALY_ID, RISKANALY_ID, WORK_STEP, 
-      SITE, USER_COUNT, PRE_DATE, 
-      PREMETER_MSVN, PREMETER_MSVY, PREMETER_MANN, 
-      PREMETER_MANY, PROT_REQ)
-    values (#{meteranalyId,jdbcType=VARCHAR}, #{riskanalyId,jdbcType=VARCHAR}, #{workStep,jdbcType=VARCHAR}, 
-      #{site,jdbcType=VARCHAR}, #{userCount,jdbcType=DECIMAL}, #{preDate,jdbcType=VARCHAR}, 
-      #{premeterMsvn,jdbcType=VARCHAR}, #{premeterMsvy,jdbcType=VARCHAR}, #{premeterMann,jdbcType=VARCHAR}, 
-      #{premeterMany,jdbcType=VARCHAR}, #{protReq,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.ReceiveMeterAnaly">
-    insert into RECEIVE_METER_ANALY
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="meteranalyId != null">
-        METERANALY_ID,
-      </if>
-      <if test="riskanalyId != null">
-        RISKANALY_ID,
-      </if>
-      <if test="workStep != null">
-        WORK_STEP,
-      </if>
-      <if test="site != null">
-        SITE,
-      </if>
-      <if test="userCount != null">
-        USER_COUNT,
-      </if>
-      <if test="preDate != null">
-        PRE_DATE,
-      </if>
-      <if test="premeterMsvn != null">
-        PREMETER_MSVN,
-      </if>
-      <if test="premeterMsvy != null">
-        PREMETER_MSVY,
-      </if>
-      <if test="premeterMann != null">
-        PREMETER_MANN,
-      </if>
-      <if test="premeterMany != null">
-        PREMETER_MANY,
-      </if>
-      <if test="protReq != null">
-        PROT_REQ,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="meteranalyId != null">
-        #{meteranalyId,jdbcType=VARCHAR},
-      </if>
-      <if test="riskanalyId != null">
-        #{riskanalyId,jdbcType=VARCHAR},
-      </if>
-      <if test="workStep != null">
-        #{workStep,jdbcType=VARCHAR},
-      </if>
-      <if test="site != null">
-        #{site,jdbcType=VARCHAR},
-      </if>
-      <if test="userCount != null">
-        #{userCount,jdbcType=DECIMAL},
-      </if>
-      <if test="preDate != null">
-        #{preDate,jdbcType=VARCHAR},
-      </if>
-      <if test="premeterMsvn != null">
-        #{premeterMsvn,jdbcType=VARCHAR},
-      </if>
-      <if test="premeterMsvy != null">
-        #{premeterMsvy,jdbcType=VARCHAR},
-      </if>
-      <if test="premeterMann != null">
-        #{premeterMann,jdbcType=VARCHAR},
-      </if>
-      <if test="premeterMany != null">
-        #{premeterMany,jdbcType=VARCHAR},
-      </if>
-      <if test="protReq != null">
-        #{protReq,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.ReceiveMeterAnaly">
-    update RECEIVE_METER_ANALY
-    <set>
-      <if test="riskanalyId != null">
-        RISKANALY_ID = #{riskanalyId,jdbcType=VARCHAR},
-      </if>
-      <if test="workStep != null">
-        WORK_STEP = #{workStep,jdbcType=VARCHAR},
-      </if>
-      <if test="site != null">
-        SITE = #{site,jdbcType=VARCHAR},
-      </if>
-      <if test="userCount != null">
-        USER_COUNT = #{userCount,jdbcType=DECIMAL},
-      </if>
-      <if test="preDate != null">
-        PRE_DATE = #{preDate,jdbcType=VARCHAR},
-      </if>
-      <if test="premeterMsvn != null">
-        PREMETER_MSVN = #{premeterMsvn,jdbcType=VARCHAR},
-      </if>
-      <if test="premeterMsvy != null">
-        PREMETER_MSVY = #{premeterMsvy,jdbcType=VARCHAR},
-      </if>
-      <if test="premeterMann != null">
-        PREMETER_MANN = #{premeterMann,jdbcType=VARCHAR},
-      </if>
-      <if test="premeterMany != null">
-        PREMETER_MANY = #{premeterMany,jdbcType=VARCHAR},
-      </if>
-      <if test="protReq != null">
-        PROT_REQ = #{protReq,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where METERANALY_ID = #{meteranalyId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.ReceiveMeterAnaly">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.ReceiveMeterAnaly" >
     update RECEIVE_METER_ANALY
     set RISKANALY_ID = #{riskanalyId,jdbcType=VARCHAR},
       WORK_STEP = #{workStep,jdbcType=VARCHAR},

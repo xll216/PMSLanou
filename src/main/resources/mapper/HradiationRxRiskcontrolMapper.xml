@@ -1,181 +1,90 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.HradiationRxRiskcontrolMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationRxRiskcontrol">
-    <constructor>
-      <idArg column="RISKCONTR_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="HRADI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAC_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.HradiationRxRiskcontrolMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationRxRiskcontrol" >
+    <constructor >
+      <idArg column="RISKCONTR_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HRADI_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MAC_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WORK_BEG_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="WORK_CONTENT" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     RISKCONTR_ID, HRADI_ID, MAC_NO, WORK_BEG_DATE, WORK_CONTENT
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from HRADIATION_RX_RISKCONTROL
     where RISKCONTR_ID = #{riskcontrId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from HRADIATION_RX_RISKCONTROL
     where RISKCONTR_ID = #{riskcontrId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.HradiationRxRiskcontrol">
+  <insert id="insert" parameterType="com.lanou.domain.HradiationRxRiskcontrol" >
     insert into HRADIATION_RX_RISKCONTROL (RISKCONTR_ID, HRADI_ID, MAC_NO, 
       WORK_BEG_DATE, WORK_CONTENT)
     values (#{riskcontrId,jdbcType=VARCHAR}, #{hradiId,jdbcType=VARCHAR}, #{macNo,jdbcType=VARCHAR}, 
       #{workBegDate,jdbcType=TIMESTAMP}, #{workContent,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationRxRiskcontrol">
+  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationRxRiskcontrol" >
     insert into HRADIATION_RX_RISKCONTROL
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="riskcontrId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="riskcontrId != null" >
         RISKCONTR_ID,
       </if>
-      <if test="hradiId != null">
+      <if test="hradiId != null" >
         HRADI_ID,
       </if>
-      <if test="macNo != null">
+      <if test="macNo != null" >
         MAC_NO,
       </if>
-      <if test="workBegDate != null">
+      <if test="workBegDate != null" >
         WORK_BEG_DATE,
       </if>
-      <if test="workContent != null">
+      <if test="workContent != null" >
         WORK_CONTENT,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="riskcontrId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="riskcontrId != null" >
         #{riskcontrId,jdbcType=VARCHAR},
       </if>
-      <if test="hradiId != null">
+      <if test="hradiId != null" >
         #{hradiId,jdbcType=VARCHAR},
       </if>
-      <if test="macNo != null">
+      <if test="macNo != null" >
         #{macNo,jdbcType=VARCHAR},
       </if>
-      <if test="workBegDate != null">
+      <if test="workBegDate != null" >
         #{workBegDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="workContent != null">
+      <if test="workContent != null" >
         #{workContent,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.HradiationRxRiskcontrol">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.HradiationRxRiskcontrol" >
     update HRADIATION_RX_RISKCONTROL
-    <set>
-      <if test="hradiId != null">
+    <set >
+      <if test="hradiId != null" >
         HRADI_ID = #{hradiId,jdbcType=VARCHAR},
       </if>
-      <if test="macNo != null">
+      <if test="macNo != null" >
         MAC_NO = #{macNo,jdbcType=VARCHAR},
       </if>
-      <if test="workBegDate != null">
+      <if test="workBegDate != null" >
         WORK_BEG_DATE = #{workBegDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="workContent != null">
+      <if test="workContent != null" >
         WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
       </if>
     </set>
     where RISKCONTR_ID = #{riskcontrId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.HradiationRxRiskcontrol">
-    update HRADIATION_RX_RISKCONTROL
-    set HRADI_ID = #{hradiId,jdbcType=VARCHAR},
-      MAC_NO = #{macNo,jdbcType=VARCHAR},
-      WORK_BEG_DATE = #{workBegDate,jdbcType=TIMESTAMP},
-      WORK_CONTENT = #{workContent,jdbcType=VARCHAR}
-    where RISKCONTR_ID = #{riskcontrId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationRxRiskcontrol">
-    <constructor>
-      <idArg column="RISKCONTR_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="HRADI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAC_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    RISKCONTR_ID, HRADI_ID, MAC_NO, WORK_BEG_DATE, WORK_CONTENT
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from HRADIATION_RX_RISKCONTROL
-    where RISKCONTR_ID = #{riskcontrId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from HRADIATION_RX_RISKCONTROL
-    where RISKCONTR_ID = #{riskcontrId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.HradiationRxRiskcontrol">
-    insert into HRADIATION_RX_RISKCONTROL (RISKCONTR_ID, HRADI_ID, MAC_NO, 
-      WORK_BEG_DATE, WORK_CONTENT)
-    values (#{riskcontrId,jdbcType=VARCHAR}, #{hradiId,jdbcType=VARCHAR}, #{macNo,jdbcType=VARCHAR}, 
-      #{workBegDate,jdbcType=TIMESTAMP}, #{workContent,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationRxRiskcontrol">
-    insert into HRADIATION_RX_RISKCONTROL
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="riskcontrId != null">
-        RISKCONTR_ID,
-      </if>
-      <if test="hradiId != null">
-        HRADI_ID,
-      </if>
-      <if test="macNo != null">
-        MAC_NO,
-      </if>
-      <if test="workBegDate != null">
-        WORK_BEG_DATE,
-      </if>
-      <if test="workContent != null">
-        WORK_CONTENT,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="riskcontrId != null">
-        #{riskcontrId,jdbcType=VARCHAR},
-      </if>
-      <if test="hradiId != null">
-        #{hradiId,jdbcType=VARCHAR},
-      </if>
-      <if test="macNo != null">
-        #{macNo,jdbcType=VARCHAR},
-      </if>
-      <if test="workBegDate != null">
-        #{workBegDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="workContent != null">
-        #{workContent,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.HradiationRxRiskcontrol">
-    update HRADIATION_RX_RISKCONTROL
-    <set>
-      <if test="hradiId != null">
-        HRADI_ID = #{hradiId,jdbcType=VARCHAR},
-      </if>
-      <if test="macNo != null">
-        MAC_NO = #{macNo,jdbcType=VARCHAR},
-      </if>
-      <if test="workBegDate != null">
-        WORK_BEG_DATE = #{workBegDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="workContent != null">
-        WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where RISKCONTR_ID = #{riskcontrId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.HradiationRxRiskcontrol">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.HradiationRxRiskcontrol" >
     update HRADIATION_RX_RISKCONTROL
     set HRADI_ID = #{hradiId,jdbcType=VARCHAR},
       MAC_NO = #{macNo,jdbcType=VARCHAR},

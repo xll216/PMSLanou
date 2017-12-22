@@ -1,9 +1,16 @@
 package com.lanou.test;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lanou.domain.RdmsProjBase;
+import com.lanou.mapper.RdmsProjBaseMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javax.annotation.Resource;
+import java.io.IOException;
 
 /**
  * Created by 蓝鸥科技有限公司  www.lanou3g.com.
@@ -12,6 +19,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration
         ({"/SSM-*.xml"}) //加载配置文件
 public class MainTest {
+    @Resource
+    private RdmsProjBaseMapper rdmsProjBaseMapper;
 
     @Test
     public void test() {
@@ -30,10 +39,30 @@ public class MainTest {
                 "RDMS_PROJ_BUDGET;RDMS_PROJ_CHANGE;RDMS_PROJ_CONTRACT;RECEIVE_METER_ANALY;" +
                 "SPECIAL_WORK_PERMIT;SPECWORK_PERMIT;SYS_BUSI_ATTACHMENT;SYS_SEND_MAIL;" +
                 "URGENT_PAYMENT;VEHICLE_PERMIT;";
-        System.out.println("***"+value+"****");
+        System.out.println("***" + value + "****");
         String data = value.toLowerCase();
         System.out.println("********");
-        System.out.println("***"+data+"****");
+        System.out.println("***" + data + "****");
+
+    }
+
+    @Test
+    public void test1() throws IOException {
+        String baseData = "{\"projName\":\"业务流程管理平台\",\"appOrgName\":\"蓝鸥公司\",\"uniteAppOrgName\":\"蓝鸥子公司\",\"purpose\":\"建设科管理系统\",\"safeDesc\":\"系统安全\",\"reliableDesc\":\"三重保障\",\"econDesc\":\"提高办公效率\",\"otherDesc\":\"2016建设需要\",\"achievementDesc\":\"蓝鸥测试数据\",\"realUser\":\"蓝鸥测试数据\",\"potentialUser\":\"蓝鸥测试数据\",\"cycle\":\"10\",\"content\":\"蓝鸥测试数据\",\"totalBudget\":\"1200.00\",\"budgetFee\":\"1200.00\"}";
+
+        String otherData = "{\"primeUserDesc\":\"蓝鸥测试数据\",\"projType\":\"cb01,cb03\",\"rightDesc\":\"蓝鸥测试数据\",\"benefitsDesc\":\"蓝鸥测试数据\",\"fixedAssets\":\"蓝鸥测试数据\",\"acceptStand\":\"蓝鸥测试数据\",\"projFile\":\"\",\"staffNo\":\"李四\"}";
+
+
+        String data = baseData.substring(0, (baseData.length() - 1)) + "," + otherData.substring(1, otherData.length());
+
+//        System.out.println(data);
+
+        ObjectMapper mapper = new ObjectMapper();
+        // 设置输入时忽略在JSON字符串中存在但Java对象实际没有的属性
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        RdmsProjBase base = mapper.readValue(data, RdmsProjBase.class);
+        System.out.println(base);
+
 
     }
 }

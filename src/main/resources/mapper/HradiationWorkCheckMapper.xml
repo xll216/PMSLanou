@@ -1,160 +1,80 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.HradiationWorkCheckMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationWorkCheck">
-    <constructor>
-      <idArg column="WORKCHECK_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="HRADI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CHECK_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CHECK_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.HradiationWorkCheckMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationWorkCheck" >
+    <constructor >
+      <idArg column="WORKCHECK_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HRADI_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHECK_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHECK_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     WORKCHECK_ID, HRADI_ID, CHECK_TYPE, CHECK_DESC
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from HRADIATION_WORK_CHECK
     where WORKCHECK_ID = #{workcheckId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from HRADIATION_WORK_CHECK
     where WORKCHECK_ID = #{workcheckId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.HradiationWorkCheck">
+  <insert id="insert" parameterType="com.lanou.domain.HradiationWorkCheck" >
     insert into HRADIATION_WORK_CHECK (WORKCHECK_ID, HRADI_ID, CHECK_TYPE, 
       CHECK_DESC)
     values (#{workcheckId,jdbcType=VARCHAR}, #{hradiId,jdbcType=VARCHAR}, #{checkType,jdbcType=VARCHAR}, 
       #{checkDesc,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationWorkCheck">
+  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationWorkCheck" >
     insert into HRADIATION_WORK_CHECK
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="workcheckId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="workcheckId != null" >
         WORKCHECK_ID,
       </if>
-      <if test="hradiId != null">
+      <if test="hradiId != null" >
         HRADI_ID,
       </if>
-      <if test="checkType != null">
+      <if test="checkType != null" >
         CHECK_TYPE,
       </if>
-      <if test="checkDesc != null">
+      <if test="checkDesc != null" >
         CHECK_DESC,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="workcheckId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="workcheckId != null" >
         #{workcheckId,jdbcType=VARCHAR},
       </if>
-      <if test="hradiId != null">
+      <if test="hradiId != null" >
         #{hradiId,jdbcType=VARCHAR},
       </if>
-      <if test="checkType != null">
+      <if test="checkType != null" >
         #{checkType,jdbcType=VARCHAR},
       </if>
-      <if test="checkDesc != null">
+      <if test="checkDesc != null" >
         #{checkDesc,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.HradiationWorkCheck">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.HradiationWorkCheck" >
     update HRADIATION_WORK_CHECK
-    <set>
-      <if test="hradiId != null">
+    <set >
+      <if test="hradiId != null" >
         HRADI_ID = #{hradiId,jdbcType=VARCHAR},
       </if>
-      <if test="checkType != null">
+      <if test="checkType != null" >
         CHECK_TYPE = #{checkType,jdbcType=VARCHAR},
       </if>
-      <if test="checkDesc != null">
+      <if test="checkDesc != null" >
         CHECK_DESC = #{checkDesc,jdbcType=VARCHAR},
       </if>
     </set>
     where WORKCHECK_ID = #{workcheckId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.HradiationWorkCheck">
-    update HRADIATION_WORK_CHECK
-    set HRADI_ID = #{hradiId,jdbcType=VARCHAR},
-      CHECK_TYPE = #{checkType,jdbcType=VARCHAR},
-      CHECK_DESC = #{checkDesc,jdbcType=VARCHAR}
-    where WORKCHECK_ID = #{workcheckId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationWorkCheck">
-    <constructor>
-      <idArg column="WORKCHECK_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="HRADI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CHECK_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CHECK_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    WORKCHECK_ID, HRADI_ID, CHECK_TYPE, CHECK_DESC
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from HRADIATION_WORK_CHECK
-    where WORKCHECK_ID = #{workcheckId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from HRADIATION_WORK_CHECK
-    where WORKCHECK_ID = #{workcheckId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.HradiationWorkCheck">
-    insert into HRADIATION_WORK_CHECK (WORKCHECK_ID, HRADI_ID, CHECK_TYPE, 
-      CHECK_DESC)
-    values (#{workcheckId,jdbcType=VARCHAR}, #{hradiId,jdbcType=VARCHAR}, #{checkType,jdbcType=VARCHAR}, 
-      #{checkDesc,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationWorkCheck">
-    insert into HRADIATION_WORK_CHECK
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="workcheckId != null">
-        WORKCHECK_ID,
-      </if>
-      <if test="hradiId != null">
-        HRADI_ID,
-      </if>
-      <if test="checkType != null">
-        CHECK_TYPE,
-      </if>
-      <if test="checkDesc != null">
-        CHECK_DESC,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="workcheckId != null">
-        #{workcheckId,jdbcType=VARCHAR},
-      </if>
-      <if test="hradiId != null">
-        #{hradiId,jdbcType=VARCHAR},
-      </if>
-      <if test="checkType != null">
-        #{checkType,jdbcType=VARCHAR},
-      </if>
-      <if test="checkDesc != null">
-        #{checkDesc,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.HradiationWorkCheck">
-    update HRADIATION_WORK_CHECK
-    <set>
-      <if test="hradiId != null">
-        HRADI_ID = #{hradiId,jdbcType=VARCHAR},
-      </if>
-      <if test="checkType != null">
-        CHECK_TYPE = #{checkType,jdbcType=VARCHAR},
-      </if>
-      <if test="checkDesc != null">
-        CHECK_DESC = #{checkDesc,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where WORKCHECK_ID = #{workcheckId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.HradiationWorkCheck">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.HradiationWorkCheck" >
     update HRADIATION_WORK_CHECK
     set HRADI_ID = #{hradiId,jdbcType=VARCHAR},
       CHECK_TYPE = #{checkType,jdbcType=VARCHAR},

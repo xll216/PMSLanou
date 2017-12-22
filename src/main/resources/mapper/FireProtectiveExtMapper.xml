@@ -1,39 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.FireProtectiveExtMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.FireProtectiveExt">
-    <constructor>
-      <idArg column="EXT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIREP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BARENESS_ELEOBJ_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MONITOR_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="JUMP_MAC_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="JUMP_MAC_FIREP_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="JUMP_MAC_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="JUMP_STACK_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="JUMP_STACK_FIREP_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="REDUCE_CHARGE_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RED_CHARGE_FIREP_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="OTHER_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CAB_VOL_GRADE" javaType="java.lang.String" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.FireProtectiveExtMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireProtectiveExt" >
+    <constructor >
+      <idArg column="EXT_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FIREP_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BARENESS_ELEOBJ_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MONITOR_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JUMP_MAC_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JUMP_MAC_FIREP_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JUMP_MAC_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JUMP_STACK_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JUMP_STACK_FIREP_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REDUCE_CHARGE_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RED_CHARGE_FIREP_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OTHER_REQ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CAB_VOL_GRADE" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     EXT_ID, FIREP_ID, BARENESS_ELEOBJ_FLAG, MONITOR_FLAG, JUMP_MAC_FLAG, JUMP_MAC_FIREP_NO, 
     JUMP_MAC_NAME, JUMP_STACK_FLAG, JUMP_STACK_FIREP_NO, REDUCE_CHARGE_FLAG, RED_CHARGE_FIREP_NO, 
     OTHER_REQ, CAB_VOL_GRADE
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from FIRE_PROTECTIVE_EXT
     where EXT_ID = #{extId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from FIRE_PROTECTIVE_EXT
     where EXT_ID = #{extId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.FireProtectiveExt">
+  <insert id="insert" parameterType="com.lanou.domain.FireProtectiveExt" >
     insert into FIRE_PROTECTIVE_EXT (EXT_ID, FIREP_ID, BARENESS_ELEOBJ_FLAG, 
       MONITOR_FLAG, JUMP_MAC_FLAG, JUMP_MAC_FIREP_NO, 
       JUMP_MAC_NAME, JUMP_STACK_FLAG, JUMP_STACK_FIREP_NO, 
@@ -45,321 +45,134 @@
       #{reduceChargeFlag,jdbcType=VARCHAR}, #{redChargeFirepNo,jdbcType=VARCHAR}, #{otherReq,jdbcType=VARCHAR}, 
       #{cabVolGrade,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.FireProtectiveExt">
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireProtectiveExt" >
     insert into FIRE_PROTECTIVE_EXT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="extId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="extId != null" >
         EXT_ID,
       </if>
-      <if test="firepId != null">
+      <if test="firepId != null" >
         FIREP_ID,
       </if>
-      <if test="barenessEleobjFlag != null">
+      <if test="barenessEleobjFlag != null" >
         BARENESS_ELEOBJ_FLAG,
       </if>
-      <if test="monitorFlag != null">
+      <if test="monitorFlag != null" >
         MONITOR_FLAG,
       </if>
-      <if test="jumpMacFlag != null">
+      <if test="jumpMacFlag != null" >
         JUMP_MAC_FLAG,
       </if>
-      <if test="jumpMacFirepNo != null">
+      <if test="jumpMacFirepNo != null" >
         JUMP_MAC_FIREP_NO,
       </if>
-      <if test="jumpMacName != null">
+      <if test="jumpMacName != null" >
         JUMP_MAC_NAME,
       </if>
-      <if test="jumpStackFlag != null">
+      <if test="jumpStackFlag != null" >
         JUMP_STACK_FLAG,
       </if>
-      <if test="jumpStackFirepNo != null">
+      <if test="jumpStackFirepNo != null" >
         JUMP_STACK_FIREP_NO,
       </if>
-      <if test="reduceChargeFlag != null">
+      <if test="reduceChargeFlag != null" >
         REDUCE_CHARGE_FLAG,
       </if>
-      <if test="redChargeFirepNo != null">
+      <if test="redChargeFirepNo != null" >
         RED_CHARGE_FIREP_NO,
       </if>
-      <if test="otherReq != null">
+      <if test="otherReq != null" >
         OTHER_REQ,
       </if>
-      <if test="cabVolGrade != null">
+      <if test="cabVolGrade != null" >
         CAB_VOL_GRADE,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="extId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="extId != null" >
         #{extId,jdbcType=VARCHAR},
       </if>
-      <if test="firepId != null">
+      <if test="firepId != null" >
         #{firepId,jdbcType=VARCHAR},
       </if>
-      <if test="barenessEleobjFlag != null">
+      <if test="barenessEleobjFlag != null" >
         #{barenessEleobjFlag,jdbcType=VARCHAR},
       </if>
-      <if test="monitorFlag != null">
+      <if test="monitorFlag != null" >
         #{monitorFlag,jdbcType=VARCHAR},
       </if>
-      <if test="jumpMacFlag != null">
+      <if test="jumpMacFlag != null" >
         #{jumpMacFlag,jdbcType=VARCHAR},
       </if>
-      <if test="jumpMacFirepNo != null">
+      <if test="jumpMacFirepNo != null" >
         #{jumpMacFirepNo,jdbcType=VARCHAR},
       </if>
-      <if test="jumpMacName != null">
+      <if test="jumpMacName != null" >
         #{jumpMacName,jdbcType=VARCHAR},
       </if>
-      <if test="jumpStackFlag != null">
+      <if test="jumpStackFlag != null" >
         #{jumpStackFlag,jdbcType=VARCHAR},
       </if>
-      <if test="jumpStackFirepNo != null">
+      <if test="jumpStackFirepNo != null" >
         #{jumpStackFirepNo,jdbcType=VARCHAR},
       </if>
-      <if test="reduceChargeFlag != null">
+      <if test="reduceChargeFlag != null" >
         #{reduceChargeFlag,jdbcType=VARCHAR},
       </if>
-      <if test="redChargeFirepNo != null">
+      <if test="redChargeFirepNo != null" >
         #{redChargeFirepNo,jdbcType=VARCHAR},
       </if>
-      <if test="otherReq != null">
+      <if test="otherReq != null" >
         #{otherReq,jdbcType=VARCHAR},
       </if>
-      <if test="cabVolGrade != null">
+      <if test="cabVolGrade != null" >
         #{cabVolGrade,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireProtectiveExt">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireProtectiveExt" >
     update FIRE_PROTECTIVE_EXT
-    <set>
-      <if test="firepId != null">
+    <set >
+      <if test="firepId != null" >
         FIREP_ID = #{firepId,jdbcType=VARCHAR},
       </if>
-      <if test="barenessEleobjFlag != null">
+      <if test="barenessEleobjFlag != null" >
         BARENESS_ELEOBJ_FLAG = #{barenessEleobjFlag,jdbcType=VARCHAR},
       </if>
-      <if test="monitorFlag != null">
+      <if test="monitorFlag != null" >
         MONITOR_FLAG = #{monitorFlag,jdbcType=VARCHAR},
       </if>
-      <if test="jumpMacFlag != null">
+      <if test="jumpMacFlag != null" >
         JUMP_MAC_FLAG = #{jumpMacFlag,jdbcType=VARCHAR},
       </if>
-      <if test="jumpMacFirepNo != null">
+      <if test="jumpMacFirepNo != null" >
         JUMP_MAC_FIREP_NO = #{jumpMacFirepNo,jdbcType=VARCHAR},
       </if>
-      <if test="jumpMacName != null">
+      <if test="jumpMacName != null" >
         JUMP_MAC_NAME = #{jumpMacName,jdbcType=VARCHAR},
       </if>
-      <if test="jumpStackFlag != null">
+      <if test="jumpStackFlag != null" >
         JUMP_STACK_FLAG = #{jumpStackFlag,jdbcType=VARCHAR},
       </if>
-      <if test="jumpStackFirepNo != null">
+      <if test="jumpStackFirepNo != null" >
         JUMP_STACK_FIREP_NO = #{jumpStackFirepNo,jdbcType=VARCHAR},
       </if>
-      <if test="reduceChargeFlag != null">
+      <if test="reduceChargeFlag != null" >
         REDUCE_CHARGE_FLAG = #{reduceChargeFlag,jdbcType=VARCHAR},
       </if>
-      <if test="redChargeFirepNo != null">
+      <if test="redChargeFirepNo != null" >
         RED_CHARGE_FIREP_NO = #{redChargeFirepNo,jdbcType=VARCHAR},
       </if>
-      <if test="otherReq != null">
+      <if test="otherReq != null" >
         OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
       </if>
-      <if test="cabVolGrade != null">
+      <if test="cabVolGrade != null" >
         CAB_VOL_GRADE = #{cabVolGrade,jdbcType=VARCHAR},
       </if>
     </set>
     where EXT_ID = #{extId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireProtectiveExt">
-    update FIRE_PROTECTIVE_EXT
-    set FIREP_ID = #{firepId,jdbcType=VARCHAR},
-      BARENESS_ELEOBJ_FLAG = #{barenessEleobjFlag,jdbcType=VARCHAR},
-      MONITOR_FLAG = #{monitorFlag,jdbcType=VARCHAR},
-      JUMP_MAC_FLAG = #{jumpMacFlag,jdbcType=VARCHAR},
-      JUMP_MAC_FIREP_NO = #{jumpMacFirepNo,jdbcType=VARCHAR},
-      JUMP_MAC_NAME = #{jumpMacName,jdbcType=VARCHAR},
-      JUMP_STACK_FLAG = #{jumpStackFlag,jdbcType=VARCHAR},
-      JUMP_STACK_FIREP_NO = #{jumpStackFirepNo,jdbcType=VARCHAR},
-      REDUCE_CHARGE_FLAG = #{reduceChargeFlag,jdbcType=VARCHAR},
-      RED_CHARGE_FIREP_NO = #{redChargeFirepNo,jdbcType=VARCHAR},
-      OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
-      CAB_VOL_GRADE = #{cabVolGrade,jdbcType=VARCHAR}
-    where EXT_ID = #{extId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.FireProtectiveExt">
-    <constructor>
-      <idArg column="EXT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIREP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BARENESS_ELEOBJ_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MONITOR_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="JUMP_MAC_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="JUMP_MAC_FIREP_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="JUMP_MAC_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="JUMP_STACK_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="JUMP_STACK_FIREP_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="REDUCE_CHARGE_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RED_CHARGE_FIREP_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="OTHER_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CAB_VOL_GRADE" javaType="java.lang.String" jdbcType="VARCHAR" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    EXT_ID, FIREP_ID, BARENESS_ELEOBJ_FLAG, MONITOR_FLAG, JUMP_MAC_FLAG, JUMP_MAC_FIREP_NO, 
-    JUMP_MAC_NAME, JUMP_STACK_FLAG, JUMP_STACK_FIREP_NO, REDUCE_CHARGE_FLAG, RED_CHARGE_FIREP_NO, 
-    OTHER_REQ, CAB_VOL_GRADE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from FIRE_PROTECTIVE_EXT
-    where EXT_ID = #{extId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from FIRE_PROTECTIVE_EXT
-    where EXT_ID = #{extId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.FireProtectiveExt">
-    insert into FIRE_PROTECTIVE_EXT (EXT_ID, FIREP_ID, BARENESS_ELEOBJ_FLAG, 
-      MONITOR_FLAG, JUMP_MAC_FLAG, JUMP_MAC_FIREP_NO, 
-      JUMP_MAC_NAME, JUMP_STACK_FLAG, JUMP_STACK_FIREP_NO, 
-      REDUCE_CHARGE_FLAG, RED_CHARGE_FIREP_NO, OTHER_REQ, 
-      CAB_VOL_GRADE)
-    values (#{extId,jdbcType=VARCHAR}, #{firepId,jdbcType=VARCHAR}, #{barenessEleobjFlag,jdbcType=VARCHAR}, 
-      #{monitorFlag,jdbcType=VARCHAR}, #{jumpMacFlag,jdbcType=VARCHAR}, #{jumpMacFirepNo,jdbcType=VARCHAR}, 
-      #{jumpMacName,jdbcType=VARCHAR}, #{jumpStackFlag,jdbcType=VARCHAR}, #{jumpStackFirepNo,jdbcType=VARCHAR}, 
-      #{reduceChargeFlag,jdbcType=VARCHAR}, #{redChargeFirepNo,jdbcType=VARCHAR}, #{otherReq,jdbcType=VARCHAR}, 
-      #{cabVolGrade,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.FireProtectiveExt">
-    insert into FIRE_PROTECTIVE_EXT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="extId != null">
-        EXT_ID,
-      </if>
-      <if test="firepId != null">
-        FIREP_ID,
-      </if>
-      <if test="barenessEleobjFlag != null">
-        BARENESS_ELEOBJ_FLAG,
-      </if>
-      <if test="monitorFlag != null">
-        MONITOR_FLAG,
-      </if>
-      <if test="jumpMacFlag != null">
-        JUMP_MAC_FLAG,
-      </if>
-      <if test="jumpMacFirepNo != null">
-        JUMP_MAC_FIREP_NO,
-      </if>
-      <if test="jumpMacName != null">
-        JUMP_MAC_NAME,
-      </if>
-      <if test="jumpStackFlag != null">
-        JUMP_STACK_FLAG,
-      </if>
-      <if test="jumpStackFirepNo != null">
-        JUMP_STACK_FIREP_NO,
-      </if>
-      <if test="reduceChargeFlag != null">
-        REDUCE_CHARGE_FLAG,
-      </if>
-      <if test="redChargeFirepNo != null">
-        RED_CHARGE_FIREP_NO,
-      </if>
-      <if test="otherReq != null">
-        OTHER_REQ,
-      </if>
-      <if test="cabVolGrade != null">
-        CAB_VOL_GRADE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="extId != null">
-        #{extId,jdbcType=VARCHAR},
-      </if>
-      <if test="firepId != null">
-        #{firepId,jdbcType=VARCHAR},
-      </if>
-      <if test="barenessEleobjFlag != null">
-        #{barenessEleobjFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="monitorFlag != null">
-        #{monitorFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="jumpMacFlag != null">
-        #{jumpMacFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="jumpMacFirepNo != null">
-        #{jumpMacFirepNo,jdbcType=VARCHAR},
-      </if>
-      <if test="jumpMacName != null">
-        #{jumpMacName,jdbcType=VARCHAR},
-      </if>
-      <if test="jumpStackFlag != null">
-        #{jumpStackFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="jumpStackFirepNo != null">
-        #{jumpStackFirepNo,jdbcType=VARCHAR},
-      </if>
-      <if test="reduceChargeFlag != null">
-        #{reduceChargeFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="redChargeFirepNo != null">
-        #{redChargeFirepNo,jdbcType=VARCHAR},
-      </if>
-      <if test="otherReq != null">
-        #{otherReq,jdbcType=VARCHAR},
-      </if>
-      <if test="cabVolGrade != null">
-        #{cabVolGrade,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireProtectiveExt">
-    update FIRE_PROTECTIVE_EXT
-    <set>
-      <if test="firepId != null">
-        FIREP_ID = #{firepId,jdbcType=VARCHAR},
-      </if>
-      <if test="barenessEleobjFlag != null">
-        BARENESS_ELEOBJ_FLAG = #{barenessEleobjFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="monitorFlag != null">
-        MONITOR_FLAG = #{monitorFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="jumpMacFlag != null">
-        JUMP_MAC_FLAG = #{jumpMacFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="jumpMacFirepNo != null">
-        JUMP_MAC_FIREP_NO = #{jumpMacFirepNo,jdbcType=VARCHAR},
-      </if>
-      <if test="jumpMacName != null">
-        JUMP_MAC_NAME = #{jumpMacName,jdbcType=VARCHAR},
-      </if>
-      <if test="jumpStackFlag != null">
-        JUMP_STACK_FLAG = #{jumpStackFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="jumpStackFirepNo != null">
-        JUMP_STACK_FIREP_NO = #{jumpStackFirepNo,jdbcType=VARCHAR},
-      </if>
-      <if test="reduceChargeFlag != null">
-        REDUCE_CHARGE_FLAG = #{reduceChargeFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="redChargeFirepNo != null">
-        RED_CHARGE_FIREP_NO = #{redChargeFirepNo,jdbcType=VARCHAR},
-      </if>
-      <if test="otherReq != null">
-        OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
-      </if>
-      <if test="cabVolGrade != null">
-        CAB_VOL_GRADE = #{cabVolGrade,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where EXT_ID = #{extId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireProtectiveExt">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireProtectiveExt" >
     update FIRE_PROTECTIVE_EXT
     set FIREP_ID = #{firepId,jdbcType=VARCHAR},
       BARENESS_ELEOBJ_FLAG = #{barenessEleobjFlag,jdbcType=VARCHAR},

@@ -1,40 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.PmsRayUserMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsRayUser">
-    <constructor>
-      <idArg column="RAY_STAFF_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PASSCARD_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ORG_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ORG_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RT_RANK" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RT_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="EFFECT_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.PmsRayUserMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsRayUser" >
+    <constructor >
+      <idArg column="RAY_STAFF_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PASSCARD_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ORG_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ORG_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RT_RANK" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RT_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EFFECT_BEG_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="EFFECT_END_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="EFFECT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     RAY_STAFF_ID, STAFF_NO, STAFF_NAME, PASSCARD_NO, ORG_ID, ORG_NAME, RT_RANK, RT_NO, 
     EFFECT_BEG_DATE, EFFECT_END_DATE, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
     CREATE_DATE
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from PMS_RAY_USER
     where RAY_STAFF_ID = #{rayStaffId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from PMS_RAY_USER
     where RAY_STAFF_ID = #{rayStaffId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.PmsRayUser">
+  <insert id="insert" parameterType="com.lanou.domain.PmsRayUser" >
     insert into PMS_RAY_USER (RAY_STAFF_ID, STAFF_NO, STAFF_NAME, 
       PASSCARD_NO, ORG_ID, ORG_NAME, 
       RT_RANK, RT_NO, EFFECT_BEG_DATE, 
@@ -46,341 +46,143 @@
       #{effectEndDate,jdbcType=TIMESTAMP}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
       #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.PmsRayUser">
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsRayUser" >
     insert into PMS_RAY_USER
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="rayStaffId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rayStaffId != null" >
         RAY_STAFF_ID,
       </if>
-      <if test="staffNo != null">
+      <if test="staffNo != null" >
         STAFF_NO,
       </if>
-      <if test="staffName != null">
+      <if test="staffName != null" >
         STAFF_NAME,
       </if>
-      <if test="passcardNo != null">
+      <if test="passcardNo != null" >
         PASSCARD_NO,
       </if>
-      <if test="orgId != null">
+      <if test="orgId != null" >
         ORG_ID,
       </if>
-      <if test="orgName != null">
+      <if test="orgName != null" >
         ORG_NAME,
       </if>
-      <if test="rtRank != null">
+      <if test="rtRank != null" >
         RT_RANK,
       </if>
-      <if test="rtNo != null">
+      <if test="rtNo != null" >
         RT_NO,
       </if>
-      <if test="effectBegDate != null">
+      <if test="effectBegDate != null" >
         EFFECT_BEG_DATE,
       </if>
-      <if test="effectEndDate != null">
+      <if test="effectEndDate != null" >
         EFFECT_END_DATE,
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG,
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO,
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="rayStaffId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rayStaffId != null" >
         #{rayStaffId,jdbcType=VARCHAR},
       </if>
-      <if test="staffNo != null">
+      <if test="staffNo != null" >
         #{staffNo,jdbcType=VARCHAR},
       </if>
-      <if test="staffName != null">
+      <if test="staffName != null" >
         #{staffName,jdbcType=VARCHAR},
       </if>
-      <if test="passcardNo != null">
+      <if test="passcardNo != null" >
         #{passcardNo,jdbcType=VARCHAR},
       </if>
-      <if test="orgId != null">
+      <if test="orgId != null" >
         #{orgId,jdbcType=VARCHAR},
       </if>
-      <if test="orgName != null">
+      <if test="orgName != null" >
         #{orgName,jdbcType=VARCHAR},
       </if>
-      <if test="rtRank != null">
+      <if test="rtRank != null" >
         #{rtRank,jdbcType=VARCHAR},
       </if>
-      <if test="rtNo != null">
+      <if test="rtNo != null" >
         #{rtNo,jdbcType=VARCHAR},
       </if>
-      <if test="effectBegDate != null">
+      <if test="effectBegDate != null" >
         #{effectBegDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="effectEndDate != null">
+      <if test="effectEndDate != null" >
         #{effectEndDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsRayUser">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsRayUser" >
     update PMS_RAY_USER
-    <set>
-      <if test="staffNo != null">
+    <set >
+      <if test="staffNo != null" >
         STAFF_NO = #{staffNo,jdbcType=VARCHAR},
       </if>
-      <if test="staffName != null">
+      <if test="staffName != null" >
         STAFF_NAME = #{staffName,jdbcType=VARCHAR},
       </if>
-      <if test="passcardNo != null">
+      <if test="passcardNo != null" >
         PASSCARD_NO = #{passcardNo,jdbcType=VARCHAR},
       </if>
-      <if test="orgId != null">
+      <if test="orgId != null" >
         ORG_ID = #{orgId,jdbcType=VARCHAR},
       </if>
-      <if test="orgName != null">
+      <if test="orgName != null" >
         ORG_NAME = #{orgName,jdbcType=VARCHAR},
       </if>
-      <if test="rtRank != null">
+      <if test="rtRank != null" >
         RT_RANK = #{rtRank,jdbcType=VARCHAR},
       </if>
-      <if test="rtNo != null">
+      <if test="rtNo != null" >
         RT_NO = #{rtNo,jdbcType=VARCHAR},
       </if>
-      <if test="effectBegDate != null">
+      <if test="effectBegDate != null" >
         EFFECT_BEG_DATE = #{effectBegDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="effectEndDate != null">
+      <if test="effectEndDate != null" >
         EFFECT_END_DATE = #{effectEndDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where RAY_STAFF_ID = #{rayStaffId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsRayUser">
-    update PMS_RAY_USER
-    set STAFF_NO = #{staffNo,jdbcType=VARCHAR},
-      STAFF_NAME = #{staffName,jdbcType=VARCHAR},
-      PASSCARD_NO = #{passcardNo,jdbcType=VARCHAR},
-      ORG_ID = #{orgId,jdbcType=VARCHAR},
-      ORG_NAME = #{orgName,jdbcType=VARCHAR},
-      RT_RANK = #{rtRank,jdbcType=VARCHAR},
-      RT_NO = #{rtNo,jdbcType=VARCHAR},
-      EFFECT_BEG_DATE = #{effectBegDate,jdbcType=TIMESTAMP},
-      EFFECT_END_DATE = #{effectEndDate,jdbcType=TIMESTAMP},
-      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
-    where RAY_STAFF_ID = #{rayStaffId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsRayUser">
-    <constructor>
-      <idArg column="RAY_STAFF_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PASSCARD_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ORG_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ORG_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RT_RANK" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="RT_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="EFFECT_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    RAY_STAFF_ID, STAFF_NO, STAFF_NAME, PASSCARD_NO, ORG_ID, ORG_NAME, RT_RANK, RT_NO, 
-    EFFECT_BEG_DATE, EFFECT_END_DATE, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
-    CREATE_DATE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from PMS_RAY_USER
-    where RAY_STAFF_ID = #{rayStaffId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from PMS_RAY_USER
-    where RAY_STAFF_ID = #{rayStaffId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.PmsRayUser">
-    insert into PMS_RAY_USER (RAY_STAFF_ID, STAFF_NO, STAFF_NAME, 
-      PASSCARD_NO, ORG_ID, ORG_NAME, 
-      RT_RANK, RT_NO, EFFECT_BEG_DATE, 
-      EFFECT_END_DATE, EFFECT_FLAG, CREATE_STAFF_NO, 
-      CREATE_STAFF_NAME, CREATE_DATE)
-    values (#{rayStaffId,jdbcType=VARCHAR}, #{staffNo,jdbcType=VARCHAR}, #{staffName,jdbcType=VARCHAR}, 
-      #{passcardNo,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, 
-      #{rtRank,jdbcType=VARCHAR}, #{rtNo,jdbcType=VARCHAR}, #{effectBegDate,jdbcType=TIMESTAMP}, 
-      #{effectEndDate,jdbcType=TIMESTAMP}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
-      #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.PmsRayUser">
-    insert into PMS_RAY_USER
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="rayStaffId != null">
-        RAY_STAFF_ID,
-      </if>
-      <if test="staffNo != null">
-        STAFF_NO,
-      </if>
-      <if test="staffName != null">
-        STAFF_NAME,
-      </if>
-      <if test="passcardNo != null">
-        PASSCARD_NO,
-      </if>
-      <if test="orgId != null">
-        ORG_ID,
-      </if>
-      <if test="orgName != null">
-        ORG_NAME,
-      </if>
-      <if test="rtRank != null">
-        RT_RANK,
-      </if>
-      <if test="rtNo != null">
-        RT_NO,
-      </if>
-      <if test="effectBegDate != null">
-        EFFECT_BEG_DATE,
-      </if>
-      <if test="effectEndDate != null">
-        EFFECT_END_DATE,
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG,
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO,
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME,
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="rayStaffId != null">
-        #{rayStaffId,jdbcType=VARCHAR},
-      </if>
-      <if test="staffNo != null">
-        #{staffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="staffName != null">
-        #{staffName,jdbcType=VARCHAR},
-      </if>
-      <if test="passcardNo != null">
-        #{passcardNo,jdbcType=VARCHAR},
-      </if>
-      <if test="orgId != null">
-        #{orgId,jdbcType=VARCHAR},
-      </if>
-      <if test="orgName != null">
-        #{orgName,jdbcType=VARCHAR},
-      </if>
-      <if test="rtRank != null">
-        #{rtRank,jdbcType=VARCHAR},
-      </if>
-      <if test="rtNo != null">
-        #{rtNo,jdbcType=VARCHAR},
-      </if>
-      <if test="effectBegDate != null">
-        #{effectBegDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="effectEndDate != null">
-        #{effectEndDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="effectFlag != null">
-        #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsRayUser">
-    update PMS_RAY_USER
-    <set>
-      <if test="staffNo != null">
-        STAFF_NO = #{staffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="staffName != null">
-        STAFF_NAME = #{staffName,jdbcType=VARCHAR},
-      </if>
-      <if test="passcardNo != null">
-        PASSCARD_NO = #{passcardNo,jdbcType=VARCHAR},
-      </if>
-      <if test="orgId != null">
-        ORG_ID = #{orgId,jdbcType=VARCHAR},
-      </if>
-      <if test="orgName != null">
-        ORG_NAME = #{orgName,jdbcType=VARCHAR},
-      </if>
-      <if test="rtRank != null">
-        RT_RANK = #{rtRank,jdbcType=VARCHAR},
-      </if>
-      <if test="rtNo != null">
-        RT_NO = #{rtNo,jdbcType=VARCHAR},
-      </if>
-      <if test="effectBegDate != null">
-        EFFECT_BEG_DATE = #{effectBegDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="effectEndDate != null">
-        EFFECT_END_DATE = #{effectEndDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where RAY_STAFF_ID = #{rayStaffId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsRayUser">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsRayUser" >
     update PMS_RAY_USER
     set STAFF_NO = #{staffNo,jdbcType=VARCHAR},
       STAFF_NAME = #{staffName,jdbcType=VARCHAR},

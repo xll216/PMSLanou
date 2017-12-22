@@ -1,33 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.PmsBimsStoreMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsBimsStore">
-    <constructor>
-      <idArg column="BIMS_STORE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BIMS_STORE_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MANAGE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MANAGE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.PmsBimsStoreMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsBimsStore" >
+    <constructor >
+      <idArg column="BIMS_STORE_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BIMS_STORE_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MANAGE_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MANAGE_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EFFECT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     BIMS_STORE_ID, BIMS_STORE_NAME, MANAGE_STAFF_NO, MANAGE_STAFF_NAME, EFFECT_FLAG, 
     CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from PMS_BIMS_STORE
     where BIMS_STORE_ID = #{bimsStoreId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from PMS_BIMS_STORE
     where BIMS_STORE_ID = #{bimsStoreId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.PmsBimsStore">
+  <insert id="insert" parameterType="com.lanou.domain.PmsBimsStore" >
     insert into PMS_BIMS_STORE (BIMS_STORE_ID, BIMS_STORE_NAME, MANAGE_STAFF_NO, 
       MANAGE_STAFF_NAME, EFFECT_FLAG, CREATE_STAFF_NO, 
       CREATE_STAFF_NAME, CREATE_DATE)
@@ -35,216 +35,89 @@
       #{manageStaffName,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
       #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.PmsBimsStore">
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsBimsStore" >
     insert into PMS_BIMS_STORE
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="bimsStoreId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bimsStoreId != null" >
         BIMS_STORE_ID,
       </if>
-      <if test="bimsStoreName != null">
+      <if test="bimsStoreName != null" >
         BIMS_STORE_NAME,
       </if>
-      <if test="manageStaffNo != null">
+      <if test="manageStaffNo != null" >
         MANAGE_STAFF_NO,
       </if>
-      <if test="manageStaffName != null">
+      <if test="manageStaffName != null" >
         MANAGE_STAFF_NAME,
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG,
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO,
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="bimsStoreId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bimsStoreId != null" >
         #{bimsStoreId,jdbcType=VARCHAR},
       </if>
-      <if test="bimsStoreName != null">
+      <if test="bimsStoreName != null" >
         #{bimsStoreName,jdbcType=VARCHAR},
       </if>
-      <if test="manageStaffNo != null">
+      <if test="manageStaffNo != null" >
         #{manageStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="manageStaffName != null">
+      <if test="manageStaffName != null" >
         #{manageStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsBimsStore">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsBimsStore" >
     update PMS_BIMS_STORE
-    <set>
-      <if test="bimsStoreName != null">
+    <set >
+      <if test="bimsStoreName != null" >
         BIMS_STORE_NAME = #{bimsStoreName,jdbcType=VARCHAR},
       </if>
-      <if test="manageStaffNo != null">
+      <if test="manageStaffNo != null" >
         MANAGE_STAFF_NO = #{manageStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="manageStaffName != null">
+      <if test="manageStaffName != null" >
         MANAGE_STAFF_NAME = #{manageStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where BIMS_STORE_ID = #{bimsStoreId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsBimsStore">
-    update PMS_BIMS_STORE
-    set BIMS_STORE_NAME = #{bimsStoreName,jdbcType=VARCHAR},
-      MANAGE_STAFF_NO = #{manageStaffNo,jdbcType=VARCHAR},
-      MANAGE_STAFF_NAME = #{manageStaffName,jdbcType=VARCHAR},
-      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
-    where BIMS_STORE_ID = #{bimsStoreId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsBimsStore">
-    <constructor>
-      <idArg column="BIMS_STORE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BIMS_STORE_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MANAGE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MANAGE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    BIMS_STORE_ID, BIMS_STORE_NAME, MANAGE_STAFF_NO, MANAGE_STAFF_NAME, EFFECT_FLAG, 
-    CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from PMS_BIMS_STORE
-    where BIMS_STORE_ID = #{bimsStoreId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from PMS_BIMS_STORE
-    where BIMS_STORE_ID = #{bimsStoreId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.PmsBimsStore">
-    insert into PMS_BIMS_STORE (BIMS_STORE_ID, BIMS_STORE_NAME, MANAGE_STAFF_NO, 
-      MANAGE_STAFF_NAME, EFFECT_FLAG, CREATE_STAFF_NO, 
-      CREATE_STAFF_NAME, CREATE_DATE)
-    values (#{bimsStoreId,jdbcType=VARCHAR}, #{bimsStoreName,jdbcType=VARCHAR}, #{manageStaffNo,jdbcType=VARCHAR}, 
-      #{manageStaffName,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
-      #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.PmsBimsStore">
-    insert into PMS_BIMS_STORE
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="bimsStoreId != null">
-        BIMS_STORE_ID,
-      </if>
-      <if test="bimsStoreName != null">
-        BIMS_STORE_NAME,
-      </if>
-      <if test="manageStaffNo != null">
-        MANAGE_STAFF_NO,
-      </if>
-      <if test="manageStaffName != null">
-        MANAGE_STAFF_NAME,
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG,
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO,
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME,
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="bimsStoreId != null">
-        #{bimsStoreId,jdbcType=VARCHAR},
-      </if>
-      <if test="bimsStoreName != null">
-        #{bimsStoreName,jdbcType=VARCHAR},
-      </if>
-      <if test="manageStaffNo != null">
-        #{manageStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="manageStaffName != null">
-        #{manageStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsBimsStore">
-    update PMS_BIMS_STORE
-    <set>
-      <if test="bimsStoreName != null">
-        BIMS_STORE_NAME = #{bimsStoreName,jdbcType=VARCHAR},
-      </if>
-      <if test="manageStaffNo != null">
-        MANAGE_STAFF_NO = #{manageStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="manageStaffName != null">
-        MANAGE_STAFF_NAME = #{manageStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where BIMS_STORE_ID = #{bimsStoreId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsBimsStore">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsBimsStore" >
     update PMS_BIMS_STORE
     set BIMS_STORE_NAME = #{bimsStoreName,jdbcType=VARCHAR},
       MANAGE_STAFF_NO = #{manageStaffNo,jdbcType=VARCHAR},

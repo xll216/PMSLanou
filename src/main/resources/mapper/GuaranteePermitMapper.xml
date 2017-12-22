@@ -1,43 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.GuaranteePermitMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.GuaranteePermit">
-    <constructor>
-      <idArg column="GUARANTEE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SUPPLIER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SUPPLIER_BANK_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SWIFTBIC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SUPPLIER_BANK_ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SUPPLIER_BANK_PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CURRENCY_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="LOWERCASE_FEE" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
-      <arg column="UPPERCASE_FEE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="OTHER_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.GuaranteePermitMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.GuaranteePermit" >
+    <constructor >
+      <idArg column="GUARANTEE_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CONTRACT_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CONTRACT_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SUPPLIER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SUPPLIER_BANK_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SWIFTBIC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SUPPLIER_BANK_ADDR" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SUPPLIER_BANK_PHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CURRENCY_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LOWERCASE_FEE" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="UPPERCASE_FEE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OTHER_REQ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EFFECT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     GUARANTEE_ID, CONTRACT_NAME, CONTRACT_NO, SUPPLIER, PHONE, SUPPLIER_BANK_NAME, SWIFTBIC, 
     SUPPLIER_BANK_ADDR, SUPPLIER_BANK_PHONE, CURRENCY_TYPE, LOWERCASE_FEE, UPPERCASE_FEE, 
     OTHER_REQ, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from GUARANTEE_PERMIT
     where GUARANTEE_ID = #{guaranteeId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from GUARANTEE_PERMIT
     where GUARANTEE_ID = #{guaranteeId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.GuaranteePermit">
+  <insert id="insert" parameterType="com.lanou.domain.GuaranteePermit" >
     insert into GUARANTEE_PERMIT (GUARANTEE_ID, CONTRACT_NAME, CONTRACT_NO, 
       SUPPLIER, PHONE, SUPPLIER_BANK_NAME, 
       SWIFTBIC, SUPPLIER_BANK_ADDR, SUPPLIER_BANK_PHONE, 
@@ -51,403 +51,170 @@
       #{otherReq,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
       #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.GuaranteePermit">
+  <insert id="insertSelective" parameterType="com.lanou.domain.GuaranteePermit" >
     insert into GUARANTEE_PERMIT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="guaranteeId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guaranteeId != null" >
         GUARANTEE_ID,
       </if>
-      <if test="contractName != null">
+      <if test="contractName != null" >
         CONTRACT_NAME,
       </if>
-      <if test="contractNo != null">
+      <if test="contractNo != null" >
         CONTRACT_NO,
       </if>
-      <if test="supplier != null">
+      <if test="supplier != null" >
         SUPPLIER,
       </if>
-      <if test="phone != null">
+      <if test="phone != null" >
         PHONE,
       </if>
-      <if test="supplierBankName != null">
+      <if test="supplierBankName != null" >
         SUPPLIER_BANK_NAME,
       </if>
-      <if test="swiftbic != null">
+      <if test="swiftbic != null" >
         SWIFTBIC,
       </if>
-      <if test="supplierBankAddr != null">
+      <if test="supplierBankAddr != null" >
         SUPPLIER_BANK_ADDR,
       </if>
-      <if test="supplierBankPhone != null">
+      <if test="supplierBankPhone != null" >
         SUPPLIER_BANK_PHONE,
       </if>
-      <if test="currencyType != null">
+      <if test="currencyType != null" >
         CURRENCY_TYPE,
       </if>
-      <if test="lowercaseFee != null">
+      <if test="lowercaseFee != null" >
         LOWERCASE_FEE,
       </if>
-      <if test="uppercaseFee != null">
+      <if test="uppercaseFee != null" >
         UPPERCASE_FEE,
       </if>
-      <if test="otherReq != null">
+      <if test="otherReq != null" >
         OTHER_REQ,
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG,
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO,
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="guaranteeId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guaranteeId != null" >
         #{guaranteeId,jdbcType=VARCHAR},
       </if>
-      <if test="contractName != null">
+      <if test="contractName != null" >
         #{contractName,jdbcType=VARCHAR},
       </if>
-      <if test="contractNo != null">
+      <if test="contractNo != null" >
         #{contractNo,jdbcType=VARCHAR},
       </if>
-      <if test="supplier != null">
+      <if test="supplier != null" >
         #{supplier,jdbcType=VARCHAR},
       </if>
-      <if test="phone != null">
+      <if test="phone != null" >
         #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="supplierBankName != null">
+      <if test="supplierBankName != null" >
         #{supplierBankName,jdbcType=VARCHAR},
       </if>
-      <if test="swiftbic != null">
+      <if test="swiftbic != null" >
         #{swiftbic,jdbcType=VARCHAR},
       </if>
-      <if test="supplierBankAddr != null">
+      <if test="supplierBankAddr != null" >
         #{supplierBankAddr,jdbcType=VARCHAR},
       </if>
-      <if test="supplierBankPhone != null">
+      <if test="supplierBankPhone != null" >
         #{supplierBankPhone,jdbcType=VARCHAR},
       </if>
-      <if test="currencyType != null">
+      <if test="currencyType != null" >
         #{currencyType,jdbcType=VARCHAR},
       </if>
-      <if test="lowercaseFee != null">
+      <if test="lowercaseFee != null" >
         #{lowercaseFee,jdbcType=DECIMAL},
       </if>
-      <if test="uppercaseFee != null">
+      <if test="uppercaseFee != null" >
         #{uppercaseFee,jdbcType=VARCHAR},
       </if>
-      <if test="otherReq != null">
+      <if test="otherReq != null" >
         #{otherReq,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.GuaranteePermit">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.GuaranteePermit" >
     update GUARANTEE_PERMIT
-    <set>
-      <if test="contractName != null">
+    <set >
+      <if test="contractName != null" >
         CONTRACT_NAME = #{contractName,jdbcType=VARCHAR},
       </if>
-      <if test="contractNo != null">
+      <if test="contractNo != null" >
         CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
       </if>
-      <if test="supplier != null">
+      <if test="supplier != null" >
         SUPPLIER = #{supplier,jdbcType=VARCHAR},
       </if>
-      <if test="phone != null">
+      <if test="phone != null" >
         PHONE = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="supplierBankName != null">
+      <if test="supplierBankName != null" >
         SUPPLIER_BANK_NAME = #{supplierBankName,jdbcType=VARCHAR},
       </if>
-      <if test="swiftbic != null">
+      <if test="swiftbic != null" >
         SWIFTBIC = #{swiftbic,jdbcType=VARCHAR},
       </if>
-      <if test="supplierBankAddr != null">
+      <if test="supplierBankAddr != null" >
         SUPPLIER_BANK_ADDR = #{supplierBankAddr,jdbcType=VARCHAR},
       </if>
-      <if test="supplierBankPhone != null">
+      <if test="supplierBankPhone != null" >
         SUPPLIER_BANK_PHONE = #{supplierBankPhone,jdbcType=VARCHAR},
       </if>
-      <if test="currencyType != null">
+      <if test="currencyType != null" >
         CURRENCY_TYPE = #{currencyType,jdbcType=VARCHAR},
       </if>
-      <if test="lowercaseFee != null">
+      <if test="lowercaseFee != null" >
         LOWERCASE_FEE = #{lowercaseFee,jdbcType=DECIMAL},
       </if>
-      <if test="uppercaseFee != null">
+      <if test="uppercaseFee != null" >
         UPPERCASE_FEE = #{uppercaseFee,jdbcType=VARCHAR},
       </if>
-      <if test="otherReq != null">
+      <if test="otherReq != null" >
         OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where GUARANTEE_ID = #{guaranteeId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.GuaranteePermit">
-    update GUARANTEE_PERMIT
-    set CONTRACT_NAME = #{contractName,jdbcType=VARCHAR},
-      CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
-      SUPPLIER = #{supplier,jdbcType=VARCHAR},
-      PHONE = #{phone,jdbcType=VARCHAR},
-      SUPPLIER_BANK_NAME = #{supplierBankName,jdbcType=VARCHAR},
-      SWIFTBIC = #{swiftbic,jdbcType=VARCHAR},
-      SUPPLIER_BANK_ADDR = #{supplierBankAddr,jdbcType=VARCHAR},
-      SUPPLIER_BANK_PHONE = #{supplierBankPhone,jdbcType=VARCHAR},
-      CURRENCY_TYPE = #{currencyType,jdbcType=VARCHAR},
-      LOWERCASE_FEE = #{lowercaseFee,jdbcType=DECIMAL},
-      UPPERCASE_FEE = #{uppercaseFee,jdbcType=VARCHAR},
-      OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
-      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
-    where GUARANTEE_ID = #{guaranteeId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.GuaranteePermit">
-    <constructor>
-      <idArg column="GUARANTEE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SUPPLIER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SUPPLIER_BANK_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SWIFTBIC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SUPPLIER_BANK_ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SUPPLIER_BANK_PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CURRENCY_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="LOWERCASE_FEE" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
-      <arg column="UPPERCASE_FEE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="OTHER_REQ" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    GUARANTEE_ID, CONTRACT_NAME, CONTRACT_NO, SUPPLIER, PHONE, SUPPLIER_BANK_NAME, SWIFTBIC, 
-    SUPPLIER_BANK_ADDR, SUPPLIER_BANK_PHONE, CURRENCY_TYPE, LOWERCASE_FEE, UPPERCASE_FEE, 
-    OTHER_REQ, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from GUARANTEE_PERMIT
-    where GUARANTEE_ID = #{guaranteeId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from GUARANTEE_PERMIT
-    where GUARANTEE_ID = #{guaranteeId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.GuaranteePermit">
-    insert into GUARANTEE_PERMIT (GUARANTEE_ID, CONTRACT_NAME, CONTRACT_NO, 
-      SUPPLIER, PHONE, SUPPLIER_BANK_NAME, 
-      SWIFTBIC, SUPPLIER_BANK_ADDR, SUPPLIER_BANK_PHONE, 
-      CURRENCY_TYPE, LOWERCASE_FEE, UPPERCASE_FEE, 
-      OTHER_REQ, EFFECT_FLAG, CREATE_STAFF_NO, 
-      CREATE_STAFF_NAME, CREATE_DATE)
-    values (#{guaranteeId,jdbcType=VARCHAR}, #{contractName,jdbcType=VARCHAR}, #{contractNo,jdbcType=VARCHAR}, 
-      #{supplier,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{supplierBankName,jdbcType=VARCHAR}, 
-      #{swiftbic,jdbcType=VARCHAR}, #{supplierBankAddr,jdbcType=VARCHAR}, #{supplierBankPhone,jdbcType=VARCHAR}, 
-      #{currencyType,jdbcType=VARCHAR}, #{lowercaseFee,jdbcType=DECIMAL}, #{uppercaseFee,jdbcType=VARCHAR}, 
-      #{otherReq,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
-      #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.GuaranteePermit">
-    insert into GUARANTEE_PERMIT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="guaranteeId != null">
-        GUARANTEE_ID,
-      </if>
-      <if test="contractName != null">
-        CONTRACT_NAME,
-      </if>
-      <if test="contractNo != null">
-        CONTRACT_NO,
-      </if>
-      <if test="supplier != null">
-        SUPPLIER,
-      </if>
-      <if test="phone != null">
-        PHONE,
-      </if>
-      <if test="supplierBankName != null">
-        SUPPLIER_BANK_NAME,
-      </if>
-      <if test="swiftbic != null">
-        SWIFTBIC,
-      </if>
-      <if test="supplierBankAddr != null">
-        SUPPLIER_BANK_ADDR,
-      </if>
-      <if test="supplierBankPhone != null">
-        SUPPLIER_BANK_PHONE,
-      </if>
-      <if test="currencyType != null">
-        CURRENCY_TYPE,
-      </if>
-      <if test="lowercaseFee != null">
-        LOWERCASE_FEE,
-      </if>
-      <if test="uppercaseFee != null">
-        UPPERCASE_FEE,
-      </if>
-      <if test="otherReq != null">
-        OTHER_REQ,
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG,
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO,
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME,
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="guaranteeId != null">
-        #{guaranteeId,jdbcType=VARCHAR},
-      </if>
-      <if test="contractName != null">
-        #{contractName,jdbcType=VARCHAR},
-      </if>
-      <if test="contractNo != null">
-        #{contractNo,jdbcType=VARCHAR},
-      </if>
-      <if test="supplier != null">
-        #{supplier,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="supplierBankName != null">
-        #{supplierBankName,jdbcType=VARCHAR},
-      </if>
-      <if test="swiftbic != null">
-        #{swiftbic,jdbcType=VARCHAR},
-      </if>
-      <if test="supplierBankAddr != null">
-        #{supplierBankAddr,jdbcType=VARCHAR},
-      </if>
-      <if test="supplierBankPhone != null">
-        #{supplierBankPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="currencyType != null">
-        #{currencyType,jdbcType=VARCHAR},
-      </if>
-      <if test="lowercaseFee != null">
-        #{lowercaseFee,jdbcType=DECIMAL},
-      </if>
-      <if test="uppercaseFee != null">
-        #{uppercaseFee,jdbcType=VARCHAR},
-      </if>
-      <if test="otherReq != null">
-        #{otherReq,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.GuaranteePermit">
-    update GUARANTEE_PERMIT
-    <set>
-      <if test="contractName != null">
-        CONTRACT_NAME = #{contractName,jdbcType=VARCHAR},
-      </if>
-      <if test="contractNo != null">
-        CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
-      </if>
-      <if test="supplier != null">
-        SUPPLIER = #{supplier,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        PHONE = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="supplierBankName != null">
-        SUPPLIER_BANK_NAME = #{supplierBankName,jdbcType=VARCHAR},
-      </if>
-      <if test="swiftbic != null">
-        SWIFTBIC = #{swiftbic,jdbcType=VARCHAR},
-      </if>
-      <if test="supplierBankAddr != null">
-        SUPPLIER_BANK_ADDR = #{supplierBankAddr,jdbcType=VARCHAR},
-      </if>
-      <if test="supplierBankPhone != null">
-        SUPPLIER_BANK_PHONE = #{supplierBankPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="currencyType != null">
-        CURRENCY_TYPE = #{currencyType,jdbcType=VARCHAR},
-      </if>
-      <if test="lowercaseFee != null">
-        LOWERCASE_FEE = #{lowercaseFee,jdbcType=DECIMAL},
-      </if>
-      <if test="uppercaseFee != null">
-        UPPERCASE_FEE = #{uppercaseFee,jdbcType=VARCHAR},
-      </if>
-      <if test="otherReq != null">
-        OTHER_REQ = #{otherReq,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where GUARANTEE_ID = #{guaranteeId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.GuaranteePermit">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.GuaranteePermit" >
     update GUARANTEE_PERMIT
     set CONTRACT_NAME = #{contractName,jdbcType=VARCHAR},
       CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},

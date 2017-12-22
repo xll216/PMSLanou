@@ -56,7 +56,7 @@
         <tr>
             <td class="td1">姓名、专业经历和能力简述</td>
             <td>
-                <textarea class="mini-textarea" name="prime_user_desc" style="width:100%;" value="蓝鸥测试数据"></textarea>
+                <textarea class="mini-textarea" name="primeUserDesc" style="width:100%;" value="蓝鸥测试数据"></textarea>
             </td>
         </tr>
 
@@ -68,7 +68,7 @@
             <td class="td1">产品形式</td>
             <td class="td2" style="background: white">
                 <div id="cbl1" style="width:100%;"
-                     name="proj_type"
+                     name="projType"
                      class="mini-checkboxlist"
                      value="cb01,cb03"
                      textField="text" valueField="id">
@@ -78,25 +78,25 @@
         <tr>
             <td class="td1">预计产权说明</td>
             <td>
-                <textarea class="mini-textarea" name="right_desc" style="width:100%;" value="蓝鸥测试数据"></textarea>
+                <textarea class="mini-textarea" name="rightDesc" style="width:100%;" value="蓝鸥测试数据"></textarea>
             </td>
         </tr>
         <tr>
             <td class="td1">经济效益</td>
             <td>
-                <textarea class="mini-textarea" name="benefits_desc" style="width:100%;" value="蓝鸥测试数据"></textarea>
+                <textarea class="mini-textarea" name="benefitsDesc" style="width:100%;" value="蓝鸥测试数据"></textarea>
             </td>
         </tr>
         <tr>
             <td class="td1">固定资产</td>
             <td>
-                <textarea class="mini-textarea" name="fixed_assets" style="width:100%;" value="蓝鸥测试数据"></textarea>
+                <textarea class="mini-textarea" name="fixedAssets" style="width:100%;" value="蓝鸥测试数据"></textarea>
             </td>
         </tr>
         <tr>
             <td class="td1">验收标准</td>
             <td>
-                <textarea class="mini-textarea" name="accept_stand" style="width:100%;" value="蓝鸥测试数据"></textarea>
+                <textarea class="mini-textarea" name="acceptStand" style="width:100%;" value="蓝鸥测试数据"></textarea>
             </td>
         </tr>
 
@@ -108,7 +108,7 @@
         <tr>
             <td class="td1">立项报告书<span class="sp">*</span></td>
             <td>
-                <input class="mini-fileupload" name="proj_file" style="width:100%;"/>
+                <input class="mini-fileupload" name="projFile" style="width:100%;"/>
             </td>
         </tr>
 
@@ -120,7 +120,7 @@
         <tr>
             <td class="td1">审批(部门经理)<span class="sp">*</span></td>
             <td>
-                <input class="mini-textbox" style="width:100%;" name="app_user" value="李四"/>
+                <input class="mini-textbox" style="width:100%;" name="staffNo" value="李四"/>
             </td>
         </tr>
         <tr>
@@ -163,14 +163,12 @@
             var s = mini.encode(data);
             console.log("项目申请的其他信息：" + s);
             return s;
-        }
+        };
 
         /*提交*/
         $("#commit").click(function () {
             var baseData = $.cookie('form1');
             var otherData = getData();
-            console.log(baseData + "--" + otherData);
-
             $.ajax({
                 type: "get",
                 url: "/pro/projectApplyCommit",
@@ -183,7 +181,8 @@
                 }
             })
 
-        })
+        });
+
     })
 
 </script>

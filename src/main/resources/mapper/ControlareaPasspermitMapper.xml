@@ -1,41 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.ControlareaPasspermitMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.ControlareaPasspermit">
-    <constructor>
-      <idArg column="PASS_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PASS_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CARD_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAGM_CARD_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="APP_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="APPROVE_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="APPROVE_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="VISIT_OBJ_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="APPROVE_DEPT" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_DEPTMAN" javaType="java.lang.String" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.ControlareaPasspermitMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.ControlareaPasspermit" >
+    <constructor >
+      <idArg column="PASS_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PASS_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CARD_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MAGM_CARD_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APP_BEG_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="APP_END_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="APPROVE_BEG_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="APPROVE_END_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="VISIT_OBJ_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EFFECT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="APPROVE_DEPT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APP_DEPTMAN" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     PASS_ID, PASS_TYPE, CARD_NO, MAGM_CARD_NO, APP_BEG_DATE, APP_END_DATE, APPROVE_BEG_DATE, 
     APPROVE_END_DATE, VISIT_OBJ_DESC, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
     CREATE_DATE, APPROVE_DEPT, APP_DEPTMAN
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from CONTROLAREA_PASSPERMIT
     where PASS_ID = #{passId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from CONTROLAREA_PASSPERMIT
     where PASS_ID = #{passId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.ControlareaPasspermit">
+  <insert id="insert" parameterType="com.lanou.domain.ControlareaPasspermit" >
     insert into CONTROLAREA_PASSPERMIT (PASS_ID, PASS_TYPE, CARD_NO, 
       MAGM_CARD_NO, APP_BEG_DATE, APP_END_DATE, 
       APPROVE_BEG_DATE, APPROVE_END_DATE, VISIT_OBJ_DESC, 
@@ -49,363 +49,152 @@
       #{createDate,jdbcType=TIMESTAMP}, #{approveDept,jdbcType=VARCHAR}, #{appDeptman,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.ControlareaPasspermit">
+  <insert id="insertSelective" parameterType="com.lanou.domain.ControlareaPasspermit" >
     insert into CONTROLAREA_PASSPERMIT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="passId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="passId != null" >
         PASS_ID,
       </if>
-      <if test="passType != null">
+      <if test="passType != null" >
         PASS_TYPE,
       </if>
-      <if test="cardNo != null">
+      <if test="cardNo != null" >
         CARD_NO,
       </if>
-      <if test="magmCardNo != null">
+      <if test="magmCardNo != null" >
         MAGM_CARD_NO,
       </if>
-      <if test="appBegDate != null">
+      <if test="appBegDate != null" >
         APP_BEG_DATE,
       </if>
-      <if test="appEndDate != null">
+      <if test="appEndDate != null" >
         APP_END_DATE,
       </if>
-      <if test="approveBegDate != null">
+      <if test="approveBegDate != null" >
         APPROVE_BEG_DATE,
       </if>
-      <if test="approveEndDate != null">
+      <if test="approveEndDate != null" >
         APPROVE_END_DATE,
       </if>
-      <if test="visitObjDesc != null">
+      <if test="visitObjDesc != null" >
         VISIT_OBJ_DESC,
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG,
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO,
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE,
       </if>
-      <if test="approveDept != null">
+      <if test="approveDept != null" >
         APPROVE_DEPT,
       </if>
-      <if test="appDeptman != null">
+      <if test="appDeptman != null" >
         APP_DEPTMAN,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="passId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="passId != null" >
         #{passId,jdbcType=VARCHAR},
       </if>
-      <if test="passType != null">
+      <if test="passType != null" >
         #{passType,jdbcType=VARCHAR},
       </if>
-      <if test="cardNo != null">
+      <if test="cardNo != null" >
         #{cardNo,jdbcType=VARCHAR},
       </if>
-      <if test="magmCardNo != null">
+      <if test="magmCardNo != null" >
         #{magmCardNo,jdbcType=VARCHAR},
       </if>
-      <if test="appBegDate != null">
+      <if test="appBegDate != null" >
         #{appBegDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="appEndDate != null">
+      <if test="appEndDate != null" >
         #{appEndDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="approveBegDate != null">
+      <if test="approveBegDate != null" >
         #{approveBegDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="approveEndDate != null">
+      <if test="approveEndDate != null" >
         #{approveEndDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="visitObjDesc != null">
+      <if test="visitObjDesc != null" >
         #{visitObjDesc,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="approveDept != null">
+      <if test="approveDept != null" >
         #{approveDept,jdbcType=VARCHAR},
       </if>
-      <if test="appDeptman != null">
+      <if test="appDeptman != null" >
         #{appDeptman,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.ControlareaPasspermit">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.ControlareaPasspermit" >
     update CONTROLAREA_PASSPERMIT
-    <set>
-      <if test="passType != null">
+    <set >
+      <if test="passType != null" >
         PASS_TYPE = #{passType,jdbcType=VARCHAR},
       </if>
-      <if test="cardNo != null">
+      <if test="cardNo != null" >
         CARD_NO = #{cardNo,jdbcType=VARCHAR},
       </if>
-      <if test="magmCardNo != null">
+      <if test="magmCardNo != null" >
         MAGM_CARD_NO = #{magmCardNo,jdbcType=VARCHAR},
       </if>
-      <if test="appBegDate != null">
+      <if test="appBegDate != null" >
         APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="appEndDate != null">
+      <if test="appEndDate != null" >
         APP_END_DATE = #{appEndDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="approveBegDate != null">
+      <if test="approveBegDate != null" >
         APPROVE_BEG_DATE = #{approveBegDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="approveEndDate != null">
+      <if test="approveEndDate != null" >
         APPROVE_END_DATE = #{approveEndDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="visitObjDesc != null">
+      <if test="visitObjDesc != null" >
         VISIT_OBJ_DESC = #{visitObjDesc,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="approveDept != null">
+      <if test="approveDept != null" >
         APPROVE_DEPT = #{approveDept,jdbcType=VARCHAR},
       </if>
-      <if test="appDeptman != null">
+      <if test="appDeptman != null" >
         APP_DEPTMAN = #{appDeptman,jdbcType=VARCHAR},
       </if>
     </set>
     where PASS_ID = #{passId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.ControlareaPasspermit">
-    update CONTROLAREA_PASSPERMIT
-    set PASS_TYPE = #{passType,jdbcType=VARCHAR},
-      CARD_NO = #{cardNo,jdbcType=VARCHAR},
-      MAGM_CARD_NO = #{magmCardNo,jdbcType=VARCHAR},
-      APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
-      APP_END_DATE = #{appEndDate,jdbcType=TIMESTAMP},
-      APPROVE_BEG_DATE = #{approveBegDate,jdbcType=TIMESTAMP},
-      APPROVE_END_DATE = #{approveEndDate,jdbcType=TIMESTAMP},
-      VISIT_OBJ_DESC = #{visitObjDesc,jdbcType=VARCHAR},
-      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      APPROVE_DEPT = #{approveDept,jdbcType=VARCHAR},
-      APP_DEPTMAN = #{appDeptman,jdbcType=VARCHAR}
-    where PASS_ID = #{passId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.ControlareaPasspermit">
-    <constructor>
-      <idArg column="PASS_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PASS_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CARD_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAGM_CARD_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="APP_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="APPROVE_BEG_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="APPROVE_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="VISIT_OBJ_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="APPROVE_DEPT" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_DEPTMAN" javaType="java.lang.String" jdbcType="VARCHAR" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    PASS_ID, PASS_TYPE, CARD_NO, MAGM_CARD_NO, APP_BEG_DATE, APP_END_DATE, APPROVE_BEG_DATE, 
-    APPROVE_END_DATE, VISIT_OBJ_DESC, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
-    CREATE_DATE, APPROVE_DEPT, APP_DEPTMAN
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from CONTROLAREA_PASSPERMIT
-    where PASS_ID = #{passId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from CONTROLAREA_PASSPERMIT
-    where PASS_ID = #{passId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.ControlareaPasspermit">
-    insert into CONTROLAREA_PASSPERMIT (PASS_ID, PASS_TYPE, CARD_NO, 
-      MAGM_CARD_NO, APP_BEG_DATE, APP_END_DATE, 
-      APPROVE_BEG_DATE, APPROVE_END_DATE, VISIT_OBJ_DESC, 
-      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
-      CREATE_DATE, APPROVE_DEPT, APP_DEPTMAN
-      )
-    values (#{passId,jdbcType=VARCHAR}, #{passType,jdbcType=VARCHAR}, #{cardNo,jdbcType=VARCHAR}, 
-      #{magmCardNo,jdbcType=VARCHAR}, #{appBegDate,jdbcType=TIMESTAMP}, #{appEndDate,jdbcType=TIMESTAMP}, 
-      #{approveBegDate,jdbcType=TIMESTAMP}, #{approveEndDate,jdbcType=TIMESTAMP}, #{visitObjDesc,jdbcType=VARCHAR}, 
-      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{approveDept,jdbcType=VARCHAR}, #{appDeptman,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.ControlareaPasspermit">
-    insert into CONTROLAREA_PASSPERMIT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="passId != null">
-        PASS_ID,
-      </if>
-      <if test="passType != null">
-        PASS_TYPE,
-      </if>
-      <if test="cardNo != null">
-        CARD_NO,
-      </if>
-      <if test="magmCardNo != null">
-        MAGM_CARD_NO,
-      </if>
-      <if test="appBegDate != null">
-        APP_BEG_DATE,
-      </if>
-      <if test="appEndDate != null">
-        APP_END_DATE,
-      </if>
-      <if test="approveBegDate != null">
-        APPROVE_BEG_DATE,
-      </if>
-      <if test="approveEndDate != null">
-        APPROVE_END_DATE,
-      </if>
-      <if test="visitObjDesc != null">
-        VISIT_OBJ_DESC,
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG,
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO,
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME,
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE,
-      </if>
-      <if test="approveDept != null">
-        APPROVE_DEPT,
-      </if>
-      <if test="appDeptman != null">
-        APP_DEPTMAN,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="passId != null">
-        #{passId,jdbcType=VARCHAR},
-      </if>
-      <if test="passType != null">
-        #{passType,jdbcType=VARCHAR},
-      </if>
-      <if test="cardNo != null">
-        #{cardNo,jdbcType=VARCHAR},
-      </if>
-      <if test="magmCardNo != null">
-        #{magmCardNo,jdbcType=VARCHAR},
-      </if>
-      <if test="appBegDate != null">
-        #{appBegDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="appEndDate != null">
-        #{appEndDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="approveBegDate != null">
-        #{approveBegDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="approveEndDate != null">
-        #{approveEndDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="visitObjDesc != null">
-        #{visitObjDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="approveDept != null">
-        #{approveDept,jdbcType=VARCHAR},
-      </if>
-      <if test="appDeptman != null">
-        #{appDeptman,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.ControlareaPasspermit">
-    update CONTROLAREA_PASSPERMIT
-    <set>
-      <if test="passType != null">
-        PASS_TYPE = #{passType,jdbcType=VARCHAR},
-      </if>
-      <if test="cardNo != null">
-        CARD_NO = #{cardNo,jdbcType=VARCHAR},
-      </if>
-      <if test="magmCardNo != null">
-        MAGM_CARD_NO = #{magmCardNo,jdbcType=VARCHAR},
-      </if>
-      <if test="appBegDate != null">
-        APP_BEG_DATE = #{appBegDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="appEndDate != null">
-        APP_END_DATE = #{appEndDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="approveBegDate != null">
-        APPROVE_BEG_DATE = #{approveBegDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="approveEndDate != null">
-        APPROVE_END_DATE = #{approveEndDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="visitObjDesc != null">
-        VISIT_OBJ_DESC = #{visitObjDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="approveDept != null">
-        APPROVE_DEPT = #{approveDept,jdbcType=VARCHAR},
-      </if>
-      <if test="appDeptman != null">
-        APP_DEPTMAN = #{appDeptman,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where PASS_ID = #{passId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.ControlareaPasspermit">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.ControlareaPasspermit" >
     update CONTROLAREA_PASSPERMIT
     set PASS_TYPE = #{passType,jdbcType=VARCHAR},
       CARD_NO = #{cardNo,jdbcType=VARCHAR},

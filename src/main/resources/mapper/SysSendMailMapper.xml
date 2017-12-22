@@ -1,44 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.SysSendMailMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.SysSendMail">
-    <constructor>
-      <idArg column="EMAIL_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SYS_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ALLOW_ACCEPTOR" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EMAIL_TO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EMAIL_CC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EMAIL_BCC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EMAIL_SUBJECT" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ISBODYHTML" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EMAIL_PRIORITY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EMAIL_BODY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="IS_EXISTS_ATTR" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FAIL_COUNT" javaType="java.lang.Integer" jdbcType="DECIMAL" />
-      <arg column="MAX_FAIL_COUNT" javaType="java.lang.Integer" jdbcType="DECIMAL" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="effect_flag" javaType="java.lang.String" jdbcType="CHAR" />
-      <arg column="towftype" javaType="java.lang.String" jdbcType="CHAR" />
-      <arg column="ccwftype" javaType="java.lang.String" jdbcType="CHAR" />
-      <arg column="bccwftype" javaType="java.lang.String" jdbcType="CHAR" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.SysSendMailMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.SysSendMail" >
+    <constructor >
+      <idArg column="EMAIL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SYS_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ALLOW_ACCEPTOR" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMAIL_TO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMAIL_CC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMAIL_BCC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMAIL_SUBJECT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ISBODYHTML" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMAIL_PRIORITY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMAIL_BODY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="IS_EXISTS_ATTR" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FAIL_COUNT" jdbcType="DECIMAL" javaType="java.lang.Integer" />
+      <arg column="MAX_FAIL_COUNT" jdbcType="DECIMAL" javaType="java.lang.Integer" />
+      <arg column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="effect_flag" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="towftype" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="ccwftype" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="bccwftype" jdbcType="CHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     EMAIL_ID, SYS_NAME, ALLOW_ACCEPTOR, EMAIL_TO, EMAIL_CC, EMAIL_BCC, EMAIL_SUBJECT, 
     ISBODYHTML, EMAIL_PRIORITY, EMAIL_BODY, IS_EXISTS_ATTR, FAIL_COUNT, MAX_FAIL_COUNT, 
     CREATE_DATE, effect_flag, towftype, ccwftype, bccwftype
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from SYS_SEND_MAIL
     where EMAIL_ID = #{emailId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from SYS_SEND_MAIL
     where EMAIL_ID = #{emailId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.SysSendMail">
+  <insert id="insert" parameterType="com.lanou.domain.SysSendMail" >
     insert into SYS_SEND_MAIL (EMAIL_ID, SYS_NAME, ALLOW_ACCEPTOR, 
       EMAIL_TO, EMAIL_CC, EMAIL_BCC, 
       EMAIL_SUBJECT, ISBODYHTML, EMAIL_PRIORITY, 
@@ -54,425 +54,179 @@
       #{towftype,jdbcType=CHAR}, #{ccwftype,jdbcType=CHAR}, #{bccwftype,jdbcType=CHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.SysSendMail">
+  <insert id="insertSelective" parameterType="com.lanou.domain.SysSendMail" >
     insert into SYS_SEND_MAIL
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="emailId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="emailId != null" >
         EMAIL_ID,
       </if>
-      <if test="sysName != null">
+      <if test="sysName != null" >
         SYS_NAME,
       </if>
-      <if test="allowAcceptor != null">
+      <if test="allowAcceptor != null" >
         ALLOW_ACCEPTOR,
       </if>
-      <if test="emailTo != null">
+      <if test="emailTo != null" >
         EMAIL_TO,
       </if>
-      <if test="emailCc != null">
+      <if test="emailCc != null" >
         EMAIL_CC,
       </if>
-      <if test="emailBcc != null">
+      <if test="emailBcc != null" >
         EMAIL_BCC,
       </if>
-      <if test="emailSubject != null">
+      <if test="emailSubject != null" >
         EMAIL_SUBJECT,
       </if>
-      <if test="isbodyhtml != null">
+      <if test="isbodyhtml != null" >
         ISBODYHTML,
       </if>
-      <if test="emailPriority != null">
+      <if test="emailPriority != null" >
         EMAIL_PRIORITY,
       </if>
-      <if test="emailBody != null">
+      <if test="emailBody != null" >
         EMAIL_BODY,
       </if>
-      <if test="isExistsAttr != null">
+      <if test="isExistsAttr != null" >
         IS_EXISTS_ATTR,
       </if>
-      <if test="failCount != null">
+      <if test="failCount != null" >
         FAIL_COUNT,
       </if>
-      <if test="maxFailCount != null">
+      <if test="maxFailCount != null" >
         MAX_FAIL_COUNT,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE,
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         effect_flag,
       </if>
-      <if test="towftype != null">
+      <if test="towftype != null" >
         towftype,
       </if>
-      <if test="ccwftype != null">
+      <if test="ccwftype != null" >
         ccwftype,
       </if>
-      <if test="bccwftype != null">
+      <if test="bccwftype != null" >
         bccwftype,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="emailId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="emailId != null" >
         #{emailId,jdbcType=VARCHAR},
       </if>
-      <if test="sysName != null">
+      <if test="sysName != null" >
         #{sysName,jdbcType=VARCHAR},
       </if>
-      <if test="allowAcceptor != null">
+      <if test="allowAcceptor != null" >
         #{allowAcceptor,jdbcType=VARCHAR},
       </if>
-      <if test="emailTo != null">
+      <if test="emailTo != null" >
         #{emailTo,jdbcType=VARCHAR},
       </if>
-      <if test="emailCc != null">
+      <if test="emailCc != null" >
         #{emailCc,jdbcType=VARCHAR},
       </if>
-      <if test="emailBcc != null">
+      <if test="emailBcc != null" >
         #{emailBcc,jdbcType=VARCHAR},
       </if>
-      <if test="emailSubject != null">
+      <if test="emailSubject != null" >
         #{emailSubject,jdbcType=VARCHAR},
       </if>
-      <if test="isbodyhtml != null">
+      <if test="isbodyhtml != null" >
         #{isbodyhtml,jdbcType=VARCHAR},
       </if>
-      <if test="emailPriority != null">
+      <if test="emailPriority != null" >
         #{emailPriority,jdbcType=VARCHAR},
       </if>
-      <if test="emailBody != null">
+      <if test="emailBody != null" >
         #{emailBody,jdbcType=VARCHAR},
       </if>
-      <if test="isExistsAttr != null">
+      <if test="isExistsAttr != null" >
         #{isExistsAttr,jdbcType=VARCHAR},
       </if>
-      <if test="failCount != null">
+      <if test="failCount != null" >
         #{failCount,jdbcType=DECIMAL},
       </if>
-      <if test="maxFailCount != null">
+      <if test="maxFailCount != null" >
         #{maxFailCount,jdbcType=DECIMAL},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         #{effectFlag,jdbcType=CHAR},
       </if>
-      <if test="towftype != null">
+      <if test="towftype != null" >
         #{towftype,jdbcType=CHAR},
       </if>
-      <if test="ccwftype != null">
+      <if test="ccwftype != null" >
         #{ccwftype,jdbcType=CHAR},
       </if>
-      <if test="bccwftype != null">
+      <if test="bccwftype != null" >
         #{bccwftype,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.SysSendMail">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.SysSendMail" >
     update SYS_SEND_MAIL
-    <set>
-      <if test="sysName != null">
+    <set >
+      <if test="sysName != null" >
         SYS_NAME = #{sysName,jdbcType=VARCHAR},
       </if>
-      <if test="allowAcceptor != null">
+      <if test="allowAcceptor != null" >
         ALLOW_ACCEPTOR = #{allowAcceptor,jdbcType=VARCHAR},
       </if>
-      <if test="emailTo != null">
+      <if test="emailTo != null" >
         EMAIL_TO = #{emailTo,jdbcType=VARCHAR},
       </if>
-      <if test="emailCc != null">
+      <if test="emailCc != null" >
         EMAIL_CC = #{emailCc,jdbcType=VARCHAR},
       </if>
-      <if test="emailBcc != null">
+      <if test="emailBcc != null" >
         EMAIL_BCC = #{emailBcc,jdbcType=VARCHAR},
       </if>
-      <if test="emailSubject != null">
+      <if test="emailSubject != null" >
         EMAIL_SUBJECT = #{emailSubject,jdbcType=VARCHAR},
       </if>
-      <if test="isbodyhtml != null">
+      <if test="isbodyhtml != null" >
         ISBODYHTML = #{isbodyhtml,jdbcType=VARCHAR},
       </if>
-      <if test="emailPriority != null">
+      <if test="emailPriority != null" >
         EMAIL_PRIORITY = #{emailPriority,jdbcType=VARCHAR},
       </if>
-      <if test="emailBody != null">
+      <if test="emailBody != null" >
         EMAIL_BODY = #{emailBody,jdbcType=VARCHAR},
       </if>
-      <if test="isExistsAttr != null">
+      <if test="isExistsAttr != null" >
         IS_EXISTS_ATTR = #{isExistsAttr,jdbcType=VARCHAR},
       </if>
-      <if test="failCount != null">
+      <if test="failCount != null" >
         FAIL_COUNT = #{failCount,jdbcType=DECIMAL},
       </if>
-      <if test="maxFailCount != null">
+      <if test="maxFailCount != null" >
         MAX_FAIL_COUNT = #{maxFailCount,jdbcType=DECIMAL},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         effect_flag = #{effectFlag,jdbcType=CHAR},
       </if>
-      <if test="towftype != null">
+      <if test="towftype != null" >
         towftype = #{towftype,jdbcType=CHAR},
       </if>
-      <if test="ccwftype != null">
+      <if test="ccwftype != null" >
         ccwftype = #{ccwftype,jdbcType=CHAR},
       </if>
-      <if test="bccwftype != null">
+      <if test="bccwftype != null" >
         bccwftype = #{bccwftype,jdbcType=CHAR},
       </if>
     </set>
     where EMAIL_ID = #{emailId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.SysSendMail">
-    update SYS_SEND_MAIL
-    set SYS_NAME = #{sysName,jdbcType=VARCHAR},
-      ALLOW_ACCEPTOR = #{allowAcceptor,jdbcType=VARCHAR},
-      EMAIL_TO = #{emailTo,jdbcType=VARCHAR},
-      EMAIL_CC = #{emailCc,jdbcType=VARCHAR},
-      EMAIL_BCC = #{emailBcc,jdbcType=VARCHAR},
-      EMAIL_SUBJECT = #{emailSubject,jdbcType=VARCHAR},
-      ISBODYHTML = #{isbodyhtml,jdbcType=VARCHAR},
-      EMAIL_PRIORITY = #{emailPriority,jdbcType=VARCHAR},
-      EMAIL_BODY = #{emailBody,jdbcType=VARCHAR},
-      IS_EXISTS_ATTR = #{isExistsAttr,jdbcType=VARCHAR},
-      FAIL_COUNT = #{failCount,jdbcType=DECIMAL},
-      MAX_FAIL_COUNT = #{maxFailCount,jdbcType=DECIMAL},
-      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      effect_flag = #{effectFlag,jdbcType=CHAR},
-      towftype = #{towftype,jdbcType=CHAR},
-      ccwftype = #{ccwftype,jdbcType=CHAR},
-      bccwftype = #{bccwftype,jdbcType=CHAR}
-    where EMAIL_ID = #{emailId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.SysSendMail">
-    <constructor>
-      <idArg column="EMAIL_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="SYS_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ALLOW_ACCEPTOR" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EMAIL_TO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EMAIL_CC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EMAIL_BCC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EMAIL_SUBJECT" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ISBODYHTML" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EMAIL_PRIORITY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EMAIL_BODY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="IS_EXISTS_ATTR" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FAIL_COUNT" javaType="java.lang.Integer" jdbcType="DECIMAL" />
-      <arg column="MAX_FAIL_COUNT" javaType="java.lang.Integer" jdbcType="DECIMAL" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="effect_flag" javaType="java.lang.String" jdbcType="CHAR" />
-      <arg column="towftype" javaType="java.lang.String" jdbcType="CHAR" />
-      <arg column="ccwftype" javaType="java.lang.String" jdbcType="CHAR" />
-      <arg column="bccwftype" javaType="java.lang.String" jdbcType="CHAR" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    EMAIL_ID, SYS_NAME, ALLOW_ACCEPTOR, EMAIL_TO, EMAIL_CC, EMAIL_BCC, EMAIL_SUBJECT, 
-    ISBODYHTML, EMAIL_PRIORITY, EMAIL_BODY, IS_EXISTS_ATTR, FAIL_COUNT, MAX_FAIL_COUNT, 
-    CREATE_DATE, effect_flag, towftype, ccwftype, bccwftype
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from SYS_SEND_MAIL
-    where EMAIL_ID = #{emailId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from SYS_SEND_MAIL
-    where EMAIL_ID = #{emailId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.SysSendMail">
-    insert into SYS_SEND_MAIL (EMAIL_ID, SYS_NAME, ALLOW_ACCEPTOR, 
-      EMAIL_TO, EMAIL_CC, EMAIL_BCC, 
-      EMAIL_SUBJECT, ISBODYHTML, EMAIL_PRIORITY, 
-      EMAIL_BODY, IS_EXISTS_ATTR, FAIL_COUNT, 
-      MAX_FAIL_COUNT, CREATE_DATE, effect_flag, 
-      towftype, ccwftype, bccwftype
-      )
-    values (#{emailId,jdbcType=VARCHAR}, #{sysName,jdbcType=VARCHAR}, #{allowAcceptor,jdbcType=VARCHAR}, 
-      #{emailTo,jdbcType=VARCHAR}, #{emailCc,jdbcType=VARCHAR}, #{emailBcc,jdbcType=VARCHAR}, 
-      #{emailSubject,jdbcType=VARCHAR}, #{isbodyhtml,jdbcType=VARCHAR}, #{emailPriority,jdbcType=VARCHAR}, 
-      #{emailBody,jdbcType=VARCHAR}, #{isExistsAttr,jdbcType=VARCHAR}, #{failCount,jdbcType=DECIMAL}, 
-      #{maxFailCount,jdbcType=DECIMAL}, #{createDate,jdbcType=TIMESTAMP}, #{effectFlag,jdbcType=CHAR}, 
-      #{towftype,jdbcType=CHAR}, #{ccwftype,jdbcType=CHAR}, #{bccwftype,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.SysSendMail">
-    insert into SYS_SEND_MAIL
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="emailId != null">
-        EMAIL_ID,
-      </if>
-      <if test="sysName != null">
-        SYS_NAME,
-      </if>
-      <if test="allowAcceptor != null">
-        ALLOW_ACCEPTOR,
-      </if>
-      <if test="emailTo != null">
-        EMAIL_TO,
-      </if>
-      <if test="emailCc != null">
-        EMAIL_CC,
-      </if>
-      <if test="emailBcc != null">
-        EMAIL_BCC,
-      </if>
-      <if test="emailSubject != null">
-        EMAIL_SUBJECT,
-      </if>
-      <if test="isbodyhtml != null">
-        ISBODYHTML,
-      </if>
-      <if test="emailPriority != null">
-        EMAIL_PRIORITY,
-      </if>
-      <if test="emailBody != null">
-        EMAIL_BODY,
-      </if>
-      <if test="isExistsAttr != null">
-        IS_EXISTS_ATTR,
-      </if>
-      <if test="failCount != null">
-        FAIL_COUNT,
-      </if>
-      <if test="maxFailCount != null">
-        MAX_FAIL_COUNT,
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE,
-      </if>
-      <if test="effectFlag != null">
-        effect_flag,
-      </if>
-      <if test="towftype != null">
-        towftype,
-      </if>
-      <if test="ccwftype != null">
-        ccwftype,
-      </if>
-      <if test="bccwftype != null">
-        bccwftype,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="emailId != null">
-        #{emailId,jdbcType=VARCHAR},
-      </if>
-      <if test="sysName != null">
-        #{sysName,jdbcType=VARCHAR},
-      </if>
-      <if test="allowAcceptor != null">
-        #{allowAcceptor,jdbcType=VARCHAR},
-      </if>
-      <if test="emailTo != null">
-        #{emailTo,jdbcType=VARCHAR},
-      </if>
-      <if test="emailCc != null">
-        #{emailCc,jdbcType=VARCHAR},
-      </if>
-      <if test="emailBcc != null">
-        #{emailBcc,jdbcType=VARCHAR},
-      </if>
-      <if test="emailSubject != null">
-        #{emailSubject,jdbcType=VARCHAR},
-      </if>
-      <if test="isbodyhtml != null">
-        #{isbodyhtml,jdbcType=VARCHAR},
-      </if>
-      <if test="emailPriority != null">
-        #{emailPriority,jdbcType=VARCHAR},
-      </if>
-      <if test="emailBody != null">
-        #{emailBody,jdbcType=VARCHAR},
-      </if>
-      <if test="isExistsAttr != null">
-        #{isExistsAttr,jdbcType=VARCHAR},
-      </if>
-      <if test="failCount != null">
-        #{failCount,jdbcType=DECIMAL},
-      </if>
-      <if test="maxFailCount != null">
-        #{maxFailCount,jdbcType=DECIMAL},
-      </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="effectFlag != null">
-        #{effectFlag,jdbcType=CHAR},
-      </if>
-      <if test="towftype != null">
-        #{towftype,jdbcType=CHAR},
-      </if>
-      <if test="ccwftype != null">
-        #{ccwftype,jdbcType=CHAR},
-      </if>
-      <if test="bccwftype != null">
-        #{bccwftype,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.SysSendMail">
-    update SYS_SEND_MAIL
-    <set>
-      <if test="sysName != null">
-        SYS_NAME = #{sysName,jdbcType=VARCHAR},
-      </if>
-      <if test="allowAcceptor != null">
-        ALLOW_ACCEPTOR = #{allowAcceptor,jdbcType=VARCHAR},
-      </if>
-      <if test="emailTo != null">
-        EMAIL_TO = #{emailTo,jdbcType=VARCHAR},
-      </if>
-      <if test="emailCc != null">
-        EMAIL_CC = #{emailCc,jdbcType=VARCHAR},
-      </if>
-      <if test="emailBcc != null">
-        EMAIL_BCC = #{emailBcc,jdbcType=VARCHAR},
-      </if>
-      <if test="emailSubject != null">
-        EMAIL_SUBJECT = #{emailSubject,jdbcType=VARCHAR},
-      </if>
-      <if test="isbodyhtml != null">
-        ISBODYHTML = #{isbodyhtml,jdbcType=VARCHAR},
-      </if>
-      <if test="emailPriority != null">
-        EMAIL_PRIORITY = #{emailPriority,jdbcType=VARCHAR},
-      </if>
-      <if test="emailBody != null">
-        EMAIL_BODY = #{emailBody,jdbcType=VARCHAR},
-      </if>
-      <if test="isExistsAttr != null">
-        IS_EXISTS_ATTR = #{isExistsAttr,jdbcType=VARCHAR},
-      </if>
-      <if test="failCount != null">
-        FAIL_COUNT = #{failCount,jdbcType=DECIMAL},
-      </if>
-      <if test="maxFailCount != null">
-        MAX_FAIL_COUNT = #{maxFailCount,jdbcType=DECIMAL},
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="effectFlag != null">
-        effect_flag = #{effectFlag,jdbcType=CHAR},
-      </if>
-      <if test="towftype != null">
-        towftype = #{towftype,jdbcType=CHAR},
-      </if>
-      <if test="ccwftype != null">
-        ccwftype = #{ccwftype,jdbcType=CHAR},
-      </if>
-      <if test="bccwftype != null">
-        bccwftype = #{bccwftype,jdbcType=CHAR},
-      </if>
-    </set>
-    where EMAIL_ID = #{emailId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.SysSendMail">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.SysSendMail" >
     update SYS_SEND_MAIL
     set SYS_NAME = #{sysName,jdbcType=VARCHAR},
       ALLOW_ACCEPTOR = #{allowAcceptor,jdbcType=VARCHAR},

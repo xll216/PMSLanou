@@ -1,51 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.FireusingPermitMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.FireusingPermit">
-    <constructor>
-      <idArg column="FIREUSING_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAC_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSI_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIREUSING_MAC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIREUSING_AREA" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_BEGIN_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="WORK_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EXT1_DEAL" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EXT2_DEAL" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EXT3_DEAL" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIRE_DETECTAREA" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CLOSE_FIREEXTI_SYSTEM" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAX_RISK" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_PURPOSE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIRE_OPER_STAFF" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="QUAR_STEP" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="METER_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="REQ_QUAR_STEP" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.FireusingPermitMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.FireusingPermit" >
+    <constructor >
+      <idArg column="FIREUSING_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MAC_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BUSI_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FIREUSING_MAC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FIREUSING_AREA" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WORK_BEGIN_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="WORK_END_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="WORK_CONTENT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXT1_DEAL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXT2_DEAL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EXT3_DEAL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FIRE_DETECTAREA" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CLOSE_FIREEXTI_SYSTEM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MAX_RISK" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WORK_PURPOSE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FIRE_OPER_STAFF" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WORK_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="QUAR_STEP" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="METER_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REQ_QUAR_STEP" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EFFECT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     FIREUSING_ID, MAC_NO, BUSI_NO, FIREUSING_MAC, FIREUSING_AREA, WORK_BEGIN_DATE, WORK_END_DATE, 
     WORK_CONTENT, EXT1_DEAL, EXT2_DEAL, EXT3_DEAL, FIRE_DETECTAREA, CLOSE_FIREEXTI_SYSTEM, 
     MAX_RISK, WORK_PURPOSE, FIRE_OPER_STAFF, WORK_DESC, QUAR_STEP, METER_TYPE, REQ_QUAR_STEP, 
     EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from FIREUSING_PERMIT
     where FIREUSING_ID = #{fireusingId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from FIREUSING_PERMIT
     where FIREUSING_ID = #{fireusingId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.FireusingPermit">
+  <insert id="insert" parameterType="com.lanou.domain.FireusingPermit" >
     insert into FIREUSING_PERMIT (FIREUSING_ID, MAC_NO, BUSI_NO, 
       FIREUSING_MAC, FIREUSING_AREA, WORK_BEGIN_DATE, 
       WORK_END_DATE, WORK_CONTENT, EXT1_DEAL, 
@@ -65,550 +65,233 @@
       #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.FireusingPermit">
+  <insert id="insertSelective" parameterType="com.lanou.domain.FireusingPermit" >
     insert into FIREUSING_PERMIT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="fireusingId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fireusingId != null" >
         FIREUSING_ID,
       </if>
-      <if test="macNo != null">
+      <if test="macNo != null" >
         MAC_NO,
       </if>
-      <if test="busiNo != null">
+      <if test="busiNo != null" >
         BUSI_NO,
       </if>
-      <if test="fireusingMac != null">
+      <if test="fireusingMac != null" >
         FIREUSING_MAC,
       </if>
-      <if test="fireusingArea != null">
+      <if test="fireusingArea != null" >
         FIREUSING_AREA,
       </if>
-      <if test="workBeginDate != null">
+      <if test="workBeginDate != null" >
         WORK_BEGIN_DATE,
       </if>
-      <if test="workEndDate != null">
+      <if test="workEndDate != null" >
         WORK_END_DATE,
       </if>
-      <if test="workContent != null">
+      <if test="workContent != null" >
         WORK_CONTENT,
       </if>
-      <if test="ext1Deal != null">
+      <if test="ext1Deal != null" >
         EXT1_DEAL,
       </if>
-      <if test="ext2Deal != null">
+      <if test="ext2Deal != null" >
         EXT2_DEAL,
       </if>
-      <if test="ext3Deal != null">
+      <if test="ext3Deal != null" >
         EXT3_DEAL,
       </if>
-      <if test="fireDetectarea != null">
+      <if test="fireDetectarea != null" >
         FIRE_DETECTAREA,
       </if>
-      <if test="closeFireextiSystem != null">
+      <if test="closeFireextiSystem != null" >
         CLOSE_FIREEXTI_SYSTEM,
       </if>
-      <if test="maxRisk != null">
+      <if test="maxRisk != null" >
         MAX_RISK,
       </if>
-      <if test="workPurpose != null">
+      <if test="workPurpose != null" >
         WORK_PURPOSE,
       </if>
-      <if test="fireOperStaff != null">
+      <if test="fireOperStaff != null" >
         FIRE_OPER_STAFF,
       </if>
-      <if test="workDesc != null">
+      <if test="workDesc != null" >
         WORK_DESC,
       </if>
-      <if test="quarStep != null">
+      <if test="quarStep != null" >
         QUAR_STEP,
       </if>
-      <if test="meterType != null">
+      <if test="meterType != null" >
         METER_TYPE,
       </if>
-      <if test="reqQuarStep != null">
+      <if test="reqQuarStep != null" >
         REQ_QUAR_STEP,
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG,
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO,
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="fireusingId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fireusingId != null" >
         #{fireusingId,jdbcType=VARCHAR},
       </if>
-      <if test="macNo != null">
+      <if test="macNo != null" >
         #{macNo,jdbcType=VARCHAR},
       </if>
-      <if test="busiNo != null">
+      <if test="busiNo != null" >
         #{busiNo,jdbcType=VARCHAR},
       </if>
-      <if test="fireusingMac != null">
+      <if test="fireusingMac != null" >
         #{fireusingMac,jdbcType=VARCHAR},
       </if>
-      <if test="fireusingArea != null">
+      <if test="fireusingArea != null" >
         #{fireusingArea,jdbcType=VARCHAR},
       </if>
-      <if test="workBeginDate != null">
+      <if test="workBeginDate != null" >
         #{workBeginDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="workEndDate != null">
+      <if test="workEndDate != null" >
         #{workEndDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="workContent != null">
+      <if test="workContent != null" >
         #{workContent,jdbcType=VARCHAR},
       </if>
-      <if test="ext1Deal != null">
+      <if test="ext1Deal != null" >
         #{ext1Deal,jdbcType=VARCHAR},
       </if>
-      <if test="ext2Deal != null">
+      <if test="ext2Deal != null" >
         #{ext2Deal,jdbcType=VARCHAR},
       </if>
-      <if test="ext3Deal != null">
+      <if test="ext3Deal != null" >
         #{ext3Deal,jdbcType=VARCHAR},
       </if>
-      <if test="fireDetectarea != null">
+      <if test="fireDetectarea != null" >
         #{fireDetectarea,jdbcType=VARCHAR},
       </if>
-      <if test="closeFireextiSystem != null">
+      <if test="closeFireextiSystem != null" >
         #{closeFireextiSystem,jdbcType=VARCHAR},
       </if>
-      <if test="maxRisk != null">
+      <if test="maxRisk != null" >
         #{maxRisk,jdbcType=VARCHAR},
       </if>
-      <if test="workPurpose != null">
+      <if test="workPurpose != null" >
         #{workPurpose,jdbcType=VARCHAR},
       </if>
-      <if test="fireOperStaff != null">
+      <if test="fireOperStaff != null" >
         #{fireOperStaff,jdbcType=VARCHAR},
       </if>
-      <if test="workDesc != null">
+      <if test="workDesc != null" >
         #{workDesc,jdbcType=VARCHAR},
       </if>
-      <if test="quarStep != null">
+      <if test="quarStep != null" >
         #{quarStep,jdbcType=VARCHAR},
       </if>
-      <if test="meterType != null">
+      <if test="meterType != null" >
         #{meterType,jdbcType=VARCHAR},
       </if>
-      <if test="reqQuarStep != null">
+      <if test="reqQuarStep != null" >
         #{reqQuarStep,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireusingPermit">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireusingPermit" >
     update FIREUSING_PERMIT
-    <set>
-      <if test="macNo != null">
+    <set >
+      <if test="macNo != null" >
         MAC_NO = #{macNo,jdbcType=VARCHAR},
       </if>
-      <if test="busiNo != null">
+      <if test="busiNo != null" >
         BUSI_NO = #{busiNo,jdbcType=VARCHAR},
       </if>
-      <if test="fireusingMac != null">
+      <if test="fireusingMac != null" >
         FIREUSING_MAC = #{fireusingMac,jdbcType=VARCHAR},
       </if>
-      <if test="fireusingArea != null">
+      <if test="fireusingArea != null" >
         FIREUSING_AREA = #{fireusingArea,jdbcType=VARCHAR},
       </if>
-      <if test="workBeginDate != null">
+      <if test="workBeginDate != null" >
         WORK_BEGIN_DATE = #{workBeginDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="workEndDate != null">
+      <if test="workEndDate != null" >
         WORK_END_DATE = #{workEndDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="workContent != null">
+      <if test="workContent != null" >
         WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
       </if>
-      <if test="ext1Deal != null">
+      <if test="ext1Deal != null" >
         EXT1_DEAL = #{ext1Deal,jdbcType=VARCHAR},
       </if>
-      <if test="ext2Deal != null">
+      <if test="ext2Deal != null" >
         EXT2_DEAL = #{ext2Deal,jdbcType=VARCHAR},
       </if>
-      <if test="ext3Deal != null">
+      <if test="ext3Deal != null" >
         EXT3_DEAL = #{ext3Deal,jdbcType=VARCHAR},
       </if>
-      <if test="fireDetectarea != null">
+      <if test="fireDetectarea != null" >
         FIRE_DETECTAREA = #{fireDetectarea,jdbcType=VARCHAR},
       </if>
-      <if test="closeFireextiSystem != null">
+      <if test="closeFireextiSystem != null" >
         CLOSE_FIREEXTI_SYSTEM = #{closeFireextiSystem,jdbcType=VARCHAR},
       </if>
-      <if test="maxRisk != null">
+      <if test="maxRisk != null" >
         MAX_RISK = #{maxRisk,jdbcType=VARCHAR},
       </if>
-      <if test="workPurpose != null">
+      <if test="workPurpose != null" >
         WORK_PURPOSE = #{workPurpose,jdbcType=VARCHAR},
       </if>
-      <if test="fireOperStaff != null">
+      <if test="fireOperStaff != null" >
         FIRE_OPER_STAFF = #{fireOperStaff,jdbcType=VARCHAR},
       </if>
-      <if test="workDesc != null">
+      <if test="workDesc != null" >
         WORK_DESC = #{workDesc,jdbcType=VARCHAR},
       </if>
-      <if test="quarStep != null">
+      <if test="quarStep != null" >
         QUAR_STEP = #{quarStep,jdbcType=VARCHAR},
       </if>
-      <if test="meterType != null">
+      <if test="meterType != null" >
         METER_TYPE = #{meterType,jdbcType=VARCHAR},
       </if>
-      <if test="reqQuarStep != null">
+      <if test="reqQuarStep != null" >
         REQ_QUAR_STEP = #{reqQuarStep,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where FIREUSING_ID = #{fireusingId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireusingPermit">
-    update FIREUSING_PERMIT
-    set MAC_NO = #{macNo,jdbcType=VARCHAR},
-      BUSI_NO = #{busiNo,jdbcType=VARCHAR},
-      FIREUSING_MAC = #{fireusingMac,jdbcType=VARCHAR},
-      FIREUSING_AREA = #{fireusingArea,jdbcType=VARCHAR},
-      WORK_BEGIN_DATE = #{workBeginDate,jdbcType=TIMESTAMP},
-      WORK_END_DATE = #{workEndDate,jdbcType=TIMESTAMP},
-      WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
-      EXT1_DEAL = #{ext1Deal,jdbcType=VARCHAR},
-      EXT2_DEAL = #{ext2Deal,jdbcType=VARCHAR},
-      EXT3_DEAL = #{ext3Deal,jdbcType=VARCHAR},
-      FIRE_DETECTAREA = #{fireDetectarea,jdbcType=VARCHAR},
-      CLOSE_FIREEXTI_SYSTEM = #{closeFireextiSystem,jdbcType=VARCHAR},
-      MAX_RISK = #{maxRisk,jdbcType=VARCHAR},
-      WORK_PURPOSE = #{workPurpose,jdbcType=VARCHAR},
-      FIRE_OPER_STAFF = #{fireOperStaff,jdbcType=VARCHAR},
-      WORK_DESC = #{workDesc,jdbcType=VARCHAR},
-      QUAR_STEP = #{quarStep,jdbcType=VARCHAR},
-      METER_TYPE = #{meterType,jdbcType=VARCHAR},
-      REQ_QUAR_STEP = #{reqQuarStep,jdbcType=VARCHAR},
-      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
-    where FIREUSING_ID = #{fireusingId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.FireusingPermit">
-    <constructor>
-      <idArg column="FIREUSING_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAC_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSI_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIREUSING_MAC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIREUSING_AREA" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_BEGIN_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="WORK_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="WORK_CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EXT1_DEAL" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EXT2_DEAL" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EXT3_DEAL" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIRE_DETECTAREA" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CLOSE_FIREEXTI_SYSTEM" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAX_RISK" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_PURPOSE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIRE_OPER_STAFF" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="WORK_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="QUAR_STEP" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="METER_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="REQ_QUAR_STEP" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    FIREUSING_ID, MAC_NO, BUSI_NO, FIREUSING_MAC, FIREUSING_AREA, WORK_BEGIN_DATE, WORK_END_DATE, 
-    WORK_CONTENT, EXT1_DEAL, EXT2_DEAL, EXT3_DEAL, FIRE_DETECTAREA, CLOSE_FIREEXTI_SYSTEM, 
-    MAX_RISK, WORK_PURPOSE, FIRE_OPER_STAFF, WORK_DESC, QUAR_STEP, METER_TYPE, REQ_QUAR_STEP, 
-    EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from FIREUSING_PERMIT
-    where FIREUSING_ID = #{fireusingId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from FIREUSING_PERMIT
-    where FIREUSING_ID = #{fireusingId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.FireusingPermit">
-    insert into FIREUSING_PERMIT (FIREUSING_ID, MAC_NO, BUSI_NO, 
-      FIREUSING_MAC, FIREUSING_AREA, WORK_BEGIN_DATE, 
-      WORK_END_DATE, WORK_CONTENT, EXT1_DEAL, 
-      EXT2_DEAL, EXT3_DEAL, FIRE_DETECTAREA, 
-      CLOSE_FIREEXTI_SYSTEM, MAX_RISK, WORK_PURPOSE, 
-      FIRE_OPER_STAFF, WORK_DESC, QUAR_STEP, 
-      METER_TYPE, REQ_QUAR_STEP, EFFECT_FLAG, 
-      CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
-      )
-    values (#{fireusingId,jdbcType=VARCHAR}, #{macNo,jdbcType=VARCHAR}, #{busiNo,jdbcType=VARCHAR}, 
-      #{fireusingMac,jdbcType=VARCHAR}, #{fireusingArea,jdbcType=VARCHAR}, #{workBeginDate,jdbcType=TIMESTAMP}, 
-      #{workEndDate,jdbcType=TIMESTAMP}, #{workContent,jdbcType=VARCHAR}, #{ext1Deal,jdbcType=VARCHAR}, 
-      #{ext2Deal,jdbcType=VARCHAR}, #{ext3Deal,jdbcType=VARCHAR}, #{fireDetectarea,jdbcType=VARCHAR}, 
-      #{closeFireextiSystem,jdbcType=VARCHAR}, #{maxRisk,jdbcType=VARCHAR}, #{workPurpose,jdbcType=VARCHAR}, 
-      #{fireOperStaff,jdbcType=VARCHAR}, #{workDesc,jdbcType=VARCHAR}, #{quarStep,jdbcType=VARCHAR}, 
-      #{meterType,jdbcType=VARCHAR}, #{reqQuarStep,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, 
-      #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.FireusingPermit">
-    insert into FIREUSING_PERMIT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="fireusingId != null">
-        FIREUSING_ID,
-      </if>
-      <if test="macNo != null">
-        MAC_NO,
-      </if>
-      <if test="busiNo != null">
-        BUSI_NO,
-      </if>
-      <if test="fireusingMac != null">
-        FIREUSING_MAC,
-      </if>
-      <if test="fireusingArea != null">
-        FIREUSING_AREA,
-      </if>
-      <if test="workBeginDate != null">
-        WORK_BEGIN_DATE,
-      </if>
-      <if test="workEndDate != null">
-        WORK_END_DATE,
-      </if>
-      <if test="workContent != null">
-        WORK_CONTENT,
-      </if>
-      <if test="ext1Deal != null">
-        EXT1_DEAL,
-      </if>
-      <if test="ext2Deal != null">
-        EXT2_DEAL,
-      </if>
-      <if test="ext3Deal != null">
-        EXT3_DEAL,
-      </if>
-      <if test="fireDetectarea != null">
-        FIRE_DETECTAREA,
-      </if>
-      <if test="closeFireextiSystem != null">
-        CLOSE_FIREEXTI_SYSTEM,
-      </if>
-      <if test="maxRisk != null">
-        MAX_RISK,
-      </if>
-      <if test="workPurpose != null">
-        WORK_PURPOSE,
-      </if>
-      <if test="fireOperStaff != null">
-        FIRE_OPER_STAFF,
-      </if>
-      <if test="workDesc != null">
-        WORK_DESC,
-      </if>
-      <if test="quarStep != null">
-        QUAR_STEP,
-      </if>
-      <if test="meterType != null">
-        METER_TYPE,
-      </if>
-      <if test="reqQuarStep != null">
-        REQ_QUAR_STEP,
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG,
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO,
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME,
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="fireusingId != null">
-        #{fireusingId,jdbcType=VARCHAR},
-      </if>
-      <if test="macNo != null">
-        #{macNo,jdbcType=VARCHAR},
-      </if>
-      <if test="busiNo != null">
-        #{busiNo,jdbcType=VARCHAR},
-      </if>
-      <if test="fireusingMac != null">
-        #{fireusingMac,jdbcType=VARCHAR},
-      </if>
-      <if test="fireusingArea != null">
-        #{fireusingArea,jdbcType=VARCHAR},
-      </if>
-      <if test="workBeginDate != null">
-        #{workBeginDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="workEndDate != null">
-        #{workEndDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="workContent != null">
-        #{workContent,jdbcType=VARCHAR},
-      </if>
-      <if test="ext1Deal != null">
-        #{ext1Deal,jdbcType=VARCHAR},
-      </if>
-      <if test="ext2Deal != null">
-        #{ext2Deal,jdbcType=VARCHAR},
-      </if>
-      <if test="ext3Deal != null">
-        #{ext3Deal,jdbcType=VARCHAR},
-      </if>
-      <if test="fireDetectarea != null">
-        #{fireDetectarea,jdbcType=VARCHAR},
-      </if>
-      <if test="closeFireextiSystem != null">
-        #{closeFireextiSystem,jdbcType=VARCHAR},
-      </if>
-      <if test="maxRisk != null">
-        #{maxRisk,jdbcType=VARCHAR},
-      </if>
-      <if test="workPurpose != null">
-        #{workPurpose,jdbcType=VARCHAR},
-      </if>
-      <if test="fireOperStaff != null">
-        #{fireOperStaff,jdbcType=VARCHAR},
-      </if>
-      <if test="workDesc != null">
-        #{workDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="quarStep != null">
-        #{quarStep,jdbcType=VARCHAR},
-      </if>
-      <if test="meterType != null">
-        #{meterType,jdbcType=VARCHAR},
-      </if>
-      <if test="reqQuarStep != null">
-        #{reqQuarStep,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.FireusingPermit">
-    update FIREUSING_PERMIT
-    <set>
-      <if test="macNo != null">
-        MAC_NO = #{macNo,jdbcType=VARCHAR},
-      </if>
-      <if test="busiNo != null">
-        BUSI_NO = #{busiNo,jdbcType=VARCHAR},
-      </if>
-      <if test="fireusingMac != null">
-        FIREUSING_MAC = #{fireusingMac,jdbcType=VARCHAR},
-      </if>
-      <if test="fireusingArea != null">
-        FIREUSING_AREA = #{fireusingArea,jdbcType=VARCHAR},
-      </if>
-      <if test="workBeginDate != null">
-        WORK_BEGIN_DATE = #{workBeginDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="workEndDate != null">
-        WORK_END_DATE = #{workEndDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="workContent != null">
-        WORK_CONTENT = #{workContent,jdbcType=VARCHAR},
-      </if>
-      <if test="ext1Deal != null">
-        EXT1_DEAL = #{ext1Deal,jdbcType=VARCHAR},
-      </if>
-      <if test="ext2Deal != null">
-        EXT2_DEAL = #{ext2Deal,jdbcType=VARCHAR},
-      </if>
-      <if test="ext3Deal != null">
-        EXT3_DEAL = #{ext3Deal,jdbcType=VARCHAR},
-      </if>
-      <if test="fireDetectarea != null">
-        FIRE_DETECTAREA = #{fireDetectarea,jdbcType=VARCHAR},
-      </if>
-      <if test="closeFireextiSystem != null">
-        CLOSE_FIREEXTI_SYSTEM = #{closeFireextiSystem,jdbcType=VARCHAR},
-      </if>
-      <if test="maxRisk != null">
-        MAX_RISK = #{maxRisk,jdbcType=VARCHAR},
-      </if>
-      <if test="workPurpose != null">
-        WORK_PURPOSE = #{workPurpose,jdbcType=VARCHAR},
-      </if>
-      <if test="fireOperStaff != null">
-        FIRE_OPER_STAFF = #{fireOperStaff,jdbcType=VARCHAR},
-      </if>
-      <if test="workDesc != null">
-        WORK_DESC = #{workDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="quarStep != null">
-        QUAR_STEP = #{quarStep,jdbcType=VARCHAR},
-      </if>
-      <if test="meterType != null">
-        METER_TYPE = #{meterType,jdbcType=VARCHAR},
-      </if>
-      <if test="reqQuarStep != null">
-        REQ_QUAR_STEP = #{reqQuarStep,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where FIREUSING_ID = #{fireusingId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireusingPermit">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.FireusingPermit" >
     update FIREUSING_PERMIT
     set MAC_NO = #{macNo,jdbcType=VARCHAR},
       BUSI_NO = #{busiNo,jdbcType=VARCHAR},

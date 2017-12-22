@@ -1,43 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.RdmsProjContractMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.RdmsProjContract">
-    <constructor>
-      <idArg column="CONTRACT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PROJ_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="OPP_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_BEGIN_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="CONTRACT_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="RIGHT_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BENEFITS_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIXED_ASSETS" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_RUN_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ACHIEVEMENT_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_SIGNTORY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.RdmsProjContractMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.RdmsProjContract" >
+    <constructor >
+      <idArg column="CONTRACT_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PROJ_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CONTRACT_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CONTRACT_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPP_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CONTRACT_BEGIN_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CONTRACT_END_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="RIGHT_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BENEFITS_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FIXED_ASSETS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CONTRACT_RUN_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ACHIEVEMENT_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CONTRACT_SIGNTORY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EFFECT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     CONTRACT_ID, PROJ_ID, CONTRACT_NO, CONTRACT_NAME, OPP_DESC, CONTRACT_BEGIN_DATE, 
     CONTRACT_END_DATE, RIGHT_DESC, BENEFITS_DESC, FIXED_ASSETS, CONTRACT_RUN_DESC, ACHIEVEMENT_DESC, 
     CONTRACT_SIGNTORY, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from RDMS_PROJ_CONTRACT
     where CONTRACT_ID = #{contractId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from RDMS_PROJ_CONTRACT
     where CONTRACT_ID = #{contractId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.RdmsProjContract">
+  <insert id="insert" parameterType="com.lanou.domain.RdmsProjContract" >
     insert into RDMS_PROJ_CONTRACT (CONTRACT_ID, PROJ_ID, CONTRACT_NO, 
       CONTRACT_NAME, OPP_DESC, CONTRACT_BEGIN_DATE, 
       CONTRACT_END_DATE, RIGHT_DESC, BENEFITS_DESC, 
@@ -51,403 +51,170 @@
       #{contractSigntory,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
       #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.RdmsProjContract">
+  <insert id="insertSelective" parameterType="com.lanou.domain.RdmsProjContract" >
     insert into RDMS_PROJ_CONTRACT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="contractId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="contractId != null" >
         CONTRACT_ID,
       </if>
-      <if test="projId != null">
+      <if test="projId != null" >
         PROJ_ID,
       </if>
-      <if test="contractNo != null">
+      <if test="contractNo != null" >
         CONTRACT_NO,
       </if>
-      <if test="contractName != null">
+      <if test="contractName != null" >
         CONTRACT_NAME,
       </if>
-      <if test="oppDesc != null">
+      <if test="oppDesc != null" >
         OPP_DESC,
       </if>
-      <if test="contractBeginDate != null">
+      <if test="contractBeginDate != null" >
         CONTRACT_BEGIN_DATE,
       </if>
-      <if test="contractEndDate != null">
+      <if test="contractEndDate != null" >
         CONTRACT_END_DATE,
       </if>
-      <if test="rightDesc != null">
+      <if test="rightDesc != null" >
         RIGHT_DESC,
       </if>
-      <if test="benefitsDesc != null">
+      <if test="benefitsDesc != null" >
         BENEFITS_DESC,
       </if>
-      <if test="fixedAssets != null">
+      <if test="fixedAssets != null" >
         FIXED_ASSETS,
       </if>
-      <if test="contractRunDesc != null">
+      <if test="contractRunDesc != null" >
         CONTRACT_RUN_DESC,
       </if>
-      <if test="achievementDesc != null">
+      <if test="achievementDesc != null" >
         ACHIEVEMENT_DESC,
       </if>
-      <if test="contractSigntory != null">
+      <if test="contractSigntory != null" >
         CONTRACT_SIGNTORY,
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG,
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO,
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="contractId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="contractId != null" >
         #{contractId,jdbcType=VARCHAR},
       </if>
-      <if test="projId != null">
+      <if test="projId != null" >
         #{projId,jdbcType=VARCHAR},
       </if>
-      <if test="contractNo != null">
+      <if test="contractNo != null" >
         #{contractNo,jdbcType=VARCHAR},
       </if>
-      <if test="contractName != null">
+      <if test="contractName != null" >
         #{contractName,jdbcType=VARCHAR},
       </if>
-      <if test="oppDesc != null">
+      <if test="oppDesc != null" >
         #{oppDesc,jdbcType=VARCHAR},
       </if>
-      <if test="contractBeginDate != null">
+      <if test="contractBeginDate != null" >
         #{contractBeginDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="contractEndDate != null">
+      <if test="contractEndDate != null" >
         #{contractEndDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="rightDesc != null">
+      <if test="rightDesc != null" >
         #{rightDesc,jdbcType=VARCHAR},
       </if>
-      <if test="benefitsDesc != null">
+      <if test="benefitsDesc != null" >
         #{benefitsDesc,jdbcType=VARCHAR},
       </if>
-      <if test="fixedAssets != null">
+      <if test="fixedAssets != null" >
         #{fixedAssets,jdbcType=VARCHAR},
       </if>
-      <if test="contractRunDesc != null">
+      <if test="contractRunDesc != null" >
         #{contractRunDesc,jdbcType=VARCHAR},
       </if>
-      <if test="achievementDesc != null">
+      <if test="achievementDesc != null" >
         #{achievementDesc,jdbcType=VARCHAR},
       </if>
-      <if test="contractSigntory != null">
+      <if test="contractSigntory != null" >
         #{contractSigntory,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RdmsProjContract">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RdmsProjContract" >
     update RDMS_PROJ_CONTRACT
-    <set>
-      <if test="projId != null">
+    <set >
+      <if test="projId != null" >
         PROJ_ID = #{projId,jdbcType=VARCHAR},
       </if>
-      <if test="contractNo != null">
+      <if test="contractNo != null" >
         CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
       </if>
-      <if test="contractName != null">
+      <if test="contractName != null" >
         CONTRACT_NAME = #{contractName,jdbcType=VARCHAR},
       </if>
-      <if test="oppDesc != null">
+      <if test="oppDesc != null" >
         OPP_DESC = #{oppDesc,jdbcType=VARCHAR},
       </if>
-      <if test="contractBeginDate != null">
+      <if test="contractBeginDate != null" >
         CONTRACT_BEGIN_DATE = #{contractBeginDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="contractEndDate != null">
+      <if test="contractEndDate != null" >
         CONTRACT_END_DATE = #{contractEndDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="rightDesc != null">
+      <if test="rightDesc != null" >
         RIGHT_DESC = #{rightDesc,jdbcType=VARCHAR},
       </if>
-      <if test="benefitsDesc != null">
+      <if test="benefitsDesc != null" >
         BENEFITS_DESC = #{benefitsDesc,jdbcType=VARCHAR},
       </if>
-      <if test="fixedAssets != null">
+      <if test="fixedAssets != null" >
         FIXED_ASSETS = #{fixedAssets,jdbcType=VARCHAR},
       </if>
-      <if test="contractRunDesc != null">
+      <if test="contractRunDesc != null" >
         CONTRACT_RUN_DESC = #{contractRunDesc,jdbcType=VARCHAR},
       </if>
-      <if test="achievementDesc != null">
+      <if test="achievementDesc != null" >
         ACHIEVEMENT_DESC = #{achievementDesc,jdbcType=VARCHAR},
       </if>
-      <if test="contractSigntory != null">
+      <if test="contractSigntory != null" >
         CONTRACT_SIGNTORY = #{contractSigntory,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where CONTRACT_ID = #{contractId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RdmsProjContract">
-    update RDMS_PROJ_CONTRACT
-    set PROJ_ID = #{projId,jdbcType=VARCHAR},
-      CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
-      CONTRACT_NAME = #{contractName,jdbcType=VARCHAR},
-      OPP_DESC = #{oppDesc,jdbcType=VARCHAR},
-      CONTRACT_BEGIN_DATE = #{contractBeginDate,jdbcType=TIMESTAMP},
-      CONTRACT_END_DATE = #{contractEndDate,jdbcType=TIMESTAMP},
-      RIGHT_DESC = #{rightDesc,jdbcType=VARCHAR},
-      BENEFITS_DESC = #{benefitsDesc,jdbcType=VARCHAR},
-      FIXED_ASSETS = #{fixedAssets,jdbcType=VARCHAR},
-      CONTRACT_RUN_DESC = #{contractRunDesc,jdbcType=VARCHAR},
-      ACHIEVEMENT_DESC = #{achievementDesc,jdbcType=VARCHAR},
-      CONTRACT_SIGNTORY = #{contractSigntory,jdbcType=VARCHAR},
-      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
-    where CONTRACT_ID = #{contractId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.RdmsProjContract">
-    <constructor>
-      <idArg column="CONTRACT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PROJ_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="OPP_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_BEGIN_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="CONTRACT_END_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="RIGHT_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BENEFITS_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIXED_ASSETS" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_RUN_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ACHIEVEMENT_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CONTRACT_SIGNTORY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    CONTRACT_ID, PROJ_ID, CONTRACT_NO, CONTRACT_NAME, OPP_DESC, CONTRACT_BEGIN_DATE, 
-    CONTRACT_END_DATE, RIGHT_DESC, BENEFITS_DESC, FIXED_ASSETS, CONTRACT_RUN_DESC, ACHIEVEMENT_DESC, 
-    CONTRACT_SIGNTORY, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from RDMS_PROJ_CONTRACT
-    where CONTRACT_ID = #{contractId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from RDMS_PROJ_CONTRACT
-    where CONTRACT_ID = #{contractId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.RdmsProjContract">
-    insert into RDMS_PROJ_CONTRACT (CONTRACT_ID, PROJ_ID, CONTRACT_NO, 
-      CONTRACT_NAME, OPP_DESC, CONTRACT_BEGIN_DATE, 
-      CONTRACT_END_DATE, RIGHT_DESC, BENEFITS_DESC, 
-      FIXED_ASSETS, CONTRACT_RUN_DESC, ACHIEVEMENT_DESC, 
-      CONTRACT_SIGNTORY, EFFECT_FLAG, CREATE_STAFF_NO, 
-      CREATE_STAFF_NAME, CREATE_DATE)
-    values (#{contractId,jdbcType=VARCHAR}, #{projId,jdbcType=VARCHAR}, #{contractNo,jdbcType=VARCHAR}, 
-      #{contractName,jdbcType=VARCHAR}, #{oppDesc,jdbcType=VARCHAR}, #{contractBeginDate,jdbcType=TIMESTAMP}, 
-      #{contractEndDate,jdbcType=TIMESTAMP}, #{rightDesc,jdbcType=VARCHAR}, #{benefitsDesc,jdbcType=VARCHAR}, 
-      #{fixedAssets,jdbcType=VARCHAR}, #{contractRunDesc,jdbcType=VARCHAR}, #{achievementDesc,jdbcType=VARCHAR}, 
-      #{contractSigntory,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
-      #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.RdmsProjContract">
-    insert into RDMS_PROJ_CONTRACT
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="contractId != null">
-        CONTRACT_ID,
-      </if>
-      <if test="projId != null">
-        PROJ_ID,
-      </if>
-      <if test="contractNo != null">
-        CONTRACT_NO,
-      </if>
-      <if test="contractName != null">
-        CONTRACT_NAME,
-      </if>
-      <if test="oppDesc != null">
-        OPP_DESC,
-      </if>
-      <if test="contractBeginDate != null">
-        CONTRACT_BEGIN_DATE,
-      </if>
-      <if test="contractEndDate != null">
-        CONTRACT_END_DATE,
-      </if>
-      <if test="rightDesc != null">
-        RIGHT_DESC,
-      </if>
-      <if test="benefitsDesc != null">
-        BENEFITS_DESC,
-      </if>
-      <if test="fixedAssets != null">
-        FIXED_ASSETS,
-      </if>
-      <if test="contractRunDesc != null">
-        CONTRACT_RUN_DESC,
-      </if>
-      <if test="achievementDesc != null">
-        ACHIEVEMENT_DESC,
-      </if>
-      <if test="contractSigntory != null">
-        CONTRACT_SIGNTORY,
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG,
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO,
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME,
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="contractId != null">
-        #{contractId,jdbcType=VARCHAR},
-      </if>
-      <if test="projId != null">
-        #{projId,jdbcType=VARCHAR},
-      </if>
-      <if test="contractNo != null">
-        #{contractNo,jdbcType=VARCHAR},
-      </if>
-      <if test="contractName != null">
-        #{contractName,jdbcType=VARCHAR},
-      </if>
-      <if test="oppDesc != null">
-        #{oppDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="contractBeginDate != null">
-        #{contractBeginDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="contractEndDate != null">
-        #{contractEndDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="rightDesc != null">
-        #{rightDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="benefitsDesc != null">
-        #{benefitsDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="fixedAssets != null">
-        #{fixedAssets,jdbcType=VARCHAR},
-      </if>
-      <if test="contractRunDesc != null">
-        #{contractRunDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="achievementDesc != null">
-        #{achievementDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="contractSigntory != null">
-        #{contractSigntory,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RdmsProjContract">
-    update RDMS_PROJ_CONTRACT
-    <set>
-      <if test="projId != null">
-        PROJ_ID = #{projId,jdbcType=VARCHAR},
-      </if>
-      <if test="contractNo != null">
-        CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
-      </if>
-      <if test="contractName != null">
-        CONTRACT_NAME = #{contractName,jdbcType=VARCHAR},
-      </if>
-      <if test="oppDesc != null">
-        OPP_DESC = #{oppDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="contractBeginDate != null">
-        CONTRACT_BEGIN_DATE = #{contractBeginDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="contractEndDate != null">
-        CONTRACT_END_DATE = #{contractEndDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="rightDesc != null">
-        RIGHT_DESC = #{rightDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="benefitsDesc != null">
-        BENEFITS_DESC = #{benefitsDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="fixedAssets != null">
-        FIXED_ASSETS = #{fixedAssets,jdbcType=VARCHAR},
-      </if>
-      <if test="contractRunDesc != null">
-        CONTRACT_RUN_DESC = #{contractRunDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="achievementDesc != null">
-        ACHIEVEMENT_DESC = #{achievementDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="contractSigntory != null">
-        CONTRACT_SIGNTORY = #{contractSigntory,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where CONTRACT_ID = #{contractId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RdmsProjContract">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RdmsProjContract" >
     update RDMS_PROJ_CONTRACT
     set PROJ_ID = #{projId,jdbcType=VARCHAR},
       CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},

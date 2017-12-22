@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.HradiationWorkProtworkMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationWorkProtwork">
-    <constructor>
-      <arg column="HRADI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PROTWORK_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PRE_Y_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PRE_NEUTRON_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PRE_COLLECTIVE_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PRE_PERSONAL_MAXMETER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAX_Y_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAX_NEUTRON_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ADJUST_METER_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PROT_MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.HradiationWorkProtworkMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationWorkProtwork" >
+    <constructor >
+      <arg column="HRADI_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PROTWORK_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PRE_Y_METER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PRE_NEUTRON_METER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PRE_COLLECTIVE_METER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PRE_PERSONAL_MAXMETER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MAX_Y_METER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MAX_NEUTRON_METER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ADJUST_METER_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PROT_MEASURE" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
-  <insert id="insert" parameterType="com.lanou.domain.HradiationWorkProtwork">
+  <insert id="insert" parameterType="com.lanou.domain.HradiationWorkProtwork" >
     insert into HRADIATION_WORK_PROTWORK (HRADI_ID, PROTWORK_ID, PRE_Y_METER, 
       PRE_NEUTRON_METER, PRE_COLLECTIVE_METER, PRE_PERSONAL_MAXMETER, 
       MAX_Y_METER, MAX_NEUTRON_METER, ADJUST_METER_FLAG, 
@@ -25,160 +25,69 @@
       #{maxYMeter,jdbcType=VARCHAR}, #{maxNeutronMeter,jdbcType=VARCHAR}, #{adjustMeterFlag,jdbcType=VARCHAR}, 
       #{protMeasure,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationWorkProtwork">
+  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationWorkProtwork" >
     insert into HRADIATION_WORK_PROTWORK
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="hradiId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hradiId != null" >
         HRADI_ID,
       </if>
-      <if test="protworkId != null">
+      <if test="protworkId != null" >
         PROTWORK_ID,
       </if>
-      <if test="preYMeter != null">
+      <if test="preYMeter != null" >
         PRE_Y_METER,
       </if>
-      <if test="preNeutronMeter != null">
+      <if test="preNeutronMeter != null" >
         PRE_NEUTRON_METER,
       </if>
-      <if test="preCollectiveMeter != null">
+      <if test="preCollectiveMeter != null" >
         PRE_COLLECTIVE_METER,
       </if>
-      <if test="prePersonalMaxmeter != null">
+      <if test="prePersonalMaxmeter != null" >
         PRE_PERSONAL_MAXMETER,
       </if>
-      <if test="maxYMeter != null">
+      <if test="maxYMeter != null" >
         MAX_Y_METER,
       </if>
-      <if test="maxNeutronMeter != null">
+      <if test="maxNeutronMeter != null" >
         MAX_NEUTRON_METER,
       </if>
-      <if test="adjustMeterFlag != null">
+      <if test="adjustMeterFlag != null" >
         ADJUST_METER_FLAG,
       </if>
-      <if test="protMeasure != null">
+      <if test="protMeasure != null" >
         PROT_MEASURE,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="hradiId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hradiId != null" >
         #{hradiId,jdbcType=VARCHAR},
       </if>
-      <if test="protworkId != null">
+      <if test="protworkId != null" >
         #{protworkId,jdbcType=VARCHAR},
       </if>
-      <if test="preYMeter != null">
+      <if test="preYMeter != null" >
         #{preYMeter,jdbcType=VARCHAR},
       </if>
-      <if test="preNeutronMeter != null">
+      <if test="preNeutronMeter != null" >
         #{preNeutronMeter,jdbcType=VARCHAR},
       </if>
-      <if test="preCollectiveMeter != null">
+      <if test="preCollectiveMeter != null" >
         #{preCollectiveMeter,jdbcType=VARCHAR},
       </if>
-      <if test="prePersonalMaxmeter != null">
+      <if test="prePersonalMaxmeter != null" >
         #{prePersonalMaxmeter,jdbcType=VARCHAR},
       </if>
-      <if test="maxYMeter != null">
+      <if test="maxYMeter != null" >
         #{maxYMeter,jdbcType=VARCHAR},
       </if>
-      <if test="maxNeutronMeter != null">
+      <if test="maxNeutronMeter != null" >
         #{maxNeutronMeter,jdbcType=VARCHAR},
       </if>
-      <if test="adjustMeterFlag != null">
+      <if test="adjustMeterFlag != null" >
         #{adjustMeterFlag,jdbcType=VARCHAR},
       </if>
-      <if test="protMeasure != null">
-        #{protMeasure,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.HradiationWorkProtwork">
-    <constructor>
-      <arg column="HRADI_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PROTWORK_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PRE_Y_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PRE_NEUTRON_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PRE_COLLECTIVE_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PRE_PERSONAL_MAXMETER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAX_Y_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MAX_NEUTRON_METER" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ADJUST_METER_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PROT_MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
-    </constructor>
-  </resultMap>
-  <insert id="insert" parameterType="com.lanou.domain.HradiationWorkProtwork">
-    insert into HRADIATION_WORK_PROTWORK (HRADI_ID, PROTWORK_ID, PRE_Y_METER, 
-      PRE_NEUTRON_METER, PRE_COLLECTIVE_METER, PRE_PERSONAL_MAXMETER, 
-      MAX_Y_METER, MAX_NEUTRON_METER, ADJUST_METER_FLAG, 
-      PROT_MEASURE)
-    values (#{hradiId,jdbcType=VARCHAR}, #{protworkId,jdbcType=VARCHAR}, #{preYMeter,jdbcType=VARCHAR}, 
-      #{preNeutronMeter,jdbcType=VARCHAR}, #{preCollectiveMeter,jdbcType=VARCHAR}, #{prePersonalMaxmeter,jdbcType=VARCHAR}, 
-      #{maxYMeter,jdbcType=VARCHAR}, #{maxNeutronMeter,jdbcType=VARCHAR}, #{adjustMeterFlag,jdbcType=VARCHAR}, 
-      #{protMeasure,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.HradiationWorkProtwork">
-    insert into HRADIATION_WORK_PROTWORK
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="hradiId != null">
-        HRADI_ID,
-      </if>
-      <if test="protworkId != null">
-        PROTWORK_ID,
-      </if>
-      <if test="preYMeter != null">
-        PRE_Y_METER,
-      </if>
-      <if test="preNeutronMeter != null">
-        PRE_NEUTRON_METER,
-      </if>
-      <if test="preCollectiveMeter != null">
-        PRE_COLLECTIVE_METER,
-      </if>
-      <if test="prePersonalMaxmeter != null">
-        PRE_PERSONAL_MAXMETER,
-      </if>
-      <if test="maxYMeter != null">
-        MAX_Y_METER,
-      </if>
-      <if test="maxNeutronMeter != null">
-        MAX_NEUTRON_METER,
-      </if>
-      <if test="adjustMeterFlag != null">
-        ADJUST_METER_FLAG,
-      </if>
-      <if test="protMeasure != null">
-        PROT_MEASURE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="hradiId != null">
-        #{hradiId,jdbcType=VARCHAR},
-      </if>
-      <if test="protworkId != null">
-        #{protworkId,jdbcType=VARCHAR},
-      </if>
-      <if test="preYMeter != null">
-        #{preYMeter,jdbcType=VARCHAR},
-      </if>
-      <if test="preNeutronMeter != null">
-        #{preNeutronMeter,jdbcType=VARCHAR},
-      </if>
-      <if test="preCollectiveMeter != null">
-        #{preCollectiveMeter,jdbcType=VARCHAR},
-      </if>
-      <if test="prePersonalMaxmeter != null">
-        #{prePersonalMaxmeter,jdbcType=VARCHAR},
-      </if>
-      <if test="maxYMeter != null">
-        #{maxYMeter,jdbcType=VARCHAR},
-      </if>
-      <if test="maxNeutronMeter != null">
-        #{maxNeutronMeter,jdbcType=VARCHAR},
-      </if>
-      <if test="adjustMeterFlag != null">
-        #{adjustMeterFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="protMeasure != null">
+      <if test="protMeasure != null" >
         #{protMeasure,jdbcType=VARCHAR},
       </if>
     </trim>

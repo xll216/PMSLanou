@@ -1,52 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.PmsFlowApplyMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsFlowApply">
-    <constructor>
-      <idArg column="APP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PROCESSINSTID" javaType="java.lang.Integer" jdbcType="DECIMAL" />
-      <arg column="APP_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="THEME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APPLY_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="FLOW_APP_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FLOW_APP_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_DEPT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_DEPT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSIAPP_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSIAPP_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSIAPP_DEPT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSIAPP_DEPT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSI_LINK_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="DATA_ORG_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_YM" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PRINT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CAN_PRINT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="STATUS" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MULTI_FLOW_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.PmsFlowApplyMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsFlowApply" >
+    <constructor >
+      <idArg column="APP_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APP_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PROCESSINSTID" jdbcType="DECIMAL" javaType="java.lang.Integer" />
+      <arg column="APP_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="THEME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APPLY_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="FLOW_APP_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FLOW_APP_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APP_DEPT_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APP_DEPT_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BUSIAPP_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BUSIAPP_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BUSIAPP_DEPT_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BUSIAPP_DEPT_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BUSI_LINK_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DATA_ORG_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APP_YM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PRINT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CAN_PRINT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MULTI_FLOW_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EFFECT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     APP_ID, APP_NO, PROCESSINSTID, APP_TYPE, THEME, APPLY_DATE, FLOW_APP_STAFF_NO, FLOW_APP_STAFF_NAME, 
     APP_DEPT_ID, APP_DEPT_NAME, BUSIAPP_STAFF_NO, BUSIAPP_STAFF_NAME, BUSIAPP_DEPT_ID, 
     BUSIAPP_DEPT_NAME, BUSI_LINK_DESC, DATA_ORG_NO, APP_YM, PRINT_FLAG, CAN_PRINT_FLAG, 
     STATUS, MULTI_FLOW_FLAG, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from PMS_FLOW_APPLY
     where APP_ID = #{appId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from PMS_FLOW_APPLY
     where APP_ID = #{appId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.PmsFlowApply">
+  <insert id="insert" parameterType="com.lanou.domain.PmsFlowApply" >
     insert into PMS_FLOW_APPLY (APP_ID, APP_NO, PROCESSINSTID, 
       APP_TYPE, THEME, APPLY_DATE, 
       FLOW_APP_STAFF_NO, FLOW_APP_STAFF_NAME, APP_DEPT_ID, 
@@ -66,570 +66,242 @@
       #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.PmsFlowApply">
+  <insert id="insertSelective" parameterType="com.lanou.domain.PmsFlowApply" >
     insert into PMS_FLOW_APPLY
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="appId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="appId != null" >
         APP_ID,
       </if>
-      <if test="appNo != null">
+      <if test="appNo != null" >
         APP_NO,
       </if>
-      <if test="processinstid != null">
+      <if test="processinstid != null" >
         PROCESSINSTID,
       </if>
-      <if test="appType != null">
+      <if test="appType != null" >
         APP_TYPE,
       </if>
-      <if test="theme != null">
+      <if test="theme != null" >
         THEME,
       </if>
-      <if test="applyDate != null">
+      <if test="applyDate != null" >
         APPLY_DATE,
       </if>
-      <if test="flowAppStaffNo != null">
+      <if test="flowAppStaffNo != null" >
         FLOW_APP_STAFF_NO,
       </if>
-      <if test="flowAppStaffName != null">
+      <if test="flowAppStaffName != null" >
         FLOW_APP_STAFF_NAME,
       </if>
-      <if test="appDeptId != null">
+      <if test="appDeptId != null" >
         APP_DEPT_ID,
       </if>
-      <if test="appDeptName != null">
+      <if test="appDeptName != null" >
         APP_DEPT_NAME,
       </if>
-      <if test="busiappStaffNo != null">
+      <if test="busiappStaffNo != null" >
         BUSIAPP_STAFF_NO,
       </if>
-      <if test="busiappStaffName != null">
+      <if test="busiappStaffName != null" >
         BUSIAPP_STAFF_NAME,
       </if>
-      <if test="busiappDeptId != null">
+      <if test="busiappDeptId != null" >
         BUSIAPP_DEPT_ID,
       </if>
-      <if test="busiappDeptName != null">
+      <if test="busiappDeptName != null" >
         BUSIAPP_DEPT_NAME,
       </if>
-      <if test="busiLinkDesc != null">
+      <if test="busiLinkDesc != null" >
         BUSI_LINK_DESC,
       </if>
-      <if test="dataOrgNo != null">
+      <if test="dataOrgNo != null" >
         DATA_ORG_NO,
       </if>
-      <if test="appYm != null">
+      <if test="appYm != null" >
         APP_YM,
       </if>
-      <if test="printFlag != null">
+      <if test="printFlag != null" >
         PRINT_FLAG,
       </if>
-      <if test="canPrintFlag != null">
+      <if test="canPrintFlag != null" >
         CAN_PRINT_FLAG,
       </if>
-      <if test="status != null">
+      <if test="status != null" >
         STATUS,
       </if>
-      <if test="multiFlowFlag != null">
+      <if test="multiFlowFlag != null" >
         MULTI_FLOW_FLAG,
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG,
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO,
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="appId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="appId != null" >
         #{appId,jdbcType=VARCHAR},
       </if>
-      <if test="appNo != null">
+      <if test="appNo != null" >
         #{appNo,jdbcType=VARCHAR},
       </if>
-      <if test="processinstid != null">
+      <if test="processinstid != null" >
         #{processinstid,jdbcType=DECIMAL},
       </if>
-      <if test="appType != null">
+      <if test="appType != null" >
         #{appType,jdbcType=VARCHAR},
       </if>
-      <if test="theme != null">
+      <if test="theme != null" >
         #{theme,jdbcType=VARCHAR},
       </if>
-      <if test="applyDate != null">
+      <if test="applyDate != null" >
         #{applyDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="flowAppStaffNo != null">
+      <if test="flowAppStaffNo != null" >
         #{flowAppStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="flowAppStaffName != null">
+      <if test="flowAppStaffName != null" >
         #{flowAppStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="appDeptId != null">
+      <if test="appDeptId != null" >
         #{appDeptId,jdbcType=VARCHAR},
       </if>
-      <if test="appDeptName != null">
+      <if test="appDeptName != null" >
         #{appDeptName,jdbcType=VARCHAR},
       </if>
-      <if test="busiappStaffNo != null">
+      <if test="busiappStaffNo != null" >
         #{busiappStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="busiappStaffName != null">
+      <if test="busiappStaffName != null" >
         #{busiappStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="busiappDeptId != null">
+      <if test="busiappDeptId != null" >
         #{busiappDeptId,jdbcType=VARCHAR},
       </if>
-      <if test="busiappDeptName != null">
+      <if test="busiappDeptName != null" >
         #{busiappDeptName,jdbcType=VARCHAR},
       </if>
-      <if test="busiLinkDesc != null">
+      <if test="busiLinkDesc != null" >
         #{busiLinkDesc,jdbcType=VARCHAR},
       </if>
-      <if test="dataOrgNo != null">
+      <if test="dataOrgNo != null" >
         #{dataOrgNo,jdbcType=VARCHAR},
       </if>
-      <if test="appYm != null">
+      <if test="appYm != null" >
         #{appYm,jdbcType=VARCHAR},
       </if>
-      <if test="printFlag != null">
+      <if test="printFlag != null" >
         #{printFlag,jdbcType=VARCHAR},
       </if>
-      <if test="canPrintFlag != null">
+      <if test="canPrintFlag != null" >
         #{canPrintFlag,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
+      <if test="status != null" >
         #{status,jdbcType=VARCHAR},
       </if>
-      <if test="multiFlowFlag != null">
+      <if test="multiFlowFlag != null" >
         #{multiFlowFlag,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsFlowApply">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsFlowApply" >
     update PMS_FLOW_APPLY
-    <set>
-      <if test="appNo != null">
+    <set >
+      <if test="appNo != null" >
         APP_NO = #{appNo,jdbcType=VARCHAR},
       </if>
-      <if test="processinstid != null">
+      <if test="processinstid != null" >
         PROCESSINSTID = #{processinstid,jdbcType=DECIMAL},
       </if>
-      <if test="appType != null">
+      <if test="appType != null" >
         APP_TYPE = #{appType,jdbcType=VARCHAR},
       </if>
-      <if test="theme != null">
+      <if test="theme != null" >
         THEME = #{theme,jdbcType=VARCHAR},
       </if>
-      <if test="applyDate != null">
+      <if test="applyDate != null" >
         APPLY_DATE = #{applyDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="flowAppStaffNo != null">
+      <if test="flowAppStaffNo != null" >
         FLOW_APP_STAFF_NO = #{flowAppStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="flowAppStaffName != null">
+      <if test="flowAppStaffName != null" >
         FLOW_APP_STAFF_NAME = #{flowAppStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="appDeptId != null">
+      <if test="appDeptId != null" >
         APP_DEPT_ID = #{appDeptId,jdbcType=VARCHAR},
       </if>
-      <if test="appDeptName != null">
+      <if test="appDeptName != null" >
         APP_DEPT_NAME = #{appDeptName,jdbcType=VARCHAR},
       </if>
-      <if test="busiappStaffNo != null">
+      <if test="busiappStaffNo != null" >
         BUSIAPP_STAFF_NO = #{busiappStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="busiappStaffName != null">
+      <if test="busiappStaffName != null" >
         BUSIAPP_STAFF_NAME = #{busiappStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="busiappDeptId != null">
+      <if test="busiappDeptId != null" >
         BUSIAPP_DEPT_ID = #{busiappDeptId,jdbcType=VARCHAR},
       </if>
-      <if test="busiappDeptName != null">
+      <if test="busiappDeptName != null" >
         BUSIAPP_DEPT_NAME = #{busiappDeptName,jdbcType=VARCHAR},
       </if>
-      <if test="busiLinkDesc != null">
+      <if test="busiLinkDesc != null" >
         BUSI_LINK_DESC = #{busiLinkDesc,jdbcType=VARCHAR},
       </if>
-      <if test="dataOrgNo != null">
+      <if test="dataOrgNo != null" >
         DATA_ORG_NO = #{dataOrgNo,jdbcType=VARCHAR},
       </if>
-      <if test="appYm != null">
+      <if test="appYm != null" >
         APP_YM = #{appYm,jdbcType=VARCHAR},
       </if>
-      <if test="printFlag != null">
+      <if test="printFlag != null" >
         PRINT_FLAG = #{printFlag,jdbcType=VARCHAR},
       </if>
-      <if test="canPrintFlag != null">
+      <if test="canPrintFlag != null" >
         CAN_PRINT_FLAG = #{canPrintFlag,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
+      <if test="status != null" >
         STATUS = #{status,jdbcType=VARCHAR},
       </if>
-      <if test="multiFlowFlag != null">
+      <if test="multiFlowFlag != null" >
         MULTI_FLOW_FLAG = #{multiFlowFlag,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where APP_ID = #{appId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsFlowApply">
-    update PMS_FLOW_APPLY
-    set APP_NO = #{appNo,jdbcType=VARCHAR},
-      PROCESSINSTID = #{processinstid,jdbcType=DECIMAL},
-      APP_TYPE = #{appType,jdbcType=VARCHAR},
-      THEME = #{theme,jdbcType=VARCHAR},
-      APPLY_DATE = #{applyDate,jdbcType=TIMESTAMP},
-      FLOW_APP_STAFF_NO = #{flowAppStaffNo,jdbcType=VARCHAR},
-      FLOW_APP_STAFF_NAME = #{flowAppStaffName,jdbcType=VARCHAR},
-      APP_DEPT_ID = #{appDeptId,jdbcType=VARCHAR},
-      APP_DEPT_NAME = #{appDeptName,jdbcType=VARCHAR},
-      BUSIAPP_STAFF_NO = #{busiappStaffNo,jdbcType=VARCHAR},
-      BUSIAPP_STAFF_NAME = #{busiappStaffName,jdbcType=VARCHAR},
-      BUSIAPP_DEPT_ID = #{busiappDeptId,jdbcType=VARCHAR},
-      BUSIAPP_DEPT_NAME = #{busiappDeptName,jdbcType=VARCHAR},
-      BUSI_LINK_DESC = #{busiLinkDesc,jdbcType=VARCHAR},
-      DATA_ORG_NO = #{dataOrgNo,jdbcType=VARCHAR},
-      APP_YM = #{appYm,jdbcType=VARCHAR},
-      PRINT_FLAG = #{printFlag,jdbcType=VARCHAR},
-      CAN_PRINT_FLAG = #{canPrintFlag,jdbcType=VARCHAR},
-      STATUS = #{status,jdbcType=VARCHAR},
-      MULTI_FLOW_FLAG = #{multiFlowFlag,jdbcType=VARCHAR},
-      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
-    where APP_ID = #{appId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsFlowApply">
-    <constructor>
-      <idArg column="APP_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PROCESSINSTID" javaType="java.lang.Integer" jdbcType="DECIMAL" />
-      <arg column="APP_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="THEME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APPLY_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="FLOW_APP_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FLOW_APP_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_DEPT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_DEPT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSIAPP_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSIAPP_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSIAPP_DEPT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSIAPP_DEPT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSI_LINK_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="DATA_ORG_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_YM" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="PRINT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CAN_PRINT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="STATUS" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MULTI_FLOW_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    APP_ID, APP_NO, PROCESSINSTID, APP_TYPE, THEME, APPLY_DATE, FLOW_APP_STAFF_NO, FLOW_APP_STAFF_NAME, 
-    APP_DEPT_ID, APP_DEPT_NAME, BUSIAPP_STAFF_NO, BUSIAPP_STAFF_NAME, BUSIAPP_DEPT_ID, 
-    BUSIAPP_DEPT_NAME, BUSI_LINK_DESC, DATA_ORG_NO, APP_YM, PRINT_FLAG, CAN_PRINT_FLAG, 
-    STATUS, MULTI_FLOW_FLAG, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, CREATE_DATE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from PMS_FLOW_APPLY
-    where APP_ID = #{appId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from PMS_FLOW_APPLY
-    where APP_ID = #{appId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.PmsFlowApply">
-    insert into PMS_FLOW_APPLY (APP_ID, APP_NO, PROCESSINSTID, 
-      APP_TYPE, THEME, APPLY_DATE, 
-      FLOW_APP_STAFF_NO, FLOW_APP_STAFF_NAME, APP_DEPT_ID, 
-      APP_DEPT_NAME, BUSIAPP_STAFF_NO, BUSIAPP_STAFF_NAME, 
-      BUSIAPP_DEPT_ID, BUSIAPP_DEPT_NAME, BUSI_LINK_DESC, 
-      DATA_ORG_NO, APP_YM, PRINT_FLAG, 
-      CAN_PRINT_FLAG, STATUS, MULTI_FLOW_FLAG, 
-      EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
-      CREATE_DATE)
-    values (#{appId,jdbcType=VARCHAR}, #{appNo,jdbcType=VARCHAR}, #{processinstid,jdbcType=DECIMAL}, 
-      #{appType,jdbcType=VARCHAR}, #{theme,jdbcType=VARCHAR}, #{applyDate,jdbcType=TIMESTAMP}, 
-      #{flowAppStaffNo,jdbcType=VARCHAR}, #{flowAppStaffName,jdbcType=VARCHAR}, #{appDeptId,jdbcType=VARCHAR}, 
-      #{appDeptName,jdbcType=VARCHAR}, #{busiappStaffNo,jdbcType=VARCHAR}, #{busiappStaffName,jdbcType=VARCHAR}, 
-      #{busiappDeptId,jdbcType=VARCHAR}, #{busiappDeptName,jdbcType=VARCHAR}, #{busiLinkDesc,jdbcType=VARCHAR}, 
-      #{dataOrgNo,jdbcType=VARCHAR}, #{appYm,jdbcType=VARCHAR}, #{printFlag,jdbcType=VARCHAR}, 
-      #{canPrintFlag,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{multiFlowFlag,jdbcType=VARCHAR}, 
-      #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
-      #{createDate,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.PmsFlowApply">
-    insert into PMS_FLOW_APPLY
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="appId != null">
-        APP_ID,
-      </if>
-      <if test="appNo != null">
-        APP_NO,
-      </if>
-      <if test="processinstid != null">
-        PROCESSINSTID,
-      </if>
-      <if test="appType != null">
-        APP_TYPE,
-      </if>
-      <if test="theme != null">
-        THEME,
-      </if>
-      <if test="applyDate != null">
-        APPLY_DATE,
-      </if>
-      <if test="flowAppStaffNo != null">
-        FLOW_APP_STAFF_NO,
-      </if>
-      <if test="flowAppStaffName != null">
-        FLOW_APP_STAFF_NAME,
-      </if>
-      <if test="appDeptId != null">
-        APP_DEPT_ID,
-      </if>
-      <if test="appDeptName != null">
-        APP_DEPT_NAME,
-      </if>
-      <if test="busiappStaffNo != null">
-        BUSIAPP_STAFF_NO,
-      </if>
-      <if test="busiappStaffName != null">
-        BUSIAPP_STAFF_NAME,
-      </if>
-      <if test="busiappDeptId != null">
-        BUSIAPP_DEPT_ID,
-      </if>
-      <if test="busiappDeptName != null">
-        BUSIAPP_DEPT_NAME,
-      </if>
-      <if test="busiLinkDesc != null">
-        BUSI_LINK_DESC,
-      </if>
-      <if test="dataOrgNo != null">
-        DATA_ORG_NO,
-      </if>
-      <if test="appYm != null">
-        APP_YM,
-      </if>
-      <if test="printFlag != null">
-        PRINT_FLAG,
-      </if>
-      <if test="canPrintFlag != null">
-        CAN_PRINT_FLAG,
-      </if>
-      <if test="status != null">
-        STATUS,
-      </if>
-      <if test="multiFlowFlag != null">
-        MULTI_FLOW_FLAG,
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG,
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO,
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME,
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="appId != null">
-        #{appId,jdbcType=VARCHAR},
-      </if>
-      <if test="appNo != null">
-        #{appNo,jdbcType=VARCHAR},
-      </if>
-      <if test="processinstid != null">
-        #{processinstid,jdbcType=DECIMAL},
-      </if>
-      <if test="appType != null">
-        #{appType,jdbcType=VARCHAR},
-      </if>
-      <if test="theme != null">
-        #{theme,jdbcType=VARCHAR},
-      </if>
-      <if test="applyDate != null">
-        #{applyDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="flowAppStaffNo != null">
-        #{flowAppStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="flowAppStaffName != null">
-        #{flowAppStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="appDeptId != null">
-        #{appDeptId,jdbcType=VARCHAR},
-      </if>
-      <if test="appDeptName != null">
-        #{appDeptName,jdbcType=VARCHAR},
-      </if>
-      <if test="busiappStaffNo != null">
-        #{busiappStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="busiappStaffName != null">
-        #{busiappStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="busiappDeptId != null">
-        #{busiappDeptId,jdbcType=VARCHAR},
-      </if>
-      <if test="busiappDeptName != null">
-        #{busiappDeptName,jdbcType=VARCHAR},
-      </if>
-      <if test="busiLinkDesc != null">
-        #{busiLinkDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="dataOrgNo != null">
-        #{dataOrgNo,jdbcType=VARCHAR},
-      </if>
-      <if test="appYm != null">
-        #{appYm,jdbcType=VARCHAR},
-      </if>
-      <if test="printFlag != null">
-        #{printFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="canPrintFlag != null">
-        #{canPrintFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="multiFlowFlag != null">
-        #{multiFlowFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsFlowApply">
-    update PMS_FLOW_APPLY
-    <set>
-      <if test="appNo != null">
-        APP_NO = #{appNo,jdbcType=VARCHAR},
-      </if>
-      <if test="processinstid != null">
-        PROCESSINSTID = #{processinstid,jdbcType=DECIMAL},
-      </if>
-      <if test="appType != null">
-        APP_TYPE = #{appType,jdbcType=VARCHAR},
-      </if>
-      <if test="theme != null">
-        THEME = #{theme,jdbcType=VARCHAR},
-      </if>
-      <if test="applyDate != null">
-        APPLY_DATE = #{applyDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="flowAppStaffNo != null">
-        FLOW_APP_STAFF_NO = #{flowAppStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="flowAppStaffName != null">
-        FLOW_APP_STAFF_NAME = #{flowAppStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="appDeptId != null">
-        APP_DEPT_ID = #{appDeptId,jdbcType=VARCHAR},
-      </if>
-      <if test="appDeptName != null">
-        APP_DEPT_NAME = #{appDeptName,jdbcType=VARCHAR},
-      </if>
-      <if test="busiappStaffNo != null">
-        BUSIAPP_STAFF_NO = #{busiappStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="busiappStaffName != null">
-        BUSIAPP_STAFF_NAME = #{busiappStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="busiappDeptId != null">
-        BUSIAPP_DEPT_ID = #{busiappDeptId,jdbcType=VARCHAR},
-      </if>
-      <if test="busiappDeptName != null">
-        BUSIAPP_DEPT_NAME = #{busiappDeptName,jdbcType=VARCHAR},
-      </if>
-      <if test="busiLinkDesc != null">
-        BUSI_LINK_DESC = #{busiLinkDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="dataOrgNo != null">
-        DATA_ORG_NO = #{dataOrgNo,jdbcType=VARCHAR},
-      </if>
-      <if test="appYm != null">
-        APP_YM = #{appYm,jdbcType=VARCHAR},
-      </if>
-      <if test="printFlag != null">
-        PRINT_FLAG = #{printFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="canPrintFlag != null">
-        CAN_PRINT_FLAG = #{canPrintFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        STATUS = #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="multiFlowFlag != null">
-        MULTI_FLOW_FLAG = #{multiFlowFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where APP_ID = #{appId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsFlowApply">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsFlowApply" >
     update PMS_FLOW_APPLY
     set APP_NO = #{appNo,jdbcType=VARCHAR},
       PROCESSINSTID = #{processinstid,jdbcType=DECIMAL},

@@ -1,37 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.CargoDepositDetailMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.CargoDepositDetail">
-    <constructor>
-      <idArg column="CARGODEP_DETAIL_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="DEPOSIT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CARGO_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CARGO_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="COUNT_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CHARACTER_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="QUALITY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="HEAT_VALUE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ROOM_AREA" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIRE_DENSITY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.CargoDepositDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.CargoDepositDetail" >
+    <constructor >
+      <idArg column="CARGODEP_DETAIL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DEPOSIT_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CARGO_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CARGO_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="COUNT_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHARACTER_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MEASURE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="QUALITY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HEAT_VALUE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ROOM_AREA" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FIRE_DENSITY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     CARGODEP_DETAIL_ID, DEPOSIT_ID, CARGO_NAME, CARGO_CODE, COUNT_DESC, CHARACTER_DESC, 
     MEASURE, QUALITY, HEAT_VALUE, ROOM_AREA, FIRE_DENSITY, CREATE_DATE
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from CARGO_DEPOSIT_DETAIL
     where CARGODEP_DETAIL_ID = #{cargodepDetailId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from CARGO_DEPOSIT_DETAIL
     where CARGODEP_DETAIL_ID = #{cargodepDetailId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.CargoDepositDetail">
+  <insert id="insert" parameterType="com.lanou.domain.CargoDepositDetail" >
     insert into CARGO_DEPOSIT_DETAIL (CARGODEP_DETAIL_ID, DEPOSIT_ID, CARGO_NAME, 
       CARGO_CODE, COUNT_DESC, CHARACTER_DESC, 
       MEASURE, QUALITY, HEAT_VALUE, 
@@ -43,300 +43,125 @@
       #{roomArea,jdbcType=VARCHAR}, #{fireDensity,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.CargoDepositDetail">
+  <insert id="insertSelective" parameterType="com.lanou.domain.CargoDepositDetail" >
     insert into CARGO_DEPOSIT_DETAIL
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="cargodepDetailId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cargodepDetailId != null" >
         CARGODEP_DETAIL_ID,
       </if>
-      <if test="depositId != null">
+      <if test="depositId != null" >
         DEPOSIT_ID,
       </if>
-      <if test="cargoName != null">
+      <if test="cargoName != null" >
         CARGO_NAME,
       </if>
-      <if test="cargoCode != null">
+      <if test="cargoCode != null" >
         CARGO_CODE,
       </if>
-      <if test="countDesc != null">
+      <if test="countDesc != null" >
         COUNT_DESC,
       </if>
-      <if test="characterDesc != null">
+      <if test="characterDesc != null" >
         CHARACTER_DESC,
       </if>
-      <if test="measure != null">
+      <if test="measure != null" >
         MEASURE,
       </if>
-      <if test="quality != null">
+      <if test="quality != null" >
         QUALITY,
       </if>
-      <if test="heatValue != null">
+      <if test="heatValue != null" >
         HEAT_VALUE,
       </if>
-      <if test="roomArea != null">
+      <if test="roomArea != null" >
         ROOM_AREA,
       </if>
-      <if test="fireDensity != null">
+      <if test="fireDensity != null" >
         FIRE_DENSITY,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="cargodepDetailId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cargodepDetailId != null" >
         #{cargodepDetailId,jdbcType=VARCHAR},
       </if>
-      <if test="depositId != null">
+      <if test="depositId != null" >
         #{depositId,jdbcType=VARCHAR},
       </if>
-      <if test="cargoName != null">
+      <if test="cargoName != null" >
         #{cargoName,jdbcType=VARCHAR},
       </if>
-      <if test="cargoCode != null">
+      <if test="cargoCode != null" >
         #{cargoCode,jdbcType=VARCHAR},
       </if>
-      <if test="countDesc != null">
+      <if test="countDesc != null" >
         #{countDesc,jdbcType=VARCHAR},
       </if>
-      <if test="characterDesc != null">
+      <if test="characterDesc != null" >
         #{characterDesc,jdbcType=VARCHAR},
       </if>
-      <if test="measure != null">
+      <if test="measure != null" >
         #{measure,jdbcType=VARCHAR},
       </if>
-      <if test="quality != null">
+      <if test="quality != null" >
         #{quality,jdbcType=VARCHAR},
       </if>
-      <if test="heatValue != null">
+      <if test="heatValue != null" >
         #{heatValue,jdbcType=VARCHAR},
       </if>
-      <if test="roomArea != null">
+      <if test="roomArea != null" >
         #{roomArea,jdbcType=VARCHAR},
       </if>
-      <if test="fireDensity != null">
+      <if test="fireDensity != null" >
         #{fireDensity,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.CargoDepositDetail">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.CargoDepositDetail" >
     update CARGO_DEPOSIT_DETAIL
-    <set>
-      <if test="depositId != null">
+    <set >
+      <if test="depositId != null" >
         DEPOSIT_ID = #{depositId,jdbcType=VARCHAR},
       </if>
-      <if test="cargoName != null">
+      <if test="cargoName != null" >
         CARGO_NAME = #{cargoName,jdbcType=VARCHAR},
       </if>
-      <if test="cargoCode != null">
+      <if test="cargoCode != null" >
         CARGO_CODE = #{cargoCode,jdbcType=VARCHAR},
       </if>
-      <if test="countDesc != null">
+      <if test="countDesc != null" >
         COUNT_DESC = #{countDesc,jdbcType=VARCHAR},
       </if>
-      <if test="characterDesc != null">
+      <if test="characterDesc != null" >
         CHARACTER_DESC = #{characterDesc,jdbcType=VARCHAR},
       </if>
-      <if test="measure != null">
+      <if test="measure != null" >
         MEASURE = #{measure,jdbcType=VARCHAR},
       </if>
-      <if test="quality != null">
+      <if test="quality != null" >
         QUALITY = #{quality,jdbcType=VARCHAR},
       </if>
-      <if test="heatValue != null">
+      <if test="heatValue != null" >
         HEAT_VALUE = #{heatValue,jdbcType=VARCHAR},
       </if>
-      <if test="roomArea != null">
+      <if test="roomArea != null" >
         ROOM_AREA = #{roomArea,jdbcType=VARCHAR},
       </if>
-      <if test="fireDensity != null">
+      <if test="fireDensity != null" >
         FIRE_DENSITY = #{fireDensity,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where CARGODEP_DETAIL_ID = #{cargodepDetailId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.CargoDepositDetail">
-    update CARGO_DEPOSIT_DETAIL
-    set DEPOSIT_ID = #{depositId,jdbcType=VARCHAR},
-      CARGO_NAME = #{cargoName,jdbcType=VARCHAR},
-      CARGO_CODE = #{cargoCode,jdbcType=VARCHAR},
-      COUNT_DESC = #{countDesc,jdbcType=VARCHAR},
-      CHARACTER_DESC = #{characterDesc,jdbcType=VARCHAR},
-      MEASURE = #{measure,jdbcType=VARCHAR},
-      QUALITY = #{quality,jdbcType=VARCHAR},
-      HEAT_VALUE = #{heatValue,jdbcType=VARCHAR},
-      ROOM_AREA = #{roomArea,jdbcType=VARCHAR},
-      FIRE_DENSITY = #{fireDensity,jdbcType=VARCHAR},
-      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
-    where CARGODEP_DETAIL_ID = #{cargodepDetailId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.CargoDepositDetail">
-    <constructor>
-      <idArg column="CARGODEP_DETAIL_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="DEPOSIT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CARGO_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CARGO_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="COUNT_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CHARACTER_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="MEASURE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="QUALITY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="HEAT_VALUE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="ROOM_AREA" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="FIRE_DENSITY" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    CARGODEP_DETAIL_ID, DEPOSIT_ID, CARGO_NAME, CARGO_CODE, COUNT_DESC, CHARACTER_DESC, 
-    MEASURE, QUALITY, HEAT_VALUE, ROOM_AREA, FIRE_DENSITY, CREATE_DATE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from CARGO_DEPOSIT_DETAIL
-    where CARGODEP_DETAIL_ID = #{cargodepDetailId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from CARGO_DEPOSIT_DETAIL
-    where CARGODEP_DETAIL_ID = #{cargodepDetailId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.CargoDepositDetail">
-    insert into CARGO_DEPOSIT_DETAIL (CARGODEP_DETAIL_ID, DEPOSIT_ID, CARGO_NAME, 
-      CARGO_CODE, COUNT_DESC, CHARACTER_DESC, 
-      MEASURE, QUALITY, HEAT_VALUE, 
-      ROOM_AREA, FIRE_DENSITY, CREATE_DATE
-      )
-    values (#{cargodepDetailId,jdbcType=VARCHAR}, #{depositId,jdbcType=VARCHAR}, #{cargoName,jdbcType=VARCHAR}, 
-      #{cargoCode,jdbcType=VARCHAR}, #{countDesc,jdbcType=VARCHAR}, #{characterDesc,jdbcType=VARCHAR}, 
-      #{measure,jdbcType=VARCHAR}, #{quality,jdbcType=VARCHAR}, #{heatValue,jdbcType=VARCHAR}, 
-      #{roomArea,jdbcType=VARCHAR}, #{fireDensity,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.CargoDepositDetail">
-    insert into CARGO_DEPOSIT_DETAIL
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="cargodepDetailId != null">
-        CARGODEP_DETAIL_ID,
-      </if>
-      <if test="depositId != null">
-        DEPOSIT_ID,
-      </if>
-      <if test="cargoName != null">
-        CARGO_NAME,
-      </if>
-      <if test="cargoCode != null">
-        CARGO_CODE,
-      </if>
-      <if test="countDesc != null">
-        COUNT_DESC,
-      </if>
-      <if test="characterDesc != null">
-        CHARACTER_DESC,
-      </if>
-      <if test="measure != null">
-        MEASURE,
-      </if>
-      <if test="quality != null">
-        QUALITY,
-      </if>
-      <if test="heatValue != null">
-        HEAT_VALUE,
-      </if>
-      <if test="roomArea != null">
-        ROOM_AREA,
-      </if>
-      <if test="fireDensity != null">
-        FIRE_DENSITY,
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="cargodepDetailId != null">
-        #{cargodepDetailId,jdbcType=VARCHAR},
-      </if>
-      <if test="depositId != null">
-        #{depositId,jdbcType=VARCHAR},
-      </if>
-      <if test="cargoName != null">
-        #{cargoName,jdbcType=VARCHAR},
-      </if>
-      <if test="cargoCode != null">
-        #{cargoCode,jdbcType=VARCHAR},
-      </if>
-      <if test="countDesc != null">
-        #{countDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="characterDesc != null">
-        #{characterDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="measure != null">
-        #{measure,jdbcType=VARCHAR},
-      </if>
-      <if test="quality != null">
-        #{quality,jdbcType=VARCHAR},
-      </if>
-      <if test="heatValue != null">
-        #{heatValue,jdbcType=VARCHAR},
-      </if>
-      <if test="roomArea != null">
-        #{roomArea,jdbcType=VARCHAR},
-      </if>
-      <if test="fireDensity != null">
-        #{fireDensity,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.CargoDepositDetail">
-    update CARGO_DEPOSIT_DETAIL
-    <set>
-      <if test="depositId != null">
-        DEPOSIT_ID = #{depositId,jdbcType=VARCHAR},
-      </if>
-      <if test="cargoName != null">
-        CARGO_NAME = #{cargoName,jdbcType=VARCHAR},
-      </if>
-      <if test="cargoCode != null">
-        CARGO_CODE = #{cargoCode,jdbcType=VARCHAR},
-      </if>
-      <if test="countDesc != null">
-        COUNT_DESC = #{countDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="characterDesc != null">
-        CHARACTER_DESC = #{characterDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="measure != null">
-        MEASURE = #{measure,jdbcType=VARCHAR},
-      </if>
-      <if test="quality != null">
-        QUALITY = #{quality,jdbcType=VARCHAR},
-      </if>
-      <if test="heatValue != null">
-        HEAT_VALUE = #{heatValue,jdbcType=VARCHAR},
-      </if>
-      <if test="roomArea != null">
-        ROOM_AREA = #{roomArea,jdbcType=VARCHAR},
-      </if>
-      <if test="fireDensity != null">
-        FIRE_DENSITY = #{fireDensity,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where CARGODEP_DETAIL_ID = #{cargodepDetailId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.CargoDepositDetail">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.CargoDepositDetail" >
     update CARGO_DEPOSIT_DETAIL
     set DEPOSIT_ID = #{depositId,jdbcType=VARCHAR},
       CARGO_NAME = #{cargoName,jdbcType=VARCHAR},

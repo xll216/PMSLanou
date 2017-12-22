@@ -1,41 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.mapper.BimsBusiObjMapper">
-  <resultMap id="BaseResultMap" type="com.lanou.domain.BimsBusiObj">
-    <constructor>
-      <idArg column="BIMS_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSI_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BIMS_STORE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BIMS_STORE_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EDU_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="EDU_ROOM" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="AUTHOPEN_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="AUTHOPEN_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="DEAL_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="YDI_STAFF" javaType="java.lang.String" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.BimsBusiObjMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.BimsBusiObj" >
+    <constructor >
+      <idArg column="BIMS_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BUSI_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BIMS_STORE_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BIMS_STORE_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="APP_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EDU_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="EDU_ROOM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="AUTHOPEN_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="AUTHOPEN_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DEAL_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EFFECT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="YDI_STAFF" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     BIMS_ID, BUSI_TYPE, BIMS_STORE_ID, BIMS_STORE_NAME, APP_DESC, EDU_DATE, EDU_ROOM, 
     AUTHOPEN_STAFF_NO, AUTHOPEN_STAFF_NAME, DEAL_TYPE, EFFECT_FLAG, CREATE_STAFF_NO, 
     CREATE_STAFF_NAME, CREATE_DATE, YDI_STAFF
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from BIMS_BUSI_OBJ
     where BIMS_ID = #{bimsId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from BIMS_BUSI_OBJ
     where BIMS_ID = #{bimsId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.BimsBusiObj">
+  <insert id="insert" parameterType="com.lanou.domain.BimsBusiObj" >
     insert into BIMS_BUSI_OBJ (BIMS_ID, BUSI_TYPE, BIMS_STORE_ID, 
       BIMS_STORE_NAME, APP_DESC, EDU_DATE, 
       EDU_ROOM, AUTHOPEN_STAFF_NO, AUTHOPEN_STAFF_NAME, 
@@ -49,363 +49,152 @@
       #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{ydiStaff,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.BimsBusiObj">
+  <insert id="insertSelective" parameterType="com.lanou.domain.BimsBusiObj" >
     insert into BIMS_BUSI_OBJ
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="bimsId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bimsId != null" >
         BIMS_ID,
       </if>
-      <if test="busiType != null">
+      <if test="busiType != null" >
         BUSI_TYPE,
       </if>
-      <if test="bimsStoreId != null">
+      <if test="bimsStoreId != null" >
         BIMS_STORE_ID,
       </if>
-      <if test="bimsStoreName != null">
+      <if test="bimsStoreName != null" >
         BIMS_STORE_NAME,
       </if>
-      <if test="appDesc != null">
+      <if test="appDesc != null" >
         APP_DESC,
       </if>
-      <if test="eduDate != null">
+      <if test="eduDate != null" >
         EDU_DATE,
       </if>
-      <if test="eduRoom != null">
+      <if test="eduRoom != null" >
         EDU_ROOM,
       </if>
-      <if test="authopenStaffNo != null">
+      <if test="authopenStaffNo != null" >
         AUTHOPEN_STAFF_NO,
       </if>
-      <if test="authopenStaffName != null">
+      <if test="authopenStaffName != null" >
         AUTHOPEN_STAFF_NAME,
       </if>
-      <if test="dealType != null">
+      <if test="dealType != null" >
         DEAL_TYPE,
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG,
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO,
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE,
       </if>
-      <if test="ydiStaff != null">
+      <if test="ydiStaff != null" >
         YDI_STAFF,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="bimsId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bimsId != null" >
         #{bimsId,jdbcType=VARCHAR},
       </if>
-      <if test="busiType != null">
+      <if test="busiType != null" >
         #{busiType,jdbcType=VARCHAR},
       </if>
-      <if test="bimsStoreId != null">
+      <if test="bimsStoreId != null" >
         #{bimsStoreId,jdbcType=VARCHAR},
       </if>
-      <if test="bimsStoreName != null">
+      <if test="bimsStoreName != null" >
         #{bimsStoreName,jdbcType=VARCHAR},
       </if>
-      <if test="appDesc != null">
+      <if test="appDesc != null" >
         #{appDesc,jdbcType=VARCHAR},
       </if>
-      <if test="eduDate != null">
+      <if test="eduDate != null" >
         #{eduDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="eduRoom != null">
+      <if test="eduRoom != null" >
         #{eduRoom,jdbcType=VARCHAR},
       </if>
-      <if test="authopenStaffNo != null">
+      <if test="authopenStaffNo != null" >
         #{authopenStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="authopenStaffName != null">
+      <if test="authopenStaffName != null" >
         #{authopenStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="dealType != null">
+      <if test="dealType != null" >
         #{dealType,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="ydiStaff != null">
+      <if test="ydiStaff != null" >
         #{ydiStaff,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.BimsBusiObj">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.BimsBusiObj" >
     update BIMS_BUSI_OBJ
-    <set>
-      <if test="busiType != null">
+    <set >
+      <if test="busiType != null" >
         BUSI_TYPE = #{busiType,jdbcType=VARCHAR},
       </if>
-      <if test="bimsStoreId != null">
+      <if test="bimsStoreId != null" >
         BIMS_STORE_ID = #{bimsStoreId,jdbcType=VARCHAR},
       </if>
-      <if test="bimsStoreName != null">
+      <if test="bimsStoreName != null" >
         BIMS_STORE_NAME = #{bimsStoreName,jdbcType=VARCHAR},
       </if>
-      <if test="appDesc != null">
+      <if test="appDesc != null" >
         APP_DESC = #{appDesc,jdbcType=VARCHAR},
       </if>
-      <if test="eduDate != null">
+      <if test="eduDate != null" >
         EDU_DATE = #{eduDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="eduRoom != null">
+      <if test="eduRoom != null" >
         EDU_ROOM = #{eduRoom,jdbcType=VARCHAR},
       </if>
-      <if test="authopenStaffNo != null">
+      <if test="authopenStaffNo != null" >
         AUTHOPEN_STAFF_NO = #{authopenStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="authopenStaffName != null">
+      <if test="authopenStaffName != null" >
         AUTHOPEN_STAFF_NAME = #{authopenStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="dealType != null">
+      <if test="dealType != null" >
         DEAL_TYPE = #{dealType,jdbcType=VARCHAR},
       </if>
-      <if test="effectFlag != null">
+      <if test="effectFlag != null" >
         EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffNo != null">
+      <if test="createStaffNo != null" >
         CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
       </if>
-      <if test="createStaffName != null">
+      <if test="createStaffName != null" >
         CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="ydiStaff != null">
+      <if test="ydiStaff != null" >
         YDI_STAFF = #{ydiStaff,jdbcType=VARCHAR},
       </if>
     </set>
     where BIMS_ID = #{bimsId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.BimsBusiObj">
-    update BIMS_BUSI_OBJ
-    set BUSI_TYPE = #{busiType,jdbcType=VARCHAR},
-      BIMS_STORE_ID = #{bimsStoreId,jdbcType=VARCHAR},
-      BIMS_STORE_NAME = #{bimsStoreName,jdbcType=VARCHAR},
-      APP_DESC = #{appDesc,jdbcType=VARCHAR},
-      EDU_DATE = #{eduDate,jdbcType=TIMESTAMP},
-      EDU_ROOM = #{eduRoom,jdbcType=VARCHAR},
-      AUTHOPEN_STAFF_NO = #{authopenStaffNo,jdbcType=VARCHAR},
-      AUTHOPEN_STAFF_NAME = #{authopenStaffName,jdbcType=VARCHAR},
-      DEAL_TYPE = #{dealType,jdbcType=VARCHAR},
-      EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      YDI_STAFF = #{ydiStaff,jdbcType=VARCHAR}
-    where BIMS_ID = #{bimsId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.lanou.domain.BimsBusiObj">
-    <constructor>
-      <idArg column="BIMS_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BUSI_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BIMS_STORE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="BIMS_STORE_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="APP_DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EDU_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="EDU_ROOM" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="AUTHOPEN_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="AUTHOPEN_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="DEAL_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="EFFECT_FLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NO" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_STAFF_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="YDI_STAFF" javaType="java.lang.String" jdbcType="VARCHAR" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    BIMS_ID, BUSI_TYPE, BIMS_STORE_ID, BIMS_STORE_NAME, APP_DESC, EDU_DATE, EDU_ROOM, 
-    AUTHOPEN_STAFF_NO, AUTHOPEN_STAFF_NAME, DEAL_TYPE, EFFECT_FLAG, CREATE_STAFF_NO, 
-    CREATE_STAFF_NAME, CREATE_DATE, YDI_STAFF
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from BIMS_BUSI_OBJ
-    where BIMS_ID = #{bimsId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from BIMS_BUSI_OBJ
-    where BIMS_ID = #{bimsId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.lanou.domain.BimsBusiObj">
-    insert into BIMS_BUSI_OBJ (BIMS_ID, BUSI_TYPE, BIMS_STORE_ID, 
-      BIMS_STORE_NAME, APP_DESC, EDU_DATE, 
-      EDU_ROOM, AUTHOPEN_STAFF_NO, AUTHOPEN_STAFF_NAME, 
-      DEAL_TYPE, EFFECT_FLAG, CREATE_STAFF_NO, 
-      CREATE_STAFF_NAME, CREATE_DATE, YDI_STAFF
-      )
-    values (#{bimsId,jdbcType=VARCHAR}, #{busiType,jdbcType=VARCHAR}, #{bimsStoreId,jdbcType=VARCHAR}, 
-      #{bimsStoreName,jdbcType=VARCHAR}, #{appDesc,jdbcType=VARCHAR}, #{eduDate,jdbcType=TIMESTAMP}, 
-      #{eduRoom,jdbcType=VARCHAR}, #{authopenStaffNo,jdbcType=VARCHAR}, #{authopenStaffName,jdbcType=VARCHAR}, 
-      #{dealType,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, 
-      #{createStaffName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{ydiStaff,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.BimsBusiObj">
-    insert into BIMS_BUSI_OBJ
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="bimsId != null">
-        BIMS_ID,
-      </if>
-      <if test="busiType != null">
-        BUSI_TYPE,
-      </if>
-      <if test="bimsStoreId != null">
-        BIMS_STORE_ID,
-      </if>
-      <if test="bimsStoreName != null">
-        BIMS_STORE_NAME,
-      </if>
-      <if test="appDesc != null">
-        APP_DESC,
-      </if>
-      <if test="eduDate != null">
-        EDU_DATE,
-      </if>
-      <if test="eduRoom != null">
-        EDU_ROOM,
-      </if>
-      <if test="authopenStaffNo != null">
-        AUTHOPEN_STAFF_NO,
-      </if>
-      <if test="authopenStaffName != null">
-        AUTHOPEN_STAFF_NAME,
-      </if>
-      <if test="dealType != null">
-        DEAL_TYPE,
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG,
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO,
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME,
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE,
-      </if>
-      <if test="ydiStaff != null">
-        YDI_STAFF,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="bimsId != null">
-        #{bimsId,jdbcType=VARCHAR},
-      </if>
-      <if test="busiType != null">
-        #{busiType,jdbcType=VARCHAR},
-      </if>
-      <if test="bimsStoreId != null">
-        #{bimsStoreId,jdbcType=VARCHAR},
-      </if>
-      <if test="bimsStoreName != null">
-        #{bimsStoreName,jdbcType=VARCHAR},
-      </if>
-      <if test="appDesc != null">
-        #{appDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="eduDate != null">
-        #{eduDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="eduRoom != null">
-        #{eduRoom,jdbcType=VARCHAR},
-      </if>
-      <if test="authopenStaffNo != null">
-        #{authopenStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="authopenStaffName != null">
-        #{authopenStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="dealType != null">
-        #{dealType,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="ydiStaff != null">
-        #{ydiStaff,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.BimsBusiObj">
-    update BIMS_BUSI_OBJ
-    <set>
-      <if test="busiType != null">
-        BUSI_TYPE = #{busiType,jdbcType=VARCHAR},
-      </if>
-      <if test="bimsStoreId != null">
-        BIMS_STORE_ID = #{bimsStoreId,jdbcType=VARCHAR},
-      </if>
-      <if test="bimsStoreName != null">
-        BIMS_STORE_NAME = #{bimsStoreName,jdbcType=VARCHAR},
-      </if>
-      <if test="appDesc != null">
-        APP_DESC = #{appDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="eduDate != null">
-        EDU_DATE = #{eduDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="eduRoom != null">
-        EDU_ROOM = #{eduRoom,jdbcType=VARCHAR},
-      </if>
-      <if test="authopenStaffNo != null">
-        AUTHOPEN_STAFF_NO = #{authopenStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="authopenStaffName != null">
-        AUTHOPEN_STAFF_NAME = #{authopenStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="dealType != null">
-        DEAL_TYPE = #{dealType,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null">
-        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null">
-        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null">
-        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="ydiStaff != null">
-        YDI_STAFF = #{ydiStaff,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where BIMS_ID = #{bimsId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.BimsBusiObj">
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.BimsBusiObj" >
     update BIMS_BUSI_OBJ
     set BUSI_TYPE = #{busiType,jdbcType=VARCHAR},
       BIMS_STORE_ID = #{bimsStoreId,jdbcType=VARCHAR},
