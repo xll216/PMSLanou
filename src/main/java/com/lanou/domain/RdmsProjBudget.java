@@ -2,16 +2,20 @@ package com.lanou.domain;
 
 import java.math.BigDecimal;
 
+
+/**
+ * 预算明细的卡片
+ **/
 public class RdmsProjBudget {
-    private String budDetailId;
+    private String budDetailId;//预算明细标识
 
-    private String busiTable;
+    private String busiTable;//业务表
 
-    private String busiId;
+    private String busiId;//业务标识 项目基本标识=业务标识 外健
 
-    private String budgetType;
+    private String budgetType;//预算类型
 
-    private BigDecimal budgetFee;
+    private BigDecimal budgetFee;//预算费用
 
     public RdmsProjBudget(String budDetailId, String busiTable, String busiId, String budgetType, BigDecimal budgetFee) {
         this.budDetailId = budDetailId;
@@ -63,5 +67,16 @@ public class RdmsProjBudget {
 
     public void setBudgetFee(BigDecimal budgetFee) {
         this.budgetFee = budgetFee;
+    }
+
+    @Override
+    public String toString() {
+        return "RdmsProjBudget{" +
+                "budDetailId='" + budDetailId + '\'' +
+                ", busiTable='" + busiTable + '\'' +
+                ", busiId='" + busiId + '\'' +
+                ", budgetType='" + budgetType + '\'' +
+                ", budgetFee=" + budgetFee +
+                '}';
     }
 }

@@ -2,40 +2,43 @@ package com.lanou.domain;
 
 import java.util.Date;
 
+/**
+ * 项目合同信息的卡片
+ **/
 public class RdmsProjContract {
-    private String contractId;
+    private String contractId;//合同标识
 
-    private String projId;
+    private String projId;//项目基本标识 外健
 
-    private String contractNo;
+    private String contractNo;//合同编号
 
-    private String contractName;
+    private String contractName;//合同名称
 
-    private String oppDesc;
+    private String oppDesc;//对方描述
 
-    private Date contractBeginDate;
+    private Date contractBeginDate;//合同开始日期
 
-    private Date contractEndDate;
+    private Date contractEndDate;//合同止日期
 
-    private String rightDesc;
+    private String rightDesc;//产权说明
 
-    private String benefitsDesc;
+    private String benefitsDesc;//经济效益
 
-    private String fixedAssets;
+    private String fixedAssets;//固定资产
 
-    private String contractRunDesc;
+    private String contractRunDesc;//合同运作情况说明
 
-    private String achievementDesc;
+    private String achievementDesc;//成果应用
 
-    private String contractSigntory;
+    private String contractSigntory;//推荐合同签署人
 
-    private String effectFlag;
+    private String effectFlag;//是否有效
 
-    private String createStaffNo;
+    private String createStaffNo;//创建人
 
-    private String createStaffName;
+    private String createStaffName;//创建人姓名
 
-    private Date createDate;
+    private Date createDate;//创建时间
 
     public RdmsProjContract(String contractId, String projId, String contractNo, String contractName, String oppDesc, Date contractBeginDate, Date contractEndDate, String rightDesc, String benefitsDesc, String fixedAssets, String contractRunDesc, String achievementDesc, String contractSigntory, String effectFlag, String createStaffNo, String createStaffName, Date createDate) {
         this.contractId = contractId;
@@ -195,5 +198,28 @@ public class RdmsProjContract {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    @Override
+    public String toString() {
+        return "RdmsProjContract{" +
+                "contractId='" + contractId + '\'' +
+                ", projId='" + projId + '\'' +
+                ", contractNo='" + contractNo + '\'' +
+                ", contractName='" + contractName + '\'' +
+                ", oppDesc='" + oppDesc + '\'' +
+                ", contractBeginDate=" + contractBeginDate +
+                ", contractEndDate=" + contractEndDate +
+                ", rightDesc='" + rightDesc + '\'' +
+                ", benefitsDesc='" + benefitsDesc + '\'' +
+                ", fixedAssets='" + fixedAssets + '\'' +
+                ", contractRunDesc='" + contractRunDesc + '\'' +
+                ", achievementDesc='" + achievementDesc + '\'' +
+                ", contractSigntory='" + contractSigntory + '\'' +
+                ", effectFlag='" + effectFlag + '\'' +
+                ", createStaffNo='" + createStaffNo + '\'' +
+                ", createStaffName='" + createStaffName + '\'' +
+                ", createDate=" + createDate +
+                '}';
     }
 }

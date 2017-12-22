@@ -2,32 +2,35 @@ package com.lanou.domain;
 
 import java.util.Date;
 
+/**
+ * 项目计划与成果调整的卡片
+ **/
 public class RdmsProjChange {
-    private String pmsChange;
+    private String pmsChange;//变更标识
 
-    private String projId;
+    private String projId;//项目标识 外健
 
-    private String projName;
+    private String projName;//项目名称
 
-    private String projAssumeStaffNo;
+    private String projAssumeStaffNo;//项目负责人编号
 
-    private String projAssumeStaffName;
+    private String projAssumeStaffName;//项目负责人名称
 
-    private String assumeDeptId;
+    private String assumeDeptId;//承担部门编号
 
-    private String assumeDeptName;
+    private String assumeDeptName;//承担部门名称
 
-    private String chgReason;
+    private String chgReason;//调整原因
 
-    private String chgContent;
+    private String chgContent;//调整内容
 
-    private String effectFlag;
+    private String effectFlag;//是否有效
 
-    private String createStaffNo;
+    private String createStaffNo;//创建人
 
-    private String createStaffName;
+    private String createStaffName;//创建人姓名
 
-    private Date createDate;
+    private Date createDate;//创建时间
 
     public RdmsProjChange(String pmsChange, String projId, String projName, String projAssumeStaffNo, String projAssumeStaffName, String assumeDeptId, String assumeDeptName, String chgReason, String chgContent, String effectFlag, String createStaffNo, String createStaffName, Date createDate) {
         this.pmsChange = pmsChange;
@@ -151,5 +154,24 @@ public class RdmsProjChange {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    @Override
+    public String toString() {
+        return "RdmsProjChange{" +
+                "pmsChange='" + pmsChange + '\'' +
+                ", projId='" + projId + '\'' +
+                ", projName='" + projName + '\'' +
+                ", projAssumeStaffNo='" + projAssumeStaffNo + '\'' +
+                ", projAssumeStaffName='" + projAssumeStaffName + '\'' +
+                ", assumeDeptId='" + assumeDeptId + '\'' +
+                ", assumeDeptName='" + assumeDeptName + '\'' +
+                ", chgReason='" + chgReason + '\'' +
+                ", chgContent='" + chgContent + '\'' +
+                ", effectFlag='" + effectFlag + '\'' +
+                ", createStaffNo='" + createStaffNo + '\'' +
+                ", createStaffName='" + createStaffName + '\'' +
+                ", createDate=" + createDate +
+                '}';
     }
 }

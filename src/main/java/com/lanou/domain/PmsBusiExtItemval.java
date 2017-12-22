@@ -1,13 +1,16 @@
 package com.lanou.domain;
 
+/**
+ * 属性扩展值的卡片
+ **/
 public class PmsBusiExtItemval {
-    private String extitemvalId;
+    private String extitemvalId;//属性扩展值标识
 
-    private String extItemId;
+    private String extItemId;//扩展对象标识 外健
 
-    private Integer valSn;
+    private Integer valSn;//序号
 
-    private String extitemVal;
+    private String extitemVal;//属性值
 
     public PmsBusiExtItemval(String extitemvalId, String extItemId, Integer valSn, String extitemVal) {
         this.extitemvalId = extitemvalId;
@@ -50,5 +53,15 @@ public class PmsBusiExtItemval {
 
     public void setExtitemVal(String extitemVal) {
         this.extitemVal = extitemVal == null ? null : extitemVal.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "PmsBusiExtItemval{" +
+                "extitemvalId='" + extitemvalId + '\'' +
+                ", extItemId='" + extItemId + '\'' +
+                ", valSn=" + valSn +
+                ", extitemVal='" + extitemVal + '\'' +
+                '}';
     }
 }

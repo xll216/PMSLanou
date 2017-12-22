@@ -1,23 +1,26 @@
 package com.lanou.domain;
 
+/**
+ * 业务扩展项的卡片
+ **/
 public class PmsBusiExtItem {
-    private String extItemId;
+    private String extItemId;//扩展对象标识
 
-    private String busiTable;
+    private String busiTable;//关联表名称
 
-    private String busiId;
+    private String busiId;//关联业务标识 = 项目基本标识  外健
 
-    private String extType;
+    private String extType;//扩展类型
 
-    private String extPropCode;
+    private String extPropCode;//扩展属性码
 
-    private String extPropValue;
+    private String extPropValue;//扩展属性值
 
-    private String remark;
+    private String remark;//备注
 
-    private String multicheckFlag;
+    private String multicheckFlag;//是否多选
 
-    private String checkFlag;
+    private String checkFlag;//是否选中
 
     public PmsBusiExtItem(String extItemId, String busiTable, String busiId, String extType, String extPropCode, String extPropValue, String remark, String multicheckFlag, String checkFlag) {
         this.extItemId = extItemId;
@@ -105,5 +108,20 @@ public class PmsBusiExtItem {
 
     public void setCheckFlag(String checkFlag) {
         this.checkFlag = checkFlag == null ? null : checkFlag.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "PmsBusiExtItem{" +
+                "extItemId='" + extItemId + '\'' +
+                ", busiTable='" + busiTable + '\'' +
+                ", busiId='" + busiId + '\'' +
+                ", extType='" + extType + '\'' +
+                ", extPropCode='" + extPropCode + '\'' +
+                ", extPropValue='" + extPropValue + '\'' +
+                ", remark='" + remark + '\'' +
+                ", multicheckFlag='" + multicheckFlag + '\'' +
+                ", checkFlag='" + checkFlag + '\'' +
+                '}';
     }
 }

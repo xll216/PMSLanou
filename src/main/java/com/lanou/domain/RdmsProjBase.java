@@ -3,74 +3,77 @@ package com.lanou.domain;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * 科研项目基本信息
+ **/
 public class RdmsProjBase {
-    private String projId;
+    private String projId;//项目基本标识
 
-    private String projName;
+    private String projName;//名称
 
-    private String projType;
+    private String projType;//项目类型
 
-    private String appOrgNo;
+    private String appOrgNo;//申请单位
 
-    private String appOrgName;
+    private String appOrgName;//申请单位名称
 
-    private String uniteAppOrgNo;
+    private String uniteAppOrgNo;//联合申报单位
 
-    private String uniteAppOrgName;
+    private String uniteAppOrgName;//联合申报单位名称
 
-    private BigDecimal cycle;
+    private BigDecimal cycle;//周期
 
-    private BigDecimal totalBudget;
+    private BigDecimal totalBudget;//总预算
 
-    private String purpose;
+    private String purpose;//目的
 
-    private String safeDesc;
+    private String safeDesc;//安全性描述
 
-    private String reliableDesc;
+    private String reliableDesc;//可靠性描述
 
-    private String econDesc;
+    private String econDesc;//经济性分析
 
-    private String otherDesc;
+    private String otherDesc;//其他维度分析
 
-    private String achievementDesc;
+    private String achievementDesc;//成果应用
 
-    private String realUser;
+    private String realUser;//实际用户
 
-    private String potentialUser;
+    private String potentialUser;//潜在用户
 
-    private String content;
+    private String content;//项目内容
 
-    private String primeStaffNo;
+    private String primeStaffNo;//项目负责人
 
-    private String primeUserDesc;
+    private String primeUserDesc;//项目负责人描述
 
-    private String rightDesc;
+    private String rightDesc;//预计产权说明
 
-    private String benefitsDesc;
+    private String benefitsDesc;//经济效率
 
-    private String fixedAssets;
+    private String fixedAssets;//固定资产
 
-    private String acceptStand;
+    private String acceptStand;//验收标准
 
-    private String engineerEvaluate;
+    private String engineerEvaluate;//工程师评审结果
 
-    private String accordEvaluate;
+    private String accordEvaluate;//符合性审定
 
-    private String applicationEvaluate;
+    private String applicationEvaluate;//项目应用领域评价
 
-    private String totalEvaluate;
+    private String totalEvaluate;//总体评价
 
-    private String pmsRequire;
+    private String pmsRequire;//要求
 
-    private String advice;
+    private String advice;//建议
 
-    private String effectFlag;
+    private String effectFlag;//是否有效
 
-    private String createStaffNo;
+    private String createStaffNo;//创建人
 
-    private String createStaffName;
+    private String createStaffName;//创建人姓名
 
-    private Date createDate;
+    private Date createDate;//创建时间
 
     public RdmsProjBase(String projId, String projName, String projType, String appOrgNo, String appOrgName, String uniteAppOrgNo, String uniteAppOrgName, BigDecimal cycle, BigDecimal totalBudget, String purpose, String safeDesc, String reliableDesc, String econDesc, String otherDesc, String achievementDesc, String realUser, String potentialUser, String content, String primeStaffNo, String primeUserDesc, String rightDesc, String benefitsDesc, String fixedAssets, String acceptStand, String engineerEvaluate, String accordEvaluate, String applicationEvaluate, String totalEvaluate, String pmsRequire, String advice, String effectFlag, String createStaffNo, String createStaffName, Date createDate) {
         this.projId = projId;
@@ -383,5 +386,46 @@ public class RdmsProjBase {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+
+    @Override
+    public String toString() {
+        return "RdmsProjBase{" +
+                "projId='" + projId + '\'' +
+                ", projName='" + projName + '\'' +
+                ", projType='" + projType + '\'' +
+                ", appOrgNo='" + appOrgNo + '\'' +
+                ", appOrgName='" + appOrgName + '\'' +
+                ", uniteAppOrgNo='" + uniteAppOrgNo + '\'' +
+                ", uniteAppOrgName='" + uniteAppOrgName + '\'' +
+                ", cycle=" + cycle +
+                ", totalBudget=" + totalBudget +
+                ", purpose='" + purpose + '\'' +
+                ", safeDesc='" + safeDesc + '\'' +
+                ", reliableDesc='" + reliableDesc + '\'' +
+                ", econDesc='" + econDesc + '\'' +
+                ", otherDesc='" + otherDesc + '\'' +
+                ", achievementDesc='" + achievementDesc + '\'' +
+                ", realUser='" + realUser + '\'' +
+                ", potentialUser='" + potentialUser + '\'' +
+                ", content='" + content + '\'' +
+                ", primeStaffNo='" + primeStaffNo + '\'' +
+                ", primeUserDesc='" + primeUserDesc + '\'' +
+                ", rightDesc='" + rightDesc + '\'' +
+                ", benefitsDesc='" + benefitsDesc + '\'' +
+                ", fixedAssets='" + fixedAssets + '\'' +
+                ", acceptStand='" + acceptStand + '\'' +
+                ", engineerEvaluate='" + engineerEvaluate + '\'' +
+                ", accordEvaluate='" + accordEvaluate + '\'' +
+                ", applicationEvaluate='" + applicationEvaluate + '\'' +
+                ", totalEvaluate='" + totalEvaluate + '\'' +
+                ", pmsRequire='" + pmsRequire + '\'' +
+                ", advice='" + advice + '\'' +
+                ", effectFlag='" + effectFlag + '\'' +
+                ", createStaffNo='" + createStaffNo + '\'' +
+                ", createStaffName='" + createStaffName + '\'' +
+                ", createDate=" + createDate +
+                '}';
     }
 }
