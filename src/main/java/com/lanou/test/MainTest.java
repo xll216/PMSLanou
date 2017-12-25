@@ -2,8 +2,12 @@ package com.lanou.test;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lanou.controller.UserController;
+import com.lanou.domain.PMSBaseDepartment;
 import com.lanou.domain.RdmsProjBase;
+import com.lanou.mapper.PMSBaseDepartmentMapper;
 import com.lanou.mapper.RdmsProjBaseMapper;
+import com.lanou.util.SearchBean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -11,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by 蓝鸥科技有限公司  www.lanou3g.com.
@@ -21,6 +26,12 @@ import java.io.IOException;
 public class MainTest {
     @Resource
     private RdmsProjBaseMapper rdmsProjBaseMapper;
+
+    @Resource
+    private PMSBaseDepartmentMapper pmsBaseDepartmentMapper;
+
+    @Resource
+    private UserController userController;
 
     @Test
     public void test() {
@@ -62,6 +73,23 @@ public class MainTest {
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         RdmsProjBase base = mapper.readValue(data, RdmsProjBase.class);
         System.out.println(base);
+
+
+    }
+
+    @Test
+    public void test2() {
+//        System.out.println(pmsBaseDepartmentMapper);
+//        List<PMSBaseDepartment> departments=pmsBaseDepartmentMapper.selectAll();
+//
+//        for (PMSBaseDepartment department : departments) {
+//            System.out.println(department);
+//        }
+
+        SearchBean searchBean = new SearchBean();
+        searchBean.setKey("YP");
+        List<PMSBaseDepartment> departments = pmsBaseDepartmentMapper.selectBySelecttive(null);
+        System.out.println(departments);
 
 
     }

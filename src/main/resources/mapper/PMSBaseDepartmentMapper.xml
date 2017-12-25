@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.PMSBaseDepartmentMapper">
+    <resultMap id="BaseResultMap" type="com.lanou.domain.PMSBaseDepartment">
+        <constructor>
+            <idArg column="depID" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="depName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    depID, depName
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from PMS_Base_Department
+        where depID = #{depid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from PMS_Base_Department
+    where depID = #{depid,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.lanou.domain.PMSBaseDepartment">
+    insert into PMS_Base_Department (depID, depName)
+    values (#{depid,jdbcType=INTEGER}, #{depname,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.lanou.domain.PMSBaseDepartment">
+        insert into PMS_Base_Department
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="depid != null">
+                depID,
+            </if>
+            <if test="depname != null">
+                depName,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="depid != null">
+                #{depid,jdbcType=INTEGER},
+            </if>
+            <if test="depname != null">
+                #{depname,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PMSBaseDepartment">
+        update PMS_Base_Department
+        <set>
+            <if test="depname != null">
+                depName = #{depname,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where depID = #{depid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PMSBaseDepartment">
+    update PMS_Base_Department
+    set depName = #{depname,jdbcType=VARCHAR}
+    where depID = #{depid,jdbcType=INTEGER}
+  </update>
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM PMS_Base_Department
+    </select>
+    <select id="selectBySelecttive" resultMap="BaseResultMap" parameterType="com.lanou.util.SearchBean">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM PMS_Base_Department
+        WHERE 1=1
+        <if test="key != null">
+            AND depid = #{key}
+            OR depname LIKE CONCAT('%',#{key},'%')
+        </if>
+    </select>
+</mapper>

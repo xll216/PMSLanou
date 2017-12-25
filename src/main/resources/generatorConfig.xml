@@ -69,12 +69,18 @@
 
 
         <!--数据库中的表对应关系-->
-        <table tableName="ARTIFICIAL_MAC_DRILL" domainObjectName="ArtificialMacDrill"
+        <table tableName="PMS_Base_Department" domainObjectName="PMSBaseDepartment"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table>
 
+
+        <!--<table tableName="BIMS_BUSI_OBJ" domainObjectName="BimsBusiObj"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
         <table tableName="BIMS_BUSI_OBJ" domainObjectName="BimsBusiObj"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
@@ -324,6 +330,6 @@
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-        </table>
+        </table>-->
     </context>
 </generatorConfiguration>

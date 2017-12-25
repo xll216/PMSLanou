@@ -63,11 +63,16 @@
         <tr>
             <td class="td1">项目申报单位<span class="sp">*</span></td>
             <td class="td2">
-                <input class="mini-textbox" name="appOrgName" style="width:100%;" value="蓝鸥公司"/>
+                <input id="appOrgNo" class="mini-buttonedit" style="width: 100%"
+                       name="appOrgNo" allowInput="false"
+                       onbuttonclick="onButtonEdit"/>
+                <!--<input class="mini-textbox" name="appOrgName" style="width:100%;" value="蓝鸥公司"/>-->
             </td>
             <td class="td1">联合申报单位<span class="sp">*</span></td>
             <td class="td2">
-                <input class="mini-textbox" name="uniteAppOrgName" style="width:100%;" value="蓝鸥子公司"/>
+                <input id="uniteAppOrgNo" class="mini-buttonedit" style="width: 100%"
+                       name="uniteAppOrgNo" allowInput="false"
+                       onbuttonclick="onButtonEdit"/>
             </td>
         </tr>
         <tr>
@@ -183,6 +188,33 @@
 
         return s;
     }
+
+
+    function onButtonEdit(e) {
+        var btnEdit = this;
+        mini.open({
+            url: "/user/SelectDepartmentWindow",
+            title: "选择列表",
+            width: '30%',
+            height: '60%',
+            showMaxButton: true,
+            showModal: true,
+            ondestroy: function (action) {
+                if (action == "ok") {
+                    var iframe = this.getIFrameEl();
+                    var data = iframe.contentWindow.GetData();
+                    data = mini.clone(data);    //必须
+                    if (data) {
+                        btnEdit.setValue(data.depid);
+                        btnEdit.setText(data.depname);
+                    }
+                }
+            }
+        });
+
+    }
+
+
 </script>
 
 
