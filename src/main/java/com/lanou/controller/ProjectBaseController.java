@@ -5,7 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lanou.domain.RdmsProjBase;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.io.IOException;
 
@@ -31,11 +33,14 @@ public class ProjectBaseController {
         return "project_base/ProjectOtherInfor";
     }
 
-    @RequestMapping(value = "/projectApplyCommit", produces = "text/html; charset=utf-8")
+    @RequestMapping(value = "/projectApplyCommit", produces = "application/json; charset=utf-8")
     @ResponseBody
-    public String projectApply(String baseData, String otherData) throws IOException {
+    public RdmsProjBase projectApply(@RequestParam("projFile") CommonsMultipartFile projFile, String baseData, String otherData) throws IOException {
+
         /*拼接一下两段字符串*/
         String data = baseData.substring(0, (baseData.length() - 1)) + "," + otherData.substring(1, otherData.length());
+
+        System.out.println(projFile);
 
         ObjectMapper mapper = new ObjectMapper();
         // 设置输入时忽略在JSON字符串中存在但Java对象实际没有的属性
@@ -44,8 +49,7 @@ public class ProjectBaseController {
         RdmsProjBase projBase = mapper.readValue(data, RdmsProjBase.class);
         System.out.println(projBase);
 
-
-        return "成果";
+        return projBase;
     }
 
 }
