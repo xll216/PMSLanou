@@ -35,12 +35,14 @@ public class ProjectBaseController {
 
     @RequestMapping(value = "/projectApplyCommit", produces = "application/json; charset=utf-8")
     @ResponseBody
-    public RdmsProjBase projectApply(@RequestParam("projFile") CommonsMultipartFile projFile, String baseData, String otherData) throws IOException {
+    public RdmsProjBase projectApply(@RequestParam("projFile") CommonsMultipartFile projFile, String baseData, String otherData, String other) throws IOException {
 
         /*拼接一下两段字符串*/
         String data = baseData.substring(0, (baseData.length() - 1)) + "," + otherData.substring(1, otherData.length());
 
         System.out.println(projFile);
+
+        System.out.println(other);
 
         ObjectMapper mapper = new ObjectMapper();
         // 设置输入时忽略在JSON字符串中存在但Java对象实际没有的属性

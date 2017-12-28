@@ -38,6 +38,25 @@
             color: red;
             padding: 5px;
         }
+
+        #cbl1 {
+            display: inline-flex;
+        }
+
+        #test {
+            width: 100px;
+            background: #ebeff5;
+        }
+
+        #other {
+            width: 100%;
+            height: 80%;
+            border-left: 0px;
+            border-top: 0px;
+            border-right: 0px;
+            background: #ebeff5;
+            border-bottom: 2px solid #A5ACB5;
+        }
     </style>
 </head>
 <body>
@@ -154,6 +173,21 @@
     ];
     cbl1.setData(arr);
 
+    /*添加其他后面的横线*/
+    $("#cbl1").append($("<div id='test'>")
+        .append($("<input id='other' name='other' disabled='disabled'/>")));
+
+    cbl1.on("valuechanged", function (e) {
+
+        /*如果其他勾选 后面的横线可以输入 否则不可输入*/
+        if (cbl1.getValue().indexOf("cb08") > 0) {
+            $("#other").attr("disabled", false);
+        } else {
+            $("#other").val(null);
+            $("#other").attr("disabled", true);
+        }
+    });
+
     /*页面加载成果之后添加事件处理*/
     $(document).ready(function () {
 
@@ -175,8 +209,13 @@
             var form2 = $("#upload");
             var bData = $("<input name='baseData' hidden='hidden'>").val(baseData);
             var oData = $("<input name='otherData' hidden='hidden'>").val(otherData);
+            var other = $("<input name='other' hidden='hidden'>").val($("#other").val());
+
             form2.append(bData);
             form2.append(oData);
+
+            /*其他选项勾选的情况*/
+            form2.append(other);
 
             $.ajaxFileUpload({
                 url: '/pro/projectApplyCommit',  //用于文件上传的服务器端请求地址
@@ -185,9 +224,6 @@
                 dataType: 'text',                   //返回值类型 一般设置为json
                 success: function (data, status) //服务器成功响应处理函数
                 {
-                    //将String字符串转换成json
-                    alert(typeof (data) + "上传成功: " + data);
-
                     data = data.replace("<PRE>", '');  //ajaxFileUpload会对服务器响应回来的text内容加上<pre>text</pre>前后缀
                     data = data.replace("</PRE>", '');
                     data = data.replace("<pre>", '');
