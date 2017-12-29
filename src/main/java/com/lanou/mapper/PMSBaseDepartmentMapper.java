@@ -21,4 +21,6 @@ public interface PMSBaseDepartmentMapper {
     List<PMSBaseDepartment> selectAll();
 
     List<PMSBaseDepartment> selectBySelecttive(SearchBean searchBean);
+
+    String selectMaxKey();
 }

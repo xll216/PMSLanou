@@ -14,4 +14,6 @@ public interface SysBusiAttachmentMapper {
     int updateByPrimaryKeySelective(SysBusiAttachment record);
 
     int updateByPrimaryKey(SysBusiAttachment record);
+
+    String selectMaxKey();
 }

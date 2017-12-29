@@ -7,7 +7,6 @@ import com.lanou.domain.RdmsProjBase;
 import com.lanou.domain.SysBusiAttachment;
 import com.lanou.result.ProjectApplyBean;
 import com.lanou.service.UserService;
-import com.lanou.util.PmsTools;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -96,10 +95,6 @@ public class ProjectBaseController {
                 file.transferTo(new File(filePath));
 
                 SysBusiAttachment attachment = new SysBusiAttachment();
-
-                /*主键 随机字符串*/
-                attachment.setAttachid("SysBusiAttachment"+PmsTools.getRandomString(PmsTools.KEY_LENGTH));
-
                 attachment.setSysname("蓝鸥业务流程申请平台");
                 attachment.setFilename(file.getOriginalFilename());//文件名称
                 attachment.setFilesize(file.getSize() + "");//文件大小

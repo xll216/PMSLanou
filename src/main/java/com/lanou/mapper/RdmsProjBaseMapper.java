@@ -14,4 +14,6 @@ public interface RdmsProjBaseMapper {
     int updateByPrimaryKeySelective(RdmsProjBase record);
 
     int updateByPrimaryKey(RdmsProjBase record);
+
+    String selectMaxKey();
 }

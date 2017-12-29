@@ -14,4 +14,6 @@ public interface PmsBusiExtItemMapper {
     int updateByPrimaryKeySelective(PmsBusiExtItem record);
 
     int updateByPrimaryKey(PmsBusiExtItem record);
+
+    String selectMaxKey();
 }

@@ -14,4 +14,6 @@ public interface PmsFlowApplyMapper {
     int updateByPrimaryKeySelective(PmsFlowApply record);
 
     int updateByPrimaryKey(PmsFlowApply record);
+
+    String selectMaxKey();
 }

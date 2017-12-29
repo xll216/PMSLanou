@@ -100,7 +100,7 @@ public class UserServiceImpl implements UserService {
     public boolean projectApply(ProjectApplyBean applyBean, RdmsProjBase rdmsProjBase) throws IOException {
 
         /*1、项目基本表对象*/
-        RdmsProjBase projBase = insertProjBase(rdmsProjBase);
+        RdmsProjBase projBase = insertProjBase(rdmsProjBase, applyBean.getLoginStaff());
 
         /*2、审批对象 必填字段*/
         PMSBaseStaff flowStaff = selectStaffByStaffID(Integer.parseInt(applyBean.getStaffNo()));
@@ -108,15 +108,13 @@ public class UserServiceImpl implements UserService {
         /*3、存储预算信息、立项报告书*/
         insertProjBudget(applyBean, projBase.getProjId());
 
-
-
-        /*5、开始发起申请流程*/
+        /*4、开始发起申请流程*/
         PmsFlowApply apply = insertFlowApply(applyBean.getLoginStaff());
 
-        /*6、流程与业务关联信息*/
+        /*5、流程与业务关联信息*/
         insertFlowBusiRela(apply.getAppId(), projBase.getProjId());
 
-        return false;
+        return true;
     }
 
     /**
@@ -127,7 +125,7 @@ public class UserServiceImpl implements UserService {
      **/
     private void insertFlowBusiRela(String appID, String busiID) {
         PmsFlowBusiRela busiRela = new PmsFlowBusiRela();
-        busiRela.setRelaId("FlowBusiRela"+PmsTools.getRandomString(PmsTools.KEY_LENGTH));//流程与业务关联标识 可以采用随机字符串的方式
+        busiRela.setRelaId("R" + PmsTools.getRandomString(pmsFlowBusiRelaMapper.selectMaxKey()));//流程与业务关联标识 可以采用随机字符串的方式
         busiRela.setAppId(appID);//申请标识
         busiRela.setRelaBusiTable("RDMS_PROJ_BASE");//关联业务表
         busiRela.setRelaBusiId(busiID);//关联业务id
@@ -142,20 +140,20 @@ public class UserServiceImpl implements UserService {
      *
      * @param projBase 科研项目基本信息对象
      **/
-    private RdmsProjBase insertProjBase(RdmsProjBase projBase) throws IOException {
+    private RdmsProjBase insertProjBase(RdmsProjBase projBase, PMSBaseStaff loginStaff) throws IOException {
         /*主键 随机字符串*/
-        projBase.setProjId("ProjBase" + PmsTools.getRandomString(PmsTools.KEY_LENGTH));
+        projBase.setProjId("P" + PmsTools.getRandomString(rdmsProjBaseMapper.selectMaxKey()));
 
         PMSBaseDepartment department1 = selectDepartmentByDepId(
                 Integer.parseInt(projBase.getAppOrgNo()));//项目申报单位
         PMSBaseDepartment department2 = selectDepartmentByDepId(
                 Integer.parseInt(projBase.getUniteAppOrgNo()));//联合申报单位
-        PMSBaseStaff baseStaff = selectStaffByStaffID(1);//创建人信息
-        projBase.setCreateStaffNo(baseStaff.getStaffid() + "");//创建人编号
-        projBase.setCreateStaffName(baseStaff.getStaffname());//创建人姓名
+//        PMSBaseStaff baseStaff = selectStaffByStaffID(1);//创建人信息
+        projBase.setCreateStaffNo(loginStaff.getStaffid() + "");//创建人编号
+        projBase.setCreateStaffName(loginStaff.getStaffname());//创建人姓名
         projBase.setCreateDate(new Date());//创建时间
-        projBase.setPrimeStaffNo(baseStaff.getStaffid() + "");//项目负责人编号
-        projBase.setPrimeUserDesc("很优秀的人员");//项目负责人描述
+        projBase.setPrimeStaffNo(loginStaff.getStaffid() + "");//项目负责人编号
+//        projBase.setPrimeUserDesc("primeUserDesc");//项目负责人描述
         projBase.setAppOrgName(department1.getDepname());//更新项目申报单位
         projBase.setUniteAppOrgName(department2.getDepname());//更新联合申报单位
 
@@ -172,13 +170,13 @@ public class UserServiceImpl implements UserService {
     private PmsFlowApply insertFlowApply(PMSBaseStaff loginStaff) {
         PmsFlowApply apply = new PmsFlowApply();
         /*流程申请标识 主键 随机字符串*/
-        String appID = "FlowApply"+PmsTools.getRandomString(PmsTools.KEY_LENGTH);
+        String appID = "F" + PmsTools.getRandomString(pmsFlowApplyMapper.selectMaxKey());
         apply.setAppId(appID);//申请标识
         apply.setAppNo(appID);//申请编号
 
         apply.setProcessinstid(1);//流程实例标识
-        apply.setAppType("科研项目申报与评审流程");//申请类型
-        apply.setTheme("科研项目申报与评审流程");//申请主题
+        apply.setAppType("科研项目申报");//申请类型
+        apply.setTheme("科研项目申报");//申请主题
         apply.setApplyDate(new Date());//申请时间
         apply.setFlowAppStaffNo(loginStaff.getStaffid() + "");//系统申请人员编号
         apply.setFlowAppStaffName(loginStaff.getStaffname());//系统申请人员名称
@@ -194,7 +192,7 @@ public class UserServiceImpl implements UserService {
         apply.setAppYm("201712");//申请年月
         apply.setPrintFlag("true");//是否打印
         apply.setCanPrintFlag("true");//是否可以打印
-        apply.setStatus("1");//流程状态
+        apply.setStatus("部门经理审批");//流程状态
         apply.setEffectFlag("true");//是否有效
         apply.setCreateStaffNo(loginStaff.getStaffid() + "");//创建人
         apply.setCreateStaffName(loginStaff.getStaffname());//创建人姓名
@@ -214,7 +212,7 @@ public class UserServiceImpl implements UserService {
             try {
                 RdmsProjBudget budget = new RdmsProjBudget();
                 /*随机主键id*/
-                budget.setBudDetailId("ProjBudget"+PmsTools.getRandomString(PmsTools.KEY_LENGTH));
+                budget.setBudDetailId("B" + PmsTools.getRandomString(rdmsProjBudgetMapper.selectMaxKey()));
 
                 budget.setBusiTable("RDMS_PROJ_BASE");//业务表
                 budget.setBusiId(busiId);//业务标识
@@ -233,7 +231,7 @@ public class UserServiceImpl implements UserService {
             try {
                 RdmsProjBudget budget = new RdmsProjBudget();
                 /*随机主键id*/
-                budget.setBudDetailId("ProjBudget"+PmsTools.getRandomString(PmsTools.KEY_LENGTH));
+                budget.setBudDetailId("B" + PmsTools.getRandomString(rdmsProjBudgetMapper.selectMaxKey()));
 
                 budget.setBusiTable("RDMS_PROJ_BASE");//业务表
                 budget.setBusiId(busiId);//业务标识
@@ -252,7 +250,7 @@ public class UserServiceImpl implements UserService {
             try {
                 RdmsProjBudget budget = new RdmsProjBudget();
                 /*随机主键id*/
-                budget.setBudDetailId("ProjBudget"+PmsTools.getRandomString(PmsTools.KEY_LENGTH));
+                budget.setBudDetailId("B" + PmsTools.getRandomString(rdmsProjBudgetMapper.selectMaxKey()));
 
                 budget.setBusiTable("RDMS_PROJ_BASE");//业务表
                 budget.setBusiId(busiId);//业务标识
@@ -270,11 +268,13 @@ public class UserServiceImpl implements UserService {
         if (applyBean.getAttachment() != null) {
             try {
                 /*现保存附件*/
+                /*主键 随机字符串*/
+                applyBean.getAttachment().setAttachid("A" + PmsTools.getRandomString(sysBusiAttachmentMapper.selectMaxKey()));
                 sysBusiAttachmentMapper.insert(applyBean.getAttachment());
 
                 PmsBusiExtItem extItem = new PmsBusiExtItem();
                 /*主键id*/
-                extItem.setExtItemId("BusiExtItem"+PmsTools.getRandomString(PmsTools.KEY_LENGTH));
+                extItem.setExtItemId("E" + PmsTools.getRandomString(pmsBusiExtItemMapper.selectMaxKey()));
                 extItem.setBusiTable("RDMS_PROJ_BASE");
                 extItem.setBusiId(busiId);
                 extItem.setExtType("立项报告书");

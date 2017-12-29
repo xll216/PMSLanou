@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lanou.mapper.PmsBusiExtItemMapper" >
-  <resultMap id="BaseResultMap" type="com.lanou.domain.PmsBusiExtItem" >
-    <constructor >
-      <idArg column="EXT_ITEM_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="BUSI_TABLE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="BUSI_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="EXT_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="EXT_PROP_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="EXT_PROP_VALUE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="REMARK" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="MULTICHECK_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CHECK_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.lanou.mapper.PmsBusiExtItemMapper">
+    <resultMap id="BaseResultMap" type="com.lanou.domain.PmsBusiExtItem">
+        <constructor>
+            <idArg column="EXT_ITEM_ID" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="BUSI_TABLE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="BUSI_ID" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="EXT_TYPE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="EXT_PROP_CODE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="EXT_PROP_VALUE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="REMARK" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="MULTICHECK_FLAG" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="CHECK_FLAG" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
     EXT_ITEM_ID, BUSI_TABLE, BUSI_ID, EXT_TYPE, EXT_PROP_CODE, EXT_PROP_VALUE, REMARK, 
     MULTICHECK_FLAG, CHECK_FLAG
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from PMS_BUSI_EXT_ITEM
-    where EXT_ITEM_ID = #{extItemId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from PMS_BUSI_EXT_ITEM
+        where EXT_ITEM_ID = #{extItemId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from PMS_BUSI_EXT_ITEM
     where EXT_ITEM_ID = #{extItemId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.PmsBusiExtItem" >
+    <insert id="insert" parameterType="com.lanou.domain.PmsBusiExtItem">
     insert into PMS_BUSI_EXT_ITEM (EXT_ITEM_ID, BUSI_TABLE, BUSI_ID, 
       EXT_TYPE, EXT_PROP_CODE, EXT_PROP_VALUE, 
       REMARK, MULTICHECK_FLAG, CHECK_FLAG
@@ -38,98 +38,98 @@
       #{remark,jdbcType=VARCHAR}, #{multicheckFlag,jdbcType=VARCHAR}, #{checkFlag,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.PmsBusiExtItem" >
-    insert into PMS_BUSI_EXT_ITEM
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="extItemId != null" >
-        EXT_ITEM_ID,
-      </if>
-      <if test="busiTable != null" >
-        BUSI_TABLE,
-      </if>
-      <if test="busiId != null" >
-        BUSI_ID,
-      </if>
-      <if test="extType != null" >
-        EXT_TYPE,
-      </if>
-      <if test="extPropCode != null" >
-        EXT_PROP_CODE,
-      </if>
-      <if test="extPropValue != null" >
-        EXT_PROP_VALUE,
-      </if>
-      <if test="remark != null" >
-        REMARK,
-      </if>
-      <if test="multicheckFlag != null" >
-        MULTICHECK_FLAG,
-      </if>
-      <if test="checkFlag != null" >
-        CHECK_FLAG,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="extItemId != null" >
-        #{extItemId,jdbcType=VARCHAR},
-      </if>
-      <if test="busiTable != null" >
-        #{busiTable,jdbcType=VARCHAR},
-      </if>
-      <if test="busiId != null" >
-        #{busiId,jdbcType=VARCHAR},
-      </if>
-      <if test="extType != null" >
-        #{extType,jdbcType=VARCHAR},
-      </if>
-      <if test="extPropCode != null" >
-        #{extPropCode,jdbcType=VARCHAR},
-      </if>
-      <if test="extPropValue != null" >
-        #{extPropValue,jdbcType=VARCHAR},
-      </if>
-      <if test="remark != null" >
-        #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="multicheckFlag != null" >
-        #{multicheckFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="checkFlag != null" >
-        #{checkFlag,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsBusiExtItem" >
-    update PMS_BUSI_EXT_ITEM
-    <set >
-      <if test="busiTable != null" >
-        BUSI_TABLE = #{busiTable,jdbcType=VARCHAR},
-      </if>
-      <if test="busiId != null" >
-        BUSI_ID = #{busiId,jdbcType=VARCHAR},
-      </if>
-      <if test="extType != null" >
-        EXT_TYPE = #{extType,jdbcType=VARCHAR},
-      </if>
-      <if test="extPropCode != null" >
-        EXT_PROP_CODE = #{extPropCode,jdbcType=VARCHAR},
-      </if>
-      <if test="extPropValue != null" >
-        EXT_PROP_VALUE = #{extPropValue,jdbcType=VARCHAR},
-      </if>
-      <if test="remark != null" >
-        REMARK = #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="multicheckFlag != null" >
-        MULTICHECK_FLAG = #{multicheckFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="checkFlag != null" >
-        CHECK_FLAG = #{checkFlag,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where EXT_ITEM_ID = #{extItemId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsBusiExtItem" >
+    <insert id="insertSelective" parameterType="com.lanou.domain.PmsBusiExtItem">
+        insert into PMS_BUSI_EXT_ITEM
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="extItemId != null">
+                EXT_ITEM_ID,
+            </if>
+            <if test="busiTable != null">
+                BUSI_TABLE,
+            </if>
+            <if test="busiId != null">
+                BUSI_ID,
+            </if>
+            <if test="extType != null">
+                EXT_TYPE,
+            </if>
+            <if test="extPropCode != null">
+                EXT_PROP_CODE,
+            </if>
+            <if test="extPropValue != null">
+                EXT_PROP_VALUE,
+            </if>
+            <if test="remark != null">
+                REMARK,
+            </if>
+            <if test="multicheckFlag != null">
+                MULTICHECK_FLAG,
+            </if>
+            <if test="checkFlag != null">
+                CHECK_FLAG,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="extItemId != null">
+                #{extItemId,jdbcType=VARCHAR},
+            </if>
+            <if test="busiTable != null">
+                #{busiTable,jdbcType=VARCHAR},
+            </if>
+            <if test="busiId != null">
+                #{busiId,jdbcType=VARCHAR},
+            </if>
+            <if test="extType != null">
+                #{extType,jdbcType=VARCHAR},
+            </if>
+            <if test="extPropCode != null">
+                #{extPropCode,jdbcType=VARCHAR},
+            </if>
+            <if test="extPropValue != null">
+                #{extPropValue,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="multicheckFlag != null">
+                #{multicheckFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="checkFlag != null">
+                #{checkFlag,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PmsBusiExtItem">
+        update PMS_BUSI_EXT_ITEM
+        <set>
+            <if test="busiTable != null">
+                BUSI_TABLE = #{busiTable,jdbcType=VARCHAR},
+            </if>
+            <if test="busiId != null">
+                BUSI_ID = #{busiId,jdbcType=VARCHAR},
+            </if>
+            <if test="extType != null">
+                EXT_TYPE = #{extType,jdbcType=VARCHAR},
+            </if>
+            <if test="extPropCode != null">
+                EXT_PROP_CODE = #{extPropCode,jdbcType=VARCHAR},
+            </if>
+            <if test="extPropValue != null">
+                EXT_PROP_VALUE = #{extPropValue,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                REMARK = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="multicheckFlag != null">
+                MULTICHECK_FLAG = #{multicheckFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="checkFlag != null">
+                CHECK_FLAG = #{checkFlag,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where EXT_ITEM_ID = #{extItemId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PmsBusiExtItem">
     update PMS_BUSI_EXT_ITEM
     set BUSI_TABLE = #{busiTable,jdbcType=VARCHAR},
       BUSI_ID = #{busiId,jdbcType=VARCHAR},
@@ -141,4 +141,9 @@
       CHECK_FLAG = #{checkFlag,jdbcType=VARCHAR}
     where EXT_ITEM_ID = #{extItemId,jdbcType=VARCHAR}
   </update>
+
+    <select id="selectMaxKey" resultType="java.lang.String">
+    SELECT MAX(EXT_ITEM_ID)
+    FROM PMS_BUSI_EXT_ITEM
+  </select>
 </mapper>

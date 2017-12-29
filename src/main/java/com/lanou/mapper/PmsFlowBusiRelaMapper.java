@@ -14,4 +14,6 @@ public interface PmsFlowBusiRelaMapper {
     int updateByPrimaryKeySelective(PmsFlowBusiRela record);
 
     int updateByPrimaryKey(PmsFlowBusiRela record);
+
+    String selectMaxKey();
 }

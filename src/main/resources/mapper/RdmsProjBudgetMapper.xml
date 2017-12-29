@@ -1,90 +1,90 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lanou.mapper.RdmsProjBudgetMapper" >
-  <resultMap id="BaseResultMap" type="com.lanou.domain.RdmsProjBudget" >
-    <constructor >
-      <idArg column="BUD_DETAIL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="BUSI_TABLE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="BUSI_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="BUDGET_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="BUDGET_FEE" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.lanou.mapper.RdmsProjBudgetMapper">
+    <resultMap id="BaseResultMap" type="com.lanou.domain.RdmsProjBudget">
+        <constructor>
+            <idArg column="BUD_DETAIL_ID" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="BUSI_TABLE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="BUSI_ID" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="BUDGET_TYPE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="BUDGET_FEE" jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
     BUD_DETAIL_ID, BUSI_TABLE, BUSI_ID, BUDGET_TYPE, BUDGET_FEE
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from RDMS_PROJ_BUDGET
-    where BUD_DETAIL_ID = #{budDetailId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from RDMS_PROJ_BUDGET
+        where BUD_DETAIL_ID = #{budDetailId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from RDMS_PROJ_BUDGET
     where BUD_DETAIL_ID = #{budDetailId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.RdmsProjBudget" >
+    <insert id="insert" parameterType="com.lanou.domain.RdmsProjBudget">
     insert into RDMS_PROJ_BUDGET (BUD_DETAIL_ID, BUSI_TABLE, BUSI_ID, 
       BUDGET_TYPE, BUDGET_FEE)
     values (#{budDetailId,jdbcType=VARCHAR}, #{busiTable,jdbcType=VARCHAR}, #{busiId,jdbcType=VARCHAR}, 
       #{budgetType,jdbcType=VARCHAR}, #{budgetFee,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.RdmsProjBudget" >
-    insert into RDMS_PROJ_BUDGET
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="budDetailId != null" >
-        BUD_DETAIL_ID,
-      </if>
-      <if test="busiTable != null" >
-        BUSI_TABLE,
-      </if>
-      <if test="busiId != null" >
-        BUSI_ID,
-      </if>
-      <if test="budgetType != null" >
-        BUDGET_TYPE,
-      </if>
-      <if test="budgetFee != null" >
-        BUDGET_FEE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="budDetailId != null" >
-        #{budDetailId,jdbcType=VARCHAR},
-      </if>
-      <if test="busiTable != null" >
-        #{busiTable,jdbcType=VARCHAR},
-      </if>
-      <if test="busiId != null" >
-        #{busiId,jdbcType=VARCHAR},
-      </if>
-      <if test="budgetType != null" >
-        #{budgetType,jdbcType=VARCHAR},
-      </if>
-      <if test="budgetFee != null" >
-        #{budgetFee,jdbcType=DECIMAL},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RdmsProjBudget" >
-    update RDMS_PROJ_BUDGET
-    <set >
-      <if test="busiTable != null" >
-        BUSI_TABLE = #{busiTable,jdbcType=VARCHAR},
-      </if>
-      <if test="busiId != null" >
-        BUSI_ID = #{busiId,jdbcType=VARCHAR},
-      </if>
-      <if test="budgetType != null" >
-        BUDGET_TYPE = #{budgetType,jdbcType=VARCHAR},
-      </if>
-      <if test="budgetFee != null" >
-        BUDGET_FEE = #{budgetFee,jdbcType=DECIMAL},
-      </if>
-    </set>
-    where BUD_DETAIL_ID = #{budDetailId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RdmsProjBudget" >
+    <insert id="insertSelective" parameterType="com.lanou.domain.RdmsProjBudget">
+        insert into RDMS_PROJ_BUDGET
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="budDetailId != null">
+                BUD_DETAIL_ID,
+            </if>
+            <if test="busiTable != null">
+                BUSI_TABLE,
+            </if>
+            <if test="busiId != null">
+                BUSI_ID,
+            </if>
+            <if test="budgetType != null">
+                BUDGET_TYPE,
+            </if>
+            <if test="budgetFee != null">
+                BUDGET_FEE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="budDetailId != null">
+                #{budDetailId,jdbcType=VARCHAR},
+            </if>
+            <if test="busiTable != null">
+                #{busiTable,jdbcType=VARCHAR},
+            </if>
+            <if test="busiId != null">
+                #{busiId,jdbcType=VARCHAR},
+            </if>
+            <if test="budgetType != null">
+                #{budgetType,jdbcType=VARCHAR},
+            </if>
+            <if test="budgetFee != null">
+                #{budgetFee,jdbcType=DECIMAL},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RdmsProjBudget">
+        update RDMS_PROJ_BUDGET
+        <set>
+            <if test="busiTable != null">
+                BUSI_TABLE = #{busiTable,jdbcType=VARCHAR},
+            </if>
+            <if test="busiId != null">
+                BUSI_ID = #{busiId,jdbcType=VARCHAR},
+            </if>
+            <if test="budgetType != null">
+                BUDGET_TYPE = #{budgetType,jdbcType=VARCHAR},
+            </if>
+            <if test="budgetFee != null">
+                BUDGET_FEE = #{budgetFee,jdbcType=DECIMAL},
+            </if>
+        </set>
+        where BUD_DETAIL_ID = #{budDetailId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RdmsProjBudget">
     update RDMS_PROJ_BUDGET
     set BUSI_TABLE = #{busiTable,jdbcType=VARCHAR},
       BUSI_ID = #{busiId,jdbcType=VARCHAR},
@@ -92,4 +92,9 @@
       BUDGET_FEE = #{budgetFee,jdbcType=DECIMAL}
     where BUD_DETAIL_ID = #{budDetailId,jdbcType=VARCHAR}
   </update>
+
+    <select id="selectMaxKey" resultType="java.lang.String">
+    SELECT MAX(BUD_DETAIL_ID)
+    FROM RDMS_PROJ_BUDGET
+  </select>
 </mapper>

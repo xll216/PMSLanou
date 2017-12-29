@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lanou.mapper.RdmsProjBaseMapper" >
-  <resultMap id="BaseResultMap" type="com.lanou.domain.RdmsProjBase" >
-    <constructor >
-      <idArg column="PROJ_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="PROJ_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="PROJ_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="APP_ORG_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="APP_ORG_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="UNITE_APP_ORG_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="UNITE_APP_ORG_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CYCLE" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
-      <arg column="TOTAL_BUDGET" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
-      <arg column="PURPOSE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="SAFE_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="RELIABLE_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="ECON_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="OTHER_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="ACHIEVEMENT_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="REAL_USER" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="POTENTIAL_USER" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CONTENT" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="PRIME_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="PRIME_USER_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="RIGHT_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="BENEFITS_DESC" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="FIXED_ASSETS" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="ACCEPT_STAND" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="ENGINEER_EVALUATE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="ACCORD_EVALUATE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="APPLICATION_EVALUATE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="TOTAL_EVALUATE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="PMS_REQUIRE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="ADVICE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="EFFECT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CREATE_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CREATE_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.lanou.mapper.RdmsProjBaseMapper">
+    <resultMap id="BaseResultMap" type="com.lanou.domain.RdmsProjBase">
+        <constructor>
+            <idArg column="PROJ_ID" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="PROJ_NAME" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="PROJ_TYPE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="APP_ORG_NO" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="APP_ORG_NAME" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="UNITE_APP_ORG_NO" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="UNITE_APP_ORG_NAME" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="CYCLE" jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
+            <arg column="TOTAL_BUDGET" jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
+            <arg column="PURPOSE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="SAFE_DESC" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="RELIABLE_DESC" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="ECON_DESC" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="OTHER_DESC" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="ACHIEVEMENT_DESC" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="REAL_USER" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="POTENTIAL_USER" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="CONTENT" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="PRIME_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="PRIME_USER_DESC" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="RIGHT_DESC" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="BENEFITS_DESC" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="FIXED_ASSETS" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="ACCEPT_STAND" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="ENGINEER_EVALUATE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="ACCORD_EVALUATE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="APPLICATION_EVALUATE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="TOTAL_EVALUATE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="PMS_REQUIRE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="ADVICE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="EFFECT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="CREATE_STAFF_NO" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="CREATE_STAFF_NAME" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
     PROJ_ID, PROJ_NAME, PROJ_TYPE, APP_ORG_NO, APP_ORG_NAME, UNITE_APP_ORG_NO, UNITE_APP_ORG_NAME, 
     CYCLE, TOTAL_BUDGET, PURPOSE, SAFE_DESC, RELIABLE_DESC, ECON_DESC, OTHER_DESC, ACHIEVEMENT_DESC, 
     REAL_USER, POTENTIAL_USER, CONTENT, PRIME_STAFF_NO, PRIME_USER_DESC, RIGHT_DESC, 
@@ -47,17 +47,17 @@
     TOTAL_EVALUATE, PMS_REQUIRE, ADVICE, EFFECT_FLAG, CREATE_STAFF_NO, CREATE_STAFF_NAME, 
     CREATE_DATE
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from RDMS_PROJ_BASE
-    where PROJ_ID = #{projId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from RDMS_PROJ_BASE
+        where PROJ_ID = #{projId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from RDMS_PROJ_BASE
     where PROJ_ID = #{projId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.RdmsProjBase" >
+    <insert id="insert" parameterType="com.lanou.domain.RdmsProjBase">
     insert into RDMS_PROJ_BASE (PROJ_ID, PROJ_NAME, PROJ_TYPE, 
       APP_ORG_NO, APP_ORG_NAME, UNITE_APP_ORG_NO, 
       UNITE_APP_ORG_NAME, CYCLE, TOTAL_BUDGET, 
@@ -83,323 +83,323 @@
       #{effectFlag,jdbcType=VARCHAR}, #{createStaffNo,jdbcType=VARCHAR}, #{createStaffName,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.RdmsProjBase" >
-    insert into RDMS_PROJ_BASE
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="projId != null" >
-        PROJ_ID,
-      </if>
-      <if test="projName != null" >
-        PROJ_NAME,
-      </if>
-      <if test="projType != null" >
-        PROJ_TYPE,
-      </if>
-      <if test="appOrgNo != null" >
-        APP_ORG_NO,
-      </if>
-      <if test="appOrgName != null" >
-        APP_ORG_NAME,
-      </if>
-      <if test="uniteAppOrgNo != null" >
-        UNITE_APP_ORG_NO,
-      </if>
-      <if test="uniteAppOrgName != null" >
-        UNITE_APP_ORG_NAME,
-      </if>
-      <if test="cycle != null" >
-        CYCLE,
-      </if>
-      <if test="totalBudget != null" >
-        TOTAL_BUDGET,
-      </if>
-      <if test="purpose != null" >
-        PURPOSE,
-      </if>
-      <if test="safeDesc != null" >
-        SAFE_DESC,
-      </if>
-      <if test="reliableDesc != null" >
-        RELIABLE_DESC,
-      </if>
-      <if test="econDesc != null" >
-        ECON_DESC,
-      </if>
-      <if test="otherDesc != null" >
-        OTHER_DESC,
-      </if>
-      <if test="achievementDesc != null" >
-        ACHIEVEMENT_DESC,
-      </if>
-      <if test="realUser != null" >
-        REAL_USER,
-      </if>
-      <if test="potentialUser != null" >
-        POTENTIAL_USER,
-      </if>
-      <if test="content != null" >
-        CONTENT,
-      </if>
-      <if test="primeStaffNo != null" >
-        PRIME_STAFF_NO,
-      </if>
-      <if test="primeUserDesc != null" >
-        PRIME_USER_DESC,
-      </if>
-      <if test="rightDesc != null" >
-        RIGHT_DESC,
-      </if>
-      <if test="benefitsDesc != null" >
-        BENEFITS_DESC,
-      </if>
-      <if test="fixedAssets != null" >
-        FIXED_ASSETS,
-      </if>
-      <if test="acceptStand != null" >
-        ACCEPT_STAND,
-      </if>
-      <if test="engineerEvaluate != null" >
-        ENGINEER_EVALUATE,
-      </if>
-      <if test="accordEvaluate != null" >
-        ACCORD_EVALUATE,
-      </if>
-      <if test="applicationEvaluate != null" >
-        APPLICATION_EVALUATE,
-      </if>
-      <if test="totalEvaluate != null" >
-        TOTAL_EVALUATE,
-      </if>
-      <if test="pmsRequire != null" >
-        PMS_REQUIRE,
-      </if>
-      <if test="advice != null" >
-        ADVICE,
-      </if>
-      <if test="effectFlag != null" >
-        EFFECT_FLAG,
-      </if>
-      <if test="createStaffNo != null" >
-        CREATE_STAFF_NO,
-      </if>
-      <if test="createStaffName != null" >
-        CREATE_STAFF_NAME,
-      </if>
-      <if test="createDate != null" >
-        CREATE_DATE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="projId != null" >
-        #{projId,jdbcType=VARCHAR},
-      </if>
-      <if test="projName != null" >
-        #{projName,jdbcType=VARCHAR},
-      </if>
-      <if test="projType != null" >
-        #{projType,jdbcType=VARCHAR},
-      </if>
-      <if test="appOrgNo != null" >
-        #{appOrgNo,jdbcType=VARCHAR},
-      </if>
-      <if test="appOrgName != null" >
-        #{appOrgName,jdbcType=VARCHAR},
-      </if>
-      <if test="uniteAppOrgNo != null" >
-        #{uniteAppOrgNo,jdbcType=VARCHAR},
-      </if>
-      <if test="uniteAppOrgName != null" >
-        #{uniteAppOrgName,jdbcType=VARCHAR},
-      </if>
-      <if test="cycle != null" >
-        #{cycle,jdbcType=DECIMAL},
-      </if>
-      <if test="totalBudget != null" >
-        #{totalBudget,jdbcType=DECIMAL},
-      </if>
-      <if test="purpose != null" >
-        #{purpose,jdbcType=VARCHAR},
-      </if>
-      <if test="safeDesc != null" >
-        #{safeDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="reliableDesc != null" >
-        #{reliableDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="econDesc != null" >
-        #{econDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="otherDesc != null" >
-        #{otherDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="achievementDesc != null" >
-        #{achievementDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="realUser != null" >
-        #{realUser,jdbcType=VARCHAR},
-      </if>
-      <if test="potentialUser != null" >
-        #{potentialUser,jdbcType=VARCHAR},
-      </if>
-      <if test="content != null" >
-        #{content,jdbcType=VARCHAR},
-      </if>
-      <if test="primeStaffNo != null" >
-        #{primeStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="primeUserDesc != null" >
-        #{primeUserDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="rightDesc != null" >
-        #{rightDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="benefitsDesc != null" >
-        #{benefitsDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="fixedAssets != null" >
-        #{fixedAssets,jdbcType=VARCHAR},
-      </if>
-      <if test="acceptStand != null" >
-        #{acceptStand,jdbcType=VARCHAR},
-      </if>
-      <if test="engineerEvaluate != null" >
-        #{engineerEvaluate,jdbcType=VARCHAR},
-      </if>
-      <if test="accordEvaluate != null" >
-        #{accordEvaluate,jdbcType=VARCHAR},
-      </if>
-      <if test="applicationEvaluate != null" >
-        #{applicationEvaluate,jdbcType=VARCHAR},
-      </if>
-      <if test="totalEvaluate != null" >
-        #{totalEvaluate,jdbcType=VARCHAR},
-      </if>
-      <if test="pmsRequire != null" >
-        #{pmsRequire,jdbcType=VARCHAR},
-      </if>
-      <if test="advice != null" >
-        #{advice,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null" >
-        #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null" >
-        #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null" >
-        #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null" >
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RdmsProjBase" >
-    update RDMS_PROJ_BASE
-    <set >
-      <if test="projName != null" >
-        PROJ_NAME = #{projName,jdbcType=VARCHAR},
-      </if>
-      <if test="projType != null" >
-        PROJ_TYPE = #{projType,jdbcType=VARCHAR},
-      </if>
-      <if test="appOrgNo != null" >
-        APP_ORG_NO = #{appOrgNo,jdbcType=VARCHAR},
-      </if>
-      <if test="appOrgName != null" >
-        APP_ORG_NAME = #{appOrgName,jdbcType=VARCHAR},
-      </if>
-      <if test="uniteAppOrgNo != null" >
-        UNITE_APP_ORG_NO = #{uniteAppOrgNo,jdbcType=VARCHAR},
-      </if>
-      <if test="uniteAppOrgName != null" >
-        UNITE_APP_ORG_NAME = #{uniteAppOrgName,jdbcType=VARCHAR},
-      </if>
-      <if test="cycle != null" >
-        CYCLE = #{cycle,jdbcType=DECIMAL},
-      </if>
-      <if test="totalBudget != null" >
-        TOTAL_BUDGET = #{totalBudget,jdbcType=DECIMAL},
-      </if>
-      <if test="purpose != null" >
-        PURPOSE = #{purpose,jdbcType=VARCHAR},
-      </if>
-      <if test="safeDesc != null" >
-        SAFE_DESC = #{safeDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="reliableDesc != null" >
-        RELIABLE_DESC = #{reliableDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="econDesc != null" >
-        ECON_DESC = #{econDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="otherDesc != null" >
-        OTHER_DESC = #{otherDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="achievementDesc != null" >
-        ACHIEVEMENT_DESC = #{achievementDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="realUser != null" >
-        REAL_USER = #{realUser,jdbcType=VARCHAR},
-      </if>
-      <if test="potentialUser != null" >
-        POTENTIAL_USER = #{potentialUser,jdbcType=VARCHAR},
-      </if>
-      <if test="content != null" >
-        CONTENT = #{content,jdbcType=VARCHAR},
-      </if>
-      <if test="primeStaffNo != null" >
-        PRIME_STAFF_NO = #{primeStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="primeUserDesc != null" >
-        PRIME_USER_DESC = #{primeUserDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="rightDesc != null" >
-        RIGHT_DESC = #{rightDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="benefitsDesc != null" >
-        BENEFITS_DESC = #{benefitsDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="fixedAssets != null" >
-        FIXED_ASSETS = #{fixedAssets,jdbcType=VARCHAR},
-      </if>
-      <if test="acceptStand != null" >
-        ACCEPT_STAND = #{acceptStand,jdbcType=VARCHAR},
-      </if>
-      <if test="engineerEvaluate != null" >
-        ENGINEER_EVALUATE = #{engineerEvaluate,jdbcType=VARCHAR},
-      </if>
-      <if test="accordEvaluate != null" >
-        ACCORD_EVALUATE = #{accordEvaluate,jdbcType=VARCHAR},
-      </if>
-      <if test="applicationEvaluate != null" >
-        APPLICATION_EVALUATE = #{applicationEvaluate,jdbcType=VARCHAR},
-      </if>
-      <if test="totalEvaluate != null" >
-        TOTAL_EVALUATE = #{totalEvaluate,jdbcType=VARCHAR},
-      </if>
-      <if test="pmsRequire != null" >
-        PMS_REQUIRE = #{pmsRequire,jdbcType=VARCHAR},
-      </if>
-      <if test="advice != null" >
-        ADVICE = #{advice,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null" >
-        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffNo != null" >
-        CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
-      </if>
-      <if test="createStaffName != null" >
-        CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null" >
-        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where PROJ_ID = #{projId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RdmsProjBase" >
+    <insert id="insertSelective" parameterType="com.lanou.domain.RdmsProjBase">
+        insert into RDMS_PROJ_BASE
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="projId != null">
+                PROJ_ID,
+            </if>
+            <if test="projName != null">
+                PROJ_NAME,
+            </if>
+            <if test="projType != null">
+                PROJ_TYPE,
+            </if>
+            <if test="appOrgNo != null">
+                APP_ORG_NO,
+            </if>
+            <if test="appOrgName != null">
+                APP_ORG_NAME,
+            </if>
+            <if test="uniteAppOrgNo != null">
+                UNITE_APP_ORG_NO,
+            </if>
+            <if test="uniteAppOrgName != null">
+                UNITE_APP_ORG_NAME,
+            </if>
+            <if test="cycle != null">
+                CYCLE,
+            </if>
+            <if test="totalBudget != null">
+                TOTAL_BUDGET,
+            </if>
+            <if test="purpose != null">
+                PURPOSE,
+            </if>
+            <if test="safeDesc != null">
+                SAFE_DESC,
+            </if>
+            <if test="reliableDesc != null">
+                RELIABLE_DESC,
+            </if>
+            <if test="econDesc != null">
+                ECON_DESC,
+            </if>
+            <if test="otherDesc != null">
+                OTHER_DESC,
+            </if>
+            <if test="achievementDesc != null">
+                ACHIEVEMENT_DESC,
+            </if>
+            <if test="realUser != null">
+                REAL_USER,
+            </if>
+            <if test="potentialUser != null">
+                POTENTIAL_USER,
+            </if>
+            <if test="content != null">
+                CONTENT,
+            </if>
+            <if test="primeStaffNo != null">
+                PRIME_STAFF_NO,
+            </if>
+            <if test="primeUserDesc != null">
+                PRIME_USER_DESC,
+            </if>
+            <if test="rightDesc != null">
+                RIGHT_DESC,
+            </if>
+            <if test="benefitsDesc != null">
+                BENEFITS_DESC,
+            </if>
+            <if test="fixedAssets != null">
+                FIXED_ASSETS,
+            </if>
+            <if test="acceptStand != null">
+                ACCEPT_STAND,
+            </if>
+            <if test="engineerEvaluate != null">
+                ENGINEER_EVALUATE,
+            </if>
+            <if test="accordEvaluate != null">
+                ACCORD_EVALUATE,
+            </if>
+            <if test="applicationEvaluate != null">
+                APPLICATION_EVALUATE,
+            </if>
+            <if test="totalEvaluate != null">
+                TOTAL_EVALUATE,
+            </if>
+            <if test="pmsRequire != null">
+                PMS_REQUIRE,
+            </if>
+            <if test="advice != null">
+                ADVICE,
+            </if>
+            <if test="effectFlag != null">
+                EFFECT_FLAG,
+            </if>
+            <if test="createStaffNo != null">
+                CREATE_STAFF_NO,
+            </if>
+            <if test="createStaffName != null">
+                CREATE_STAFF_NAME,
+            </if>
+            <if test="createDate != null">
+                CREATE_DATE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="projId != null">
+                #{projId,jdbcType=VARCHAR},
+            </if>
+            <if test="projName != null">
+                #{projName,jdbcType=VARCHAR},
+            </if>
+            <if test="projType != null">
+                #{projType,jdbcType=VARCHAR},
+            </if>
+            <if test="appOrgNo != null">
+                #{appOrgNo,jdbcType=VARCHAR},
+            </if>
+            <if test="appOrgName != null">
+                #{appOrgName,jdbcType=VARCHAR},
+            </if>
+            <if test="uniteAppOrgNo != null">
+                #{uniteAppOrgNo,jdbcType=VARCHAR},
+            </if>
+            <if test="uniteAppOrgName != null">
+                #{uniteAppOrgName,jdbcType=VARCHAR},
+            </if>
+            <if test="cycle != null">
+                #{cycle,jdbcType=DECIMAL},
+            </if>
+            <if test="totalBudget != null">
+                #{totalBudget,jdbcType=DECIMAL},
+            </if>
+            <if test="purpose != null">
+                #{purpose,jdbcType=VARCHAR},
+            </if>
+            <if test="safeDesc != null">
+                #{safeDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="reliableDesc != null">
+                #{reliableDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="econDesc != null">
+                #{econDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="otherDesc != null">
+                #{otherDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="achievementDesc != null">
+                #{achievementDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="realUser != null">
+                #{realUser,jdbcType=VARCHAR},
+            </if>
+            <if test="potentialUser != null">
+                #{potentialUser,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="primeStaffNo != null">
+                #{primeStaffNo,jdbcType=VARCHAR},
+            </if>
+            <if test="primeUserDesc != null">
+                #{primeUserDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="rightDesc != null">
+                #{rightDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="benefitsDesc != null">
+                #{benefitsDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="fixedAssets != null">
+                #{fixedAssets,jdbcType=VARCHAR},
+            </if>
+            <if test="acceptStand != null">
+                #{acceptStand,jdbcType=VARCHAR},
+            </if>
+            <if test="engineerEvaluate != null">
+                #{engineerEvaluate,jdbcType=VARCHAR},
+            </if>
+            <if test="accordEvaluate != null">
+                #{accordEvaluate,jdbcType=VARCHAR},
+            </if>
+            <if test="applicationEvaluate != null">
+                #{applicationEvaluate,jdbcType=VARCHAR},
+            </if>
+            <if test="totalEvaluate != null">
+                #{totalEvaluate,jdbcType=VARCHAR},
+            </if>
+            <if test="pmsRequire != null">
+                #{pmsRequire,jdbcType=VARCHAR},
+            </if>
+            <if test="advice != null">
+                #{advice,jdbcType=VARCHAR},
+            </if>
+            <if test="effectFlag != null">
+                #{effectFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="createStaffNo != null">
+                #{createStaffNo,jdbcType=VARCHAR},
+            </if>
+            <if test="createStaffName != null">
+                #{createStaffName,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.RdmsProjBase">
+        update RDMS_PROJ_BASE
+        <set>
+            <if test="projName != null">
+                PROJ_NAME = #{projName,jdbcType=VARCHAR},
+            </if>
+            <if test="projType != null">
+                PROJ_TYPE = #{projType,jdbcType=VARCHAR},
+            </if>
+            <if test="appOrgNo != null">
+                APP_ORG_NO = #{appOrgNo,jdbcType=VARCHAR},
+            </if>
+            <if test="appOrgName != null">
+                APP_ORG_NAME = #{appOrgName,jdbcType=VARCHAR},
+            </if>
+            <if test="uniteAppOrgNo != null">
+                UNITE_APP_ORG_NO = #{uniteAppOrgNo,jdbcType=VARCHAR},
+            </if>
+            <if test="uniteAppOrgName != null">
+                UNITE_APP_ORG_NAME = #{uniteAppOrgName,jdbcType=VARCHAR},
+            </if>
+            <if test="cycle != null">
+                CYCLE = #{cycle,jdbcType=DECIMAL},
+            </if>
+            <if test="totalBudget != null">
+                TOTAL_BUDGET = #{totalBudget,jdbcType=DECIMAL},
+            </if>
+            <if test="purpose != null">
+                PURPOSE = #{purpose,jdbcType=VARCHAR},
+            </if>
+            <if test="safeDesc != null">
+                SAFE_DESC = #{safeDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="reliableDesc != null">
+                RELIABLE_DESC = #{reliableDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="econDesc != null">
+                ECON_DESC = #{econDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="otherDesc != null">
+                OTHER_DESC = #{otherDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="achievementDesc != null">
+                ACHIEVEMENT_DESC = #{achievementDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="realUser != null">
+                REAL_USER = #{realUser,jdbcType=VARCHAR},
+            </if>
+            <if test="potentialUser != null">
+                POTENTIAL_USER = #{potentialUser,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                CONTENT = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="primeStaffNo != null">
+                PRIME_STAFF_NO = #{primeStaffNo,jdbcType=VARCHAR},
+            </if>
+            <if test="primeUserDesc != null">
+                PRIME_USER_DESC = #{primeUserDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="rightDesc != null">
+                RIGHT_DESC = #{rightDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="benefitsDesc != null">
+                BENEFITS_DESC = #{benefitsDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="fixedAssets != null">
+                FIXED_ASSETS = #{fixedAssets,jdbcType=VARCHAR},
+            </if>
+            <if test="acceptStand != null">
+                ACCEPT_STAND = #{acceptStand,jdbcType=VARCHAR},
+            </if>
+            <if test="engineerEvaluate != null">
+                ENGINEER_EVALUATE = #{engineerEvaluate,jdbcType=VARCHAR},
+            </if>
+            <if test="accordEvaluate != null">
+                ACCORD_EVALUATE = #{accordEvaluate,jdbcType=VARCHAR},
+            </if>
+            <if test="applicationEvaluate != null">
+                APPLICATION_EVALUATE = #{applicationEvaluate,jdbcType=VARCHAR},
+            </if>
+            <if test="totalEvaluate != null">
+                TOTAL_EVALUATE = #{totalEvaluate,jdbcType=VARCHAR},
+            </if>
+            <if test="pmsRequire != null">
+                PMS_REQUIRE = #{pmsRequire,jdbcType=VARCHAR},
+            </if>
+            <if test="advice != null">
+                ADVICE = #{advice,jdbcType=VARCHAR},
+            </if>
+            <if test="effectFlag != null">
+                EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="createStaffNo != null">
+                CREATE_STAFF_NO = #{createStaffNo,jdbcType=VARCHAR},
+            </if>
+            <if test="createStaffName != null">
+                CREATE_STAFF_NAME = #{createStaffName,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where PROJ_ID = #{projId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.lanou.domain.RdmsProjBase">
     update RDMS_PROJ_BASE
     set PROJ_NAME = #{projName,jdbcType=VARCHAR},
       PROJ_TYPE = #{projType,jdbcType=VARCHAR},
@@ -436,4 +436,8 @@
       CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
     where PROJ_ID = #{projId,jdbcType=VARCHAR}
   </update>
+    <select id="selectMaxKey" resultType="java.lang.String">
+    SELECT MAX(PROJ_ID)
+    FROM RDMS_PROJ_BASE
+  </select>
 </mapper>

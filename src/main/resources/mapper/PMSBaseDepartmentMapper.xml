@@ -72,4 +72,9 @@
             OR depname LIKE CONCAT('%',#{key},'%')
         </if>
     </select>
+
+    <select id="selectMaxKey" resultType="java.lang.String">
+        SELECT MAX(depID)
+        FROM PMS_Base_Department
+    </select>
 </mapper>

@@ -11,6 +11,7 @@ import com.lanou.mapper.RdmsProjBaseMapper;
 import com.lanou.mapper.RdmsProjBudgetMapper;
 import com.lanou.result.ProjectApplyBean;
 import com.lanou.service.UserService;
+import com.lanou.util.PmsTools;
 import com.lanou.util.SearchBean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -128,8 +129,12 @@ public class MainTest {
         applyBean.setLoginStaff(loginStaff);//绑定登录用户
 
         userService.projectApply(applyBean, projBase);
+    }
 
 
+    @Test
+    public void test4() {
+        System.out.println(PmsTools.getRandomString(pmsBaseDepartmentMapper.selectMaxKey()));
     }
 
 }

@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lanou.mapper.SysBusiAttachmentMapper" >
-  <resultMap id="BaseResultMap" type="com.lanou.domain.SysBusiAttachment" >
-    <constructor >
-      <idArg column="ATTACHID" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="SYSNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="FILENAME" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="FILESIZE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="URI" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="UPLOADTIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="UPLOADUSER" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="EFFECT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.lanou.mapper.SysBusiAttachmentMapper">
+    <resultMap id="BaseResultMap" type="com.lanou.domain.SysBusiAttachment">
+        <constructor>
+            <idArg column="ATTACHID" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="SYSNAME" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="FILENAME" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="FILESIZE" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="URI" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="UPLOADTIME" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="UPLOADUSER" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="EFFECT_FLAG" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
     ATTACHID, SYSNAME, FILENAME, FILESIZE, URI, UPLOADTIME, UPLOADUSER, EFFECT_FLAG
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from SYS_BUSI_ATTACHMENT
-    where ATTACHID = #{attachid,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from SYS_BUSI_ATTACHMENT
+        where ATTACHID = #{attachid,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from SYS_BUSI_ATTACHMENT
     where ATTACHID = #{attachid,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.lanou.domain.SysBusiAttachment" >
+    <insert id="insert" parameterType="com.lanou.domain.SysBusiAttachment">
     insert into SYS_BUSI_ATTACHMENT (ATTACHID, SYSNAME, FILENAME, 
       FILESIZE, URI, UPLOADTIME, 
       UPLOADUSER, EFFECT_FLAG)
@@ -34,89 +34,89 @@
       #{filesize,jdbcType=VARCHAR}, #{uri,jdbcType=VARCHAR}, #{uploadtime,jdbcType=TIMESTAMP}, 
       #{uploaduser,jdbcType=VARCHAR}, #{effectFlag,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lanou.domain.SysBusiAttachment" >
-    insert into SYS_BUSI_ATTACHMENT
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="attachid != null" >
-        ATTACHID,
-      </if>
-      <if test="sysname != null" >
-        SYSNAME,
-      </if>
-      <if test="filename != null" >
-        FILENAME,
-      </if>
-      <if test="filesize != null" >
-        FILESIZE,
-      </if>
-      <if test="uri != null" >
-        URI,
-      </if>
-      <if test="uploadtime != null" >
-        UPLOADTIME,
-      </if>
-      <if test="uploaduser != null" >
-        UPLOADUSER,
-      </if>
-      <if test="effectFlag != null" >
-        EFFECT_FLAG,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="attachid != null" >
-        #{attachid,jdbcType=VARCHAR},
-      </if>
-      <if test="sysname != null" >
-        #{sysname,jdbcType=VARCHAR},
-      </if>
-      <if test="filename != null" >
-        #{filename,jdbcType=VARCHAR},
-      </if>
-      <if test="filesize != null" >
-        #{filesize,jdbcType=VARCHAR},
-      </if>
-      <if test="uri != null" >
-        #{uri,jdbcType=VARCHAR},
-      </if>
-      <if test="uploadtime != null" >
-        #{uploadtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="uploaduser != null" >
-        #{uploaduser,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null" >
-        #{effectFlag,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.SysBusiAttachment" >
-    update SYS_BUSI_ATTACHMENT
-    <set >
-      <if test="sysname != null" >
-        SYSNAME = #{sysname,jdbcType=VARCHAR},
-      </if>
-      <if test="filename != null" >
-        FILENAME = #{filename,jdbcType=VARCHAR},
-      </if>
-      <if test="filesize != null" >
-        FILESIZE = #{filesize,jdbcType=VARCHAR},
-      </if>
-      <if test="uri != null" >
-        URI = #{uri,jdbcType=VARCHAR},
-      </if>
-      <if test="uploadtime != null" >
-        UPLOADTIME = #{uploadtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="uploaduser != null" >
-        UPLOADUSER = #{uploaduser,jdbcType=VARCHAR},
-      </if>
-      <if test="effectFlag != null" >
-        EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ATTACHID = #{attachid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.SysBusiAttachment" >
+    <insert id="insertSelective" parameterType="com.lanou.domain.SysBusiAttachment">
+        insert into SYS_BUSI_ATTACHMENT
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="attachid != null">
+                ATTACHID,
+            </if>
+            <if test="sysname != null">
+                SYSNAME,
+            </if>
+            <if test="filename != null">
+                FILENAME,
+            </if>
+            <if test="filesize != null">
+                FILESIZE,
+            </if>
+            <if test="uri != null">
+                URI,
+            </if>
+            <if test="uploadtime != null">
+                UPLOADTIME,
+            </if>
+            <if test="uploaduser != null">
+                UPLOADUSER,
+            </if>
+            <if test="effectFlag != null">
+                EFFECT_FLAG,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="attachid != null">
+                #{attachid,jdbcType=VARCHAR},
+            </if>
+            <if test="sysname != null">
+                #{sysname,jdbcType=VARCHAR},
+            </if>
+            <if test="filename != null">
+                #{filename,jdbcType=VARCHAR},
+            </if>
+            <if test="filesize != null">
+                #{filesize,jdbcType=VARCHAR},
+            </if>
+            <if test="uri != null">
+                #{uri,jdbcType=VARCHAR},
+            </if>
+            <if test="uploadtime != null">
+                #{uploadtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="uploaduser != null">
+                #{uploaduser,jdbcType=VARCHAR},
+            </if>
+            <if test="effectFlag != null">
+                #{effectFlag,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.SysBusiAttachment">
+        update SYS_BUSI_ATTACHMENT
+        <set>
+            <if test="sysname != null">
+                SYSNAME = #{sysname,jdbcType=VARCHAR},
+            </if>
+            <if test="filename != null">
+                FILENAME = #{filename,jdbcType=VARCHAR},
+            </if>
+            <if test="filesize != null">
+                FILESIZE = #{filesize,jdbcType=VARCHAR},
+            </if>
+            <if test="uri != null">
+                URI = #{uri,jdbcType=VARCHAR},
+            </if>
+            <if test="uploadtime != null">
+                UPLOADTIME = #{uploadtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="uploaduser != null">
+                UPLOADUSER = #{uploaduser,jdbcType=VARCHAR},
+            </if>
+            <if test="effectFlag != null">
+                EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ATTACHID = #{attachid,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.lanou.domain.SysBusiAttachment">
     update SYS_BUSI_ATTACHMENT
     set SYSNAME = #{sysname,jdbcType=VARCHAR},
       FILENAME = #{filename,jdbcType=VARCHAR},
@@ -127,4 +127,9 @@
       EFFECT_FLAG = #{effectFlag,jdbcType=VARCHAR}
     where ATTACHID = #{attachid,jdbcType=VARCHAR}
   </update>
+
+    <select id="selectMaxKey" resultType="java.lang.String">
+    SELECT MAX(ATTACHID)
+    FROM SYS_BUSI_ATTACHMENT
+  </select>
 </mapper>
