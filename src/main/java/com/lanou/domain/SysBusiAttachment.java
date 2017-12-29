@@ -97,4 +97,18 @@ public class SysBusiAttachment {
     public void setEffectFlag(String effectFlag) {
         this.effectFlag = effectFlag == null ? null : effectFlag.trim();
     }
+
+    @Override
+    public String toString() {
+        return "SysBusiAttachment{" +
+                "attachid='" + attachid + '\'' +
+                ", sysname='" + sysname + '\'' +
+                ", filename='" + filename + '\'' +
+                ", filesize='" + filesize + '\'' +
+                ", uri='" + uri + '\'' +
+                ", uploadtime=" + uploadtime +
+                ", uploaduser='" + uploaduser + '\'' +
+                ", effectFlag='" + effectFlag + '\'' +
+                '}';
+    }
 }

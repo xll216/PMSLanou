@@ -4,9 +4,13 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lanou.controller.UserController;
 import com.lanou.domain.PMSBaseDepartment;
+import com.lanou.domain.PMSBaseStaff;
 import com.lanou.domain.RdmsProjBase;
 import com.lanou.mapper.PMSBaseDepartmentMapper;
 import com.lanou.mapper.RdmsProjBaseMapper;
+import com.lanou.mapper.RdmsProjBudgetMapper;
+import com.lanou.result.ProjectApplyBean;
+import com.lanou.service.UserService;
 import com.lanou.util.SearchBean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,6 +36,12 @@ public class MainTest {
 
     @Resource
     private UserController userController;
+
+    @Resource
+    private UserService userService;
+
+    @Resource
+    private RdmsProjBudgetMapper rdmsProjBudgetMapper;
 
     @Test
     public void test() {
@@ -93,4 +103,33 @@ public class MainTest {
 
 
     }
+
+    @Test
+    public void test3() throws IOException {
+        String data = "{\"projName\":\"业务流程管理平台\",\"appOrgNo\":\"2\",\"uniteAppOrgNo\":\"3\",\"purpose\":\"建设科管理系统\",\"safeDesc\":\"系统安全\",\"reliableDesc\":\"三重保障\",\"econDesc\":\"提高办公效率\",\"otherDesc\":\"2016建设需要\",\"achievementDesc\":\"蓝鸥测试数据\",\"realUser\":\"蓝鸥测试数据\",\"potentialUser\":\"蓝鸥测试数据\",\"cycle\":\"10\",\"content\":\"蓝鸥测试数据\",\"totalBudget\":\"1200.00\",\"budgetFee\":\"1200.00\",\"primeUserDesc\":\"蓝鸥测试数据\",\"projType\":\"cb01,cb03\",\"rightDesc\":\"蓝鸥测试数据\",\"benefitsDesc\":\"蓝鸥测试数据\",\"fixedAssets\":\"蓝鸥测试数据\",\"acceptStand\":\"蓝鸥测试数据\",\"projFile\":\"C:\\\\fakepath\\\\idea.png\",\"staffNo\":\"3\"}";
+
+        ObjectMapper mapper = new ObjectMapper();
+        // 设置输入时忽略在JSON字符串中存在但Java对象实际没有的属性
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+
+        /*格式化提交的数据对象*/
+        ProjectApplyBean applyBean = mapper.readValue(data, ProjectApplyBean.class);
+
+        RdmsProjBase projBase = mapper.readValue(data, RdmsProjBase.class);
+
+        /*当前登录用户*/
+        PMSBaseStaff loginStaff = userService.selectStaffByStaffID(1);
+
+        /*将附件存储起来 并将文件的相关信息存储一下*/
+//        String realPath = request.getSession().getServletContext().getRealPath("/") + "upload/";
+//        SysBusiAttachment attachment = dealAttachment(projFile, realPath, loginStaff.getStaffid() + "");//保存附件
+//
+//        applyBean.setAttachment(attachment);//绑定提交的附件对象
+        applyBean.setLoginStaff(loginStaff);//绑定登录用户
+
+        userService.projectApply(applyBean, projBase);
+
+
+    }
+
 }

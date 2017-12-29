@@ -69,14 +69,26 @@
 
 
         <!--数据库中的表对应关系-->
-        <table tableName="PMS_Base_Department" domainObjectName="PMSBaseDepartment"
+        <table tableName="PMS_Base_Staff" domainObjectName="PMSBaseStaff"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="PMS_Base_Post" domainObjectName="PMSBasePost"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table>
 
 
-        <!--<table tableName="BIMS_BUSI_OBJ" domainObjectName="BimsBusiObj"
+        <!--
+        <table tableName="PMS_Base_Department" domainObjectName="PMSBaseDepartment"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+        <table tableName="BIMS_BUSI_OBJ" domainObjectName="BimsBusiObj"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

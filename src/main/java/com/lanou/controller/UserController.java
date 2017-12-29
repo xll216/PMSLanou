@@ -1,6 +1,7 @@
 package com.lanou.controller;
 
 import com.lanou.domain.PMSBaseDepartment;
+import com.lanou.domain.PMSBaseStaff;
 import com.lanou.service.UserService;
 import com.lanou.util.SearchBean;
 import org.springframework.stereotype.Controller;
@@ -44,6 +45,11 @@ public class UserController {
         return "user/SelectDepartmentWindow";
     }
 
+    @RequestMapping("/SelectStaffWindow")
+    public String pagerSelectStaffWindow() {
+        return "user/SelectStaffWindow";
+    }
+
     @RequestMapping("/upload")
     public String pagerFileUpload() {
         return "user/FileUpload";
@@ -51,11 +57,28 @@ public class UserController {
 
     /**************功能******************/
 
+    /**
+     * 根据条件查询部门
+     *
+     * @param searchBean 条件对象
+     **/
     @RequestMapping("/getDepartmentByCondition")
     @ResponseBody
     public List<PMSBaseDepartment> getAllDepartment(SearchBean searchBean) {
-        List<PMSBaseDepartment> departments = userService.selectBySelecttive(searchBean);
+        List<PMSBaseDepartment> departments = userService.getDepartmentByCondition(searchBean);
         return departments;
+    }
+
+    /**
+     * 根据条件查询员工
+     *
+     * @param searchBean 条件对象
+     **/
+    @RequestMapping("/getStaffByCondition")
+    @ResponseBody
+    public List<PMSBaseStaff> getStaffByCondition(SearchBean searchBean) {
+        List<PMSBaseStaff> staffs = userService.getStaffByCondition(searchBean);
+        return staffs;
     }
 
     @RequestMapping("/fileUpload")

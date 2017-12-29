@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.PMSBaseStaffMapper">
+    <resultMap id="BaseResultMap" type="com.lanou.domain.PMSBaseStaff">
+        <constructor>
+            <idArg column="staffID" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="loginName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="loginPwd" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="staffName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="gender" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="onDutyDate" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="postID" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    staffID, loginName, loginPwd, staffName, gender, onDutyDate, postID,linkTel,deptID
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from PMS_Base_Staff
+        where staffID = #{staffid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from PMS_Base_Staff
+    where staffID = #{staffid,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.lanou.domain.PMSBaseStaff">
+    insert into PMS_Base_Staff (staffID, loginName, loginPwd, 
+      staffName, gender, onDutyDate, 
+      postID)
+    values (#{staffid,jdbcType=INTEGER}, #{loginname,jdbcType=VARCHAR}, #{loginpwd,jdbcType=VARCHAR}, 
+      #{staffname,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{ondutydate,jdbcType=TIMESTAMP}, 
+      #{postid,jdbcType=INTEGER})
+  </insert>
+    <insert id="insertSelective" parameterType="com.lanou.domain.PMSBaseStaff">
+        insert into PMS_Base_Staff
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="staffid != null">
+                staffID,
+            </if>
+            <if test="loginname != null">
+                loginName,
+            </if>
+            <if test="loginpwd != null">
+                loginPwd,
+            </if>
+            <if test="staffname != null">
+                staffName,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="ondutydate != null">
+                onDutyDate,
+            </if>
+            <if test="postid != null">
+                postID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="staffid != null">
+                #{staffid,jdbcType=INTEGER},
+            </if>
+            <if test="loginname != null">
+                #{loginname,jdbcType=VARCHAR},
+            </if>
+            <if test="loginpwd != null">
+                #{loginpwd,jdbcType=VARCHAR},
+            </if>
+            <if test="staffname != null">
+                #{staffname,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                #{gender,jdbcType=VARCHAR},
+            </if>
+            <if test="ondutydate != null">
+                #{ondutydate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="postid != null">
+                #{postid,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PMSBaseStaff">
+        update PMS_Base_Staff
+        <set>
+            <if test="loginname != null">
+                loginName = #{loginname,jdbcType=VARCHAR},
+            </if>
+            <if test="loginpwd != null">
+                loginPwd = #{loginpwd,jdbcType=VARCHAR},
+            </if>
+            <if test="staffname != null">
+                staffName = #{staffname,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                gender = #{gender,jdbcType=VARCHAR},
+            </if>
+            <if test="ondutydate != null">
+                onDutyDate = #{ondutydate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="postid != null">
+                postID = #{postid,jdbcType=INTEGER},
+            </if>
+        </set>
+        where staffID = #{staffid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PMSBaseStaff">
+    update PMS_Base_Staff
+    set loginName = #{loginname,jdbcType=VARCHAR},
+      loginPwd = #{loginpwd,jdbcType=VARCHAR},
+      staffName = #{staffname,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      onDutyDate = #{ondutydate,jdbcType=TIMESTAMP},
+      postID = #{postid,jdbcType=INTEGER}
+    where staffID = #{staffid,jdbcType=INTEGER}
+  </update>
+
+    <select id="selectBySelecttive" resultMap="BaseResultMap" parameterType="com.lanou.util.SearchBean">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM PMS_Base_Staff
+        WHERE 1=1
+        <if test="key != null">
+            AND staffID = #{key}
+            OR staffName LIKE CONCAT('%',#{key},'%')
+            OR loginName LIKE CONCAT('%',#{key},'%')
+        </if>
+    </select>
+</mapper>

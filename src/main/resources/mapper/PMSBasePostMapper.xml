@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.PMSBasePostMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.domain.PMSBasePost" >
+    <constructor >
+      <idArg column="postID" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="postName" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="depID" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    postID, postName, depID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from PMS_Base_Post
+    where postID = #{postid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from PMS_Base_Post
+    where postID = #{postid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.domain.PMSBasePost" >
+    insert into PMS_Base_Post (postID, postName, depID
+      )
+    values (#{postid,jdbcType=INTEGER}, #{postname,jdbcType=VARCHAR}, #{depid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.domain.PMSBasePost" >
+    insert into PMS_Base_Post
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="postid != null" >
+        postID,
+      </if>
+      <if test="postname != null" >
+        postName,
+      </if>
+      <if test="depid != null" >
+        depID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="postid != null" >
+        #{postid,jdbcType=INTEGER},
+      </if>
+      <if test="postname != null" >
+        #{postname,jdbcType=VARCHAR},
+      </if>
+      <if test="depid != null" >
+        #{depid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.domain.PMSBasePost" >
+    update PMS_Base_Post
+    <set >
+      <if test="postname != null" >
+        postName = #{postname,jdbcType=VARCHAR},
+      </if>
+      <if test="depid != null" >
+        depID = #{depid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where postID = #{postid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.domain.PMSBasePost" >
+    update PMS_Base_Post
+    set postName = #{postname,jdbcType=VARCHAR},
+      depID = #{depid,jdbcType=INTEGER}
+    where postID = #{postid,jdbcType=INTEGER}
+  </update>
+</mapper>

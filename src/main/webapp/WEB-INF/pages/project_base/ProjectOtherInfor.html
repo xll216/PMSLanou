@@ -139,7 +139,10 @@
         <tr>
             <td class="td1">审批(部门经理)<span class="sp">*</span></td>
             <td>
-                <input class="mini-textbox" style="width:100%;" name="staffNo" value="李四"/>
+                <input id="uniteAppOrgNo" class="mini-buttonedit" style="width: 100%"
+                       name="staffNo" allowInput="false"
+                       onbuttonclick="onButtonEdit"/>
+                <!--<input class="mini-textbox" style="width:100%;" name="staffNo" value="李四"/>-->
             </td>
         </tr>
         <tr>
@@ -188,6 +191,31 @@
         }
     });
 
+
+    function onButtonEdit(e) {
+        var btnEdit = this;
+        mini.open({
+            url: "/user/SelectStaffWindow",
+            title: "选择列表",
+            width: '30%',
+            height: '60%',
+            showMaxButton: true,
+            showModal: true,
+            ondestroy: function (action) {
+                if (action == "ok") {
+                    var iframe = this.getIFrameEl();
+                    var data = iframe.contentWindow.GetData();
+                    data = mini.clone(data);    //必须
+                    if (data) {
+                        btnEdit.setValue(data.staffid);
+                        btnEdit.setText(data.staffname);
+                    }
+                }
+            }
+        });
+
+    }
+
     /*页面加载成果之后添加事件处理*/
     $(document).ready(function () {
 
@@ -232,6 +260,7 @@
                     //将String字符串转换成json
                     var json = $.parseJSON(data);
                     console.log(json + "---" + data);
+                    alert("成功返回");
                 },
                 error: function (data, status, e)   //服务器响应失败处理函数
                 {
